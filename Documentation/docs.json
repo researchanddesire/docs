@@ -25,16 +25,28 @@
     },
     "products": [
       {
-        "product": "Shop"
+        "product": "Shop",
+        "pages": [
+          "shop/placeholder"
+        ]
       },
       {
-        "product": "Dashboard"
+        "product": "Dashboard",
+        "pages": [
+          "dashboard/placeholder"
+        ]
       },
       {
-        "product": "Deepthroat Trainer"
+        "product": "Deepthroat Trainer",
+        "pages": [
+          "deepthroat-trainer/placeholder"
+        ]
       },
       {
-        "product": "Chastity Lockbox"
+        "product": "Chastity Lockbox",
+        "pages": [
+          "chastity-lockbox/placeholder"
+        ]
       },
       {
         "product": "Open Source Sex Machine",
@@ -239,7 +251,10 @@
         ]
       },
       {
-        "product": "Wireless Remote"
+        "product": "Wireless Remote",
+        "pages": [
+          "wireless-remote/introduction"
+        ]
       }
     ]
   },
