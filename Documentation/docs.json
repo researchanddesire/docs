@@ -50,8 +50,8 @@
       },
       {
         "product": "Open Source Sex Machine",
-        "icon": "robot",
         "description": "User guides and technical documentation for the OSSM",
+        "icon": "robot",
         "tabs": [
           {
             "tab": "Guides",
@@ -63,6 +63,7 @@
                   "ossm/guides/getting-started/quickstart",
                   {
                     "group": "Build Guide",
+                    "collapsed": true,
                     "pages": [
                       "ossm/guides/getting-started/build-guide/step-0.0_introduction",
                       "ossm/guides/getting-started/build-guide/step-1.0_required_tools_and_parts",
@@ -83,6 +84,7 @@
                   },
                   {
                     "group": "User Guide",
+                    "collapsed": true,
                     "pages": [
                       "ossm/guides/getting-started/user-guide/index",
                       "ossm/guides/getting-started/user-guide/troubleshooting"
