@@ -1,0 +1,48 @@
+name: Push OSSM Docs to Public
+
+on:
+  push:
+    branches: main
+    paths:
+      - 'Documentation/ossm/**'
+  workflow_dispatch:
+
+jobs:
+  push-docs:
+    runs-on: ubuntu-latest
+    name: Push OSSM docs to public repo
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout OSSM-hardware repo
+        uses: actions/checkout@v4
+        with:
+          repository: KinkyMakers/OSSM-hardware
+          ref: aj/mintlify-docs
+          token: ${{ secrets.OSSM_PUSH_TOKEN }}
+          path: ossm-hardware
+
+      - name: Sync Documentation/ossm to OSSM-hardware
+        run: |
+          # Remove existing docs in target (to handle deletions)
+          rm -rf ossm-hardware/Documentation/ossm
+
+          # Copy updated docs from this repo
+          mkdir -p ossm-hardware/Documentation
+          cp -r Documentation/ossm ossm-hardware/Documentation/
+
+      - name: Commit and push changes
+        working-directory: ossm-hardware
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "docs: sync OSSM documentation from dtt-dashboard"
+            git push origin aj/mintlify-docs
+          fi

@@ -1,0 +1,69 @@
+name: Pull OSSM Docs from Public
+
+on:
+  push:
+    branches: main
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+    contents: write
+    pull-requests: write
+
+jobs:
+  aggregate-docs:
+    runs-on: ubuntu-latest
+    name: Aggregate mintlify docs
+    steps:
+      - name: Generate GitHub App Token
+        id: generate_token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.RAD_VERSION_CONTROL_APP_ID }}
+          private-key: ${{ secrets.RAD_VERSION_CONTROL_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: ${{ github.event.repository.name }}
+
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.generate_token.outputs.token }}
+
+      - name: Ensure .git/config exists
+        run: |
+          mkdir -p .git
+          if [ ! -f .git/config ]; then
+            printf '[core]\n  repositoryformatversion = 0\n  filemode = true\n  bare = false\n' > .git/config
+          fi
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Run OSSM docs merge script
+        run: ./scripts/clone-ossm-docs.sh
+
+      - name: Create pull request
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
+        run: |
+          git config user.name "rad-version-control[bot]"
+          git config user.email "rad-version-control[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            BRANCH_NAME="chore/sync-ossm-docs"
+            git checkout -b "$BRANCH_NAME"
+            git commit -m "chore: sync OSSM documentation"
+            git push --force origin "$BRANCH_NAME"
+            
+            # Create PR only if one doesn't already exist
+            if ! gh pr list --head "$BRANCH_NAME" --state open | grep -q .; then
+              gh pr create \
+                --title "chore: sync OSSM documentation" \
+                --body "Automated sync of OSSM documentation from public repository." \
+                --base main \
+                --head "$BRANCH_NAME"
+            fi
+          fi
