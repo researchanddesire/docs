@@ -29,20 +29,23 @@ jobs:
         with:
           token: ${{ steps.generate_token.outputs.token }}
 
-      - name: Ensure .git/config exists
+      - name: Check last commit message
+        id: check_commit
         run: |
-          mkdir -p .git
-          if [ ! -f .git/config ]; then
-            printf '[core]\n  repositoryformatversion = 0\n  filemode = true\n  bare = false\n' > .git/config
+          LAST_COMMIT_MSG=$(git log -1 --pretty=%B)
+          if echo "$LAST_COMMIT_MSG" | grep -qi "Mintlify"; then
+            echo "Last commit contains 'Mintlify', skipping workflow to prevent infinite loops"
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Install jq
-        run: sudo apt-get install -y jq
-
       - name: Run OSSM docs merge script
+        if: steps.check_commit.outputs.skip != 'true'
         run: ./scripts/clone-ossm-docs.sh
 
       - name: Push changes to main
+        if: steps.check_commit.outputs.skip != 'true'
         run: |
           git config user.name "rad-version-control[bot]"
           git config user.email "rad-version-control[bot]@users.noreply.github.com"
