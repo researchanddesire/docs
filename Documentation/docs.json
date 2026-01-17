@@ -9,6 +9,20 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Documentation",
+          "icon": "book-open-cover",
+          "href": "https://mintlify.com/docs"
+        },
+        {
+          "anchor": "Blog",
+          "icon": "newspaper",
+          "href": "https://mintlify.com/blog"
+        }
+      ]
+    },
     "products": [
       {
         "product": "Shop"
@@ -24,8 +38,8 @@
       },
       {
         "product": "Open Source Sex Machine",
-        "description": "User guides and technical documentation for the OSSM",    
         "icon": "robot",
+        "description": "User guides and technical documentation for the OSSM",
         "tabs": [
           {
             "tab": "Guides",
@@ -37,7 +51,6 @@
                   "ossm/guides/getting-started/quickstart",
                   {
                     "group": "Build Guide",
-                    "collapsed": true,
                     "pages": [
                       "ossm/guides/getting-started/build-guide/step-0.0_introduction",
                       "ossm/guides/getting-started/build-guide/step-1.0_required_tools_and_parts",
@@ -58,7 +71,6 @@
                   },
                   {
                     "group": "User Guide",
-                    "collapsed": true,
                     "pages": [
                       "ossm/guides/getting-started/user-guide/index",
                       "ossm/guides/getting-started/user-guide/troubleshooting"
@@ -78,8 +90,7 @@
               },
               {
                 "group": "Third Party Extensions",
-                "pages": [
-                ]
+                "pages": []
               },
               {
                 "group": "Community",
@@ -190,11 +201,10 @@
                   }
                 ]
               },
-    
               {
                 "group": "Known Issues",
                 "pages": [
-                 "ossm/Hardware/known-issues/high-voltage-failure"
+                  "ossm/Hardware/known-issues/high-voltage-failure"
                 ]
               }
             ]
@@ -217,7 +227,6 @@
                   "ossm/Software/communication/ble"
                 ]
               },
-    
               {
                 "group": "Motion Libaries",
                 "pages": [
@@ -228,22 +237,11 @@
             ]
           }
         ]
+      },
+      {
+        "product": "Wireless Remote"
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
