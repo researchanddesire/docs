@@ -8,6 +8,7 @@ on:
       - 'Documentation/radr/**'
       - 'Documentation/dtt/**'
       - 'Documentation/lkbx/**'
+      - 'Documentation/docs.json'
   workflow_dispatch:
     inputs:
       repo:
@@ -35,6 +36,7 @@ jobs:
             dir: ossm
             token_type: pat
             token_secret: OSSM_PUSH_TOKEN
+            product_name: "Open Source Sex Machine"
           # ResearchAndDesire/rad-remote - uses OSSM_PUSH_TOKEN
           - name: radr
             repo: ResearchAndDesire/rad-remote
@@ -42,6 +44,7 @@ jobs:
             dir: radr
             token_type: pat
             token_secret: OSSM_PUSH_TOKEN
+            product_name: "Wireless Remote"
           # ResearchAndDesire/DT_Trainer - uses generated token
           - name: dtt
             repo: ResearchAndDesire/DT_Trainer
@@ -49,6 +52,7 @@ jobs:
             dir: dtt
             token_type: app
             target_repo: DT_Trainer
+            product_name: "Deepthroat Trainer"
           # ResearchAndDesire/Lockbox - uses generated token
           - name: lkbx
             repo: ResearchAndDesire/Lockbox
@@ -56,6 +60,7 @@ jobs:
             dir: lkbx
             token_type: app
             target_repo: Lockbox
+            product_name: "Chastity Lockbox"
 
     name: Push ${{ matrix.name }} docs
     steps:
@@ -88,15 +93,22 @@ jobs:
             echo "has_changes=true" >> $GITHUB_OUTPUT
             exit 0
           fi
-          # For push events, check if this directory changed
-          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- "Documentation/${{ matrix.dir }}/" 2>/dev/null || echo "")
-          if [ -n "$CHANGED_FILES" ]; then
+          # For push events, check if this directory or docs.json changed
+          CHANGED_DIR=$(git diff --name-only HEAD~1 HEAD -- "Documentation/${{ matrix.dir }}/" 2>/dev/null || echo "")
+          CHANGED_DOCS_JSON=$(git diff --name-only HEAD~1 HEAD -- "Documentation/docs.json" 2>/dev/null || echo "")
+          
+          if [ -n "$CHANGED_DIR" ] || [ -n "$CHANGED_DOCS_JSON" ]; then
             echo "has_changes=true" >> $GITHUB_OUTPUT
-            echo "Changed files in Documentation/${{ matrix.dir }}:"
-            echo "$CHANGED_FILES"
+            if [ -n "$CHANGED_DIR" ]; then
+              echo "Changed files in Documentation/${{ matrix.dir }}:"
+              echo "$CHANGED_DIR"
+            fi
+            if [ -n "$CHANGED_DOCS_JSON" ]; then
+              echo "docs.json changed - will sync product navigation"
+            fi
           else
             echo "has_changes=false" >> $GITHUB_OUTPUT
-            echo "No changes in Documentation/${{ matrix.dir }}"
+            echo "No changes in Documentation/${{ matrix.dir }} or docs.json"
           fi
 
       # Generate token for app-based auth (DT_Trainer, Lockbox)
@@ -139,6 +151,56 @@ jobs:
           # Copy updated docs from this repo
           mkdir -p target-repo/Documentation
           cp -r Documentation/${{ matrix.dir }} target-repo/Documentation/
+
+      - name: Sync docs.json to target repo
+        if: steps.should_run.outputs.run == 'true' && steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          PRODUCT_NAME="${{ matrix.product_name }}"
+          LOCAL_DOCS="Documentation/docs.json"
+          TARGET_DOCS="target-repo/Documentation/docs.json"
+          
+          # Extract this product from local docs.json
+          PRODUCT_JSON=$(jq --arg name "$PRODUCT_NAME" '.navigation.products[] | select(.product == $name)' "$LOCAL_DOCS")
+          
+          if [ -z "$PRODUCT_JSON" ] || [ "$PRODUCT_JSON" = "null" ]; then
+            echo "Warning: Product '$PRODUCT_NAME' not found in local docs.json"
+            exit 0
+          fi
+          
+          if [ -f "$TARGET_DOCS" ]; then
+            echo "Updating existing docs.json in target repo..."
+            # Check if product already exists in target
+            EXISTING=$(jq --arg name "$PRODUCT_NAME" '.navigation.products[] | select(.product == $name)' "$TARGET_DOCS")
+            
+            if [ -n "$EXISTING" ] && [ "$EXISTING" != "null" ]; then
+              # Replace existing product entry
+              jq --arg name "$PRODUCT_NAME" --argjson product "$PRODUCT_JSON" \
+                '.navigation.products = [.navigation.products[] | if .product == $name then $product else . end]' \
+                "$TARGET_DOCS" > "$TARGET_DOCS.tmp" && mv "$TARGET_DOCS.tmp" "$TARGET_DOCS"
+              echo "Updated '$PRODUCT_NAME' in target docs.json"
+            else
+              # Add new product entry
+              jq --argjson product "$PRODUCT_JSON" \
+                '.navigation.products += [$product]' \
+                "$TARGET_DOCS" > "$TARGET_DOCS.tmp" && mv "$TARGET_DOCS.tmp" "$TARGET_DOCS"
+              echo "Added '$PRODUCT_NAME' to target docs.json"
+            fi
+          else
+            echo "Creating new docs.json in target repo with only '$PRODUCT_NAME' product..."
+            # Create a minimal docs.json with only this product
+            jq --argjson product "$PRODUCT_JSON" '{
+              "$schema": "https://mintlify.com/docs.json",
+              "theme": .theme,
+              "name": .name,
+              "colors": .colors,
+              "favicon": .favicon,
+              "navigation": {
+                "products": [$product]
+              },
+              "logo": .logo
+            }' "$LOCAL_DOCS" > "$TARGET_DOCS"
+            echo "Created docs.json with '$PRODUCT_NAME' product"
+          fi
 
       - name: Commit and push changes
         if: steps.should_run.outputs.run == 'true' && steps.check_changes.outputs.has_changes == 'true'
