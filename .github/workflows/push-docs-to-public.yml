@@ -1,41 +1,148 @@
-name: Push OSSM Docs to Public
+name: Push Docs to Public Repos
 
 on:
   push:
     branches: main
     paths:
       - 'Documentation/ossm/**'
+      - 'Documentation/radr/**'
+      - 'Documentation/dtt/**'
+      - 'Documentation/lkbx/**'
   workflow_dispatch:
+    inputs:
+      repo:
+        description: 'Specific repo to push (leave empty for all)'
+        required: false
+        type: choice
+        options:
+          - ''
+          - 'ossm'
+          - 'radr'
+          - 'dtt'
+          - 'lkbx'
 
 jobs:
   push-docs:
     runs-on: ubuntu-latest
-    name: Push OSSM docs to public repo
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # KinkyMakers/OSSM-hardware - uses OSSM_PUSH_TOKEN
+          - name: ossm
+            repo: KinkyMakers/OSSM-hardware
+            branch: aj/mintlify-docs
+            dir: ossm
+            token_type: pat
+            token_secret: OSSM_PUSH_TOKEN
+          # ResearchAndDesire/rad-remote - uses OSSM_PUSH_TOKEN
+          - name: radr
+            repo: ResearchAndDesire/rad-remote
+            branch: main
+            dir: radr
+            token_type: pat
+            token_secret: OSSM_PUSH_TOKEN
+          # ResearchAndDesire/DT_Trainer - uses generated token
+          - name: dtt
+            repo: ResearchAndDesire/DT_Trainer
+            branch: main
+            dir: dtt
+            token_type: app
+            target_repo: DT_Trainer
+          # ResearchAndDesire/Lockbox - uses generated token
+          - name: lkbx
+            repo: ResearchAndDesire/Lockbox
+            branch: main
+            dir: lkbx
+            token_type: app
+            target_repo: Lockbox
+
+    name: Push ${{ matrix.name }} docs
     steps:
+      - name: Check if should run
+        id: should_run
+        run: |
+          # If manual trigger with specific repo, only run for that repo
+          if [ -n "${{ inputs.repo }}" ]; then
+            if [ "${{ inputs.repo }}" = "${{ matrix.name }}" ]; then
+              echo "run=true" >> $GITHUB_OUTPUT
+            else
+              echo "run=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "run=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Checkout this repo
+        if: steps.should_run.outputs.run == 'true'
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Checkout OSSM-hardware repo
+      - name: Check for changes in directory
+        if: steps.should_run.outputs.run == 'true'
+        id: check_changes
+        run: |
+          # For workflow_dispatch, always sync
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          # For push events, check if this directory changed
+          CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD -- "Documentation/${{ matrix.dir }}/" 2>/dev/null || echo "")
+          if [ -n "$CHANGED_FILES" ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changed files in Documentation/${{ matrix.dir }}:"
+            echo "$CHANGED_FILES"
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes in Documentation/${{ matrix.dir }}"
+          fi
+
+      # Generate token for app-based auth (DT_Trainer, Lockbox)
+      - name: Generate GitHub App Token
+        if: steps.should_run.outputs.run == 'true' && steps.check_changes.outputs.has_changes == 'true' && matrix.token_type == 'app'
+        id: generate_token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.RAD_VERSION_CONTROL_APP_ID }}
+          private-key: ${{ secrets.RAD_VERSION_CONTROL_PRIVATE_KEY }}
+          owner: ResearchAndDesire
+          repositories: ${{ matrix.target_repo }}
+
+      # Checkout target repo with PAT (OSSM, rad-remote)
+      - name: Checkout target repo (PAT)
+        if: steps.should_run.outputs.run == 'true' && steps.check_changes.outputs.has_changes == 'true' && matrix.token_type == 'pat'
         uses: actions/checkout@v4
         with:
-          repository: KinkyMakers/OSSM-hardware
-          ref: aj/mintlify-docs
+          repository: ${{ matrix.repo }}
+          ref: ${{ matrix.branch }}
           token: ${{ secrets.OSSM_PUSH_TOKEN }}
-          path: ossm-hardware
+          path: target-repo
 
-      - name: Sync Documentation/ossm to OSSM-hardware
+      # Checkout target repo with generated token (DT_Trainer, Lockbox)
+      - name: Checkout target repo (App Token)
+        if: steps.should_run.outputs.run == 'true' && steps.check_changes.outputs.has_changes == 'true' && matrix.token_type == 'app'
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ matrix.repo }}
+          ref: ${{ matrix.branch }}
+          token: ${{ steps.generate_token.outputs.token }}
+          path: target-repo
+
+      - name: Sync Documentation to target repo
+        if: steps.should_run.outputs.run == 'true' && steps.check_changes.outputs.has_changes == 'true'
         run: |
           # Remove existing docs in target (to handle deletions)
-          rm -rf ossm-hardware/Documentation/ossm
+          rm -rf target-repo/Documentation/${{ matrix.dir }}
 
           # Copy updated docs from this repo
-          mkdir -p ossm-hardware/Documentation
-          cp -r Documentation/ossm ossm-hardware/Documentation/
+          mkdir -p target-repo/Documentation
+          cp -r Documentation/${{ matrix.dir }} target-repo/Documentation/
 
       - name: Commit and push changes
-        working-directory: ossm-hardware
+        if: steps.should_run.outputs.run == 'true' && steps.check_changes.outputs.has_changes == 'true'
+        working-directory: target-repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -43,6 +150,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "docs: sync OSSM documentation from dtt-dashboard"
-            git push origin aj/mintlify-docs
+            git commit -m "docs: sync ${{ matrix.dir }} documentation from docs repo"
+            git push origin ${{ matrix.branch }}
           fi

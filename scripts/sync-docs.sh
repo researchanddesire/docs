@@ -1,18 +1,31 @@
 #!/bin/bash
 
-# Merge Documentation from KinkyMakers/OSSM-hardware into Documentation/ossm
-# Also merges the "Open Source Sex Machine" product entry from remote docs.json
+# Generic script to sync Documentation from a remote repository
+# Merges the product entry from remote docs.json into local docs.json
 # Always takes "theirs" (remote version overwrites local)
+#
+# Usage: ./sync-docs.sh <owner> <repo> <branch> <subdirectory> <target_dir> <product_name>
+# Example: ./sync-docs.sh KinkyMakers OSSM-hardware aj/mintlify-docs Documentation/ossm Documentation/ossm "Open Source Sex Machine"
 
 set -e
 
-OWNER="KinkyMakers"
-REPO="OSSM-hardware"
-REF="aj/mintlify-docs"
-SUBDIRECTORY="Documentation/ossm"
-TARGET_DIR="Documentation/ossm"
+# Parse arguments
+OWNER="${1:?Error: OWNER is required}"
+REPO="${2:?Error: REPO is required}"
+REF="${3:?Error: REF (branch) is required}"
+SUBDIRECTORY="${4:?Error: SUBDIRECTORY is required}"
+TARGET_DIR="${5:?Error: TARGET_DIR is required}"
+PRODUCT_NAME="${6:?Error: PRODUCT_NAME is required}"
+
 DOCS_JSON_PATH="Documentation/docs.json"
-PRODUCT_NAME="Open Source Sex Machine"
+
+echo "========================================"
+echo "Syncing docs from $OWNER/$REPO"
+echo "  Branch: $REF"
+echo "  Source: $SUBDIRECTORY"
+echo "  Target: $TARGET_DIR"
+echo "  Product: $PRODUCT_NAME"
+echo "========================================"
 
 # Get the directory where this script is located, then go to project root
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -38,7 +51,7 @@ cd "$TEMP_CLONE"
 git init -q
 git remote add origin "https://github.com/$OWNER/$REPO.git"
 
-# Configure sparse checkout - include both ossm dir and docs.json
+# Configure sparse checkout - include both source dir and docs.json
 git sparse-checkout init --cone
 git sparse-checkout set "$SUBDIRECTORY" "$DOCS_JSON_PATH"
 
@@ -49,14 +62,14 @@ git checkout FETCH_HEAD
 # Go back to project root
 cd "$PROJECT_ROOT"
 
-# Merge the "Open Source Sex Machine" product from remote docs.json into local
+# Merge the product from remote docs.json into local
 REMOTE_DOCS="$TEMP_CLONE/$DOCS_JSON_PATH"
 LOCAL_DOCS="$PROJECT_ROOT/$DOCS_JSON_PATH"
 
 if [ -f "$REMOTE_DOCS" ] && [ -f "$LOCAL_DOCS" ]; then
   echo "Merging '$PRODUCT_NAME' product from remote docs.json..."
   
-  # Extract the OSSM product from remote
+  # Extract the product from remote
   REMOTE_PRODUCT="$(jq --arg name "$PRODUCT_NAME" '.navigation.products[] | select(.product == $name)' "$REMOTE_DOCS")"
   
   if [ -n "$REMOTE_PRODUCT" ] && [ "$REMOTE_PRODUCT" != "null" ]; then
@@ -67,24 +80,29 @@ if [ -f "$REMOTE_DOCS" ] && [ -f "$LOCAL_DOCS" ]; then
     
     echo "Successfully merged '$PRODUCT_NAME' product into $DOCS_JSON_PATH"
   else
-    echo "Warning: '$PRODUCT_NAME' product not found in remote docs.json"
+    echo "Warning: '$PRODUCT_NAME' product not found in remote docs.json (this is OK for new repos)"
   fi
 else
-  echo "Warning: docs.json not found (remote: $REMOTE_DOCS, local: $LOCAL_DOCS)"
+  if [ ! -f "$REMOTE_DOCS" ]; then
+    echo "Note: No docs.json found in remote repository (this is OK)"
+  fi
+  if [ ! -f "$LOCAL_DOCS" ]; then
+    echo "Warning: Local docs.json not found at $LOCAL_DOCS"
+  fi
 fi
 
-# Sync the remote Documentation/ossm into local Documentation/ossm
+# Sync the remote documentation into local target directory
 if [ -d "$TEMP_CLONE/$SUBDIRECTORY" ]; then
   echo "Syncing $SUBDIRECTORY to $TARGET_DIR (taking theirs exclusively)..."
   rsync -avc --delete "$TEMP_CLONE/$SUBDIRECTORY/" "$TARGET_DIR/"
   echo "Successfully merged $OWNER/$REPO/$SUBDIRECTORY into $TARGET_DIR"
 else
-  echo "Error: $SUBDIRECTORY not found in repository"
-  rm -rf "$TEMP_CLONE"
-  exit 1
+  echo "Warning: $SUBDIRECTORY not found in repository $OWNER/$REPO"
+  echo "This may be expected if the docs haven't been set up yet in the source repo"
 fi
 
 # Clean up temp directory
 rm -rf "$TEMP_CLONE"
 
-echo "Done!"
+echo "Done syncing $OWNER/$REPO!"
+echo ""
