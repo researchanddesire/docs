@@ -6,6 +6,9 @@
 #
 # Usage: ./sync-docs.sh <owner> <repo> <branch> <subdirectory> <target_dir> <product_name>
 # Example: ./sync-docs.sh KinkyMakers OSSM-hardware aj/mintlify-docs Documentation/ossm Documentation/ossm "Open Source Sex Machine"
+#
+# Environment variables:
+#   GITHUB_TOKEN - Optional. If set, used for authenticated git operations (required for private repos)
 
 set -e
 
@@ -19,12 +22,22 @@ PRODUCT_NAME="${6:?Error: PRODUCT_NAME is required}"
 
 DOCS_JSON_PATH="Documentation/docs.json"
 
+# Build the git URL (with or without token)
+if [ -n "$GITHUB_TOKEN" ]; then
+  GIT_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/$OWNER/$REPO.git"
+  AUTH_STATUS="authenticated"
+else
+  GIT_URL="https://github.com/$OWNER/$REPO.git"
+  AUTH_STATUS="public (no token)"
+fi
+
 echo "========================================"
 echo "Syncing docs from $OWNER/$REPO"
 echo "  Branch: $REF"
 echo "  Source: $SUBDIRECTORY"
 echo "  Target: $TARGET_DIR"
 echo "  Product: $PRODUCT_NAME"
+echo "  Auth: $AUTH_STATUS"
 echo "========================================"
 
 # Get the directory where this script is located, then go to project root
@@ -49,7 +62,7 @@ echo "Cloning $OWNER/$REPO (ref: $REF) with sparse checkout..."
 # Initialize git repo with sparse checkout
 cd "$TEMP_CLONE"
 git init -q
-git remote add origin "https://github.com/$OWNER/$REPO.git"
+git remote add origin "$GIT_URL"
 
 # Configure sparse checkout - include both source dir and docs.json
 git sparse-checkout init --cone

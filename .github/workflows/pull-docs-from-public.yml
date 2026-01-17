@@ -26,7 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Aggregate docs from public repos
     steps:
-      - name: Generate GitHub App Token
+      # Token for this repo (to push changes)
+      - name: Generate token for this repo
         id: generate_token
         uses: actions/create-github-app-token@v2
         with:
@@ -34,6 +35,26 @@ jobs:
           private-key: ${{ secrets.RAD_VERSION_CONTROL_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
           repositories: ${{ github.event.repository.name }}
+
+      # Token for DT_Trainer repo (to pull docs)
+      - name: Generate token for DT_Trainer
+        id: token_dtt
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.RAD_VERSION_CONTROL_APP_ID }}
+          private-key: ${{ secrets.RAD_VERSION_CONTROL_PRIVATE_KEY }}
+          owner: ResearchAndDesire
+          repositories: DT_Trainer
+
+      # Token for Lockbox repo (to pull docs)
+      - name: Generate token for Lockbox
+        id: token_lkbx
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.RAD_VERSION_CONTROL_APP_ID }}
+          private-key: ${{ secrets.RAD_VERSION_CONTROL_PRIVATE_KEY }}
+          owner: ResearchAndDesire
+          repositories: Lockbox
 
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -82,6 +103,8 @@ jobs:
       # Sync DT_Trainer docs from ResearchAndDesire/DT_Trainer
       - name: Sync DT_Trainer docs
         if: steps.check_commit.outputs.skip != 'true' && (inputs.repo == '' || inputs.repo == 'dtt')
+        env:
+          GITHUB_TOKEN: ${{ steps.token_dtt.outputs.token }}
         run: |
           ./scripts/sync-docs.sh \
             "ResearchAndDesire" \
@@ -94,6 +117,8 @@ jobs:
       # Sync Lockbox docs from ResearchAndDesire/Lockbox
       - name: Sync Lockbox docs
         if: steps.check_commit.outputs.skip != 'true' && (inputs.repo == '' || inputs.repo == 'lkbx')
+        env:
+          GITHUB_TOKEN: ${{ steps.token_lkbx.outputs.token }}
         run: |
           ./scripts/sync-docs.sh \
             "ResearchAndDesire" \
