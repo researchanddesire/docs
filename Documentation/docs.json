@@ -25,7 +25,7 @@
     },
     "products": [
       {
-        "product": "Shop",
+        "product": "General",
         "icon": "shop",
         "groups": [
           {
@@ -246,7 +246,6 @@
       },
       {
         "product": "Open Source Sex Machine",
-        "description": "User guides and technical documentation for the OSSM",
         "icon": "robot",
         "tabs": [
           {
