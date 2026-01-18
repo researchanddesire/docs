@@ -525,5 +525,775 @@
     "posthog": {
       "apiKey": "phc_An3517kIUj9o2uM2AjxukRqScOgtIhwfrMPAjyKoqW4"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/getting-started",
+      "destination": "/dtt/quick-start/getting-started"
+    },
+    {
+      "source": "/charging-your-trainer",
+      "destination": "/dtt/specs/charging"
+    },
+    {
+      "source": "/pairing-to-the-dashboard",
+      "destination": "/dtt/quick-start/pairing/pairing-guide"
+    },
+    {
+      "source": "/training-modes",
+      "destination": "/dtt/training-modes/index"
+    },
+    {
+      "source": "/deepthroat-trainer-accessory-port",
+      "destination": "/dtt/specs/accessory-port"
+    },
+    {
+      "source": "/wifi-troubleshooting-guide",
+      "destination": "/shop/troubleshooting/wifi"
+    },
+    {
+      "source": "/faqs-deepthroat-trainer",
+      "destination": "/dtt/faqs"
+    },
+    {
+      "source": "/lockbox-user-guide",
+      "destination": "/lkbx/quick-start/pairing"
+    },
+    {
+      "source": "/common-errors",
+      "destination": "/lkbx/errors/index"
+    },
+    {
+      "source": "/common-errors/e-lock-1-could-not-lock",
+      "destination": "/lkbx/errors/e-lock-1"
+    },
+    {
+      "source": "/common-errors/e-lock-2-could-not-unlock",
+      "destination": "/lkbx/errors/e-lock-2"
+    },
+    {
+      "source": "/common-errors/e-lock-3-no-backplate-detected",
+      "destination": "/lkbx/errors/e-lock-3"
+    },
+    {
+      "source": "/common-errors/e-lock-10-could-not-connect-to-wi-fi",
+      "destination": "/lkbx/errors/e-lock-10"
+    },
+    {
+      "source": "/common-errors/e-lock-20-emergency-unlock-used",
+      "destination": "/lkbx/errors/e-lock-20"
+    },
+    {
+      "source": "/calibration",
+      "destination": "/lkbx/device-states/calibration"
+    },
+    {
+      "source": "/sleep-mode",
+      "destination": "/lkbx/device-states/sleep-mode"
+    },
+    {
+      "source": "/permalock-device",
+      "destination": "/lkbx/device-states/permalock"
+    },
+    {
+      "source": "/take-a-break",
+      "destination": "/lkbx/device-states/take-a-break"
+    },
+    {
+      "source": "/reset-your-device",
+      "destination": "/lkbx/device-states/restarting"
+    },
+    {
+      "source": "/emergency-unlock",
+      "destination": "/lkbx/device-states/emergency-unlock"
+    },
+    {
+      "source": "/faqs-lockbox",
+      "destination": "/lkbx/faqs"
+    },
+    {
+      "source": "/levels",
+      "destination": "/dashboard/leaderboards/levels"
+    },
+    {
+      "source": "/training-points",
+      "destination": "/dashboard/leaderboards/points"
+    },
+    {
+      "source": "/leaderboards-your-guide-to-climbing-ranks-and-not-choking",
+      "destination": "/dashboard/leaderboards/index"
+    },
+    {
+      "source": "/ultra-subscription",
+      "destination": "/dashboard/subscription"
+    },
+    {
+      "source": "/how-to-share-your-device-with-other-users",
+      "destination": "/dashboard/quick-start/connections/index"
+    },
+    {
+      "source": "/change-training-settings",
+      "destination": "/dtt/training-modes/index"
+    },
+    {
+      "source": "/faqs-dashboard",
+      "destination": "/dashboard/faqs/index"
+    },
+    {
+      "source": "/faqs",
+      "destination": "/shop/faqs/index"
+    },
+    {
+      "source": "/general-shipping-faq",
+      "destination": "/shop/faqs/index"
+    },
+    {
+      "source": "/shipping-is-discreet",
+      "destination": "/shop/faqs/discreet-shipping"
+    },
+    {
+      "source": "/shipping-to-europe-faq",
+      "destination": "/shop/faqs/index"
+    },
+    {
+      "source": "/basic-mount-v2-quickstart",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/ossm-info-sheet-ready-to-play",
+      "destination": "/ossm/guides/getting-started/ready-to-play/info-sheet"
+    },
+    {
+      "source": "/wiring-your-gold-motor",
+      "destination": "/ossm/Hardware/motor/wiring-gold-motor"
+    },
+    {
+      "source": "/purchase-guide-for-the-ossm-home-assembly-kit",
+      "destination": "/ossm/guides/getting-started/build-guide/step-1.1_purchasing-parts"
+    },
+    {
+      "source": "/ossm-extrusion-mount-start-up",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/shipping-is-discrete",
+      "destination": "/shop/faqs/discreet-shipping"
+    },
+    {
+      "source": "/1865f12ee42e4659977d130c565664c1",
+      "destination": "/shop/about/index"
+    },
+    {
+      "source": "/global-rank",
+      "destination": "/dashboard/leaderboards/global-rank"
+    },
+    {
+      "source": "/readme",
+      "destination": "/shop/about/index"
+    },
+    {
+      "source": "/e-dtt-1",
+      "destination": "/dtt/errors/e-dtt-1"
+    },
+    {
+      "source": "/deepthroat-trainer/quick-start",
+      "destination": "/dtt/quick-start/index"
+    },
+    {
+      "source": "/deepthroat-trainer/quick-start/getting-started",
+      "destination": "/dtt/quick-start/getting-started"
+    },
+    {
+      "source": "/deepthroat-trainer/quick-start/pairing-your-trainer",
+      "destination": "/dtt/quick-start/pairing/index"
+    },
+    {
+      "source": "/deepthroat-trainer/quick-start/pairing-your-trainer/step-by-step-guide-for-pairing-your-trainer",
+      "destination": "/dtt/quick-start/pairing/pairing-guide"
+    },
+    {
+      "source": "/deepthroat-trainer/quick-start/pairing-your-trainer/step-by-step-guide-for-connecting-trainer-to-wi-fi",
+      "destination": "/dtt/quick-start/pairing/wifi-setup"
+    },
+    {
+      "source": "/deepthroat-trainer/quick-start/checking-your-results",
+      "destination": "/dtt/quick-start/checking-results"
+    },
+    {
+      "source": "/deepthroat-trainer/quick-start/using-different-toys",
+      "destination": "/dtt/quick-start/using-toys"
+    },
+    {
+      "source": "/deepthroat-trainer/training-modes",
+      "destination": "/dtt/training-modes/index"
+    },
+    {
+      "source": "/deepthroat-trainer/training-modes/repetition",
+      "destination": "/dtt/training-modes/repetition"
+    },
+    {
+      "source": "/deepthroat-trainer/training-modes/endurance",
+      "destination": "/dtt/training-modes/endurance"
+    },
+    {
+      "source": "/deepthroat-trainer/training-modes/freeform",
+      "destination": "/dtt/training-modes/freeform"
+    },
+    {
+      "source": "/deepthroat-trainer/training-modes/bounce",
+      "destination": "/dtt/training-modes/bounce"
+    },
+    {
+      "source": "/deepthroat-trainer/training-modes/shareable-templates",
+      "destination": "/dtt/quick-start/templates"
+    },
+    {
+      "source": "/deepthroat-trainer/technical-documentation",
+      "destination": "/dtt/technical/index"
+    },
+    {
+      "source": "/deepthroat-trainer/technical-documentation/e-dtt-1-no-internet",
+      "destination": "/dtt/errors/e-dtt-1"
+    },
+    {
+      "source": "/deepthroat-trainer/device-specifications",
+      "destination": "/dtt/specs/index"
+    },
+    {
+      "source": "/deepthroat-trainer/device-specifications/charging-your-battery",
+      "destination": "/dtt/specs/charging"
+    },
+    {
+      "source": "/deepthroat-trainer/device-specifications/accessory-port",
+      "destination": "/dtt/specs/accessory-port"
+    },
+    {
+      "source": "/deepthroat-trainer/faqs",
+      "destination": "/dtt/faqs"
+    },
+    {
+      "source": "/deepthroat-trainer/deepthroat-trainer-software-2.0.0-beta-preview",
+      "destination": "/dtt/software-2.0-preview"
+    },
+    {
+      "source": "/chastity-lockbox/quick-start",
+      "destination": "/lkbx/quick-start/index"
+    },
+    {
+      "source": "/chastity-lockbox/quick-start/step-1-connect-your-lockbox-to-wi-fi",
+      "destination": "/lkbx/quick-start/wifi-setup"
+    },
+    {
+      "source": "/chastity-lockbox/quick-start/pairing-your-chastity-lockbox",
+      "destination": "/lkbx/quick-start/pairing"
+    },
+    {
+      "source": "/chastity-lockbox/quick-start/how-to-start-a-lock-from-the-dashboard",
+      "destination": "/lkbx/quick-start/start-a-lock"
+    },
+    {
+      "source": "/chastity-lockbox/quick-start/keyholder-guide",
+      "destination": "/lkbx/quick-start/keyholder-guide"
+    },
+    {
+      "source": "/chastity-lockbox/using-your-lockbox",
+      "destination": "/lkbx/using/index"
+    },
+    {
+      "source": "/chastity-lockbox/using-your-lockbox/symbols-on-the-lockbox",
+      "destination": "/lkbx/using/symbols"
+    },
+    {
+      "source": "/chastity-lockbox/using-your-lockbox/how-to-take-a-break",
+      "destination": "/lkbx/using/take-a-break"
+    },
+    {
+      "source": "/chastity-lockbox/using-your-lockbox/how-to-do-an-emergency-unlock",
+      "destination": "/lkbx/using/emergency-unlock"
+    },
+    {
+      "source": "/chastity-lockbox/using-your-lockbox/hiding-the-remaining-time",
+      "destination": "/lkbx/using/hiding-time"
+    },
+    {
+      "source": "/chastity-lockbox/using-your-lockbox/public-voting",
+      "destination": "/lkbx/using/public-voting"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation",
+      "destination": "/lkbx/technical/index"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/how-to-get-alpha-updates",
+      "destination": "/lkbx/support/alpha-updates"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/device-states",
+      "destination": "/lkbx/device-states/index"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/device-states/calibration",
+      "destination": "/lkbx/device-states/calibration"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/device-states/sleep-mode",
+      "destination": "/lkbx/device-states/sleep-mode"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/device-states/permalock-device",
+      "destination": "/lkbx/device-states/permalock"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/device-states/take-a-break",
+      "destination": "/lkbx/device-states/take-a-break"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/device-states/emergency-unlock",
+      "destination": "/lkbx/device-states/emergency-unlock"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/device-states/restarting-device",
+      "destination": "/lkbx/device-states/restarting"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/device-errors",
+      "destination": "/lkbx/errors/index"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/device-errors/e-lock-1-could-not-lock",
+      "destination": "/lkbx/errors/e-lock-1"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/device-errors/e-lock-2-could-not-unlock",
+      "destination": "/lkbx/errors/e-lock-2"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/device-errors/e-lock-3-no-backplate-detected",
+      "destination": "/lkbx/errors/e-lock-3"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/device-errors/e-lock-10-could-not-connect-to-wi-fi",
+      "destination": "/lkbx/errors/e-lock-10"
+    },
+    {
+      "source": "/chastity-lockbox/technical-documentation/device-errors/e-lock-20-emergency-unlock-used",
+      "destination": "/lkbx/errors/e-lock-20"
+    },
+    {
+      "source": "/chastity-lockbox/support",
+      "destination": "/lkbx/support/index"
+    },
+    {
+      "source": "/chastity-lockbox/support/how-do-i-tell-if-my-chastity-lockbox-is-online-or-offline",
+      "destination": "/lkbx/support/online-status"
+    },
+    {
+      "source": "/chastity-lockbox/support/how-to-flash-your-chastity-lockbox",
+      "destination": "/lkbx/support/flashing"
+    },
+    {
+      "source": "/chastity-lockbox/support/how-to-do-an-emergency-unlock-by-breaking-the-backplate",
+      "destination": "/lkbx/support/emergency-backplate"
+    },
+    {
+      "source": "/chastity-lockbox/faqs",
+      "destination": "/lkbx/faqs"
+    },
+    {
+      "source": "/open-source-sex-machine/ossm-ready-to-play",
+      "destination": "/ossm/guides/getting-started/ready-to-play/index"
+    },
+    {
+      "source": "/open-source-sex-machine/ossm-ready-to-play/ossm-info-sheet-ready-to-play",
+      "destination": "/ossm/guides/getting-started/ready-to-play/info-sheet"
+    },
+    {
+      "source": "/open-source-sex-machine/ossm-ready-to-play/ossm-ready-to-play-spec-sheet",
+      "destination": "/ossm/guides/getting-started/ready-to-play/spec-sheet"
+    },
+    {
+      "source": "/open-source-sex-machine/ossm-electronics",
+      "destination": "/ossm/Hardware/PCB/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/ossm-electronics/ossm-pcb-spec-sheet",
+      "destination": "/ossm/Hardware/PCB/board-design"
+    },
+    {
+      "source": "/open-source-sex-machine/ossm-electronics/wiring-your-gold-motor",
+      "destination": "/ossm/Hardware/motor/wiring-gold-motor"
+    },
+    {
+      "source": "/open-source-sex-machine/ossm-mounting",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/open-source-sex-machine/ossm-mounting/ossm-extrusion-mount",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/open-source-sex-machine/ossm-mounting/ossm-basic-mount-v2",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/open-source-sex-machine/flashing-your-ossm",
+      "destination": "/ossm/guides/getting-started/web-flasher"
+    },
+    {
+      "source": "/open-source-sex-machine/introduction",
+      "destination": "/ossm/guides/getting-started/index"
+    },
+    {
+      "source": "/open-source-sex-machine/purchase-guide-for-the-ossm-home-assembly-kit",
+      "destination": "/ossm/guides/getting-started/build-guide/step-1.1_purchasing-parts"
+    },
+    {
+      "source": "/dashboard/quick-start",
+      "destination": "/dashboard/quick-start/index"
+    },
+    {
+      "source": "/dashboard/quick-start/creating-a-new-account",
+      "destination": "/dashboard/quick-start/create-account"
+    },
+    {
+      "source": "/dashboard/quick-start/connecting-with-other-users",
+      "destination": "/dashboard/quick-start/connections/index"
+    },
+    {
+      "source": "/dashboard/quick-start/connecting-with-other-users/managing-partner-connections",
+      "destination": "/dashboard/quick-start/connections/managing-partners"
+    },
+    {
+      "source": "/dashboard/quick-start/connecting-with-other-users/how-to-set-up-a-switch-acount",
+      "destination": "/dashboard/quick-start/connections/switch-account"
+    },
+    {
+      "source": "/dashboard/quick-start/connecting-with-other-users/what-are-access-types",
+      "destination": "/dashboard/quick-start/connections/access-types"
+    },
+    {
+      "source": "/dashboard/quick-start/controlling-your-partners-account",
+      "destination": "/dashboard/quick-start/partner-control"
+    },
+    {
+      "source": "/dashboard/leaderboards",
+      "destination": "/dashboard/leaderboards/index"
+    },
+    {
+      "source": "/dashboard/settings",
+      "destination": "/dashboard/settings/index"
+    },
+    {
+      "source": "/dashboard/settings/account-settings",
+      "destination": "/dashboard/settings/account"
+    },
+    {
+      "source": "/dashboard/settings/email-preferences",
+      "destination": "/dashboard/settings/email"
+    },
+    {
+      "source": "/dashboard/faqs",
+      "destination": "/dashboard/faqs/index"
+    },
+    {
+      "source": "/dashboard/faqs/help-i-forgot-my-password",
+      "destination": "/dashboard/faqs/forgot-password"
+    },
+    {
+      "source": "/dashboard/faqs/device-ownership-dispute-policy",
+      "destination": "/dashboard/faqs/ownership-disputes"
+    },
+    {
+      "source": "/dashboard/changelog-latest",
+      "destination": "/dashboard/changelog/index"
+    },
+    {
+      "source": "/dashboard/changelog-latest/changelog-v1.0.0",
+      "destination": "/dashboard/changelog/v1.0.0"
+    },
+    {
+      "source": "/research-and-desire-remote/quick-start",
+      "destination": "/radr/quick-start"
+    },
+    {
+      "source": "/research-and-desire-remote/device-support",
+      "destination": "/radr/device-support"
+    },
+    {
+      "source": "/all-devices/troubleshooting",
+      "destination": "/shop/troubleshooting/wifi"
+    },
+    {
+      "source": "/all-devices/troubleshooting/wi-fi-trouble-shooting",
+      "destination": "/shop/troubleshooting/wifi"
+    },
+    {
+      "source": "/shop/faqs",
+      "destination": "/shop/faqs/index"
+    },
+    {
+      "source": "/shop/faqs/shipping-is-discreet",
+      "destination": "/shop/faqs/discreet-shipping"
+    },
+    {
+      "source": "/open-source-sex-machine",
+      "destination": "/ossm/guides/getting-started/index"
+    },
+    {
+      "source": "/open-source-sex-machine/code_of_conduct",
+      "destination": "/ossm/guides/housekeeping/open-source/index"
+    },
+    {
+      "source": "/open-source-sex-machine/contributing",
+      "destination": "/ossm/guides/contributing/how-to-become-a-contributor"
+    },
+    {
+      "source": "/open-source-sex-machine/faq",
+      "destination": "/ossm/guides/housekeeping/faqs"
+    },
+    {
+      "source": "/open-source-sex-machine/cad-project",
+      "destination": "/ossm/Hardware/getting-started/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/cad-project/main",
+      "destination": "/ossm/Hardware/getting-started/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/cad-project/main/release_notes",
+      "destination": "/ossm/Hardware/getting-started/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/cad-project/main/main",
+      "destination": "/ossm/Hardware/getting-started/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/documentation",
+      "destination": "/ossm/guides/getting-started/index"
+    },
+    {
+      "source": "/open-source-sex-machine/documentation/assembly-instructions",
+      "destination": "/ossm/guides/getting-started/build-guide/step-0.0_introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/documentation/board_design",
+      "destination": "/ossm/Hardware/PCB/board-design"
+    },
+    {
+      "source": "/open-source-sex-machine/documentation/gold-motor",
+      "destination": "/ossm/Hardware/motor/wiring-gold-motor"
+    },
+    {
+      "source": "/open-source-sex-machine/documentation/hazards",
+      "destination": "/ossm/guides/housekeeping/safety/hazards"
+    },
+    {
+      "source": "/open-source-sex-machine/documentation/safety-and-design-guide",
+      "destination": "/ossm/guides/housekeeping/safety/guidance"
+    },
+    {
+      "source": "/open-source-sex-machine/software",
+      "destination": "/ossm/Software/getting-started/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/software/docs",
+      "destination": "/ossm/Software/getting-started/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/software/docs/platformio",
+      "destination": "/ossm/Software/getting-started/PlatformIO"
+    },
+    {
+      "source": "/open-source-sex-machine/software/docs/led_status",
+      "destination": "/ossm/Software/getting-started/LED_Status"
+    },
+    {
+      "source": "/open-source-sex-machine/software/include",
+      "destination": "/ossm/Software/getting-started/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/software/lib",
+      "destination": "/ossm/Software/motion/stroke-engine/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/software/lib/strokeengine",
+      "destination": "/ossm/Software/motion/stroke-engine/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/software/lib/strokeengine/changelog",
+      "destination": "/ossm/Software/motion/stroke-engine/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/software/lib/strokeengine/pattern",
+      "destination": "/ossm/Software/motion/stroke-engine/Pattern"
+    },
+    {
+      "source": "/open-source-sex-machine/software/lib/strokeengine/examples",
+      "destination": "/ossm/Software/motion/stroke-engine/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/software/test",
+      "destination": "/ossm/Software/getting-started/display"
+    },
+    {
+      "source": "/open-source-sex-machine/software/test/display",
+      "destination": "/ossm/Software/getting-started/display"
+    },
+    {
+      "source": "/open-source-sex-machine/software/test/display/ble_protocol",
+      "destination": "/ossm/Software/communication/ble"
+    },
+    {
+      "source": "/open-source-sex-machine/software/test/command",
+      "destination": "/ossm/Software/getting-started/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware",
+      "destination": "/ossm/Hardware/getting-started/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/mounting-options",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/mounting-options/deprecated-ball-head-mount",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/mounting-options/ossm-basic-mount",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/mounting-options/ossm-extrusion-mount",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/mounting-options/shicks-4040-mount",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/mounting-options/shicks-4040-mount/modified-4040-parts",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/pcb-files",
+      "destination": "/ossm/Hardware/PCB/introduction"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/pcb-files/ossm-remote-v2",
+      "destination": "/ossm/Hardware/standard-printed-parts/remote"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/servo-tools",
+      "destination": "/ossm/Hardware/motor/standard-build-motor"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/servo-tools/gold-motor",
+      "destination": "/ossm/Hardware/motor/wiring-gold-motor"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/servo-tools/legacy-ossm-printed-parts",
+      "destination": "/ossm/Hardware/standard-printed-parts/actuator"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/servo-tools/legacy-ossm-printed-parts/readme",
+      "destination": "/ossm/Hardware/standard-printed-parts/actuator"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/servo-tools/legacy-ossm-printed-parts/readme/aluxprofile",
+      "destination": "/ossm/Hardware/standard-printed-parts/actuator"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/servo-tools/legacy-ossm-printed-parts/readme/shicks-4040-mount",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/servo-tools/legacy-ossm-printed-parts/readme/ossm-full-extrusion-mount",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/servo-tools/legacy-ossm-printed-parts/readme/ossm-basic-mount",
+      "destination": "/ossm/guides/getting-started/quickstart"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/servo-tools/legacy-ossm-printed-parts/readme/readme",
+      "destination": "/ossm/Hardware/standard-printed-parts/actuator"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/servo-tools/legacy-ossm-printed-parts/end-effector-options",
+      "destination": "/ossm/Hardware/standard-printed-parts/actuator"
+    },
+    {
+      "source": "/open-source-sex-machine/hardware/servo-tools/legacy-ossm-printed-parts/end-effector-options/24mm-threaded",
+      "destination": "/ossm/Hardware/standard-printed-parts/actuator"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts",
+      "destination": "/ossm/Hardware/standard-printed-parts/actuator"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/actuator",
+      "destination": "/ossm/Hardware/standard-printed-parts/actuator"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/mounting",
+      "destination": "/ossm/Hardware/standard-printed-parts/pitclamp/README"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/mounting/pitclamp-mini",
+      "destination": "/ossm/Hardware/standard-printed-parts/pitclamp/README"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/mounting/pitclamp-mini/assembly_guides",
+      "destination": "/ossm/Hardware/standard-printed-parts/pitclamp/ASSEMBLY_GUIDES"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/mounting/pitclamp-mini/bom",
+      "destination": "/ossm/Hardware/standard-printed-parts/pitclamp/BOM"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/mounting/pitclamp-mini/updates",
+      "destination": "/ossm/Hardware/standard-printed-parts/pitclamp/UPDATES"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/remote",
+      "destination": "/ossm/Hardware/standard-printed-parts/remote"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/stand",
+      "destination": "/ossm/Hardware/standard-printed-parts/stand"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/ossm-mods",
+      "destination": "/ossm/Hardware/ossm-mods/pitclamp-reinforced/standard-base"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/ossm-mods/pitclamp-mini-reinforced-3030-hinges",
+      "destination": "/ossm/Hardware/ossm-mods/pitclamp-reinforced/hinges"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/ossm-mods/pitclamp-mini-reinforced-standard",
+      "destination": "/ossm/Hardware/ossm-mods/pitclamp-reinforced/standard-base"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/ossm-mods/threaded-belt-clamp-v2",
+      "destination": "/ossm/Hardware/ossm-mods/salad-dressing/belt-clamp-v2"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/ossm-mods/threaded-belt-clamp-v2/weight-plate-bracket",
+      "destination": "/ossm/Hardware/ossm-mods/salad-dressing/weight-plate"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/ossm-mods/threaded-belt-clamp-v2/suction-cup-bracket",
+      "destination": "/ossm/Hardware/ossm-mods/salad-dressing/suction-cup-bracket"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/ossm-mods/threaded-belt-clamp-v2/quick-change-strap-toy-mount-remix",
+      "destination": "/ossm/Hardware/ossm-mods/salad-dressing/quick-change-toy-mount"
+    },
+    {
+      "source": "/open-source-sex-machine/printed-parts/ossm-mods/threaded-belt-clamp-v2/capstan-ossm-xl",
+      "destination": "/ossm/Hardware/ossm-mods/salad-dressing/capstan"
+    }
+  ]
 }
