@@ -33,6 +33,7 @@
           {
             "group": "About",
             "pages": [
+              "index",
               "shop/about/index"
             ]
           },
