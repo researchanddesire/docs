@@ -3,22 +3,24 @@
   "theme": "maple",
   "name": "Research And Desire Docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#01B2D0",
+    "light": "#7EDFEF",
+    "dark": "#036D7F"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/images/favicon.ico",
   "navigation": {
     "global": {
       "anchors": [
         {
           "anchor": "Documentation",
           "icon": "book-open-cover",
+          "hidden": true,
           "href": "https://mintlify.com/docs"
         },
         {
           "anchor": "Blog",
           "icon": "newspaper",
+          "hidden": true,
           "href": "https://mintlify.com/blog"
         }
       ]
@@ -260,7 +262,6 @@
                   "ossm/guides/getting-started/web-flasher",
                   {
                     "group": "Ready to Play",
-                    "collapsed": true,
                     "pages": [
                       "ossm/guides/getting-started/ready-to-play/index",
                       "ossm/guides/getting-started/ready-to-play/info-sheet",
@@ -269,7 +270,6 @@
                   },
                   {
                     "group": "Build Guide",
-                    "collapsed": true,
                     "pages": [
                       "ossm/guides/getting-started/build-guide/step-0.0_introduction",
                       "ossm/guides/getting-started/build-guide/step-1.0_required_tools_and_parts",
@@ -290,7 +290,6 @@
                   },
                   {
                     "group": "User Guide",
-                    "collapsed": true,
                     "pages": [
                       "ossm/guides/getting-started/user-guide/index",
                       "ossm/guides/getting-started/user-guide/troubleshooting"
@@ -480,14 +479,14 @@
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/Standard-Colour.png",
+    "dark": "/images/Inverted-Colour.png"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@researchanddesire.com"
       }
     ],
     "primary": {
@@ -510,9 +509,21 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/ResearchDesire",
+      "github": "https://github.com/researchanddesire",
+      "discord": "https://discord.gg/6HYb5daFWr",
+      "youtube": "https://www.youtube.com/@ResearchandDesire",
+      "website": "https://www.researchanddesire.com",
+      "instagram": "https://www.instagram.com/research_and_desire"
+    }
+  },
+  "description": "Documentation and user guides for the Open Source Sex Machine, Deepthroat Trainer, RAD Remote, Chastity Lockbox and for Research and Desire in general!",
+  "appearance": {
+    "default": "system"
+  },
+  "integrations": {
+    "posthog": {
+      "apiKey": "phc_An3517kIUj9o2uM2AjxukRqScOgtIhwfrMPAjyKoqW4"
     }
   }
 }
