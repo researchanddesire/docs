@@ -1,0 +1,22 @@
+# How to do an Emergency Unlock
+
+{% embed url="https://www.loom.com/share/ac74b3223f644e739a9e59a2728ce39b?sid=31751c84-a03e-40c7-9b88-f49e8c10fdb3" %}
+AJ shows you how to do a software emergency unlock
+{% endembed %}
+
+<details>
+
+<summary>Video Transcript</summary>
+
+0:00 If for any reason you need access to your key and your device is locked, you can use the software Emergency Unlock.\
+0:09 If the software Emergency Unlock does not work or is unavailable, there is also a hardware unlock which I will not cover in this video, and you should go find that immediately.\
+0:19 However, right now, we're going to walk through the process of using the software Emergency Unlock. To do so, you're going to click into a menu on a locked device, and you'll scroll up or down to find the Emergency Unlock button.\
+0:34 It is possible that your keyholder disabled this in the active session. In that case, please go find the hardware Emergency Unlock video.\
+0:45 For now, I'm just going to click on this option, which will give me a link. With additional information, giving me an option to back out before I continue.\
+0:53 I'm just going to complete this Emergency Unlock, which will instantaneously give me access to my key. And it will also prevent my device from being used for 24 hours.\
+1:05 This is to prevent any mischief or bratting. However, this can be cleared on the dashboard by having your keyholder abandoned.\
+1:12 And in the Active Session, or sending additional new settings. You are, however, able to get access to your key, and you should be able to do whatever you need to in this moment.\
+1:26 Again, if you are not able to use this, if this has been disabled on your session, for instance, or for any other reason, you cannot use the Software Emergency Unlock, please go find the hardware manager.\
+1:36 video. I'll link it here.
+
+</details>
