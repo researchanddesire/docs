@@ -34,13 +34,13 @@
             "group": "About",
             "pages": [
               "index",
-              "shop/about/index"
+              "shop/about/introduction"
             ]
           },
           {
             "group": "FAQs",
             "pages": [
-              "shop/faqs/index",
+              "shop/faqs/introduction",
               "shop/faqs/discreet-shipping"
             ]
           },
@@ -59,12 +59,12 @@
           {
             "group": "Quick Start",
             "pages": [
-              "dashboard/quick-start/index",
+              "dashboard/quick-start/introduction",
               "dashboard/quick-start/create-account",
               {
                 "group": "Connections",
                 "pages": [
-                  "dashboard/quick-start/connections/index",
+                  "dashboard/quick-start/connections/introduction",
                   "dashboard/quick-start/connections/switch-account",
                   "dashboard/quick-start/connections/access-types",
                   "dashboard/quick-start/connections/managing-partners"
@@ -76,7 +76,7 @@
           {
             "group": "Leaderboards",
             "pages": [
-              "dashboard/leaderboards/index",
+              "dashboard/leaderboards/introduction",
               "dashboard/leaderboards/global-rank",
               "dashboard/leaderboards/levels",
               "dashboard/leaderboards/points"
@@ -91,7 +91,7 @@
           {
             "group": "Settings",
             "pages": [
-              "dashboard/settings/index",
+              "dashboard/settings/introduction",
               "dashboard/settings/account",
               "dashboard/settings/email",
               "dashboard/settings/public-links"
@@ -100,7 +100,7 @@
           {
             "group": "FAQs",
             "pages": [
-              "dashboard/faqs/index",
+              "dashboard/faqs/introduction",
               "dashboard/faqs/forgot-password",
               "dashboard/faqs/ownership-disputes"
             ]
@@ -108,7 +108,7 @@
           {
             "group": "Changelog",
             "pages": [
-              "dashboard/changelog/index",
+              "dashboard/changelog/introduction",
               "dashboard/changelog/v1.0.0"
             ]
           }
@@ -121,12 +121,12 @@
           {
             "group": "Quick Start",
             "pages": [
-              "dtt/quick-start/index",
+              "dtt/quick-start/introduction",
               "dtt/quick-start/getting-started",
               {
                 "group": "Pairing",
                 "pages": [
-                  "dtt/quick-start/pairing/index",
+                  "dtt/quick-start/pairing/introduction",
                   "dtt/quick-start/pairing/pairing-guide",
                   "dtt/quick-start/pairing/wifi-setup"
                 ]
@@ -139,7 +139,7 @@
           {
             "group": "Training Modes",
             "pages": [
-              "dtt/training-modes/index",
+              "dtt/training-modes/introduction",
               "dtt/training-modes/freeform",
               "dtt/training-modes/repetition",
               "dtt/training-modes/endurance",
@@ -149,7 +149,7 @@
           {
             "group": "Device Specs",
             "pages": [
-              "dtt/specs/index",
+              "dtt/specs/introduction",
               "dtt/specs/charging",
               "dtt/specs/accessory-port"
             ]
@@ -157,7 +157,7 @@
           {
             "group": "Technical",
             "pages": [
-              "dtt/technical/index",
+              "dtt/technical/introduction",
               "dtt/software-2.0-preview"
             ]
           },
@@ -182,7 +182,7 @@
           {
             "group": "Quick Start",
             "pages": [
-              "lkbx/quick-start/index",
+              "lkbx/quick-start/introduction",
               "lkbx/quick-start/wifi-setup",
               "lkbx/quick-start/pairing",
               "lkbx/quick-start/start-a-lock",
@@ -192,7 +192,7 @@
           {
             "group": "Using Your Lockbox",
             "pages": [
-              "lkbx/using/index",
+              "lkbx/using/introduction",
               "lkbx/using/symbols",
               "lkbx/using/hiding-time",
               "lkbx/using/take-a-break",
@@ -203,7 +203,7 @@
           {
             "group": "Device States",
             "pages": [
-              "lkbx/device-states/index",
+              "lkbx/device-states/introduction",
               "lkbx/device-states/calibration",
               "lkbx/device-states/sleep-mode",
               "lkbx/device-states/take-a-break",
@@ -215,7 +215,7 @@
           {
             "group": "Errors",
             "pages": [
-              "lkbx/errors/index",
+              "lkbx/errors/introduction",
               "lkbx/errors/e-lock-1",
               "lkbx/errors/e-lock-2",
               "lkbx/errors/e-lock-3",
@@ -226,7 +226,7 @@
           {
             "group": "Support",
             "pages": [
-              "lkbx/support/index",
+              "lkbx/support/introduction",
               "lkbx/support/online-status",
               "lkbx/support/flashing",
               "lkbx/support/emergency-backplate",
@@ -236,7 +236,7 @@
           {
             "group": "Technical",
             "pages": [
-              "lkbx/technical/index"
+              "lkbx/technical/introduction"
             ]
           },
           {
@@ -257,14 +257,14 @@
               {
                 "group": "Getting started",
                 "pages": [
-                  "ossm/guides/getting-started/index",
+                  "ossm/guides/getting-started/introduction",
                   "ossm/guides/getting-started/quickstart",
                   "ossm/guides/getting-started/video-intro",
                   "ossm/guides/getting-started/web-flasher",
                   {
                     "group": "Ready to Play",
                     "pages": [
-                      "ossm/guides/getting-started/ready-to-play/index",
+                      "ossm/guides/getting-started/ready-to-play/introduction",
                       "ossm/guides/getting-started/ready-to-play/info-sheet",
                       "ossm/guides/getting-started/ready-to-play/spec-sheet"
                     ]
@@ -292,7 +292,7 @@
                   {
                     "group": "User Guide",
                     "pages": [
-                      "ossm/guides/getting-started/user-guide/index",
+                      "ossm/guides/getting-started/user-guide/introduction",
                       "ossm/guides/getting-started/user-guide/troubleshooting"
                     ]
                   },
@@ -315,7 +315,7 @@
               {
                 "group": "Community",
                 "pages": [
-                  "ossm/guides/community/index",
+                  "ossm/guides/community/introduction",
                   {
                     "group": "Third Party Hardware",
                     "pages": [
@@ -334,14 +334,14 @@
                   {
                     "group": "Open Source",
                     "pages": [
-                      "ossm/guides/housekeeping/open-source/index",
+                      "ossm/guides/housekeeping/open-source/introduction",
                       "ossm/guides/housekeeping/open-source/licence"
                     ]
                   },
                   {
                     "group": "Safety",
                     "pages": [
-                      "ossm/guides/housekeeping/safety/index",
+                      "ossm/guides/housekeeping/safety/introduction",
                       "ossm/guides/housekeeping/safety/hazards",
                       "ossm/guides/housekeeping/safety/guidance"
                     ]
@@ -542,7 +542,7 @@
     },
     {
       "source": "/training-modes",
-      "destination": "/dtt/training-modes/index"
+      "destination": "/dtt/training-modes/introduction"
     },
     {
       "source": "/deepthroat-trainer-accessory-port",
@@ -562,7 +562,7 @@
     },
     {
       "source": "/common-errors",
-      "destination": "/lkbx/errors/index"
+      "destination": "/lkbx/errors/introduction"
     },
     {
       "source": "/common-errors/e-lock-1-could-not-lock",
@@ -622,7 +622,7 @@
     },
     {
       "source": "/leaderboards-your-guide-to-climbing-ranks-and-not-choking",
-      "destination": "/dashboard/leaderboards/index"
+      "destination": "/dashboard/leaderboards/introduction"
     },
     {
       "source": "/ultra-subscription",
@@ -630,23 +630,23 @@
     },
     {
       "source": "/how-to-share-your-device-with-other-users",
-      "destination": "/dashboard/quick-start/connections/index"
+      "destination": "/dashboard/quick-start/connections/introduction"
     },
     {
       "source": "/change-training-settings",
-      "destination": "/dtt/training-modes/index"
+      "destination": "/dtt/training-modes/introduction"
     },
     {
       "source": "/faqs-dashboard",
-      "destination": "/dashboard/faqs/index"
+      "destination": "/dashboard/faqs/introduction"
     },
     {
       "source": "/faqs",
-      "destination": "/shop/faqs/index"
+      "destination": "/shop/faqs/introduction"
     },
     {
       "source": "/general-shipping-faq",
-      "destination": "/shop/faqs/index"
+      "destination": "/shop/faqs/introduction"
     },
     {
       "source": "/shipping-is-discreet",
@@ -654,7 +654,7 @@
     },
     {
       "source": "/shipping-to-europe-faq",
-      "destination": "/shop/faqs/index"
+      "destination": "/shop/faqs/introduction"
     },
     {
       "source": "/basic-mount-v2-quickstart",
@@ -682,7 +682,7 @@
     },
     {
       "source": "/1865f12ee42e4659977d130c565664c1",
-      "destination": "/shop/about/index"
+      "destination": "/shop/about/introduction"
     },
     {
       "source": "/global-rank",
@@ -690,7 +690,7 @@
     },
     {
       "source": "/readme",
-      "destination": "/shop/about/index"
+      "destination": "/shop/about/introduction"
     },
     {
       "source": "/e-dtt-1",
@@ -698,7 +698,7 @@
     },
     {
       "source": "/deepthroat-trainer/quick-start",
-      "destination": "/dtt/quick-start/index"
+      "destination": "/dtt/quick-start/introduction"
     },
     {
       "source": "/deepthroat-trainer/quick-start/getting-started",
@@ -706,7 +706,7 @@
     },
     {
       "source": "/deepthroat-trainer/quick-start/pairing-your-trainer",
-      "destination": "/dtt/quick-start/pairing/index"
+      "destination": "/dtt/quick-start/pairing/introduction"
     },
     {
       "source": "/deepthroat-trainer/quick-start/pairing-your-trainer/step-by-step-guide-for-pairing-your-trainer",
@@ -726,7 +726,7 @@
     },
     {
       "source": "/deepthroat-trainer/training-modes",
-      "destination": "/dtt/training-modes/index"
+      "destination": "/dtt/training-modes/introduction"
     },
     {
       "source": "/deepthroat-trainer/training-modes/repetition",
@@ -750,7 +750,7 @@
     },
     {
       "source": "/deepthroat-trainer/technical-documentation",
-      "destination": "/dtt/technical/index"
+      "destination": "/dtt/technical/introduction"
     },
     {
       "source": "/deepthroat-trainer/technical-documentation/e-dtt-1-no-internet",
@@ -758,7 +758,7 @@
     },
     {
       "source": "/deepthroat-trainer/device-specifications",
-      "destination": "/dtt/specs/index"
+      "destination": "/dtt/specs/introduction"
     },
     {
       "source": "/deepthroat-trainer/device-specifications/charging-your-battery",
@@ -778,7 +778,7 @@
     },
     {
       "source": "/chastity-lockbox/quick-start",
-      "destination": "/lkbx/quick-start/index"
+      "destination": "/lkbx/quick-start/introduction"
     },
     {
       "source": "/chastity-lockbox/quick-start/step-1-connect-your-lockbox-to-wi-fi",
@@ -798,7 +798,7 @@
     },
     {
       "source": "/chastity-lockbox/using-your-lockbox",
-      "destination": "/lkbx/using/index"
+      "destination": "/lkbx/using/introduction"
     },
     {
       "source": "/chastity-lockbox/using-your-lockbox/symbols-on-the-lockbox",
@@ -822,7 +822,7 @@
     },
     {
       "source": "/chastity-lockbox/technical-documentation",
-      "destination": "/lkbx/technical/index"
+      "destination": "/lkbx/technical/introduction"
     },
     {
       "source": "/chastity-lockbox/technical-documentation/how-to-get-alpha-updates",
@@ -830,7 +830,7 @@
     },
     {
       "source": "/chastity-lockbox/technical-documentation/device-states",
-      "destination": "/lkbx/device-states/index"
+      "destination": "/lkbx/device-states/introduction"
     },
     {
       "source": "/chastity-lockbox/technical-documentation/device-states/calibration",
@@ -858,7 +858,7 @@
     },
     {
       "source": "/chastity-lockbox/technical-documentation/device-errors",
-      "destination": "/lkbx/errors/index"
+      "destination": "/lkbx/errors/introduction"
     },
     {
       "source": "/chastity-lockbox/technical-documentation/device-errors/e-lock-1-could-not-lock",
@@ -882,7 +882,7 @@
     },
     {
       "source": "/chastity-lockbox/support",
-      "destination": "/lkbx/support/index"
+      "destination": "/lkbx/support/introduction"
     },
     {
       "source": "/chastity-lockbox/support/how-do-i-tell-if-my-chastity-lockbox-is-online-or-offline",
@@ -902,7 +902,7 @@
     },
     {
       "source": "/open-source-sex-machine/ossm-ready-to-play",
-      "destination": "/ossm/guides/getting-started/ready-to-play/index"
+      "destination": "/ossm/guides/getting-started/ready-to-play/introduction"
     },
     {
       "source": "/open-source-sex-machine/ossm-ready-to-play/ossm-info-sheet-ready-to-play",
@@ -942,7 +942,7 @@
     },
     {
       "source": "/open-source-sex-machine/introduction",
-      "destination": "/ossm/guides/getting-started/index"
+      "destination": "/ossm/guides/getting-started/introduction"
     },
     {
       "source": "/open-source-sex-machine/purchase-guide-for-the-ossm-home-assembly-kit",
@@ -950,7 +950,7 @@
     },
     {
       "source": "/dashboard/quick-start",
-      "destination": "/dashboard/quick-start/index"
+      "destination": "/dashboard/quick-start/introduction"
     },
     {
       "source": "/dashboard/quick-start/creating-a-new-account",
@@ -958,7 +958,7 @@
     },
     {
       "source": "/dashboard/quick-start/connecting-with-other-users",
-      "destination": "/dashboard/quick-start/connections/index"
+      "destination": "/dashboard/quick-start/connections/introduction"
     },
     {
       "source": "/dashboard/quick-start/connecting-with-other-users/managing-partner-connections",
@@ -978,11 +978,11 @@
     },
     {
       "source": "/dashboard/leaderboards",
-      "destination": "/dashboard/leaderboards/index"
+      "destination": "/dashboard/leaderboards/introduction"
     },
     {
       "source": "/dashboard/settings",
-      "destination": "/dashboard/settings/index"
+      "destination": "/dashboard/settings/introduction"
     },
     {
       "source": "/dashboard/settings/account-settings",
@@ -994,7 +994,7 @@
     },
     {
       "source": "/dashboard/faqs",
-      "destination": "/dashboard/faqs/index"
+      "destination": "/dashboard/faqs/introduction"
     },
     {
       "source": "/dashboard/faqs/help-i-forgot-my-password",
@@ -1006,7 +1006,7 @@
     },
     {
       "source": "/dashboard/changelog-latest",
-      "destination": "/dashboard/changelog/index"
+      "destination": "/dashboard/changelog/introduction"
     },
     {
       "source": "/dashboard/changelog-latest/changelog-v1.0.0",
@@ -1029,16 +1029,20 @@
       "destination": "/shop/troubleshooting/wifi"
     },
     {
+      "source": "/shop/faqs",
+      "destination": "/shop/faqs/introduction"
+    },
+    {
       "source": "/shop/faqs/shipping-is-discreet",
       "destination": "/shop/faqs/discreet-shipping"
     },
     {
       "source": "/open-source-sex-machine",
-      "destination": "/ossm/guides/getting-started/index"
+      "destination": "/ossm/guides/getting-started/introduction"
     },
     {
       "source": "/open-source-sex-machine/code_of_conduct",
-      "destination": "/ossm/guides/housekeeping/open-source/index"
+      "destination": "/ossm/guides/housekeeping/open-source/introduction"
     },
     {
       "source": "/open-source-sex-machine/contributing",
@@ -1066,7 +1070,7 @@
     },
     {
       "source": "/open-source-sex-machine/documentation",
-      "destination": "/ossm/guides/getting-started/index"
+      "destination": "/ossm/guides/getting-started/introduction"
     },
     {
       "source": "/open-source-sex-machine/documentation/assembly-instructions",
