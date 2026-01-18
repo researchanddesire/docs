@@ -8,6 +8,7 @@ on:
       - 'Documentation/radr/**'
       - 'Documentation/dtt/**'
       - 'Documentation/lkbx/**'
+      - 'Documentation/dashboard/**'
       - 'Documentation/docs.json'
   workflow_dispatch:
     inputs:
@@ -21,6 +22,7 @@ on:
           - 'radr'
           - 'dtt'
           - 'lkbx'
+          - 'dashboard'
 
 jobs:
   push-docs:
@@ -61,6 +63,14 @@ jobs:
             token_type: app
             target_repo: Lockbox
             product_name: "Chastity Lockbox"
+          # ResearchAndDesire/rad-app - uses generated token
+          - name: dashboard
+            repo: ResearchAndDesire/rad-app
+            branch: main
+            dir: dashboard
+            token_type: app
+            target_repo: rad-app
+            product_name: "Dashboard"
 
     name: Push ${{ matrix.name }} docs
     steps:

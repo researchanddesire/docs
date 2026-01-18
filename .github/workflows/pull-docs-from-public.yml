@@ -1,8 +1,6 @@
 name: Pull Docs from Public Repos
 
 on:
-  push:
-    branches: main
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
@@ -17,6 +15,8 @@ on:
           - 'radr'
           - 'dtt'
           - 'lkbx'
+          - 'dashboard'
+  repository_dispatch:
 
 permissions:
   contents: write
@@ -55,6 +55,16 @@ jobs:
           private-key: ${{ secrets.RAD_VERSION_CONTROL_PRIVATE_KEY }}
           owner: ResearchAndDesire
           repositories: Lockbox
+
+      # Token for rad-app repo (to pull docs)
+      - name: Generate token for rad-app
+        id: token_dashboard
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.RAD_VERSION_CONTROL_APP_ID }}
+          private-key: ${{ secrets.RAD_VERSION_CONTROL_PRIVATE_KEY }}
+          owner: ResearchAndDesire
+          repositories: rad-app
 
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -127,6 +137,20 @@ jobs:
             "Documentation/lkbx" \
             "Documentation/lkbx" \
             "Chastity Lockbox"
+
+      # Sync Dashboard docs from ResearchAndDesire/rad-app
+      - name: Sync Dashboard docs
+        if: steps.check_commit.outputs.skip != 'true' && (inputs.repo == '' || inputs.repo == 'dashboard')
+        env:
+          GITHUB_TOKEN: ${{ steps.token_dashboard.outputs.token }}
+        run: |
+          ./scripts/sync-docs.sh \
+            "ResearchAndDesire" \
+            "rad-app" \
+            "main" \
+            "Documentation/dashboard" \
+            "Documentation/dashboard" \
+            "Dashboard"
 
       - name: Push changes to main
         if: steps.check_commit.outputs.skip != 'true'
