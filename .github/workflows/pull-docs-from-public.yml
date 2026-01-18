@@ -17,6 +17,12 @@ on:
           - 'lkbx'
           - 'dashboard'
   repository_dispatch:
+    types:
+      - 'ossm'
+      - 'radr'
+      - 'dtt'
+      - 'lkbx'
+      - 'dashboard'
 
 permissions:
   contents: write
@@ -71,6 +77,20 @@ jobs:
         with:
           token: ${{ steps.generate_token.outputs.token }}
 
+      - name: Determine repo to sync
+        id: repo_to_sync
+        run: |
+          # For workflow_dispatch, use the input
+          # For repository_dispatch, use the event action (event type)
+          # For schedule, sync all (empty string)
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "repo=${{ github.event.inputs.repo }}" >> $GITHUB_OUTPUT
+          elif [ "${{ github.event_name }}" == "repository_dispatch" ]; then
+            echo "repo=${{ github.event.action }}" >> $GITHUB_OUTPUT
+          else
+            echo "repo=" >> $GITHUB_OUTPUT
+          fi
+
       - name: Check last commit message
         id: check_commit
         run: |
@@ -88,7 +108,7 @@ jobs:
 
       # Sync OSSM docs from KinkyMakers/OSSM-hardware
       - name: Sync OSSM docs
-        if: steps.check_commit.outputs.skip != 'true' && (inputs.repo == '' || inputs.repo == 'ossm')
+        if: steps.check_commit.outputs.skip != 'true' && (steps.repo_to_sync.outputs.repo == '' || steps.repo_to_sync.outputs.repo == 'ossm')
         run: |
           ./scripts/sync-docs.sh \
             "KinkyMakers" \
@@ -100,7 +120,7 @@ jobs:
 
       # Sync rad-remote docs from ResearchAndDesire/rad-remote
       - name: Sync rad-remote docs
-        if: steps.check_commit.outputs.skip != 'true' && (inputs.repo == '' || inputs.repo == 'radr')
+        if: steps.check_commit.outputs.skip != 'true' && (steps.repo_to_sync.outputs.repo == '' || steps.repo_to_sync.outputs.repo == 'radr')
         run: |
           ./scripts/sync-docs.sh \
             "ResearchAndDesire" \
@@ -112,7 +132,7 @@ jobs:
 
       # Sync DT_Trainer docs from ResearchAndDesire/DT_Trainer
       - name: Sync DT_Trainer docs
-        if: steps.check_commit.outputs.skip != 'true' && (inputs.repo == '' || inputs.repo == 'dtt')
+        if: steps.check_commit.outputs.skip != 'true' && (steps.repo_to_sync.outputs.repo == '' || steps.repo_to_sync.outputs.repo == 'dtt')
         env:
           GITHUB_TOKEN: ${{ steps.token_dtt.outputs.token }}
         run: |
@@ -126,7 +146,7 @@ jobs:
 
       # Sync Lockbox docs from ResearchAndDesire/Lockbox
       - name: Sync Lockbox docs
-        if: steps.check_commit.outputs.skip != 'true' && (inputs.repo == '' || inputs.repo == 'lkbx')
+        if: steps.check_commit.outputs.skip != 'true' && (steps.repo_to_sync.outputs.repo == '' || steps.repo_to_sync.outputs.repo == 'lkbx')
         env:
           GITHUB_TOKEN: ${{ steps.token_lkbx.outputs.token }}
         run: |
@@ -140,7 +160,7 @@ jobs:
 
       # Sync Dashboard docs from ResearchAndDesire/rad-app
       - name: Sync Dashboard docs
-        if: steps.check_commit.outputs.skip != 'true' && (inputs.repo == '' || inputs.repo == 'dashboard')
+        if: steps.check_commit.outputs.skip != 'true' && (steps.repo_to_sync.outputs.repo == '' || steps.repo_to_sync.outputs.repo == 'dashboard')
         env:
           GITHUB_TOKEN: ${{ steps.token_dashboard.outputs.token }}
         run: |
