@@ -40,7 +40,7 @@ jobs:
           # KinkyMakers/OSSM-hardware - uses OSSM_PUSH_TOKEN
           - name: ossm
             repo: KinkyMakers/OSSM-hardware
-            branch: aj/mintlify-docs
+            branch: main
             dir: ossm
             token_type: pat
             token_secret: OSSM_PUSH_TOKEN

@@ -113,7 +113,7 @@ jobs:
           ./scripts/sync-docs.sh \
             "KinkyMakers" \
             "OSSM-hardware" \
-            "aj/mintlify-docs" \
+            "main" \
             "Documentation/ossm" \
             "Documentation/ossm" \
             "Open Source Sex Machine" \

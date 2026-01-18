@@ -5,7 +5,7 @@
 # Always takes "theirs" (remote version overwrites local)
 #
 # Usage: ./sync-docs.sh <owner> <repo> <branch> <subdirectory> <target_dir> <product_name> [snippet_dir]
-# Example: ./sync-docs.sh KinkyMakers OSSM-hardware aj/mintlify-docs Documentation/ossm Documentation/ossm "Open Source Sex Machine" Documentation/snippets/ossm
+# Example: ./sync-docs.sh KinkyMakers OSSM-hardware main Documentation/ossm Documentation/ossm "Open Source Sex Machine" Documentation/snippets/ossm
 #
 # Environment variables:
 #   GITHUB_TOKEN - Optional. If set, used for authenticated git operations (required for private repos)
