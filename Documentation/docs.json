@@ -1029,10 +1029,6 @@
       "destination": "/shop/troubleshooting/wifi"
     },
     {
-      "source": "/shop/faqs",
-      "destination": "/shop/faqs/index"
-    },
-    {
       "source": "/shop/faqs/shipping-is-discreet",
       "destination": "/shop/faqs/discreet-shipping"
     },
