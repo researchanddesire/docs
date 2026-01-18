@@ -4,8 +4,8 @@
 # Merges the product entry from remote docs.json into local docs.json
 # Always takes "theirs" (remote version overwrites local)
 #
-# Usage: ./sync-docs.sh <owner> <repo> <branch> <subdirectory> <target_dir> <product_name>
-# Example: ./sync-docs.sh KinkyMakers OSSM-hardware aj/mintlify-docs Documentation/ossm Documentation/ossm "Open Source Sex Machine"
+# Usage: ./sync-docs.sh <owner> <repo> <branch> <subdirectory> <target_dir> <product_name> [snippet_dir]
+# Example: ./sync-docs.sh KinkyMakers OSSM-hardware aj/mintlify-docs Documentation/ossm Documentation/ossm "Open Source Sex Machine" Documentation/snippets/ossm
 #
 # Environment variables:
 #   GITHUB_TOKEN - Optional. If set, used for authenticated git operations (required for private repos)
@@ -19,6 +19,7 @@ REF="${3:?Error: REF (branch) is required}"
 SUBDIRECTORY="${4:?Error: SUBDIRECTORY is required}"
 TARGET_DIR="${5:?Error: TARGET_DIR is required}"
 PRODUCT_NAME="${6:?Error: PRODUCT_NAME is required}"
+SNIPPET_DIR="${7:-}"  # Optional snippet directory
 
 DOCS_JSON_PATH="Documentation/docs.json"
 
@@ -37,6 +38,9 @@ echo "  Branch: $REF"
 echo "  Source: $SUBDIRECTORY"
 echo "  Target: $TARGET_DIR"
 echo "  Product: $PRODUCT_NAME"
+if [ -n "$SNIPPET_DIR" ]; then
+echo "  Snippets: $SNIPPET_DIR"
+fi
 echo "  Auth: $AUTH_STATUS"
 echo "========================================"
 
@@ -64,9 +68,13 @@ cd "$TEMP_CLONE"
 git init -q
 git remote add origin "$GIT_URL"
 
-# Configure sparse checkout - include both source dir and docs.json
+# Configure sparse checkout - include source dir, docs.json, and optionally snippets
 git sparse-checkout init --cone
-git sparse-checkout set "$SUBDIRECTORY" "$DOCS_JSON_PATH"
+if [ -n "$SNIPPET_DIR" ]; then
+  git sparse-checkout set "$SUBDIRECTORY" "$DOCS_JSON_PATH" "$SNIPPET_DIR"
+else
+  git sparse-checkout set "$SUBDIRECTORY" "$DOCS_JSON_PATH"
+fi
 
 # Fetch and checkout the specific ref
 git fetch --depth=1 origin "$REF"
@@ -112,6 +120,19 @@ if [ -d "$TEMP_CLONE/$SUBDIRECTORY" ]; then
 else
   echo "Warning: $SUBDIRECTORY not found in repository $OWNER/$REPO"
   echo "This may be expected if the docs haven't been set up yet in the source repo"
+fi
+
+# Sync snippets if specified and present
+if [ -n "$SNIPPET_DIR" ]; then
+  TARGET_SNIPPET_DIR="$PROJECT_ROOT/$SNIPPET_DIR"
+  if [ -d "$TEMP_CLONE/$SNIPPET_DIR" ]; then
+    echo "Syncing snippets from $SNIPPET_DIR..."
+    mkdir -p "$TARGET_SNIPPET_DIR"
+    rsync -avc --delete "$TEMP_CLONE/$SNIPPET_DIR/" "$TARGET_SNIPPET_DIR/"
+    echo "Successfully merged $OWNER/$REPO/$SNIPPET_DIR into $TARGET_SNIPPET_DIR"
+  else
+    echo "Note: $SNIPPET_DIR not found in repository $OWNER/$REPO (this is OK)"
+  fi
 fi
 
 # Clean up temp directory

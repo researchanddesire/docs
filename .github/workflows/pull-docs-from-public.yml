@@ -116,7 +116,8 @@ jobs:
             "aj/mintlify-docs" \
             "Documentation/ossm" \
             "Documentation/ossm" \
-            "Open Source Sex Machine"
+            "Open Source Sex Machine" \
+            "Documentation/snippets/ossm"
 
       # Sync rad-remote docs from ResearchAndDesire/rad-remote
       - name: Sync rad-remote docs
@@ -128,7 +129,8 @@ jobs:
             "main" \
             "Documentation/radr" \
             "Documentation/radr" \
-            "Wireless Remote"
+            "Wireless Remote" \
+            "Documentation/snippets/radr"
 
       # Sync DT_Trainer docs from ResearchAndDesire/DT_Trainer
       - name: Sync DT_Trainer docs
@@ -142,7 +144,8 @@ jobs:
             "main" \
             "Documentation/dtt" \
             "Documentation/dtt" \
-            "Deepthroat Trainer"
+            "Deepthroat Trainer" \
+            "Documentation/snippets/dtt"
 
       # Sync Lockbox docs from ResearchAndDesire/Lockbox
       - name: Sync Lockbox docs
@@ -156,7 +159,8 @@ jobs:
             "main" \
             "Documentation/lkbx" \
             "Documentation/lkbx" \
-            "Chastity Lockbox"
+            "Chastity Lockbox" \
+            "Documentation/snippets/lkbx"
 
       # Sync Dashboard docs from ResearchAndDesire/rad-app
       - name: Sync Dashboard docs
@@ -170,7 +174,8 @@ jobs:
             "main" \
             "Documentation/dashboard" \
             "Documentation/dashboard" \
-            "Dashboard"
+            "Dashboard" \
+            "Documentation/snippets/dashboard"
 
       - name: Push changes to main
         if: steps.check_commit.outputs.skip != 'true'

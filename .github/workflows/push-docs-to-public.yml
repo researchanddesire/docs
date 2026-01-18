@@ -9,6 +9,12 @@ on:
       - 'Documentation/dtt/**'
       - 'Documentation/lkbx/**'
       - 'Documentation/dashboard/**'
+      - 'Documentation/snippets/ossm/**'
+      - 'Documentation/snippets/radr/**'
+      - 'Documentation/snippets/dtt/**'
+      - 'Documentation/snippets/lkbx/**'
+      - 'Documentation/snippets/dashboard/**'
+      - 'Documentation/snippets/shared/**'
       - 'Documentation/docs.json'
   workflow_dispatch:
     inputs:
@@ -103,22 +109,32 @@ jobs:
             echo "has_changes=true" >> $GITHUB_OUTPUT
             exit 0
           fi
-          # For push events, check if this directory or docs.json changed
+          # For push events, check if this directory, snippets, shared snippets, or docs.json changed
           CHANGED_DIR=$(git diff --name-only HEAD~1 HEAD -- "Documentation/${{ matrix.dir }}/" 2>/dev/null || echo "")
+          CHANGED_SNIPPETS=$(git diff --name-only HEAD~1 HEAD -- "Documentation/snippets/${{ matrix.dir }}/" 2>/dev/null || echo "")
+          CHANGED_SHARED=$(git diff --name-only HEAD~1 HEAD -- "Documentation/snippets/shared/" 2>/dev/null || echo "")
           CHANGED_DOCS_JSON=$(git diff --name-only HEAD~1 HEAD -- "Documentation/docs.json" 2>/dev/null || echo "")
           
-          if [ -n "$CHANGED_DIR" ] || [ -n "$CHANGED_DOCS_JSON" ]; then
+          if [ -n "$CHANGED_DIR" ] || [ -n "$CHANGED_SNIPPETS" ] || [ -n "$CHANGED_SHARED" ] || [ -n "$CHANGED_DOCS_JSON" ]; then
             echo "has_changes=true" >> $GITHUB_OUTPUT
             if [ -n "$CHANGED_DIR" ]; then
               echo "Changed files in Documentation/${{ matrix.dir }}:"
               echo "$CHANGED_DIR"
+            fi
+            if [ -n "$CHANGED_SNIPPETS" ]; then
+              echo "Changed files in Documentation/snippets/${{ matrix.dir }}:"
+              echo "$CHANGED_SNIPPETS"
+            fi
+            if [ -n "$CHANGED_SHARED" ]; then
+              echo "Changed files in Documentation/snippets/shared:"
+              echo "$CHANGED_SHARED"
             fi
             if [ -n "$CHANGED_DOCS_JSON" ]; then
               echo "docs.json changed - will sync product navigation"
             fi
           else
             echo "has_changes=false" >> $GITHUB_OUTPUT
-            echo "No changes in Documentation/${{ matrix.dir }} or docs.json"
+            echo "No changes in Documentation/${{ matrix.dir }}, snippets/${{ matrix.dir }}, snippets/shared, or docs.json"
           fi
 
       # Generate token for app-based auth (DT_Trainer, Lockbox)
@@ -161,6 +177,22 @@ jobs:
           # Copy updated docs from this repo
           mkdir -p target-repo/Documentation
           cp -r Documentation/${{ matrix.dir }} target-repo/Documentation/
+
+          # Sync product-specific snippets if they exist
+          if [ -d "Documentation/snippets/${{ matrix.dir }}" ]; then
+            echo "Syncing snippets for ${{ matrix.dir }}..."
+            rm -rf target-repo/Documentation/snippets/${{ matrix.dir }}
+            mkdir -p target-repo/Documentation/snippets
+            cp -r Documentation/snippets/${{ matrix.dir }} target-repo/Documentation/snippets/
+          fi
+
+          # Sync shared snippets to all repos
+          if [ -d "Documentation/snippets/shared" ]; then
+            echo "Syncing shared snippets..."
+            rm -rf target-repo/Documentation/snippets/shared
+            mkdir -p target-repo/Documentation/snippets
+            cp -r Documentation/snippets/shared target-repo/Documentation/snippets/
+          fi
 
       - name: Sync docs.json to target repo
         if: steps.should_run.outputs.run == 'true' && steps.check_changes.outputs.has_changes == 'true'
