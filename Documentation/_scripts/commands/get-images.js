@@ -150,11 +150,19 @@ export default class GetImages extends Command {
 
     // Paths relative to the Documentation directory
     const docsRoot = join(__dirname, '..', '..');
-    const ossmDir = join(docsRoot, 'ossm');
 
-    // Find all MDX files
+    // Find all MDX files in all subdirectories (excluding _ and . prefixed dirs)
     this.log('Scanning for MDX files...');
-    const mdxFiles = this.findMdxFiles(ossmDir);
+    const entries = readdirSync(docsRoot, { withFileTypes: true });
+    let mdxFiles = [];
+    
+    for (const entry of entries) {
+      if (entry.isDirectory() && !entry.name.startsWith('_') && !entry.name.startsWith('.')) {
+        const subDir = join(docsRoot, entry.name);
+        mdxFiles.push(...this.findMdxFiles(subDir));
+      }
+    }
+    
     this.log(`Found ${mdxFiles.length} MDX files\n`);
 
     let totalExternalImages = 0;
