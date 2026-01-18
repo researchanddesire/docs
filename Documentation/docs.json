@@ -26,26 +26,222 @@
     "products": [
       {
         "product": "Shop",
-        "pages": [
-          "shop/placeholder"
+        "icon": "shop",
+        "groups": [
+          {
+            "group": "About",
+            "pages": [
+              "shop/about/index"
+            ]
+          },
+          {
+            "group": "FAQs",
+            "pages": [
+              "shop/faqs/index",
+              "shop/faqs/discreet-shipping"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "shop/troubleshooting/wifi"
+            ]
+          }
         ]
       },
       {
         "product": "Dashboard",
-        "pages": [
-          "dashboard/placeholder"
+        "icon": "gauge-high",
+        "groups": [
+          {
+            "group": "Quick Start",
+            "pages": [
+              "dashboard/quick-start/index",
+              "dashboard/quick-start/create-account",
+              {
+                "group": "Connections",
+                "pages": [
+                  "dashboard/quick-start/connections/index",
+                  "dashboard/quick-start/connections/switch-account",
+                  "dashboard/quick-start/connections/access-types",
+                  "dashboard/quick-start/connections/managing-partners"
+                ]
+              },
+              "dashboard/quick-start/partner-control"
+            ]
+          },
+          {
+            "group": "Leaderboards",
+            "pages": [
+              "dashboard/leaderboards/index",
+              "dashboard/leaderboards/global-rank",
+              "dashboard/leaderboards/levels",
+              "dashboard/leaderboards/points"
+            ]
+          },
+          {
+            "group": "Subscription",
+            "pages": [
+              "dashboard/subscription"
+            ]
+          },
+          {
+            "group": "Settings",
+            "pages": [
+              "dashboard/settings/index",
+              "dashboard/settings/account",
+              "dashboard/settings/email",
+              "dashboard/settings/public-links"
+            ]
+          },
+          {
+            "group": "FAQs",
+            "pages": [
+              "dashboard/faqs/index",
+              "dashboard/faqs/forgot-password",
+              "dashboard/faqs/ownership-disputes"
+            ]
+          },
+          {
+            "group": "Changelog",
+            "pages": [
+              "dashboard/changelog/index",
+              "dashboard/changelog/v1.0.0"
+            ]
+          }
         ]
       },
       {
         "product": "Deepthroat Trainer",
-        "pages": [
-          "dtt/placeholder"
+        "icon": "waveform-lines",
+        "groups": [
+          {
+            "group": "Quick Start",
+            "pages": [
+              "dtt/quick-start/index",
+              "dtt/quick-start/getting-started",
+              {
+                "group": "Pairing",
+                "pages": [
+                  "dtt/quick-start/pairing/index",
+                  "dtt/quick-start/pairing/pairing-guide",
+                  "dtt/quick-start/pairing/wifi-setup"
+                ]
+              },
+              "dtt/quick-start/using-toys",
+              "dtt/quick-start/checking-results",
+              "dtt/quick-start/templates"
+            ]
+          },
+          {
+            "group": "Training Modes",
+            "pages": [
+              "dtt/training-modes/index",
+              "dtt/training-modes/freeform",
+              "dtt/training-modes/repetition",
+              "dtt/training-modes/endurance",
+              "dtt/training-modes/bounce"
+            ]
+          },
+          {
+            "group": "Device Specs",
+            "pages": [
+              "dtt/specs/index",
+              "dtt/specs/charging",
+              "dtt/specs/accessory-port"
+            ]
+          },
+          {
+            "group": "Technical",
+            "pages": [
+              "dtt/technical/index",
+              "dtt/software-2.0-preview"
+            ]
+          },
+          {
+            "group": "Errors",
+            "pages": [
+              "dtt/errors/e-dtt-1"
+            ]
+          },
+          {
+            "group": "FAQs",
+            "pages": [
+              "dtt/faqs"
+            ]
+          }
         ]
       },
       {
         "product": "Chastity Lockbox",
-        "pages": [
-          "lkbx/placeholder"
+        "icon": "lock",
+        "groups": [
+          {
+            "group": "Quick Start",
+            "pages": [
+              "lkbx/quick-start/index",
+              "lkbx/quick-start/wifi-setup",
+              "lkbx/quick-start/pairing",
+              "lkbx/quick-start/start-a-lock",
+              "lkbx/quick-start/keyholder-guide"
+            ]
+          },
+          {
+            "group": "Using Your Lockbox",
+            "pages": [
+              "lkbx/using/index",
+              "lkbx/using/symbols",
+              "lkbx/using/hiding-time",
+              "lkbx/using/take-a-break",
+              "lkbx/using/public-voting",
+              "lkbx/using/emergency-unlock"
+            ]
+          },
+          {
+            "group": "Device States",
+            "pages": [
+              "lkbx/device-states/index",
+              "lkbx/device-states/calibration",
+              "lkbx/device-states/sleep-mode",
+              "lkbx/device-states/take-a-break",
+              "lkbx/device-states/permalock",
+              "lkbx/device-states/restarting",
+              "lkbx/device-states/emergency-unlock"
+            ]
+          },
+          {
+            "group": "Errors",
+            "pages": [
+              "lkbx/errors/index",
+              "lkbx/errors/e-lock-1",
+              "lkbx/errors/e-lock-2",
+              "lkbx/errors/e-lock-3",
+              "lkbx/errors/e-lock-10",
+              "lkbx/errors/e-lock-20"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "lkbx/support/index",
+              "lkbx/support/online-status",
+              "lkbx/support/flashing",
+              "lkbx/support/emergency-backplate",
+              "lkbx/support/alpha-updates"
+            ]
+          },
+          {
+            "group": "Technical",
+            "pages": [
+              "lkbx/technical/index"
+            ]
+          },
+          {
+            "group": "FAQs",
+            "pages": [
+              "lkbx/faqs"
+            ]
+          }
         ]
       },
       {
@@ -61,6 +257,17 @@
                 "pages": [
                   "ossm/guides/getting-started/index",
                   "ossm/guides/getting-started/quickstart",
+                  "ossm/guides/getting-started/video-intro",
+                  "ossm/guides/getting-started/web-flasher",
+                  {
+                    "group": "Ready to Play",
+                    "collapsed": true,
+                    "pages": [
+                      "ossm/guides/getting-started/ready-to-play/index",
+                      "ossm/guides/getting-started/ready-to-play/info-sheet",
+                      "ossm/guides/getting-started/ready-to-play/spec-sheet"
+                    ]
+                  },
                   {
                     "group": "Build Guide",
                     "collapsed": true,
@@ -176,6 +383,7 @@
                 "group": "Motor",
                 "pages": [
                   "ossm/Hardware/motor/standard-build-motor",
+                  "ossm/Hardware/motor/wiring-gold-motor",
                   {
                     "group": "Alternatives",
                     "pages": [
@@ -254,8 +462,20 @@
       },
       {
         "product": "Wireless Remote",
-        "pages": [
-          "radr/introduction"
+        "icon": "signal-stream",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "radr/quick-start"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "radr/device-support"
+            ]
+          }
         ]
       }
     ]

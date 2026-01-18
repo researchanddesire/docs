@@ -1,0 +1,42 @@
+---
+title: "Accessory Port"
+description: "Technical specifications for the 3.5mm accessory port and custom integration guidelines"
+---
+
+The Deepthroat Trainer features a 3.5mm accessory port for connecting external devices such as vibrating plugs and wands for positive training reinforcement.
+
+## Official accessories
+
+We currently offer vibrating plugs and wands designed to provide real-time feedback during training sessions. These accessories connect directly to the accessory port and respond automatically based on your performance.
+
+## Custom integrations
+
+If you want to integrate the accessory output into your own project, use the pinout diagram below for reference.
+
+### Port specifications
+
+The accessory port uses a 4-conductor TRRS-style 3.5mm jack with the following characteristics:
+
+| Parameter | Specification |
+|-----------|---------------|
+| Connector type | 3.5mm TRRS (4-conductor) |
+| Signal output | First ring (R1) |
+| Signal type | 3.3V PWM |
+| Maximum current | 200mA |
+| Behavior | PWM varies based on training performance |
+
+<Warning>
+When connecting external devices to the trainer, follow these safety guidelines:
+
+- **Never connect high voltage devices** directly to the trainer
+- Follow all applicable electrical safety precautions and local standards
+- Only attempt custom integrations if you have experience with electronics and understand the associated risks
+
+We officially support only our R+D accessories. Custom or third-party interfaces are used at your own risk.
+</Warning>
+
+### Pinout diagram
+
+<Frame caption="TRRS pinout diagram for the accessory port">
+  <img src="./_images/image (5).png" alt="Accessory port TRRS pinout diagram showing the 4-conductor configuration" />
+</Frame>
