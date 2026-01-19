@@ -1,0 +1,8 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["**/docs.json"],
+      "url": "https://mintlify.com/docs.json"
+    }
+  ]
+}
