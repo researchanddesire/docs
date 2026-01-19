@@ -480,8 +480,8 @@
     ]
   },
   "logo": {
-    "light": "/images/Standard-Colour.png",
-    "dark": "/images/Inverted-Colour.png"
+    "light": "/images/Standard-Colour.webp",
+    "dark": "/images/Inverted-Colour.webp"
   },
   "navbar": {
     "links": [
