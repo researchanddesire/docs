@@ -1,13 +1,24 @@
 name: Optimize Images
 
 on:
-  # Runs on "push" event for the "main" branch but only if there are changes to JPEG and PNG files.
+  # Runs on "push" event for the "main" branch but only if there are changes to image files.
   push:
     branches:
       - main
     paths:
       - "**.jpe?g"
       - "**.png"
+      - "**.gif"
+      - "**.webp"
+      - "**.avif"
+      - "**.svg"
+      - "**.ico"
+      - "**.bmp"
+      - "**.tif?(f)"
+
+  # Runs once per day at midnight UTC
+  schedule:
+    - cron: "0 0 * * *"
 
   # Allows manual workflow trigger from the Actions tab
   workflow_dispatch:

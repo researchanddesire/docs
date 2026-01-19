@@ -26,8 +26,7 @@
     "mint": "mint dev --port 3333",
     "mint:validate": "mint validate && mint broken-links",
     "mint:broken-links": "mint broken-links",
-    "optimize": "optimizt --verbose --webp . && node ../scripts/replace-with-webp.js --delete-originals",
-    "ossm": "node ./_scripts/run.js"
+    "optimize": "node ./_scripts/run.js get-images && optimizt --verbose --webp . && node ./_scripts/run.js replace-with-webp --delete-originals"
   },
   "oclif": {
     "bin": "ossm",
