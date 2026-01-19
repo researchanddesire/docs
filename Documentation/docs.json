@@ -12,13 +12,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Dashboard",
-          "href": "https://dashboard.researchanddesire.com"
-        },
-        {
           "anchor": "Store",
           "icon": "store",
           "href": "https://www.researchanddesire.com"
+        },
+        {
+          "anchor": "Discord",
+          "icon": "message",
+          "href": "https://discord.gg/DHTuY2AZYJ"
         }
       ]
     },
