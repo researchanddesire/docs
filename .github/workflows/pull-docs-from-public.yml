@@ -91,14 +91,29 @@ jobs:
             echo "repo=" >> $GITHUB_OUTPUT
           fi
 
-      - name: Check last commit message
+      - name: Check for recent sync to prevent loops
         id: check_commit
         run: |
+          # Get the timestamp of the last commit
+          LAST_COMMIT_TIME=$(git log -1 --format=%ct)
+          CURRENT_TIME=$(date +%s)
+          TIME_DIFF=$((CURRENT_TIME - LAST_COMMIT_TIME))
+          
+          # Get last commit message and author
           LAST_COMMIT_MSG=$(git log -1 --pretty=%B)
-          if echo "$LAST_COMMIT_MSG" | grep -qi "sync.*documentation"; then
-            echo "Last commit is a doc sync, skipping to prevent infinite loops"
+          LAST_COMMIT_AUTHOR=$(git log -1 --format=%an)
+          
+          # Only skip if:
+          # 1. Last commit was a sync (contains "sync" in message)
+          # 2. Last commit was made by our bot
+          # 3. Last commit was within the last 5 minutes (300 seconds)
+          if echo "$LAST_COMMIT_MSG" | grep -qi "sync" && \
+             echo "$LAST_COMMIT_AUTHOR" | grep -qi "rad-version-control" && \
+             [ "$TIME_DIFF" -lt 300 ]; then
+            echo "Recent sync commit detected (${TIME_DIFF}s ago), skipping to prevent loops"
             echo "skip=true" >> $GITHUB_OUTPUT
           else
+            echo "Proceeding with sync (last commit was ${TIME_DIFF}s ago by '$LAST_COMMIT_AUTHOR')"
             echo "skip=false" >> $GITHUB_OUTPUT
           fi
 
