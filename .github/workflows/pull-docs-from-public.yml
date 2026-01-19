@@ -119,13 +119,13 @@ jobs:
             "Open Source Sex Machine" \
             "Documentation/snippets/ossm"
 
-      # Sync rad-remote docs from ResearchAndDesire/rad-remote
-      - name: Sync rad-remote docs
+      # Sync radr-wireless-remote docs from ResearchAndDesire/radr-wireless-remote
+      - name: Sync radr-wireless-remote docs
         if: steps.check_commit.outputs.skip != 'true' && (steps.repo_to_sync.outputs.repo == '' || steps.repo_to_sync.outputs.repo == 'radr')
         run: |
           ./scripts/sync-docs.sh \
             "ResearchAndDesire" \
-            "rad-remote" \
+            "radr-wireless-remote" \
             "main" \
             "Documentation/radr" \
             "Documentation/radr" \

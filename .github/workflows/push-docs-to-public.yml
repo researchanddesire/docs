@@ -45,9 +45,9 @@ jobs:
             token_type: pat
             token_secret: OSSM_PUSH_TOKEN
             product_name: "Open Source Sex Machine"
-          # ResearchAndDesire/rad-remote - uses OSSM_PUSH_TOKEN
+          # ResearchAndDesire/radr-wireless-remote - uses OSSM_PUSH_TOKEN
           - name: radr
-            repo: ResearchAndDesire/rad-remote
+            repo: ResearchAndDesire/radr-wireless-remote
             branch: main
             dir: radr
             token_type: pat
@@ -148,7 +148,7 @@ jobs:
           owner: ResearchAndDesire
           repositories: ${{ matrix.target_repo }}
 
-      # Checkout target repo with PAT (OSSM, rad-remote)
+      # Checkout target repo with PAT (OSSM, radr-wireless-remote)
       - name: Checkout target repo (PAT)
         if: steps.should_run.outputs.run == 'true' && steps.check_changes.outputs.has_changes == 'true' && matrix.token_type == 'pat'
         uses: actions/checkout@v4
