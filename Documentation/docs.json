@@ -12,6 +12,10 @@
     "global": {
       "anchors": [
         {
+          "anchor": "Dashboard",
+          "href": "https://dashboard.researchanddesire.com"
+        },
+        {
           "anchor": "Store",
           "icon": "store",
           "href": "https://www.researchanddesire.com"
