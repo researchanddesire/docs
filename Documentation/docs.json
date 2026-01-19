@@ -12,16 +12,9 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
+          "anchor": "Store",
           "icon": "book-open-cover",
-          "hidden": true,
-          "href": "https://mintlify.com/docs"
-        },
-        {
-          "anchor": "Blog",
-          "icon": "newspaper",
-          "hidden": true,
-          "href": "https://mintlify.com/blog"
+          "href": "https://www.researchanddesire.com"
         }
       ]
     },
