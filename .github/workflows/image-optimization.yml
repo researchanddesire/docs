@@ -5,16 +5,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "**.jpe?g"
-      - "**.png"
-      - "**.gif"
-      - "**.webp"
-      - "**.avif"
-      - "**.svg"
-      - "**.ico"
-      - "**.bmp"
-      - "**.tif?(f)"
 
   # Runs once per day at midnight UTC
   schedule:
@@ -57,6 +47,7 @@ jobs:
           git add -A
           git config --local user.email "actions@github.com"
           git config --local user.name "github-actions[bot]"
-          git diff --quiet && git diff --staged --quiet \
-            || git commit -am "Optimize images: convert to WebP"
-          git push
+          if ! git diff --quiet || ! git diff --staged --quiet; then
+            git commit -am "Optimize images: convert to WebP"
+            git push
+          fi
