@@ -14,7 +14,7 @@ icon: "bolt-lightning"
 ></iframe>
 
 <Info>
-All active subscribers are automatically enrolled in the beta stream during this rollout. A dashboard toggle to switch between **Production**, **Beta**, and **Latest** streams is coming soon.
+All active subscribers are automatically enrolled in the beta stream during this rollout. A dashboard toggle to switch between <strong>Production</strong>, <strong>Beta</strong>, and <strong>Latest</strong> streams is coming soon.
 </Info>
 
 ## Core changes
@@ -22,77 +22,77 @@ All active subscribers are automatically enrolled in the beta stream during this
 ### Cloud-based calibration
 
 <Note>
-This feature is currently unavailable in beta but will return in the next patch.
+This feature is currently unavailable in beta and will return in the next patch.
 </Note>
 
 - Each device is calibrated once and saved to the cloud
-- Calibration data can be reassigned or manually adjusted in the dashboard
+- You can reassign or manually adjust calibration in the dashboard
 - No need to recalibrate when switching devices
 
 ## Training and segments
 
 ### Expanded segment limits
 
-The firmware now supports up to **1,000 segments per training session**, a significant increase from the previous limit of three. Dashboard UI for editing large segment sets is in development.
+The firmware now supports up to <strong>1,000 segments per training session</strong> (previously 3). Dashboard UI for editing large segment sets is in development.
 
-### Segment repeat feature
+### Segment repeat
 
 <Tip>
-**Ultra exclusive** — Build longer, more efficient training templates without manually duplicating segments.
+<strong>Ultra exclusive</strong> — Build longer, more efficient training templates without manual duplication.
 </Tip>
 
-- Set each segment to repeat up to 100 times
+- Set any segment to repeat up to 100 times
 - Total effective segments (including repeats) cannot exceed 100 for Ultra users
 
 ### Depth scaling
 
-Depth increase is now fully functional. Previous versions ignored depth scaling—this is now active across all training modes.
+Depth increase is now fully functional. Earlier versions ignored depth scaling — it is now active across all training modes.
 
 ### Segment-specific toy assignment
 
 <Note>
-This feature is pending implementation.
+Pending implementation.
 </Note>
 
-Each segment will soon support assigning a different toy. This enables mixed-material or size-based progression training within a single session.
+Assign different toys per segment to support mixed-material or size-based progression within a single session.
 
 ### Pass/fail grading
 
 <Tip>
-**Ultra exclusive** — Create accountability in your training sessions.
+<strong>Ultra exclusive</strong> — Add accountability to your training.
 </Tip>
 
-- Set a minimum passing grade (0–100%) for individual segments
-- Segments below the threshold must be repeated until passed
-- Add optional custom failure messages that display on your device
+- Set a minimum passing grade (0–100%) per segment
+- Segments below the threshold repeat until passed
+- Optional custom failure messages display on your device
 - Three consecutive failures on the same segment restart the entire training session
 
 <Warning>
-Failing a segment three times in a row will restart your entire training session from the beginning. Set achievable thresholds to avoid frustration.
+Failing a segment three times in a row restarts your session from the beginning. Set achievable thresholds to avoid frustration.
 </Warning>
 
 ## Customization and user control
 
 ### Device avatar system
 
-Players are represented by an on-screen icon during training sessions. The default avatar is a turtle.
+Players are represented by an on-screen icon during training sessions (default avatar: turtle).
 
 <CardGroup cols={2}>
-  <Card title="Customize your avatar" icon="user">
-    Members with **Ultra**, **Founder**, and **Pioneer** subscriptions can customize their avatar from **Settings > My Devices**.
+  <Card title="Customize your avatar" icon="user" href="/dashboard/settings">
+    Members with <strong>Ultra</strong>, <strong>Founder</strong>, and <strong>Pioneer</strong> subscriptions can customize their avatar from <strong>Settings &gt; My Devices</strong>.
   </Card>
-  <Card title="Unlock your first avatar" icon="gift">
-    Report a bug through the Dashboard by clicking **Help** (bottom right) and then **Contact Support** to unlock your first device avatar.
+  <Card title="Unlock your first avatar" icon="gift" href="/dashboard/faqs">
+    Report a bug through the dashboard by clicking <strong>Help</strong> (bottom right) and then <strong>Contact Support</strong> to unlock your first device avatar.
   </Card>
 </CardGroup>
 
 ### Full text customization
 
 <Note>
-Firmware-ready. Dashboard support pending—rolling out to Ultra members first.
+Firmware-ready. Dashboard support pending — rolling out to Ultra members first.
 </Note>
 
-Every on-screen text element can be edited, including:
+You’ll be able to edit every on-screen text element, including:
 - Rewards and punishments
 - Grades and scores
 - UI labels and prompts
@@ -100,64 +100,94 @@ Every on-screen text element can be edited, including:
 ### Hands-free mode
 
 <Tip>
-**Ultra exclusive** — Perfect for extended training sessions where you want uninterrupted progress.
+<strong>Ultra exclusive</strong> — Ideal for extended training sessions where you want uninterrupted progress.
 </Tip>
 
-Hands-free mode allows training to continue automatically without requiring continuous interaction. Enable it per training template in the dashboard.
+Hands-free mode continues training automatically without button presses. Enable it per template in the dashboard.
+
+<Steps>
+<Step title="Enable Hands-free Mode on a template">
+  Go to <strong>Deepthroat Trainer &gt; Templates</strong>, open a template, and toggle <strong>Hands-free</strong>.
+
+<Check>
+  Start the session and confirm segments advance without button input.
+  </Check>
+</Step>
+</Steps>
 
 ## Dashboard and UI improvements
 
 ### Training preview
 
-When fetching settings, you now see a preview of your session before starting:
+When fetching settings, you now see a pre-start summary:
 - Training name
 - Assigned toy
 - Total segments
 
-**Example:** "Joy's Training 101 — Toy: Pink 7-inch — 150 segments"
+<Info>
+Example: “Joy’s Training 101 — Toy: Pink 7-inch — 150 segments”.
+</Info>
 
 ### Performance improvements
 
-Frame rate increased to **120 Hz**, delivering smoother motion and improved responsiveness during training.
+Frame rate increased to <strong>120 Hz</strong> for smoother motion and improved responsiveness.
 
 ### Speed mode
 
 Speed mode replaces the freeform dial. It measures your reps per minute and visualizes performance as staying above the 50% mark on the dial.
 
+<Steps>
+<Step title="Verify Speed mode feedback">
+  Start a Speed mode session and maintain steady reps. Watch the dial — staying above the midpoint indicates you’re on pace.
+</Step>
+</Steps>
+
 ### Unified scoring system
 
 Freeform, Endurance, and Repetition modes now use the same scoring formula:
 
-```
+```text
 Score = Time in Zone / Active Time
 ```
 
-This creates a consistent experience across all training modes.
+This creates a consistent experience across training modes.
 
 ## Offline use and storage
 
 ### Offline playback
 
-Your device now replays the last downloaded settings even without Wi-Fi. Pre-load sessions before heading to locations without internet access, such as play parties.
+Your device now replays the last downloaded settings even without Wi‑Fi. Pre-load sessions before heading to locations without internet access.
+
+<Steps>
+<Step title="Prepare for offline use">
+  1. Connect to Wi‑Fi and fetch the latest settings
+  2. Start and exit the session once to confirm it loads locally
+  3. Disconnect Wi‑Fi and start the session again
+
+<Check>
+  The session runs with your last saved settings.
+  </Check>
+</Step>
+</Steps>
 
 ### Offline session saving
 
 <Note>
-This feature is pending implementation.
+Pending implementation.
 </Note>
 
-Store up to 100 segments locally and upload them when you reconnect to the internet.
+Store up to 100 segments locally and upload them when you reconnect.
 
 ## Coming soon
 
 <AccordionGroup>
   <Accordion title="Dashboard updates">
-    - Large-segment editing UI
-    - Cloud-based calibration tools
+    - Large‑segment editing UI
+    - Cloud‑based calibration tools
     - Customizable UI text editor
   </Accordion>
   <Accordion title="Training features">
-    - Segment-specific toy assignment
+    - Segment‑specific toy assignment
     - Offline session syncing
   </Accordion>
   <Accordion title="Rewards and unlocks">
@@ -165,3 +195,22 @@ Store up to 100 segments locally and upload them when you reconnect to the inter
     - Additional avatar customization options
   </Accordion>
 </AccordionGroup>
+
+## Related guides
+
+<CardGroup cols={2}>
+  <Card title="Ultra subscription benefits" icon="bolt" href="/dashboard/subscription">
+    Learn what’s included in Ultra and how to upgrade.
+  </Card>
+  <Card title="Deepthroat Trainer FAQs" icon="question-mark-circle" href="/deepthroat-trainer/faqs">
+    Answers to common questions about modes, segments, and more.
+  </Card>
+</CardGroup>
+
+<Tip>
+Want community-made training? Explore <strong>Shareable Templates</strong> to browse and import public templates.
+</Tip>
+
+<Card title="Browse Shareable Templates" icon="collection" href="/deepthroat-trainer/training-modes/shareable-templates">
+Find templates with creator info, difficulty, and descriptions.
+</Card>
