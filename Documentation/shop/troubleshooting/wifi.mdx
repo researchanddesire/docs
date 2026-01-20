@@ -1,59 +1,62 @@
 ---
-title: "Wi-Fi troubleshooting"
-description: "Resolve Wi-Fi connection issues for your Chastity Lockbox or Deepthroat Trainer"
+title: "Wi‑Fi troubleshooting"
+description: "Resolve Wi‑Fi connection issues for your Chastity Lockbox or Deepthroat Trainer"
 ---
 
-If your Chastity Lockbox or Deepthroat Trainer isn't connecting to Wi-Fi, use this guide to diagnose and resolve the issue.
+If your Chastity Lockbox or Deepthroat Trainer isn’t connecting to Wi‑Fi, use this guide to diagnose and fix the problem quickly.
 
 <Warning>
-R+D devices require a **2.4GHz Wi-Fi network**. They are not compatible with 5GHz connections.
+R+D devices require a 2.4 GHz Wi‑Fi network. They are not compatible with 5 GHz–only networks.
 </Warning>
 
 <Tip>
-Place the device next to your router while troubleshooting. This eliminates weak signal strength as a potential cause.
+Place the device next to your router while troubleshooting. This rules out weak signal strength and interference.
 </Tip>
 
-## Understanding Lockbox Wi-Fi indicators
+<Note>
+- Make sure your router provides internet access (not just local LAN access).
+- Guest or captive‑portal networks (those that open a web page to sign in) are not supported for device connectivity.
+</Note>
 
-The Chastity Lockbox displays its connection status through a Wi-Fi icon and a colored circle. Use the following guide to interpret what your device is telling you.
+## How the Lockbox shows Wi‑Fi status
 
-### Wi-Fi icon states
+The Chastity Lockbox uses a Wi‑Fi icon and a colored status circle on the display.
 
-| Icon state | Meaning |
-|------------|---------|
-| Wi-Fi icon **off** | Device is not connected to Wi-Fi |
-| Wi-Fi icon **on** (no line through it) | Device may be connected—check the colored circle for details |
+### Wi‑Fi icon
+
+- Wi‑Fi icon off: The device is not connected to Wi‑Fi.
+- Wi‑Fi icon on (no slash): The device may be connected — check the colored circle for details.
 
 ### Status circle colors
 
 <AccordionGroup>
 <Accordion title="No circle or icon off — Not connected">
 <Frame>
-<img src="./_images/o.webp" alt="Lockbox display showing Wi-Fi icon off" />
+<img src="./_images/o.webp" alt="Lockbox screen with Wi‑Fi icon turned off" />
 </Frame>
 
-The device has no Wi-Fi connection. Proceed to the troubleshooting steps below.
+The device has no Wi‑Fi connection. Proceed to the troubleshooting steps below.
 </Accordion>
 
 <Accordion title="Red circle — No internet access">
 <Frame>
-<img src="./_images/r.webp" alt="Lockbox display showing red status circle" />
+<img src="./_images/r.webp" alt="Lockbox screen showing a red status circle" />
 </Frame>
 
-The device is connected to your Wi-Fi network but cannot reach the internet. Your router may have connectivity issues, or the network may be blocking the device.
+The device is connected to your Wi‑Fi network but cannot reach the internet. Your router may be offline, or the network may be blocking the device.
 </Accordion>
 
 <Accordion title="Yellow circle — Connecting to dashboard">
 <Frame>
-<img src="./_images/y.webp" alt="Lockbox display showing yellow status circle" />
+<img src="./_images/y.webp" alt="Lockbox screen showing a yellow status circle" />
 </Frame>
 
-The device is online but hasn't logged into the dashboard yet. If the yellow circle is flashing, wait a moment for it to connect. If it persists, proceed to troubleshooting.
+The device is online but hasn’t logged into the dashboard yet. If yellow persists, continue with the troubleshooting steps.
 </Accordion>
 
 <Accordion title="Green circle — Fully connected">
 <Frame>
-<img src="./_images/222B3C8E-59DF-443A-858D-E6E4F95D5FB8_4_5005_c.webp" alt="Lockbox display showing green status circle" />
+<img src="./_images/222B3C8E-59DF-443A-858D-E6E4F95D5FB8_4_5005_c.webp" alt="Lockbox screen showing a green status circle" />
 </Frame>
 
 The device is fully connected and logged into the dashboard. No action needed.
@@ -62,29 +65,113 @@ The device is fully connected and logged into the dashboard. No action needed.
 
 ## Troubleshooting steps
 
-If your device isn't showing a green circle, work through these steps in order.
+Work through these steps in order. After each step, check your device’s status circle.
 
 <Steps>
-<Step title="Restart your router">
-Power cycle your router by unplugging it for 30 seconds, then plugging it back in. Once it's fully restarted, reconnect your device to the **2.4GHz** network.
+<Step title="Confirm network requirements">
+- Ensure you have a 2.4 GHz Wi‑Fi network available (many routers broadcast both 2.4 GHz and 5 GHz; connect to the 2.4 GHz SSID).
+- If your router combines 2.4/5 GHz under one name (band steering), temporarily split them into separate SSIDs and connect to the 2.4 GHz SSID.
+- Use WPA2‑PSK (AES) security or WPA2/WPA3 mixed mode. Avoid WPA3‑only, WEP, or WPA‑TKIP.
+- Disable guest/captive‑portal sign‑in for the device’s network.
+
+<Check>
+You should see the Wi‑Fi icon turn on. If a green circle does not appear yet, continue to the next step.
+</Check>
 </Step>
 
-<Step title="Verify your Wi-Fi password">
-Connect another device (like your phone) to the same 2.4GHz network to confirm the password is correct and the network is functioning.
+<Step title="Connect your device to Wi‑Fi">
+<Tabs>
+<Tab title="Chastity Lockbox">
+1. On the Lockbox, go to Settings → Wi‑Fi Settings.
+2. Scan the QR code shown on the Lockbox display with your phone.
+3. On your phone, select your 2.4 GHz network and enter the Wi‑Fi password.
+
+<Check>
+A green dot appears to the left of the Lockbox Wi‑Fi symbol when connected. If you don’t see the green dot, double‑check the password and try again.
+</Check>
+
+<Info>
+See Quick Start for setup basics: <a href="/chastity-lockbox/quick-start">Lockbox Quick Start</a>. FAQs also cover Wi‑Fi behavior and indicators: <a href="/chastity-lockbox/faqs">Lockbox FAQs</a>.
+</Info>
+</Tab>
+
+<Tab title="Deepthroat Trainer">
+1. Power on the Trainer. When prompted, hold the button to open the Settings page.
+2. The Trainer starts a temporary Wi‑Fi network named “Trainer Setup.”
+3. On your phone, join the “Trainer Setup” network. A setup page opens.
+4. Tap Configure Wi‑Fi, choose your 2.4 GHz network, and enter the password, then Save.
+5. The Trainer will restart and connect.
+
+<Check>
+After restart, the Trainer connects and downloads settings automatically. If it doesn’t connect, repeat the steps and confirm you selected a 2.4 GHz SSID.
+</Check>
+
+<Info>
+Detailed walkthrough: <a href="/deepthroat-trainer/quick-start/pairing-your-trainer/step-by-step-guide-for-connecting-trainer-to-wi-fi">Connect Trainer to Wi‑Fi</a>
+</Info>
+</Tab>
+</Tabs>
+</Step>
+
+<Step title="Restart your network equipment">
+Unplug your modem and router for 30 seconds, then plug them back in. Wait until Wi‑Fi is fully restored before retrying the connection.
+</Step>
+
+<Step title="Verify your Wi‑Fi password">
+Use your phone or laptop to join the same 2.4 GHz SSID and confirm the password is correct.
 </Step>
 
 <Step title="Test your internet connection">
-Ensure other devices on your network can access the internet. If they can't, the issue is with your network, not your R+D device.
+Make sure other devices on the network can browse the internet. If they cannot, fix your internet service first.
 </Step>
 
 <Step title="Try an alternative network">
-Connect your device to a different Wi-Fi network, such as a mobile hotspot. If it connects successfully, the issue is with your original network configuration.
+Test with a different network (for example, a mobile hotspot configured for 2.4 GHz). If your device connects elsewhere, the original router’s settings likely need adjustment.
+</Step>
+
+<Step title="Rule out device state issues">
+- Ensure the Lockbox is not in Deep Sleep (Deep Sleep turns off Wi‑Fi). Learn more: <a href="/chastity-lockbox/technical-documentation/device-states/sleep-mode">Sleep Modes</a>.
+- Restart the device and try again. Instructions: <a href="/chastity-lockbox/technical-documentation/device-states/restarting-device">Restarting Device</a>.
 </Step>
 </Steps>
 
-## Still having issues?
+## If you still can’t connect
 
-If the problem persists after completing all troubleshooting steps, contact our support team.
+Use these advanced checks to resolve stubborn issues.
+
+<AccordionGroup>
+<Accordion title="Router and access point settings">
+- Split 2.4 GHz and 5 GHz into separate SSIDs; disable band steering while testing.
+- Security: use WPA2‑PSK (AES) or WPA2/WPA3 mixed. Avoid WPA3‑only, WEP, or WPA‑TKIP.
+- Channel width: set 2.4 GHz to 20 MHz; use channels 1, 6, or 11 to reduce interference.
+- Make sure DHCP is enabled and your network does not require static IP configuration for clients.
+- Disable AP/client isolation and MAC address filtering for the device’s SSID (or add the device to the allowlist).
+- Ensure your firewall or parental‑control filters allow outbound HTTPS traffic to R+D services.
+</Accordion>
+
+<Accordion title="Lockbox shows a red circle">
+Your Wi‑Fi is connected but the internet is unreachable. Power‑cycle your modem/router, verify your ISP connection, and confirm that your network does not require web‑page sign‑in (captive portal) for access.
+</Accordion>
+
+<Accordion title="Lockbox shows a persistent yellow circle">
+Wait up to a minute after joining Wi‑Fi. If yellow persists, restart the device and the router, then reconnect on the 2.4 GHz SSID. If it still persists, try an alternate network (mobile hotspot) to rule out router configuration issues.
+</Accordion>
+</AccordionGroup>
+
+## Related guides
+
+<CardGroup cols={2}>
+<Card title="Lockbox Quick Start" icon="rocket" href="/chastity-lockbox/quick-start">
+Step‑by‑step setup for your Chastity Lockbox, including Wi‑Fi and pairing.
+</Card>
+<Card title="Trainer: Connect to Wi‑Fi" icon="wifi" href="/deepthroat-trainer/quick-start/pairing-your-trainer/step-by-step-guide-for-connecting-trainer-to-wi-fi">
+Walkthrough for putting your Trainer online via the setup portal.
+</Card>
+</CardGroup>
+
+## Need help?
+
+If the problem persists after completing all steps, contact our support team with details about your router model, SSID name (not the password), security mode, and what you’ve tried so far.
 
 <CardGroup cols={2}>
 <Card title="Email support" icon="envelope" href="mailto:support@researchanddesire.com">
