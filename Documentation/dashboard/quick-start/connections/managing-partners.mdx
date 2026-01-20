@@ -3,7 +3,7 @@ title: "Managing Partner Connections"
 description: "Learn how to view, manage, and create partner connections from your dashboard"
 ---
 
-Partner connections allow you to share device control with trusted users. Once connected, partners can view and control your devices based on the permissions you've granted.
+Partner connections let you safely share device control with trusted users. Once connected, partners can view and control only the devices and features you explicitly allow.
 
 <iframe
   className="w-full aspect-video rounded-xl"
@@ -14,64 +14,118 @@ Partner connections allow you to share device control with trusted users. Once c
   allowFullScreen
 ></iframe>
 
-## Accessing partner settings
+## Prerequisites
 
-Navigate to **Settings** → **Partners** in your dashboard to view all your active connections and manage partner relationships.
+- You have a dashboard account and are signed in
+- You know your partner’s username or their exact email address
+- Devices are registered to the correct account (see device ownership guidance in /dashboard/faqs/device-ownership-dispute-policy)
 
-## Managing existing connections
+<Note>
+Invitations work across mobile and desktop. The steps and screens are the same on both.
+</Note>
+
+## Access partner settings
+
+Go to Settings → Partners to view existing connections, send new invitations, and manage partner permissions.
+
+## Manage existing connections
 
 From the Partners page, you can:
 
-- View all active partner connections
-- See each partner's username and connection status
-- Remove a partner by selecting **Manage** on their connection
+- See all active partner connections and their status (Pending, Active, Removed)
+- View each partner’s username and what they can control
+- Open a connection’s details with Manage to edit or remove it
 
-## Creating new partner invitations
+<Warning>
+Removing a partner immediately revokes their access to your devices. This action is permanent—re-adding them requires sending a new invitation.
+</Warning>
+
+## Create a new partner invitation
 
 <Steps>
 <Step title="Open the Partners page">
-Navigate to **Settings** → **Partners** in your dashboard.
+Go to Settings → Partners in your dashboard.
 </Step>
 
-<Step title="Create a new invitation">
-Select the option to create a new invitation at the bottom of the page.
+<Step title="Start a new invitation">
+Select Create invitation at the bottom of the page.
 </Step>
 
-<Step title="Enter partner details">
+<Step title="Choose how to invite and enter details">
 You can invite a partner in two ways:
 
-- **Search by username** — Enter the username of someone already on the platform
-- **Invite by email** — Enter the exact email address of the person you want to invite
+- Search by username — Enter the username of someone already on the platform
+- Invite by email — Enter the exact email address of the person you want to invite
 
 <Warning>
-Email search requires an exact match. Partial email addresses will not work. If the person isn't already registered, they'll receive an invitation to join the platform.
+Email search requires an exact match. Partial emails will not return results. If the email isn’t registered, we’ll send an invitation to join the platform.
 </Warning>
+</Step>
+
+<Step title="Send invitation and wait for acceptance">
+Send the invite. Your partner will receive an in-app notification (and an email if they’ve enabled Sharing Events in /dashboard/settings/email-preferences). The connection becomes Active once they accept.
+
+<Check>
+You’ll see the new entry listed with status Pending until your partner accepts.
+</Check>
 </Step>
 </Steps>
 
-## Understanding partner roles
+## Understand partner roles
 
-The platform uses a device owner and controller model:
+The platform uses a device owner/controller model:
 
-- **Device owner** — Registers devices on their account and grants access to partners
-- **Controller** — Receives permission to view and control the device owner's devices
+- Device owner — Registers devices on their account and grants access to partners
+- Controller — Receives permission to view and control the owner’s devices per granted scope
 
 <Tip>
-Controllers can switch to view a device owner's account at any time by selecting the account name in the top-left corner of the dashboard. This allows them to access and control shared devices.
+As a controller, you can switch to the owner’s account view at any time by selecting the account name in the top-left corner of the dashboard. This lets you access and control the shared devices without logging out.
 </Tip>
 
+<Info>
+For Lockbox users: enabling Give Up Control hands full control to your assigned partner and disables your own lock actions. See details in /chastity-lockbox/faqs.
+</Info>
+
+## Remove a partner
+
+- Open Settings → Partners
+- Select Manage on the connection
+- Choose Remove partner and confirm
+
+<Check>
+Once removed, the partner no longer sees your devices or controls. If needed later, send a new invitation.
+</Check>
+
+## What your partner sees
+
+- A notification to accept or decline your invitation
+- Your account available in the top-left account switcher after acceptance
+- Only the devices and controls you’ve shared with them
+
+## Troubleshooting
+
 <AccordionGroup>
-<Accordion title="Video transcript">
-0:00 Hey there, welcome to the dashboard. If you're here, you finished the onboarding flow, and perhaps you connected to a partner. There's a chance you didn't though, so I want to make sure that you know how to connect with a partner even if you didn't do it during the onboarding stage.
+<Accordion title="I can’t find my partner by email">
+- Use the exact email address. Partial matches won’t work.
+- If they’re new, invite them by email so they receive a sign‑up link and can accept after registration.
+</Accordion>
 
-0:14 I'll be showing you on desktop, but the flow is the same on mobile. Inside of the navigation, underneath settings, I'll click on partners. Here, I'll see all my actions. In this case, Delirious Leather is the individual that I invited and had join to be my top during the previous video.
+<Accordion title="My partner accepted but can’t control the device">
+- Confirm the device is registered to the owner’s account (see /dashboard/faqs/device-ownership-dispute-policy)
+- Refresh the dashboard after acceptance
+- For Lockbox, make sure the correct account has control (see Give Up Control in /chastity-lockbox/faqs)
+</Accordion>
 
-0:35 I can manage this connection, removing them as my partner, or on the bottom, I can create a new invitation. Don't forget, inside of this search, I can enter the username of anybody on the dashboard, or I can specify an exact email. That exact email will either invite a new person to join the dashboard and be my partner, or, if they are already on the platform, it will find their username.
-
-0:59 We don't search by partial email, it must be exact, so make sure you get everything correct. This is the account that is the bottom, in this case, so the intended use is that this bottom will register devices, and then other tops can control them. Again, that phrasing doesn't align with how we've designed the platform, but it will help you understand who should have the devices on their account.
-
-1:23 I want to show you the same account from the top's perspective. So I'm going to move over to Delirious Leather's account. Just right here, you'll see I'm in Delirious Leather. If I go to settings, partners, I see the other user, Thematic Voyeur, with the indication you can control and modify this user's devices.
-
-1:44 Again, I can create new invitations to have different kind of relationships with different people. But, importantly, in the top left, this user can choose to view Thematic Voyeur's account at any point, effectively taking control of their devices. That's what this setting means. I'll talk about that more in a future video.
+<Accordion title="I don’t see the invitation status updating">
+- Check your connection’s status on Settings → Partners
+- Ask your partner to refresh and look for the in‑app notification
+- Make sure Sharing Events notifications are enabled in /dashboard/settings/email-preferences if you expect email alerts
 </Accordion>
 </AccordionGroup>
+
+## Related
+
+- /dashboard/settings
+- /dashboard/settings/email-preferences
+- /dashboard/faqs/device-ownership-dispute-policy
+- /chastity-lockbox/faqs
