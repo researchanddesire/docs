@@ -1,58 +1,113 @@
 ---
-title: "E-Lock 10: Could Not Connect to Wi-Fi"
-description: "Troubleshoot Wi-Fi connection issues with your Chastity Lockbox when error E-LOCK-10 appears"
+title: "E‑LOCK‑10: Could Not Connect to Wi‑Fi"
+description: "Fix Wi‑Fi connection failures on your Chastity Lockbox when error E‑LOCK‑10 appears"
 ---
 
-Your Chastity Lockbox cannot establish a connection to your Wi-Fi network. This prevents the device from syncing with the web dashboard, receiving updates, and performing cloud-dependent functions.
+Error E‑LOCK‑10 means your Chastity Lockbox failed to join a Wi‑Fi network. Cloud features like the web dashboard, remote updates, and partner notifications won’t work until the device reconnects. The Lockbox still operates locally with its current settings.
 
 <Warning>
-Without a Wi-Fi connection, you cannot make changes through the web dashboard or receive remote updates. However, the device continues to operate based on its current settings.
+Without Wi‑Fi, you can’t make changes through the web dashboard or receive remote updates. The device continues to run based on its current state.
 </Warning>
 
 ## Common causes
 
-Several factors can prevent your device from connecting to Wi-Fi:
+- Incorrect Wi‑Fi credentials — The SSID or password is wrong or case doesn’t match
+- 2.4 GHz unavailable — The Lockbox requires a 2.4 GHz network (not 5 GHz only)
+- Weak signal — Distance, walls, metal, and appliances can interfere
+- Network type not supported — Captive portals, public hotspots, or enterprise networks can block IoT devices
+- Device is asleep — Deep Sleep turns Wi‑Fi off until you wake the device
+- Temporary glitch — A brief software or router hiccup
 
-- **Incorrect credentials** — The Wi-Fi password may be misspelled or case-sensitivity wasn't observed
-- **Weak signal** — The device is too far from the router or obstructed by walls
-- **Network outage** — Your Wi-Fi network is down or experiencing intermittent issues
-- **Incompatible network** — Enterprise, public, or captive portal networks often block IoT devices
-- **Temporary device glitch** — The Lockbox software encountered a transient error
-
-## How to fix this
+## How to fix it
 
 <Steps>
-<Step title="Verify your Wi-Fi credentials">
-  Confirm you entered the correct network name (SSID) and password. Wi-Fi passwords are case-sensitive—double-check for typos and ensure caps lock is off.
+<Step title="Verify your Wi‑Fi name and password (2.4 GHz only)">
+Open your router’s 2.4 GHz network and confirm the exact SSID and password. Re‑enter them on the Lockbox.
 
-  <Tip>
-  Try typing your password in a notes app first to verify it's correct before entering it on the device.
-  </Tip>
+<Tip>
+Type the password in a notes app first to confirm punctuation and capitalization, then copy it into the Lockbox setup.
+</Tip>
+
+<Check>
+On the Lockbox display, a green dot appears to the left of the Wi‑Fi symbol when connected.
+</Check>
 </Step>
 
 <Step title="Test your network with another device">
-  Connect a phone or laptop to the same Wi-Fi network. If other devices can't connect either, restart your router and wait two minutes before retrying.
+Connect a phone or laptop to the same Wi‑Fi network using the same password. If it fails, restart your router and modem, wait 2 minutes, then try again.
 </Step>
 
 <Step title="Improve signal strength">
-  Move the Chastity Lockbox closer to your router. Walls, metal objects, and appliances can interfere with Wi-Fi signals. Aim for a clear line of sight when possible.
+Move the Lockbox closer to your router and remove obvious obstructions (large metal objects, appliances). Try connecting again.
 </Step>
 
-<Step title="Restart the Chastity Lockbox">
-  Power off the device completely, wait 60 seconds, then power it back on. Attempt to connect to Wi-Fi again after the device finishes booting.
+<Step title="Wake the device if it’s in Deep Sleep">
+Deep Sleep disables Wi‑Fi. Wake the Lockbox by pressing the left (back) button, then try reconnecting.
+
+<Info>
+Learn more about sleep states in Sleep Mode.
+</Info>
 </Step>
 
-<Step title="Try a mobile hotspot">
-  Connect to your phone's mobile hotspot as a temporary network. If the device connects successfully, the issue is with your home network configuration rather than the Lockbox itself.
+<Step title="Reconfigure Wi‑Fi from the device menu">
+On the Lockbox, go to Settings → Wi‑Fi Settings. Scan the QR code with your phone and select your 2.4 GHz network to re‑enter credentials.
+
+<Check>
+After a successful join, you’ll see the green dot next to the Wi‑Fi symbol on the Lockbox.
+</Check>
+
+<Note>
+If your router broadcasts separate names for 2.4 GHz and 5 GHz, choose the 2.4 GHz SSID.
+</Note>
 </Step>
 
-<Step title="Check for firmware updates">
-  If you can establish any internet connection, check for available firmware updates. Updates often include connectivity improvements and bug fixes.
+<Step title="Restart the Lockbox">
+If the error persists, restart the device to clear transient issues: press and hold the Lock/Enter button for 7 seconds, or go to Settings → Restart Device.
+</Step>
+
+<Step title="Try a mobile hotspot (isolation test)">
+Create a temporary hotspot on your phone and connect the Lockbox to it. If it connects here, the issue is with your home network configuration.
+
+<Warning>
+Avoid public hotspots or networks that require a browser sign‑in (captive portals). These are not supported for the Lockbox.
+</Warning>
 </Step>
 </Steps>
+
+## Confirm it’s fixed
+
+<Check>
+You’re connected when:
+
+- A green dot appears to the left of the Wi‑Fi symbol on the Lockbox display
+- The dashboard shows the device online after a brief delay
+</Check>
+
+## Related guides
+
+<CardGroup cols={2}>
+<Card title="Quick Start" icon="rocket" href="/chastity-lockbox/quick-start">
+Step‑by‑step setup, including Wi‑Fi requirements and basics.
+</Card>
+
+<Card title="Sleep Mode" icon="moon" href="/chastity-lockbox/technical-documentation/device-states/sleep-mode">
+Understand Automatic vs Deep Sleep and Wi‑Fi behavior.
+</Card>
+
+<Card title="Restarting Device" icon="power" href="/chastity-lockbox/technical-documentation/device-states/restarting-device">
+How to safely reboot the Lockbox.
+</Card>
+
+<Card title="Lockbox FAQs" icon="question" href="/chastity-lockbox/faqs">
+Connection indicators, setup flow, and common questions.
+</Card>
+</CardGroup>
 
 ## Still need help?
 
 <Info>
-If you've tried all the steps above and your device still won't connect, contact our support team. Include your device serial number and a description of your network setup to help us diagnose the issue faster.
+If you’ve tried all steps and still see E‑LOCK‑10, contact support. Include your device serial number, your router model, the network type (2.4 GHz SSID), and a photo of the error on the Lockbox display.
+
+- Contact form: /contact
+- General FAQs: /chastity-lockbox/faqs
 </Info>
