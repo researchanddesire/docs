@@ -156,6 +156,14 @@
             "group": "Technical",
             "pages": [
               "dtt/technical/introduction",
+              "dtt/technical/device-states",
+              "dtt/technical/button-controls",
+              "dtt/technical/led-feedback",
+              "dtt/technical/calibration",
+              "dtt/technical/sensor-limits",
+              "dtt/technical/offline-mode",
+              "dtt/technical/firmware-updates",
+              "dtt/technical/error-codes",
               "dtt/software-2.0-preview"
             ]
           },
@@ -360,7 +368,7 @@
               {
                 "group": "Standard Printed Parts",
                 "pages": [
-                  "ossm/Hardware/standard-printed-parts/contibution-guidelines",
+                  "ossm/Hardware/standard-printed-parts/contribution-guidelines",
                   {
                     "group": "Actuator Assembly",
                     "pages": [
@@ -542,6 +550,10 @@
                 "group": "Getting Started",
                 "pages": [
                   "ossm/Software/getting-started/introduction",
+                  "ossm/Software/getting-started/operating-modes",
+                  "ossm/Software/getting-started/safety-features",
+                  "ossm/Software/getting-started/configuration",
+                  "ossm/Software/getting-started/wifi-and-updates",
                   "ossm/Software/getting-started/PlatformIO",
                   "ossm/Software/getting-started/LED_Status",
                   "ossm/Software/getting-started/display"
@@ -550,7 +562,8 @@
               {
                 "group": "Communication",
                 "pages": [
-                  "ossm/Software/communication/ble"
+                  "ossm/Software/communication/ble",
+                  "ossm/Software/communication/gpio"
                 ]
               },
               {
@@ -567,17 +580,89 @@
       {
         "product": "Wireless Remote",
         "icon": "signal-stream",
-        "groups": [
+        "tabs": [
           {
-            "group": "Getting Started",
-            "pages": [
-              "radr/quick-start"
+            "tab": "Guides",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "radr/guides/getting-started/introduction",
+                  "radr/guides/getting-started/quick-start"
+                ]
+              },
+              {
+                "group": "User Guide",
+                "pages": [
+                  "radr/guides/user-guide/introduction",
+                  "radr/guides/user-guide/navigation-and-controls",
+                  "radr/guides/user-guide/ossm-controls",
+                  "radr/guides/user-guide/stroke-patterns",
+                  "radr/guides/user-guide/lovense-controls",
+                  "radr/guides/user-guide/device-scanning",
+                  "radr/guides/user-guide/settings-and-wifi"
+                ]
+              },
+              {
+                "group": "Reference",
+                "pages": [
+                  "radr/guides/reference/device-support"
+                ]
+              },
+              {
+                "group": "Housekeeping",
+                "pages": [
+                  {
+                    "group": "Open Source",
+                    "pages": [
+                      "radr/guides/housekeeping/open-source/introduction",
+                      "radr/guides/housekeeping/open-source/licence"
+                    ]
+                  }
+                ]
+              }
             ]
           },
           {
-            "group": "Reference",
-            "pages": [
-              "radr/device-support"
+            "tab": "Hardware",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "radr/Hardware/getting-started/introduction"
+                ]
+              },
+              {
+                "group": "Specifications",
+                "pages": [
+                  "radr/Hardware/specifications/feedback-and-indicators",
+                  "radr/Hardware/specifications/battery-and-power"
+                ]
+              },
+              {
+                "group": "Printed Parts",
+                "pages": [
+                  "radr/Hardware/printed-parts/introduction"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "Software",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "radr/Software/getting-started/introduction",
+                  "radr/Software/getting-started/web-flasher"
+                ]
+              },
+              {
+                "group": "Communication",
+                "pages": [
+                  "radr/Software/communication/ble"
+                ]
+              }
             ]
           }
         ]
@@ -1119,11 +1204,11 @@
     },
     {
       "source": "/research-and-desire-remote/quick-start",
-      "destination": "/radr/quick-start"
+      "destination": "/radr/guides/getting-started/quick-start"
     },
     {
       "source": "/research-and-desire-remote/device-support",
-      "destination": "/radr/device-support"
+      "destination": "/radr/guides/reference/device-support"
     },
     {
       "source": "/all-devices/troubleshooting",

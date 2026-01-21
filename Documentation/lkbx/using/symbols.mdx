@@ -106,12 +106,17 @@ Check the status indicator in the bottom-left corner of the Wi-Fi icon to see if
   <img src="./_images/wifi-flashing.webp" alt="Wi-Fi connected with flashing yellow status indicator" />
 </Frame>
 
-A flashing yellow indicator means your device is connected to the internet but not yet connected to the dashboard. Your device cannot receive commands in this state.
+A flashing yellow indicator means your device is connected to Wi-Fi but not yet connected to the dashboard server. Your device cannot receive keyholder commands in this state.
+
+<Info>
+The indicator checks two things: Wi-Fi connectivity AND server connection. Both must be working for the green indicator.
+</Info>
 
 This can happen if:
 
 - **Your device hasn't been paired** — Follow the [pairing guide](../quick-start/pairing) to complete setup.
-- **Your device just powered on** — Connection typically takes 15–30 seconds, but can take up to 2 minutes depending on your location.
+- **Your device just powered on** — Server connection typically takes 15–30 seconds, but can take up to 2 minutes depending on your location and network conditions.
+- **Server connectivity issue** — Temporary server maintenance or network routing issues.
 
 <Warning>
 If you've waited more than two minutes and still see the flashing yellow indicator, please contact support as this may indicate a server issue.
@@ -123,7 +128,14 @@ If you've waited more than two minutes and still see the flashing yellow indicat
   <img src="./_images/wifi-solid-green.webp" alt="Wi-Fi connected with solid green status indicator" />
 </Frame>
 
-A solid green indicator means you're online and connected to the dashboard. Your device is ready to receive commands instantly. Have fun!
+A solid green indicator means:
+1. Your device is connected to Wi-Fi
+2. Your device is connected to the dashboard server
+3. Your device is ready to receive keyholder commands instantly
+
+<Tip>
+Trust the device indicator over the dashboard status. The device shows real-time connectivity, while the dashboard may lag by up to 60 seconds.
+</Tip>
 
 ## Battery icon
 

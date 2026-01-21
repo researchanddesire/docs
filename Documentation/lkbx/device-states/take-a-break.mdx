@@ -39,7 +39,11 @@ The countdown timer starts immediately when you activate a break. Make sure you'
 
 ## Penalties for overdue locks
 
-If you fail to re-lock before the break timer expires, consequences depend on your account settings:
+If you fail to re-lock before the break timer expires:
+
+1. The device displays "**YOU ARE LATE!**" in red text along with how much time has passed
+2. Your Keyholder receives a "break_missed" notification
+3. Additional consequences depend on your account settings:
 
 <Tabs>
 <Tab title="Shame enabled">
@@ -52,6 +56,24 @@ If you fail to re-lock before the break timer expires, consequences depend on yo
   - Any consequences are at your Keyholder's discretion
 </Tab>
 </Tabs>
+
+<Warning>
+The overdue timer continues counting indefinitely until you re-lock. Your Keyholder can see exactly how long you were late.
+</Warning>
+
+## Break restrictions
+
+You may encounter these messages when trying to take a break:
+
+<AccordionGroup>
+<Accordion title="Breaks Not Enabled">
+Your current lock session doesn't have breaks enabled. Your Keyholder configured this session without the break feature. Contact them if you need breaks.
+</Accordion>
+
+<Accordion title="Too Soon for a Break">
+You've recently taken a break and must wait before taking another. The screen shows how long you need to wait. The waiting period (configured by your Keyholder) is measured from when your last break ended.
+</Accordion>
+</AccordionGroup>
 
 ## Best practices
 

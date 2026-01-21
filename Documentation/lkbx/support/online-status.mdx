@@ -3,7 +3,7 @@ title: "Check if your Chastity Lockbox is online or offline"
 description: "Learn how to verify your device's connection status using the dashboard indicator and device display"
 ---
 
-Understanding your Chastity Lockbox's connection status ensures you can send and receive settings reliably. This guide shows you how to check whether your device is online and connected to the dashboard.
+Knowing whether your Chastity Lockbox is online ensures you can send settings and receive updates reliably. This guide shows two quick ways to confirm status: from the dashboard and directly on the device.
 
 <iframe
   className="w-full aspect-video rounded-xl"
@@ -14,71 +14,137 @@ Understanding your Chastity Lockbox's connection status ensures you can send and
   allowFullScreen
 ></iframe>
 
+<Info>
+Before you start: make sure your device is paired to your account and powered on. If you haven’t paired yet, see <a href="/lkbx/quick-start/pairing">Step 2: Pair your Lockbox to your account</a>.
+</Info>
+
 ## Check the dashboard indicator
 
-The quickest way to verify your device's status is through the dashboard:
+Use the dashboard to confirm your device is connected to your account and currently online.
 
-1. Log into your account and navigate to **Settings > My Devices** to confirm your lockbox is paired
-2. Go to the **Chastity Lockbox home page**
-3. Look for the **online/offline indicator** in the bottom left corner
+<Steps>
+<Step title="Confirm the device is paired">
+Sign in to the dashboard and go to <strong>Settings → Devices</strong>. Verify your Lockbox appears as paired.
+
+<Check>
+You should see your Lockbox listed with its ID.
+</Check>
+</Step>
+
+<Step title="Open the Chastity Lockbox home page">
+Navigate to the Lockbox home in the dashboard.
+</Step>
+
+<Step title="Find the online/offline indicator">
+Look for the connection indicator in the bottom-left corner of the page. When your device is online, the dashboard will show "Online"; when not connected, it will show "Offline".
 
 <Note>
-The dashboard indicator may take up to 60 seconds to update. No page refresh is required—it syncs automatically.
+The dashboard status may take up to 60 seconds to update after your device connects. No page refresh is required—it syncs automatically.
 </Note>
+</Step>
+</Steps>
 
-## Check the device display
+## Check the device display (real-time)
 
-Your lockbox display provides real-time connection feedback:
+Your device display shows real-time connectivity and is the most accurate source of truth.
 
-1. **Wake the device** from sleep mode by powering it on
-2. **Wait for Wi-Fi** to connect (the Wi-Fi icon will appear)
-3. **Watch the status indicator** below the Wi-Fi icon in the bottom left corner
+<Steps>
+<Step title="Wake the device">
+Power on the Lockbox or wake it from sleep.
+</Step>
+
+<Step title="Wait for Wi‑Fi">
+When Wi‑Fi connects, the Wi‑Fi icon appears.
+</Step>
+
+<Step title="Read the status indicator">
+Look for the small round status indicator next to the Wi‑Fi icon (usually to its left) on the device display.
+
+<Check>
+A solid green dot next to the Wi‑Fi icon means the device is online and connected.
+</Check>
+</Step>
+</Steps>
 
 ### Status indicator meanings
 
-| Indicator | Status |
-|-----------|--------|
-| Yellow flashing dot | Connecting to dashboard |
-| Solid green dot | Online and connected |
-| No indicator | Offline or in sleep mode |
+- Flashing yellow dot: connecting to the dashboard
+- Solid green dot: online and connected
+- No dot visible: offline, or the device is asleep (wake it to check again)
 
 <Tip>
-Always trust the status indicator on your device display over the dashboard indicator. The device shows real-time status, while the dashboard may have a slight delay.
+Trust the device display over the dashboard indicator. The device shows live status; the dashboard can lag by up to a minute.
 </Tip>
+
+<Info>
+About sleep modes: in <a href="/chastity-lockbox/technical-documentation/device-states/sleep-mode">Automatic Sleep</a> the device may dim the screen but typically stays connected; in <strong>Deep Sleep</strong> Wi‑Fi is turned off until you wake the device.
+</Info>
 
 ## Troubleshooting
 
-If your device shows offline status:
+If your device shows offline status or the dashboard says "Offline":
 
-- Verify your Wi-Fi network is working
-- Ensure the device is awake and not in sleep mode
-- Check that the Wi-Fi icon appears on the device display
+- Make sure the device is awake and the Wi‑Fi icon appears
+- Move the device closer to your router or try a different network
+- Reconnect Wi‑Fi from the device menu (see Quick Start Step 1)
 - Wait up to 60 seconds for the dashboard to sync
+- Restart the device if needed
+
+<AccordionGroup>
+<Accordion title="Reconnect Wi‑Fi">
+Go to the device menu and run Wi‑Fi setup again. If you still can’t connect, see <a href="/all-devices/troubleshooting/wi-fi-trouble-shooting">Wi‑Fi Trouble Shooting</a>.
+</Accordion>
+
+<Accordion title="The Wi‑Fi icon never appears">
+- Verify your network credentials
+- Try a 2.4 GHz network if available
+- Power cycle your router
+- Restart the Lockbox (see <a href="/chastity-lockbox/technical-documentation/device-states/restarting-device">Restarting Device</a>)
+</Accordion>
+
+<Accordion title="The device might be asleep">
+If you enabled Deep Sleep, Wi‑Fi is off until you wake the device. See <a href="/chastity-lockbox/technical-documentation/device-states/sleep-mode">Sleep Mode</a>.
+</Accordion>
+
+<Accordion title="Still offline after restart">
+If the device remains offline after a restart and Wi‑Fi reconnection, check for Wi‑Fi related errors (e.g., E‑Lock 10) under <a href="/chastity-lockbox/technical-documentation/device-errors/e-lock-10-could-not-connect-to-wi-fi">Device Errors</a>, or contact support.
+</Accordion>
+</AccordionGroup>
+
+<CardGroup cols={2}>
+<Card title="Quick Start" icon="rocket" href="/chastity-lockbox/quick-start">
+Set up Wi‑Fi, pair your device, and start a lock.
+</Card>
+
+<Card title="Sleep Mode" icon="moon" href="/chastity-lockbox/technical-documentation/device-states/sleep-mode">
+Understand Automatic vs Deep Sleep and connectivity.
+</Card>
+</CardGroup>
 
 <AccordionGroup>
 <Accordion title="Video transcript">
-**0:00** In this video I'll answer the question, how do I know if my device is online? Here in the dashboard I'm logged into an account that has a lockbox paired to it.
+**0:00** In this video I’ll answer the question, how do I know if my device is online? Here in the dashboard I’m logged into an account that has a lockbox paired to it.
 
-**0:11** You can check this in the Settings/My Devices page. I've gone to the Chastity lockbox home page, where I can see this offline online indicator.
+**0:11** You can check this in the Settings/Devices page. I’ve gone to the Chastity Lockbox home page, where I can see this offline/online indicator.
 
-**0:20** Right now, as you can see in the bottom left, my device is offline. Let me expand that, because it's in sleep mode and not connected to the internet.
+**0:20** Right now, as you can see in the bottom left, my device is offline. Let me expand that, because it’s in sleep mode and not connected to the internet.
 
-**0:31** What I'm going to do shortly is I'm going to turn on this device, and then I'm going to wait for Wi-Fi to connect.
+**0:31** What I’m going to do shortly is I’m going to turn on this device, and then I’m going to wait for Wi‑Fi to connect.
 
-**0:37** And finally, I'll watch the status indicator to determine if it's connected to the dashboard. The status indicator is below the Wi-Fi icon in the bottom left.
+**0:37** And finally, I’ll watch the status indicator to determine if it’s connected to the dashboard. The status indicator is near the Wi‑Fi icon on the device display.
 
-**0:48** It's over. It's little green or yellow flashing dot. Once that is turned solid green, I will be both online and connected to the dashboard.
+**0:48** It’s a little green or yellow flashing dot. Once that turns solid green, I will be both online and connected to the dashboard.
 
-**0:58** Let's go ahead and do that now. I'm going to power on my device, wake it up from sleep. You'll see that Wi-Fi is connected.
+**0:58** Let’s go ahead and do that now. I’m going to power on my device, wake it up from sleep. You’ll see that Wi‑Fi is connected.
 
-**1:06** And I have a yellow flashing dot in the top right, which has just turned solid green. And if I hang out here on the dashboard page for a second, it might take up to a minute for the dashboard to sync.
+**1:06** And I have a yellow flashing dot which has just turned solid green. If I hang out here on the dashboard page for a second, it might take up to a minute for the dashboard to sync.
 
-**1:18** No refresh is needed. However, you can refresh if you believe it's required. And within approximately 30 seconds, this will change from offline to online.
+**1:18** No refresh is needed. However, you can refresh if you believe it’s required. Within approximately 30 seconds, this will change from offline to online.
 
-**1:31** Perfect. There it is. So if you see the green status indicator, below the Wi-Fi icon, that means you are connected to the internet and also online, logged into the dashboard.
+**1:31** There it is. So if you see the green status indicator next to the Wi‑Fi icon, that means you are connected to the internet and also online, logged into the dashboard.
 
-**1:44** Your device is ready to receive settings. You can also look at this indicator here, but because there's a bit of lag on it, I would always trust the indicator in the top right, which I'll just point to again.
+**1:44** Your device is ready to receive settings. You can also look at this indicator here, but because there’s a bit of lag on it, I would always trust the indicator on the device display.
 
-**1:58** Trust this indicator right here. If that's green, you're definitely connected. Perfect. Enjoy.
+**1:58** Trust this indicator. If it’s green, you’re connected. Enjoy.
 </Accordion>
 </AccordionGroup>

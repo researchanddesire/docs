@@ -1,0 +1,143 @@
+---
+title: "Calibration"
+description: "How to calibrate your trainer for accurate position tracking"
+---
+
+Calibration teaches your trainer the range of motion for your specific setup. Proper calibration ensures accurate position tracking and consistent scoring across sessions.
+
+## When calibration is required
+
+Your trainer prompts for calibration when:
+- Using a new toy for the first time
+- Cloud calibration data isn't available for your current toy
+- You request recalibration from the dashboard
+
+<Info>
+With Software 2.0+, calibration data is stored in the cloud per-toy. Once calibrated, you won't need to recalibrate unless you change toys or reset the data.
+</Info>
+
+## The calibration process
+
+Calibration captures two key positions to define your training range:
+
+### Step 1: Minimum Position (Closest)
+
+The trainer prompts you to capture the **minimum position** — this is typically your maximum comfortable depth, closest to the sensor.
+
+1. Position yourself at your comfortable maximum depth
+2. Hold steady
+3. Press the button to capture
+
+<Warning>
+Choose a depth you can comfortably reach during training. Don't over-extend during calibration.
+</Warning>
+
+### Step 2: Maximum Position (Rest)
+
+Next, capture the **maximum position** — this is your rest or start position, furthest from the sensor.
+
+1. Return to your starting/rest position
+2. Hold steady
+3. Press the button to capture
+
+<Note>
+The trainer captures 100 samples at each position for accuracy. Hold still while pressing the button to get consistent readings.
+</Note>
+
+## Understanding calibration values
+
+| Position | Description | Typical Range |
+|----------|-------------|---------------|
+| **Minimum** | Closest comfortable depth | 2–8 cm from sensor |
+| **Maximum** | Rest/start position | 15–22 cm from sensor |
+| **Range** | Difference between positions | At least 0.8 cm required |
+
+The effective training range is the distance between these two positions. A larger range gives you more room for graduated training segments.
+
+## Types of calibration
+
+### Device-Level Calibration
+Local calibration stored on the device during a session. Used when:
+- Cloud calibration isn't available
+- You're training offline
+- Starting fresh without saved toy data
+
+### Toy-Level Calibration (Cloud)
+Calibration data stored in the cloud and associated with a specific toy:
+- Persists across sessions
+- Syncs automatically when online
+- Can be viewed and reset from the dashboard
+
+<Tip>
+Toy-level calibration is preferred because it remembers your settings. You only need to recalibrate when changing toys.
+</Tip>
+
+## Cloud calibration (Software 2.0+)
+
+With the latest firmware, calibration works with the cloud:
+
+1. When you calibrate, data is sent to the dashboard
+2. The calibration is associated with your selected toy
+3. Next time you use that toy, calibration loads automatically
+
+### Managing cloud calibration
+
+From the dashboard, you can:
+- View current calibration values for each toy
+- Reset calibration to force recalibration
+- Manually adjust values (if supported)
+
+<Note>
+Cloud calibration requires an internet connection during the calibration step. If offline, calibration is stored locally for that session only.
+</Note>
+
+## Calibration tips
+
+### For accurate calibration:
+- Use the same toy you'll train with
+- Hold steady during capture (don't rush)
+- Choose realistic, repeatable positions
+- Ensure the trainer is securely mounted
+
+### Avoid these common issues:
+- Moving while the button is pressed
+- Calibrating at extreme positions you can't sustain
+- Changing toy or mount position after calibration
+
+## Troubleshooting
+
+<AccordionGroup>
+<Accordion title="Calibration option isn't appearing">
+- You may be on firmware with cloud calibration enabled
+- Check if calibration data already exists for your toy
+- Try selecting a different toy or resetting calibration from the dashboard
+</Accordion>
+
+<Accordion title="Position readings seem wrong after calibration">
+- Recalibrate, ensuring you hold steady during capture
+- Check that the toy and mount haven't moved
+- Verify the sensor has a clear view (nothing blocking)
+</Accordion>
+
+<Accordion title="Calibration keeps being requested">
+- Check your internet connection for cloud sync
+- Ensure a toy is selected in your active template
+- The trainer may be using default values due to sync issues
+</Accordion>
+
+<Accordion title="Can I skip calibration?">
+If calibration data exists from a previous session, you can often skip to training. Long-press during the calibration prompt to skip (not recommended for accuracy).
+</Accordion>
+</AccordionGroup>
+
+## Related guides
+
+<CardGroup cols={2}>
+<Card title="Sensor Limits" icon="ruler" href="/dtt/technical/sensor-limits">
+Technical specifications for the distance sensor.
+</Card>
+
+<Card title="Software 2.0 Preview" icon="sparkles" href="/dtt/software-2.0-preview">
+Learn about cloud calibration and other new features.
+</Card>
+</CardGroup>

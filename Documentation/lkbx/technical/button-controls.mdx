@@ -1,0 +1,179 @@
+---
+title: "Button Controls"
+description: "Complete guide to button inputs, encoder navigation, and control functions on your Chastity Lockbox"
+---
+
+Your Chastity Lockbox has two physical buttons and a rotary encoder dial for navigation and control. This guide covers all input methods and their functions across different device states.
+
+## Physical controls
+
+Your device has three input methods:
+
+| Control | Location | Primary function |
+|---------|----------|-----------------|
+| Enter/Lock button | Right side | Confirm selections, start locks |
+| Back button | Left side | Cancel, go back, exit menus |
+| Rotary encoder | Center dial | Navigate menus, set timer duration |
+
+## Enter/Lock button
+
+The Enter button is your primary action button. Its function varies based on context:
+
+### Standard actions
+
+| Input | Action |
+|-------|--------|
+| Click | Confirm selection, advance to next screen |
+| Double-click | Same as click (for accessibility) |
+| Long press | Context-specific action (e.g., confirm calibration) |
+
+### While device is locked
+
+When your device is in a locked state, pressing the Enter button opens the lock menu where you can access options like Sleep, WiFi Settings, Take a Break, and Emergency Unlock.
+
+## Back button
+
+The Back button navigates backward through menus and cancels operations:
+
+| Input | Action |
+|-------|--------|
+| Click | Go back one screen, cancel current operation |
+| Double-click | Same as click (for accessibility) |
+| Long press | Reserved for future use |
+
+<Tip>
+If you're ever unsure where you are in the menu, pressing the Back button will return you to the previous screen without making changes.
+</Tip>
+
+## Hard reset
+
+If your device becomes unresponsive, you can force a restart using the hard reset procedure.
+
+<Steps>
+<Step title="Press and hold the Enter button">
+Press and hold the Enter/Lock button continuously.
+</Step>
+
+<Step title="Wait 10 seconds">
+Keep holding for a full 10 seconds. The device will restart automatically.
+</Step>
+
+<Step title="Release and wait">
+Release the button and wait for the device to complete its boot sequence.
+
+<Check>
+Your device should display the startup screen and return to normal operation.
+</Check>
+</Step>
+</Steps>
+
+<Warning>
+The hard reset is for unresponsive devices only. Your lock state is preserved through restarts, so you won't lose your session.
+</Warning>
+
+## Rotary encoder (dial)
+
+The rotary encoder dial in the center of the device is used for navigation and value selection:
+
+### In menus
+
+- **Turn clockwise**: Move down through menu options
+- **Turn counter-clockwise**: Move up through menu options
+
+The currently selected option is highlighted on screen.
+
+### In timer configuration
+
+When setting a lock duration, the encoder controls the time value:
+
+- **Turn clockwise**: Decrease duration
+- **Turn counter-clockwise**: Increase duration
+
+<Info>
+The encoder has acceleration enabled in timer mode—turning faster increases the rate of change, making it quicker to reach longer durations.
+</Info>
+
+## Button behavior during idle states
+
+Your device conserves power by entering idle states after periods of inactivity. Button behavior changes slightly:
+
+| Idle state | Button press effect |
+|------------|-------------------|
+| Screen dimmed (30s) | Wakes device, action is ignored |
+| Screen off (2min) | Wakes device, action is ignored |
+| Deep sleep (10min) | Wakes device from sleep |
+
+<Note>
+When waking from any idle state, the first button press only wakes the device. Press again to perform the intended action.
+</Note>
+
+## Context-specific behaviors
+
+### Main menu
+
+- **Encoder**: Select between Lock, Lock Forever, Settings, Sleep
+- **Enter**: Activate selected option
+- **Back**: No action (already at top level)
+
+### Settings menu
+
+- **Encoder**: Navigate settings options
+- **Enter**: Activate selected setting
+- **Back**: Return to main menu
+
+### Lock timer configuration
+
+- **Encoder**: Adjust lock duration (30 seconds to 1000 years)
+- **Enter**: Confirm duration and start lock
+- **Back**: Cancel and return to main menu
+
+### While locked
+
+- **Enter**: Open lock menu
+- **Back**: No action (prevents accidental menu access)
+
+### Lock menu (while locked)
+
+- **Encoder**: Navigate options
+- **Enter**: Activate selected option
+- **Back**: Close menu and return to lock screen
+
+## Troubleshooting
+
+<AccordionGroup>
+<Accordion title="Buttons don't respond">
+The device may be in an idle state. Press any button once to wake it, then try again.
+</Accordion>
+
+<Accordion title="Device is completely unresponsive">
+Try the hard reset: hold the Enter button for 10 seconds. If that doesn't work, connect the device to power and try again.
+</Accordion>
+
+<Accordion title="Encoder skips options">
+Turn the dial more slowly. The encoder has acceleration, so fast turns can skip multiple options.
+</Accordion>
+
+<Accordion title="Wrong button activates">
+After a firmware flash, calibration ensures buttons are correctly mapped. If buttons seem swapped, contact support to recalibrate.
+</Accordion>
+</AccordionGroup>
+
+## Related guides
+
+<CardGroup cols={2}>
+<Card title="Menu Structure" icon="list" href="./menu-structure">
+Complete guide to all menus and navigation paths.
+</Card>
+
+<Card title="Timer Duration Limits" icon="clock" href="./timer-duration-limits">
+Understand the full range of lock durations available.
+</Card>
+
+<Card title="Restarting Device" icon="rotate" href="../device-states/restarting">
+Standard restart procedures and troubleshooting.
+</Card>
+
+<Card title="Sleep Mode" icon="moon" href="../device-states/sleep-mode">
+How idle states and sleep affect your device.
+</Card>
+</CardGroup>

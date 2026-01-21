@@ -50,17 +50,41 @@ Calibration automatically detects and sets three critical parameters:
 ## Encountering the calibration screen
 
 <Steps>
-  <Step title="Follow the on-screen prompts">
-    The device will ask you to press specific buttons to identify your hardware configuration.
+  <Step title="Button calibration">
+    The device displays "Calibrating" and asks you to hold the Enter button. This identifies which physical pin corresponds to which button—some hardware variants have different configurations.
+    
+    Press and hold the Enter/Lock button (the right button) until the device acknowledges it.
   </Step>
-  <Step title="Wait for automatic completion">
-    The calibration process runs automatically once you've confirmed the button layout.
+  <Step title="Motor calibration">
+    The device displays "Calibrating Motor" and automatically tests the locking mechanism:
+    
+    1. The motor attempts to lock
+    2. Sensors verify the lock position
+    3. The motor attempts to unlock
+    4. Sensors verify the unlock position
+    
+    This determines if the motor direction needs to be inverted for your hardware.
+    
+    <Warning>
+    Do not turn off the device during motor calibration. The process takes approximately 6 seconds.
+    </Warning>
   </Step>
-  <Step title="Resume normal use">
-    After calibration completes, your device returns to normal operation. You won't see this screen again unless you update the firmware.
+  <Step title="Automatic restart">
+    After calibration completes successfully, the device automatically restarts and returns to normal operation.
+    
+    <Check>
+    You won't see the calibration screen again unless you reflash the firmware or perform a factory reset.
+    </Check>
   </Step>
 </Steps>
 
+## Calibration failures
+
+If calibration fails (motor doesn't reach expected positions), the device may:
+- Retry calibration automatically
+- Display an error requiring manual intervention
+- Need to be reflashed via the web flasher
+
 <Note>
-If you're having trouble with calibration or your device isn't responding as expected, contact customer support or reach out to your Keyholder for assistance.
+If you're having trouble with calibration or your device isn't responding as expected, contact customer support at support@researchanddesire.com.
 </Note>
