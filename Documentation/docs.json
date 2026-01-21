@@ -579,9 +579,10 @@
             "tab": "Tools",
             "groups": [
               {
-                "group": "Web Flasher",
+                "group": "Flashers",
                 "pages": [
-                  "ossm/tools/web-flasher"
+                  "ossm/tools/web-flasher",
+                  "ossm/tools/gold-motor-programming"
                 ]
               }
             ]
