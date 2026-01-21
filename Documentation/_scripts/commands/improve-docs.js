@@ -3,10 +3,23 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
-import { execSync, spawn } from 'node:child_process';
+import { execSync } from 'node:child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+/**
+ * Escape special characters for shell double-quoted strings
+ */
+function escapeShellArg(str) {
+  // Escape characters that have special meaning in double-quoted shell strings
+  return str
+    .replace(/\\/g, '\\\\')   // backslashes first
+    .replace(/"/g, '\\"')     // double quotes
+    .replace(/\$/g, '\\$')    // dollar signs
+    .replace(/`/g, '\\`')     // backticks
+    .replace(/!/g, '\\!');    // exclamation marks (history expansion)
+}
 
 // Content directories to scan
 const CONTENT_DIRS = ['ossm', 'dtt', 'lkbx', 'radr', 'dashboard', 'shop'];
@@ -51,7 +64,7 @@ export default class ImproveDocs extends Command {
     }),
     'ask-model': Flags.string({
       description: 'Model to use for quality check',
-      default: 'auto',
+      default: 'sonnet-4.5',
     }),
   };
 
@@ -94,18 +107,19 @@ export default class ImproveDocs extends Command {
 Check for:
 - Grammar and spelling errors  
 - Unclear or confusing explanations
-- Missing information that would help readers
+- Redundant information that should be a link instead
 - Poor structure or organization
 - Inconsistent formatting
 
-If there are significant issues, respond with "YES" on the first line, then list the specific issues as bullet points.
+If there are significant issues, respond with "YES" on the first line, then list the general issues as bullet points. Don't be too specific, tell the next agent which areas are having issues.
 If the document is already good quality, respond with just "NO".`;
 
     try {
       this.log(`  ${ux.colorize('dim', 'checking')} ${ux.colorize('cyan', askModel)}...`);
 
+      const escapedPrompt = escapeShellArg(prompt);
       const result = execSync(
-        `cursor agent --mode ask --print --model ${askModel} --workspace "${docsRoot}" "${prompt}"`,
+        `cursor agent --mode ask --print --model ${askModel} --workspace "${docsRoot}" "${escapedPrompt}"`,
         {
           cwd: docsRoot,
           encoding: 'utf-8',
@@ -178,47 +192,25 @@ Fix any issues with:
 Keep the same general content and meaning, but make it better quality documentation.
 Preserve all MDX components, frontmatter, and special syntax exactly as they are.
 
+Do NOT offer information that you cannot independently verify, or find elsewhere in the documentation or on the internet.
+Rather, place a hidden "TODO" comment in the file where you didn't have sufficient information to rewrite.
+
 When rewriting apply these rules:
 
-@.cursor/rules.mdc
+@${docsRoot}/.cursor/rules.mdc
 `;
-    return new Promise((resolve, reject) => {
-      const child = spawn('cursor', [
-        'agent',
-        '--print',
-        '--model', model,
-        '--force',
-        '--workspace', docsRoot,
-        prompt
-      ], {
+    const escapedPrompt = escapeShellArg(prompt);
+    const result = execSync(
+      `cursor agent --print --model ${model} --force --workspace "${docsRoot}" "${escapedPrompt}"`,
+      {
         cwd: docsRoot,
-        stdio: ['pipe', 'pipe', 'pipe'],
-        timeout: 300000, // 5 minute timeout
-      });
+        encoding: 'utf-8',
+        maxBuffer: 10 * 1024 * 1024,
+        timeout: 600000, // 10 minute timeout
+      }
+    );
 
-      let stdout = '';
-      let stderr = '';
-
-      child.stdout.on('data', (data) => {
-        stdout += data.toString();
-      });
-
-      child.stderr.on('data', (data) => {
-        stderr += data.toString();
-      });
-
-      child.on('close', (code) => {
-        if (code === 0) {
-          resolve(stdout);
-        } else {
-          reject(new Error(`Process exited with code ${code}: ${stderr}`));
-        }
-      });
-
-      child.on('error', (error) => {
-        reject(error);
-      });
-    });
+    return result;
   }
 
   async run() {
