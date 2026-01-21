@@ -261,33 +261,51 @@ When rewriting apply these rules:
     const filesToRewrite = [];
 
     // ─────────────────────────────────────────────────────────────────────────
-    // PHASE 1: Check all files for quality issues
+    // PHASE 1: Check all files for quality issues (5 in parallel)
     // ─────────────────────────────────────────────────────────────────────────
-    this.log(ux.colorize('bold', '📋 Phase 1: Checking all files...\n'));
+    this.log(ux.colorize('bold', '📋 Phase 1: Checking all files (5 in parallel)...\n'));
 
-    for (const file of mdxFiles) {
-      stats.checked++;
+    const PARALLEL_CHECKS = 5;
 
-      this.log(`${ux.colorize('dim', `[${stats.checked}/${mdxFiles.length}]`)} ${ux.colorize('white', file)}`);
+    for (let i = 0; i < mdxFiles.length; i += PARALLEL_CHECKS) {
+      const batch = mdxFiles.slice(i, i + PARALLEL_CHECKS);
+      const batchStart = i + 1;
+      const batchEnd = Math.min(i + PARALLEL_CHECKS, mdxFiles.length);
 
-      try {
-        const { needsWork, issues } = await this.checkDocumentQuality(file, flags['ask-model'], docsRoot, flags.verbose);
+      this.log(`${ux.colorize('dim', `[${batchStart}-${batchEnd}/${mdxFiles.length}]`)} Checking ${batch.length} files...`);
 
-        if (!needsWork) {
-          this.log(`  ${ux.colorize('green', 'ok')}`);
+      const checkPromises = batch.map(async (file) => {
+        try {
+          const { needsWork, issues } = await this.checkDocumentQuality(file, flags['ask-model'], docsRoot, flags.verbose);
+          return { file, needsWork, issues, error: null };
+        } catch (error) {
+          return { file, needsWork: false, issues: null, error };
+        }
+      });
+
+      const results = await Promise.all(checkPromises);
+
+      // Process results
+      for (const { file, needsWork, issues, error } of results) {
+        stats.checked++;
+
+        if (error) {
+          this.log(`  ${ux.colorize('white', file)} ${ux.colorize('red', 'error:')} ${error.message}`);
+          stats.errors++;
+        } else if (!needsWork) {
+          this.log(`  ${ux.colorize('white', file)} ${ux.colorize('green', 'ok')}`);
           stats.skipped++;
         } else {
-          this.log(`  ${ux.colorize('yellow', 'needs work')}`);
+          this.log(`  ${ux.colorize('white', file)} ${ux.colorize('yellow', 'needs work')}`);
           stats.needsImprovement++;
           filesToRewrite.push({ file, issues });
         }
-      } catch (error) {
-        this.log(`  ${ux.colorize('red', 'error:')} ${error.message}`);
-        stats.errors++;
       }
 
-      // Small delay between checks to avoid rate limiting
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      // Small delay between batches to avoid rate limiting
+      if (i + PARALLEL_CHECKS < mdxFiles.length) {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+      }
     }
 
     // Check summary after phase 1
