@@ -574,6 +574,18 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "Tools",
+            "groups": [
+              {
+                "group": "Flashers",
+                "pages": [
+                  "ossm/tools/web-flasher",
+                  "ossm/tools/gold-motor-programming"
+                ]
+              }
+            ]
           }
         ]
       },
