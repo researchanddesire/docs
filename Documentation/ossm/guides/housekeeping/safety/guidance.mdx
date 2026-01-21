@@ -56,7 +56,7 @@ Some ideas cannot be made safe. If a concept relies on user perfection or softwa
   - Provide for power cutoff and an accessible stop action. If integrating with the wireless remote (RADR), plan for safe behavior on disconnect.
   
   <Note>
-  When the wireless remote loses connection, OSSM ramps down and pauses. Validate that your motion patterns recover safely after reconnect. See /research-and-desire-remote/quick-start.
+  When the wireless remote loses connection, OSSM ramps down and pauses. Validate that your motion patterns recover safely after reconnect. See <a href="/research-and-desire-remote/quick-start">RADR Quick Start</a>.
   </Note>
 
 - Document assumptions
@@ -64,9 +64,9 @@ Some ideas cannot be made safe. If a concept relies on user perfection or softwa
 - Protect the user
   - Enclose belts where practical. Chamfer or round edges. Avoid crevices that can catch skin or hair near the rail.
 - Electrical expectations
-  - Specify a quality, UL‑listed 24V supply and current requirements. See /open-source-sex-machine/ossm-electronics/ossm-pcb-spec-sheet.
+  - Specify a quality, UL‑listed 24V supply and current requirements. See <a href="/open-source-sex-machine/ossm-electronics/ossm-pcb-spec-sheet">PCB Spec Sheet</a>.
 - Firmware and homing
-  - Sensorless homing requires motion clearance. Instruct users to keep the rail area clear during homing and first power‑up. See /open-source-sex-machine/flashing-your-ossm.
+  - Sensorless homing requires motion clearance. Instruct users to keep the rail area clear during homing and first power‑up. See <a href="/open-source-sex-machine/flashing-your-ossm">Flashing your OSSM</a>.
 
 <Tip>
 Provide a one‑page "Safety & Limits" section with every design: maximum tested speed/stroke, intended materials and print settings, required covers/guards, and a pre‑use checklist.
@@ -86,11 +86,11 @@ Learn your printer’s strengths. For structural parts, use thicker walls, large
   - Set belt tension per design guidance; re‑check after initial run‑in.
   - Deburr and soften edges anywhere the device may contact skin.
 - Electrical and power
-  - Use a high‑quality 24V supply and verify polarity before powering on. See /open-source-sex-machine/ossm-electronics/ossm-pcb-spec-sheet.
-  - Route and strain‑relieve cables away from moving parts. Follow wiring guidance for motors at /open-source-sex-machine/ossm-electronics/wiring-your-gold-motor.
+  - Use a high‑quality 24V supply and verify polarity before powering on. See <a href="/open-source-sex-machine/ossm-electronics/ossm-pcb-spec-sheet">PCB Spec Sheet</a>.
+  - Route and strain‑relieve cables away from moving parts. Follow the <a href="/open-source-sex-machine/ossm-electronics/wiring-your-gold-motor">motor wiring guide</a>.
 - Firmware and controls
-  - Flash recommended firmware and confirm homing works before mounting toys. See /open-source-sex-machine/flashing-your-ossm.
-  - Verify the stop control works (wired remote or RADR stop) and is reachable during use. See /research-and-desire-remote/quick-start.
+  - Flash recommended firmware and confirm homing works before mounting toys. See <a href="/open-source-sex-machine/flashing-your-ossm">Flashing your OSSM</a>.
+  - Verify the stop control works (wired remote or RADR stop) and is reachable during use. See <a href="/research-and-desire-remote/quick-start">RADR Quick Start</a>.
 - Covers and guards
   - Install all safety covers before operation; never assume users will compensate for missing parts.
 
@@ -128,7 +128,7 @@ Never operate an OSSM with missing belt covers, loose wiring, or incomplete asse
 
 <Steps>
   <Step title="Understand the risks">
-    Read the OSSM safety notes at /open-source-sex-machine/ossm-ready-to-play/ossm-info-sheet-ready-to-play. Keep fingers, hair, and clothing away from belts and the rail.
+    Read the <a href="/open-source-sex-machine/ossm-ready-to-play/ossm-info-sheet-ready-to-play">OSSM safety notes</a>. Keep fingers, hair, and clothing away from belts and the rail.
   </Step>
   
   <Step title="Prepare your environment">
@@ -151,7 +151,7 @@ Never operate an OSSM with missing belt covers, loose wiring, or incomplete asse
     Keep the wired remote or RADR nearby, and ensure you can reach the power switch. If the wireless connection drops, OSSM will ramp down and pause.
 
   <Note>
-    See /research-and-desire-remote/quick-start for pairing, reconnect behavior, and control basics.
+    See <a href="/research-and-desire-remote/quick-start">RADR Quick Start</a> for pairing, reconnect behavior, and control basics.
   </Note>
   </Step>
   
@@ -186,8 +186,24 @@ If you completed the checks above, verified stop behavior, and can reach the pow
 
 ## Related references
 
-- OSSM safety notes and setup: /open-source-sex-machine/ossm-ready-to-play/ossm-info-sheet-ready-to-play
-- Flashing firmware: /open-source-sex-machine/flashing-your-ossm
-- PCB power specs (24V, current, protection): /open-source-sex-machine/ossm-electronics/ossm-pcb-spec-sheet
-- Motor wiring: /open-source-sex-machine/ossm-electronics/wiring-your-gold-motor
-- Wireless remote pairing and safety behavior: /research-and-desire-remote/quick-start
+<CardGroup cols={2}>
+<Card title="OSSM Info Sheet" icon="info" href="/open-source-sex-machine/ossm-ready-to-play/ossm-info-sheet-ready-to-play">
+  Safety notes and setup guidance.
+</Card>
+
+<Card title="Flashing your OSSM" icon="microchip" href="/open-source-sex-machine/flashing-your-ossm">
+  Firmware updates and flashing instructions.
+</Card>
+
+<Card title="PCB Spec Sheet" icon="bolt" href="/open-source-sex-machine/ossm-electronics/ossm-pcb-spec-sheet">
+  Power specs, 24V requirements, and protection details.
+</Card>
+
+<Card title="Motor Wiring" icon="plug" href="/open-source-sex-machine/ossm-electronics/wiring-your-gold-motor">
+  Wiring guide for Gold Motor.
+</Card>
+
+<Card title="RADR Quick Start" icon="radio" href="/research-and-desire-remote/quick-start">
+  Wireless remote pairing and safety behavior.
+</Card>
+</CardGroup>
