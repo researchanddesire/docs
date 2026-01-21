@@ -574,6 +574,17 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "Tools",
+            "groups": [
+              {
+                "group": "Web Flasher",
+                "pages": [
+                  "ossm/tools/web-flasher"
+                ]
+              }
+            ]
           }
         ]
       },
