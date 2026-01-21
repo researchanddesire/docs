@@ -50,7 +50,7 @@ Click the PlatformIO icon to open PlatformIO Home.
 </Step>
 
 <Step title="Open the OSSM project">
-From PlatformIO Home, select "Open Project" and choose the OSSM folder that contains <code>platformio.ini</code> (lowercase).
+From PlatformIO Home, select "Open Project" and choose the OSSM folder that contains `platformio.ini` (lowercase).
 
 <Frame>
 <img src="./_images/156352091-867148c0-e9bd-47fa-a4e9-7c99c8fce5b1.webp" alt="Open Project dialog in PlatformIO" />
@@ -61,12 +61,12 @@ From PlatformIO Home, select "Open Project" and choose the OSSM folder that cont
 </Frame>
 
 <Check>
-The Explorer should show <code>platformio.ini</code>, a <code>src/</code> folder, and a <code>lib/</code> folder.
+The Explorer should show `platformio.ini`, a `src/` folder, and a `lib/` folder.
 </Check>
 </Step>
 
 <Step title="Select the correct environment (if applicable)">
-If the project defines multiple environments in <code>platformio.ini</code> (e.g., different boards or build options), use the environment selector in the VS Code Status Bar (usually labeled with the active environment) to pick the one that matches your board.
+If the project defines multiple environments in `platformio.ini` (e.g., different boards or build options), use the environment selector in the VS Code Status Bar (usually labeled with the active environment) to pick the one that matches your board.
 
 <Note>
 If there is only one environment, PlatformIO selects it automatically.
@@ -74,7 +74,7 @@ If there is only one environment, PlatformIO selects it automatically.
 </Step>
 
 <Step title="Open the firmware entry point">
-Open <code>src/main.cpp</code> to review the firmware source.
+Open `src/main.cpp` to review the firmware source.
 
 <Frame>
 <img src="./_images/4a687ec9-8110-4500-8ee7-f51c692e2403.webp" alt="main.cpp file in the src directory" />
@@ -92,7 +92,7 @@ Use the ✓ (Build) icon to compile and the → (Upload) icon to flash the board
 - Ensure your board is connected and the correct serial port is selected.
 
 <Check>
-A successful build ends with <code>SUCCESS</code> in the terminal. A successful upload shows <code>Hash of data verified</code> or a similar confirmation from the ESP32 uploader.
+A successful build ends with `SUCCESS` in the terminal. A successful upload shows `Hash of data verified` or a similar confirmation from the ESP32 uploader.
 </Check>
 </Step>
 </Steps>
@@ -100,8 +100,8 @@ A successful build ends with <code>SUCCESS</code> in the terminal. A successful 
 ## Common tasks
 
 - Select serial port: PlatformIO → Quick Access → "Select Serial Port".
-- Monitor serial output: Click the plug icon (Monitor) in the Status Bar, or run <code>PlatformIO: Monitor</code> from the Command Palette.
-- Clean build: Run <code>PlatformIO: Clean</code> to remove compiled artifacts before rebuilding.
+- Monitor serial output: Click the plug icon (Monitor) in the Status Bar, or run `PlatformIO: Monitor` from the Command Palette.
+- Clean build: Run `PlatformIO: Clean` to remove compiled artifacts before rebuilding.
 
 ## Troubleshooting
 
@@ -111,7 +111,7 @@ The most common causes are an incorrect serial port or board configuration.
 
 ### Check your serial port
 
-On Windows, the board appears as <code>COMx</code>. On macOS/Linux, it appears under <code>/dev/tty.*</code> or <code>/dev/cu.*</code>.
+On Windows, the board appears as `COMx`. On macOS/Linux, it appears under `/dev/tty.*` or `/dev/cu.*`.
 
 Set the port in PlatformIO:
 
@@ -124,12 +124,12 @@ If you don't see a port, try a different USB cable, a different USB port, or ins
 </Tip>
 
 <Note>
-The reference OSSM board target is <strong>Espressif ESP32 Dev Module</strong>. Ensure your <code>platformio.ini</code> environment uses the correct <code>board</code> setting for ESP32.
+The reference OSSM board target is **Espressif ESP32 Dev Module**. Ensure your `platformio.ini` environment uses the correct `board` setting for ESP32.
 </Note>
 </Accordion>
 
 <Accordion title="Build fails due to library or platform updates">
-An update to a platform or library may introduce breaking changes. Pin versions in <code>platformio.ini</code> to restore a known-good configuration.
+An update to a platform or library may introduce breaking changes. Pin versions in `platformio.ini` to restore a known-good configuration.
 
 ```ini platformio.ini
 ; Example: pin the Espressif32 platform
@@ -144,7 +144,7 @@ Always check the project's release notes for the recommended platform and librar
 <Accordion title="Serial monitor shows gibberish">
 This usually indicates a baud rate mismatch.
 
-- Check <code>monitor_speed</code> in <code>platformio.ini</code> (e.g., <code>115200</code>)
+- Check `monitor_speed` in `platformio.ini` (e.g., `115200`)
 - Make sure the firmware and Serial Monitor use the same baud rate
 </Accordion>
 
