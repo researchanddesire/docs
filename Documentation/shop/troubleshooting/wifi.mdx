@@ -3,7 +3,7 @@ title: "Wi‑Fi troubleshooting"
 description: "Resolve Wi‑Fi connection issues for your Chastity Lockbox or Deepthroat Trainer"
 ---
 
-If your Chastity Lockbox or Deepthroat Trainer isn’t connecting to Wi‑Fi, use this guide to diagnose and fix the problem quickly.
+If your Chastity Lockbox or Deepthroat Trainer isn't connecting to Wi‑Fi, use this guide to diagnose and fix the problem quickly.
 
 <Warning>
 R+D devices require a 2.4 GHz Wi‑Fi network. They are not compatible with 5 GHz–only networks.
@@ -51,7 +51,7 @@ The device is connected to your Wi‑Fi network but cannot reach the internet. Y
 <img src="./_images/y.webp" alt="Lockbox screen showing a yellow status circle" />
 </Frame>
 
-The device is online but hasn’t logged into the dashboard yet. If yellow persists, continue with the troubleshooting steps.
+The device is online but hasn't logged into the dashboard yet. If yellow persists, continue with the troubleshooting steps.
 </Accordion>
 
 <Accordion title="Green circle — Fully connected">
@@ -65,14 +65,14 @@ The device is fully connected and logged into the dashboard. No action needed.
 
 ## Troubleshooting steps
 
-Work through these steps in order. After each step, check your device’s status circle.
+Work through these steps in order. After each step, check your device's status circle.
 
 <Steps>
 <Step title="Confirm network requirements">
 - Ensure you have a 2.4 GHz Wi‑Fi network available (many routers broadcast both 2.4 GHz and 5 GHz; connect to the 2.4 GHz SSID).
 - If your router combines 2.4/5 GHz under one name (band steering), temporarily split them into separate SSIDs and connect to the 2.4 GHz SSID.
 - Use WPA2‑PSK (AES) security or WPA2/WPA3 mixed mode. Avoid WPA3‑only, WEP, or WPA‑TKIP.
-- Disable guest/captive‑portal sign‑in for the device’s network.
+- Disable guest/captive‑portal sign‑in for the device's network.
 
 <Check>
 You should see the Wi‑Fi icon turn on. If a green circle does not appear yet, continue to the next step.
@@ -87,7 +87,7 @@ You should see the Wi‑Fi icon turn on. If a green circle does not appear yet, 
 3. On your phone, select your 2.4 GHz network and enter the Wi‑Fi password.
 
 <Check>
-A green dot appears to the left of the Lockbox Wi‑Fi symbol when connected. If you don’t see the green dot, double‑check the password and try again.
+A green dot appears to the left of the Lockbox Wi‑Fi symbol when connected. If you don't see the green dot, double‑check the password and try again.
 </Check>
 
 <Info>
@@ -97,13 +97,13 @@ See Quick Start for setup basics: <a href="/chastity-lockbox/quick-start">Lockbo
 
 <Tab title="Deepthroat Trainer">
 1. Power on the Trainer. When prompted, hold the button to open the Settings page.
-2. The Trainer starts a temporary Wi‑Fi network named “Trainer Setup.”
-3. On your phone, join the “Trainer Setup” network. A setup page opens.
+2. The Trainer starts a temporary Wi‑Fi network named "Trainer Setup."
+3. On your phone, join the "Trainer Setup" network. A setup page opens.
 4. Tap Configure Wi‑Fi, choose your 2.4 GHz network, and enter the password, then Save.
 5. The Trainer will restart and connect.
 
 <Check>
-After restart, the Trainer connects and downloads settings automatically. If it doesn’t connect, repeat the steps and confirm you selected a 2.4 GHz SSID.
+After restart, the Trainer connects and downloads settings automatically. If it doesn't connect, repeat the steps and confirm you selected a 2.4 GHz SSID.
 </Check>
 
 <Info>
@@ -125,8 +125,34 @@ Use your phone or laptop to join the same 2.4 GHz SSID and confirm the password 
 Make sure other devices on the network can browse the internet. If they cannot, fix your internet service first.
 </Step>
 
-<Step title="Try an alternative network">
-Test with a different network (for example, a mobile hotspot configured for 2.4 GHz). If your device connects elsewhere, the original router’s settings likely need adjustment.
+<Step title="Try an alternative network (mobile hotspot)">
+Test with a mobile hotspot from your phone. If your device connects to the hotspot but not your home router, the router's settings likely need adjustment.
+
+<Warning>
+R+D devices require 2.4 GHz. Many modern phones default to 5 GHz for hotspots. Follow the steps below to enable 2.4 GHz on your phone.
+</Warning>
+
+<Tabs>
+<Tab title="iPhone">
+iPhones (12 and later) default to 5 GHz for Personal Hotspot, which R+D devices cannot use. To enable 2.4 GHz:
+
+1. Open **Settings** → **Personal Hotspot**
+2. Enable **Maximize Compatibility**
+3. Turn on the hotspot
+
+Without "Maximize Compatibility" enabled, your iPhone hotspot broadcasts at 5 GHz and R+D devices will not see it or connect.
+</Tab>
+
+<Tab title="Android">
+Most Android phones default to 2.4 GHz, but some newer models may use 5 GHz. To check or change:
+
+1. Open **Settings** → **Connections** (or **Network**) → **Mobile Hotspot**
+2. Tap **Configure** or the settings icon
+3. Look for **Band** or **AP Band** and select **2.4 GHz**
+
+Menu names vary by manufacturer. Samsung uses "Mobile Hotspot," Google Pixel uses "Hotspot & tethering."
+</Tab>
+</Tabs>
 </Step>
 
 <Step title="Rule out device state issues">
@@ -135,7 +161,7 @@ Test with a different network (for example, a mobile hotspot configured for 2.4 
 </Step>
 </Steps>
 
-## If you still can’t connect
+## If you still can't connect
 
 Use these advanced checks to resolve stubborn issues.
 
@@ -145,7 +171,7 @@ Use these advanced checks to resolve stubborn issues.
 - Security: use WPA2‑PSK (AES) or WPA2/WPA3 mixed. Avoid WPA3‑only, WEP, or WPA‑TKIP.
 - Channel width: set 2.4 GHz to 20 MHz; use channels 1, 6, or 11 to reduce interference.
 - Make sure DHCP is enabled and your network does not require static IP configuration for clients.
-- Disable AP/client isolation and MAC address filtering for the device’s SSID (or add the device to the allowlist).
+- Disable AP/client isolation and MAC address filtering for the device's SSID (or add the device to the allowlist).
 - Ensure your firewall or parental‑control filters allow outbound HTTPS traffic to R+D services.
 </Accordion>
 
@@ -171,7 +197,7 @@ Walkthrough for putting your Trainer online via the setup portal.
 
 ## Need help?
 
-If the problem persists after completing all steps, contact our support team with details about your router model, SSID name (not the password), security mode, and what you’ve tried so far.
+If the problem persists after completing all steps, contact our support team with details about your router model, SSID name (not the password), security mode, and what you've tried so far.
 
 <CardGroup cols={2}>
 <Card title="Email support" icon="envelope" href="mailto:support@researchanddesire.com">
