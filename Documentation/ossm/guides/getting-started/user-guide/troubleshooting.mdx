@@ -110,6 +110,46 @@ If you have a RADR wireless remote, you can continue using your OSSM while waiti
 </Accordion>
 </AccordionGroup>
 
+## Boot loops or display artifacts
+
+If your OSSM repeatedly restarts (boot loops) or shows corrupted characters, flickering, or visual glitches on the wired remote display, the wired remote board may be faulty.
+
+<AccordionGroup>
+<Accordion title="Identify the symptoms">
+**Symptoms:**
+- Device restarts repeatedly without completing the homing sequence
+- Display shows garbled text, flickering, or visual artifacts
+- Crashes or reboots occur when using the right knob (encoder)
+- Problems persist after trying different firmware versions
+
+**What to rule out first:**
+Before suspecting the wired remote board, try:
+
+1. **Different RJ45 cable** — A damaged cable can cause intermittent faults
+2. **Different power supply** — Voltage fluctuations can cause instability
+3. **Reflash firmware** — Corrupted firmware can cause unexpected behavior
+</Accordion>
+
+<Accordion title="Test without the wired remote">
+If you have a RADR wireless remote, you can isolate whether the wired remote is causing the issue:
+
+1. Power off the OSSM completely
+2. Disconnect the wired remote's RJ45 cable from the control board
+3. Power on the OSSM
+4. Connect via the RADR and test normal operation
+
+If the OSSM operates normally without the wired remote connected, the wired remote board is likely faulty.
+</Accordion>
+
+<Accordion title="Resolution">
+A wired remote board causing boot loops or display corruption indicates a hardware fault. Contact support to request a replacement wired remote board under warranty.
+
+<Tip>
+While waiting for a replacement, you can continue using your OSSM with a RADR wireless remote if you have one available.
+</Tip>
+</Accordion>
+</AccordionGroup>
+
 ## Still having issues?
 
 If you've worked through these troubleshooting steps and still have problems:
