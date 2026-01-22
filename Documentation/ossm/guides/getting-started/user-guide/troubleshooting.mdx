@@ -72,6 +72,50 @@ A properly tensioned belt should deflect slightly when pressed but return to pos
 </Accordion>
 </AccordionGroup>
 
+## Wired remote does not power on
+
+If the wired remote display stays dark when connected, the issue is usually connection timing or a loose cable.
+
+<AccordionGroup>
+<Accordion title="Connect the remote after powering on">
+The wired remote draws power from the control board. If you connect the remote before the board is powered, it may not initialize correctly.
+
+**Solution:**
+1. Disconnect the RJ45 cable from the control board
+2. Power on the OSSM using the 24V supply
+3. Wait for the control board to fully boot (LED indicators stabilize)
+4. Connect the wired remote's RJ45 cable firmly until it clicks
+
+<Tip>
+If the remote still doesn't light up, disconnect the 24V power, wait a few seconds, then reconnect and repeat the steps above.
+</Tip>
+</Accordion>
+
+<Accordion title="Check the RJ45 cable connection">
+A loose or partially seated cable can prevent power from reaching the remote.
+
+**Solution:**
+1. Disconnect the RJ45 cable from both ends
+2. Inspect the connectors for bent pins, debris, or damage
+3. Reconnect firmly at both the control board and the remote until you hear/feel a click
+4. Try a different RJ45 cable if available
+</Accordion>
+
+<Accordion title="Power cycle the system">
+If the remote worked previously but stopped, a simple power cycle often resolves the issue.
+
+**Solution:**
+1. Disconnect the 24V power supply from the control board
+2. Wait 5–10 seconds
+3. Reconnect the 24V power supply
+4. Allow the board to boot, then check if the remote display activates
+
+If the remote powers on after cycling, no further action is needed. Intermittent issues may indicate a marginal cable connection—try reseating or replacing the RJ45 cable.
+</Accordion>
+</AccordionGroup>
+
+---
+
 ## Wired remote lights up but speed control does not respond
 
 If the wired remote display illuminates but the left knob (speed potentiometer) has no effect, the potentiometer component may be faulty.
