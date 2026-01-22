@@ -242,7 +242,13 @@
           {
             "group": "Technical",
             "pages": [
-              "lkbx/technical/introduction"
+              "lkbx/technical/introduction",
+              "lkbx/technical/button-controls",
+              "lkbx/technical/idle-and-power-states",
+              "lkbx/technical/menu-structure",
+              "lkbx/technical/offline-mode",
+              "lkbx/technical/sensor-system",
+              "lkbx/technical/timer-duration-limits"
             ]
           },
           {
