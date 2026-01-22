@@ -61,6 +61,62 @@ To force an update check:
 
 There's no manual "check for updates" button — the check happens automatically on each startup when online.
 
+## Manual USB flashing
+
+If your Trainer can't receive OTA updates (due to connectivity issues or network restrictions), you can manually flash firmware using a USB cable and the Web Flasher.
+
+<Info>
+Use manual USB flashing when troubleshooting connectivity issues or when instructed by support. Most users won't need this—OTA updates handle everything automatically.
+</Info>
+
+### Prerequisites
+
+- A USB cable that supports **data transfer** (not just charging)
+- A computer with an available USB port
+- Google Chrome, Edge, or another Chromium-based browser
+
+### Flashing instructions
+
+<Steps>
+<Step title="Connect your Trainer">
+  Plug the USB cable into your Deepthroat Trainer and connect the other end to your computer.
+</Step>
+
+<Step title="Open the Web Flasher">
+  Navigate to [researchanddesire.com/DTT](https://researchanddesire.com/DTT) in your browser.
+</Step>
+
+<Step title="Select firmware options">
+  In the Web Flasher:
+  1. Select **Deepthroat Trainer** from the device dropdown
+  2. Select **Production** from the firmware stream dropdown
+</Step>
+
+<Step title="Connect to your device">
+  Click **Connect** and select your device from the list. Look for a device labeled:
+  - **UART Bridge**
+  - **USB JTAG** (or similar)
+  
+  <Warning>
+  If no device appears, verify your cable supports data transfer and try a different USB port.
+  </Warning>
+</Step>
+
+<Step title="Flash the firmware">
+  Click **Flash** to install the firmware. Wait for the process to complete.
+  
+  <Warning>
+  Do **not** enable "Erase device" unless specifically instructed by support. Erasing clears your Trainer ID and requires re-provisioning.
+  </Warning>
+</Step>
+</Steps>
+
+### After flashing
+
+Once the flash completes, your Trainer restarts with the new firmware. Connect to Wi-Fi to verify connectivity.
+
+If you see **E-DTT-1** ("No internet. Check firewall and router.") after connecting, this confirms a network restriction is blocking your device. Follow the <a href="/dtt/errors/e-dtt-1">E-DTT-1 troubleshooting guide</a> to resolve the issue.
+
 ## Update requirements
 
 | Requirement | Details |
