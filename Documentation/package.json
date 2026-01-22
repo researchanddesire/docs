@@ -24,7 +24,7 @@
   },
   "scripts": {
     "mint": "mint dev --port 3333",
-    "mint:validate": "mint validate && mint broken-links",
+    "mint:validate": "mint validate && mint broken-links && mint a11y",
     "mint:broken-links": "mint broken-links",
     "optimize": "node ./_scripts/run.js get-images && optimizt --verbose --webp . && node ./_scripts/run.js replace-with-webp --delete-originals",
     "ossm": "node ./_scripts/run.js"

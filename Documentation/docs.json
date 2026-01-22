@@ -3,7 +3,7 @@
   "theme": "maple",
   "name": "Research And Desire Docs",
   "colors": {
-    "primary": "#01B2D0",
+    "primary": "#007B8A",
     "light": "#7EDFEF",
     "dark": "#036D7F"
   },
@@ -661,6 +661,12 @@
                 "pages": [
                   "radr/Hardware/specifications/feedback-and-indicators",
                   "radr/Hardware/specifications/battery-and-power"
+                ]
+              },
+              {
+                "group": "PCB",
+                "pages": [
+                  "radr/Hardware/PCB/introduction"
                 ]
               },
               {
