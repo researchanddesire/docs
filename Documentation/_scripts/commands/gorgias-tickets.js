@@ -467,7 +467,7 @@ When rewriting apply these rules:
 
       // Add tag to the ticket
       try {
-        // await this.addTagToTicket(conv.ticket_id, tagToAdd);
+        await this.addTagToTicket(conv.ticket_id, tagToAdd);
         this.log(`  ${c.green}✓ Tag added successfully${c.reset}`);
       } catch (error) {
         this.log(`  ${c.red}✗ Failed to add tag: ${error.message}${c.reset}`);

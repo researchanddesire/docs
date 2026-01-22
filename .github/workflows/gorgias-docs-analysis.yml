@@ -64,7 +64,7 @@ jobs:
           GORGIAS_EMAIL: ${{ secrets.GORGIAS_EMAIL }}
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
         run: |
-          pnpm ossm gorgias-tickets --limit 1 --max-pages 1 --analyze
+          pnpm ossm gorgias-tickets --limit 10 --max-pages 1 --analyze
 
       - name: Push changes
         run: |
