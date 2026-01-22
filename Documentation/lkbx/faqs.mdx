@@ -327,6 +327,20 @@ Find answers to common questions about setting up, using, and troubleshooting yo
   This security feature ensures continuous lock integrity throughout your session.
 </Accordion>
 
+<Accordion title="Why does my timer show the wrong duration when I power on?">
+  When your Lockbox powers on or wakes from deep sleep, it may briefly display an incorrect timer duration (sometimes showing very large values like many years) before correcting itself. This is normal behavior.
+
+  **Why this happens:**
+  - The device stores lock duration locally but needs to sync with the server to display accurate remaining time
+  - During startup, the device shows a placeholder or cached value while it connects to WiFi and retrieves the correct time
+
+  **What to expect:**
+  - The display typically corrects itself within 15–30 seconds once WiFi connects
+  - Your actual lock timer is unaffected—it continues running accurately on the server regardless of what the display shows during startup
+
+  If the timer doesn't correct after a minute or two, check your WiFi connection status.
+</Accordion>
+
 <Accordion title="Why is my lock button disabled on the dashboard?">
   If your lock button is greyed out, your account is set to **Give up control** mode. In this mode, only your assigned Keyholder can control your device.
 
