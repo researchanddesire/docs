@@ -1,15 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 
 
-export const DeviceFlasher = ({ device = 'ossm' }) => {
 
-  // CONSTANTS MUST BE DEFINED HERE
+export const DeviceFlasher = ({ device = 'ossm' }) => {
   const DEVICE_CONFIGS = {
     ossm: {
       name: 'OSSM',
       fullName: 'Open Source Sex Machine',
       storageBucket: 'ossm-firmware',
-      productionManifestPath: '/espOSSM/manifest.json',
+      productionManifestPath: 'master/manifest.json',
       description: 'Flash your Open Source Sex Machine with the latest firmware. Connect via USB-C to get started.',
       connectInstructions: 'Connect your OSSM to your computer via USB-C',
     },
@@ -17,14 +16,13 @@ export const DeviceFlasher = ({ device = 'ossm' }) => {
       name: 'RADR',
       fullName: 'RAD Wireless Remote',
       storageBucket: 'radr-firmware',
-      productionManifestPath: '/espRADR/manifest.json',
+      productionManifestPath: 'master/manifest.json',
       description: 'Flash your RADR wireless remote with the latest firmware. Connect via USB-C to get started.',
       connectInstructions: 'Connect your RADR to your computer via USB-C',
     },
   };
 
   const STORAGE_BASE_URL = 'https://acjajruwevyyatztbkdf.supabase.co/storage/v1/object/public';
-
   const config = DEVICE_CONFIGS[device] || DEVICE_CONFIGS.ossm;
   const STORAGE_URL = `${STORAGE_BASE_URL}/${config.storageBucket}`;
 
@@ -112,30 +110,31 @@ export const DeviceFlasher = ({ device = 'ossm' }) => {
 
     const checkManifest = async () => {
       try {
+        let manifestPath;
+
         if (mode === 'production') {
-          setManifestUrl(config.productionManifestPath);
-          setIsLoadingManifest(false);
-          return;
-        }
+          manifestPath = config.productionManifestPath;
+        } else {
+          if (!selectedBranch) {
+            setManifestError('Please select a branch');
+            setIsLoadingManifest(false);
+            return;
+          }
 
-        if (!selectedBranch) {
-          setManifestError('Please select a branch');
-          setIsLoadingManifest(false);
-          return;
+          manifestPath = selectedCommit === 'head'
+            ? `${selectedBranch}/manifest.json`
+            : `${selectedBranch}/${selectedCommit}/manifest.json`;
         }
-
-        const manifestPath = selectedCommit === 'head'
-          ? `${selectedBranch}/manifest.json`
-          : `${selectedBranch}/${selectedCommit}/manifest.json`;
 
         const manifestFullUrl = `${STORAGE_URL}/${manifestPath}`;
 
         const manifestResponse = await fetch(manifestFullUrl, { method: 'HEAD' });
 
         if (!manifestResponse.ok) {
-          setManifestError(
-            `Manifest not found for ${decodeURIComponent(selectedBranch)}${selectedCommit !== 'head' ? ` (${selectedCommit})` : ''}`
-          );
+          const errorContext = mode === 'production'
+            ? 'production firmware'
+            : `${decodeURIComponent(selectedBranch)}${selectedCommit !== 'head' ? ` (${selectedCommit})` : ''}`;
+          setManifestError(`Manifest not found for ${errorContext}`);
           setIsLoadingManifest(false);
           return;
         }
