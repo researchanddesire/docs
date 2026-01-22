@@ -197,6 +197,30 @@ If the dashboard shows a loading spinner that never completes when you try to sa
 ## Connectivity
 
 <AccordionGroup>
+<Accordion title="Wi-Fi shows connected but device says offline">
+If your trainer displays full Wi-Fi bars but still shows "You're offline, your training won't be saved" when starting a session, the device has connected to your network but cannot reach the R+D server.
+
+**Common causes:**
+- **Captive portal not completed** — hotel, apartment, or public Wi-Fi networks often require browser-based login before granting internet access. The trainer cannot complete these logins.
+- **Network changed** — after moving or changing routers, network settings like firewall rules, MAC filtering, or IoT device isolation may block the trainer.
+- **Router blocking the device** — some routers restrict new devices by default or have security settings that block IoT traffic.
+
+**Quick fixes:**
+1. **Test with a mobile hotspot** — enable your phone's hotspot and connect the trainer to it. If it works, your home network is blocking the device.
+2. **Restart your router** — this clears temporary connection issues and refreshes DHCP leases.
+3. **Re-run Wi-Fi setup** — long-press during startup to open Wi-Fi setup and re-enter your credentials.
+4. **Check for captive portals** — if using hotel/apartment Wi-Fi, you may need a network that doesn't require browser-based login.
+
+**If the problem persists after moving:**
+- Your new network may have stricter firewall settings than your previous one
+- Check your router's access control, MAC filtering, or IoT device settings
+- Some ISP-provided routers have aggressive security defaults that block unknown devices
+
+<Card title="Error E-DTT-1 Troubleshooting" icon="wifi-exclamation" href="/dtt/errors/e-dtt-1">
+Detailed steps for router and firewall configuration.
+</Card>
+</Accordion>
+
 <Accordion title="Trainer stuck on 'Getting your settings'">
 If your trainer gets stuck on "I'm getting your settings from the dashboard" and won't proceed, the device is having trouble communicating with the R+D server.
 
