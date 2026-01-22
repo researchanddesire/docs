@@ -13,6 +13,10 @@ on:
   # Allows manual workflow trigger from the Actions tab
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   optimize:
     runs-on: ubuntu-latest
