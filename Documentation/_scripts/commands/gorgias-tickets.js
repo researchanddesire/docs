@@ -232,7 +232,9 @@ export default class GorgiasTickets extends Command {
       throw new Error(`Failed to add tag to ticket ${ticketId}: ${response.status}\n${text}`);
     }
 
-    return response.json();
+    // Some endpoints return empty responses on success
+    const text = await response.text();
+    return text ? JSON.parse(text) : null;
   }
 
   /**
