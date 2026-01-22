@@ -7,6 +7,52 @@ description: "Common questions and answers about the Chastity Lockbox"
 
 Find answers to common questions about setting up, using, and troubleshooting your Chastity Lockbox.
 
+## Pricing and Subscription
+
+<AccordionGroup>
+<Accordion title="Do I need a subscription to use the Lockbox?">
+  No, the Lockbox does not require a subscription. All core functionality works without any ongoing fees.
+
+  We offer an optional service called **Ultra** that unlocks additional features and perks for users who want enhanced capabilities. Ultra is entirely optional—your Lockbox works fully without it.
+</Accordion>
+
+<Accordion title="Does my keyholder need to pay for a subscription?">
+  No, keyholders do not need a subscription. They simply need to create a free dashboard account at [dashboard.researchanddesire.com](https://dashboard.researchanddesire.com) and follow the [Keyholder Guide](/lkbx/quick-start/keyholder-guide) to connect with you.
+</Accordion>
+
+<Accordion title="Can I explore the dashboard before purchasing a Lockbox?">
+  Yes! You can create a free dashboard account at [dashboard.researchanddesire.com](https://dashboard.researchanddesire.com) and explore the interface before making a purchase. This lets you see the features, settings, and how keyholder control works.
+</Accordion>
+</AccordionGroup>
+
+## Battery and Power
+
+<AccordionGroup>
+<Accordion title="How long does the battery last?">
+  The Lockbox battery lasts approximately 24 hours when unplugged with normal use. The device includes automatic sleep modes that help extend battery life:
+
+  - **Idle mode** (30 seconds) — Screen dims to save power
+  - **Pseudo-sleep** (2 minutes) — Screen turns off, WiFi stays connected
+  - **Deep sleep** (10 minutes) — WiFi disconnects, minimal power use (~0.5-2mA)
+
+  For extended sessions, we recommend keeping the device plugged in when possible.
+
+  <Card title="Sleep Mode Details" icon="moon" href="./device-states/sleep-mode">
+    Learn more about power-saving modes.
+  </Card>
+</Accordion>
+
+<Accordion title="Should I keep the Lockbox plugged in?">
+  Yes, the Lockbox is designed to be kept plugged in via USB-C when you have access to power. This ensures:
+
+  - Your keyholder can always send commands
+  - The device stays connected to WiFi
+  - You don't need to worry about battery life during extended sessions
+
+  When plugged in, the device will not enter deep sleep, so it remains responsive to remote commands at all times. If you need to go without power, the battery provides approximately 24 hours of use with sleep mode helping to extend this further.
+</Accordion>
+</AccordionGroup>
+
 ## Setup and Connectivity
 
 <AccordionGroup>
@@ -199,6 +245,22 @@ Find answers to common questions about setting up, using, and troubleshooting yo
   - Voters receive 100 XP for participating
 </Accordion>
 
+<Accordion title="How do I earn XP from the Lockbox?">
+  XP from the Lockbox is earned exclusively through public voting participation. Lock time alone does not grant XP.
+
+  **Ways to earn XP:**
+  - **Receive votes**: Enable public voting on your lock session and share your link. You earn XP when others vote on your session.
+  - **Vote on others**: Vote on other users' public lock sessions to earn XP.
+
+  <Note>
+  XP values decrease throughout the day as more votes are cast, encouraging early participation.
+  </Note>
+
+  <Card title="Public Voting Guide" icon="thumbs-up" href="./using/public-voting">
+    Learn how to enable public voting and share your lock session.
+  </Card>
+</Accordion>
+
 <Accordion title="How does lock detection work?">
   The Lockbox has tamper detection sensors that notify your Keyholder if you:
 
@@ -220,6 +282,22 @@ Find answers to common questions about setting up, using, and troubleshooting yo
 ## Troubleshooting
 
 <AccordionGroup>
+<Accordion title="My Lockbox freezes and becomes unresponsive">
+  If your Lockbox freezes when pressing buttons—especially when accessing the menu—and stops responding entirely, try these steps:
+
+  1. **Hard reset**: Press and hold the **Enter/Lock** button for 10 seconds. The device will restart automatically.
+
+  2. **Reflash the firmware**: If freezing persists after a hard reset, reinstall the firmware using the web flasher:
+     - Connect your Lockbox to your computer via USB-C
+     - Go to [researchanddesire.com/LKBX](https://researchanddesire.com/LKBX)
+     - When prompted, **do not** check the "Erase device" box to keep your settings and lock state
+     - Complete the flash process
+
+  <Card title="Flashing Guide" icon="rotate" href="./support/flashing">
+    Step-by-step instructions for reflashing your device.
+  </Card>
+</Accordion>
+
 <Accordion title="Why can't I see Emergency Unlock or Take a Break on my Lockbox?">
   The Emergency Unlock and Take a Break options only appear when the device is locked. If your Lockbox is unlocked, these menu items are hidden because they aren't applicable yet.
 
@@ -247,6 +325,20 @@ Find answers to common questions about setting up, using, and troubleshooting yo
   This is normal behavior. After waking from sleep, your Lockbox runs a sensor verification to confirm it remains properly locked. You may also notice periodic lock verifications during extended sessions.
 
   This security feature ensures continuous lock integrity throughout your session.
+</Accordion>
+
+<Accordion title="Why does my timer show the wrong duration when I power on?">
+  When your Lockbox powers on or wakes from deep sleep, it may briefly display an incorrect timer duration (sometimes showing very large values like many years) before correcting itself. This is normal behavior.
+
+  **Why this happens:**
+  - The device stores lock duration locally but needs to sync with the server to display accurate remaining time
+  - During startup, the device shows a placeholder or cached value while it connects to WiFi and retrieves the correct time
+
+  **What to expect:**
+  - The display typically corrects itself within 15–30 seconds once WiFi connects
+  - Your actual lock timer is unaffected—it continues running accurately on the server regardless of what the display shows during startup
+
+  If the timer doesn't correct after a minute or two, check your WiFi connection status.
 </Accordion>
 
 <Accordion title="Why is my lock button disabled on the dashboard?">

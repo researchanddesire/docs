@@ -243,6 +243,14 @@ If your trainer gets stuck on "I'm getting your settings from the dashboard" and
 - Ensure your router is using a 2.4 GHz network (the trainer does not support 5 GHz)
 - Check if your router has any firewall or access control settings blocking the device
 
+**If the issue started after a firmware update:**
+
+Occasionally, an OTA firmware update may not complete successfully, leaving the device in a state where it cannot communicate with the server. If you've tried all the above steps including a mobile hotspot and the device is still stuck:
+
+1. **Try manual USB flashing** — Use the [Web Flasher](https://dashboard.researchanddesire.com/app/tools/web-flasher) to reinstall firmware. See the <a href="/dtt/technical/firmware-updates">Firmware Updates</a> guide for instructions.
+
+2. **Contact support if flashing isn't possible** — Trainers purchased before July 1st, 2025 cannot be manually flashed via USB. If you see a message in the webflasher indicating your device isn't flashable, or if the webflasher cannot detect your device, contact [support@researchanddesire.com](mailto:support@researchanddesire.com) with your order number. A replacement may be necessary.
+
 <Card title="Error E-DTT-1 Troubleshooting" icon="wifi-exclamation" href="/dtt/errors/e-dtt-1">
 Detailed steps for network connectivity issues.
 </Card>
@@ -292,6 +300,28 @@ Firmware 2.0.0 (Beta) adds offline playback of the last downloaded training sett
 
 <Card title="Software 2.0.0 Beta Preview" icon="lab" href="/deepthroat-trainer/deepthroat-trainer-software-2.0.0-beta-preview">
 What’s new now and what’s coming next.
+</Card>
+</Accordion>
+
+<Accordion title="How do I know if my firmware is up to date?">
+When your Trainer is connected to Wi‑Fi, it automatically checks for available updates each time you power it on. If an update is available, you'll see an "Updating" screen with progress information—the device downloads and installs the new firmware automatically, then restarts.
+
+**If you don't see an update screen during startup, your Trainer is already running the latest firmware for your stream.**
+
+Your current firmware version displays briefly during the startup sequence. Note this information if you need to contact support.
+
+<Card title="Firmware Updates" icon="download" href="/dtt/technical/firmware-updates">
+Learn more about how updates work and troubleshoot update issues.
+</Card>
+</Accordion>
+
+<Accordion title="Is my older Trainer eligible for firmware updates?">
+Yes. All Deepthroat Trainers receive firmware updates over‑the‑air (OTA) when connected to Wi‑Fi, regardless of when you purchased your device. There's no hardware limitation that prevents older devices from receiving new firmware versions, including major updates like 2.0.0.
+
+Keep your Trainer connected to Wi‑Fi, and it will automatically download and install updates as they become available.
+
+<Card title="Wi‑Fi Setup" icon="wifi" href="/dtt/quick-start/pairing/wifi-setup">
+Connect your Trainer to receive updates.
 </Card>
 </Accordion>
 

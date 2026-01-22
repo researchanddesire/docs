@@ -22,6 +22,42 @@ When your trainer encounters an issue, it displays an error code or message on s
 Detailed troubleshooting steps for this error.
 </Card>
 
+## Calibration Errors
+
+These messages appear during the calibration process:
+
+### "Start and end location too close"
+
+**Cause**: The two positions you captured during calibration are too close together. The trainer requires at least 0.8 cm (about 0.3 inches) of range between your minimum and maximum positions.
+
+**Solutions**:
+1. Press the button to retry calibration
+2. When setting your **minimum position** (closest/deepest point), go as deep as you comfortably can
+3. When setting your **maximum position** (rest/start point), pull back to your natural resting position
+4. Ensure you hold steady at each position before pressing the button—movement during capture can cause inaccurate readings
+5. Make sure the sensor has a clear view of the toy (nothing blocking)
+
+<Tip>
+A larger range between positions gives you more room for accurate tracking and graduated training segments. Aim for at least 5–10 cm of usable range if possible.
+</Tip>
+
+<Card title="Calibration Guide" icon="ruler" href="/dtt/technical/calibration">
+Detailed instructions for proper calibration technique.
+</Card>
+
+### "Error sending results" (with code)
+
+**Cause**: The device attempted to upload calibration or session data but couldn't reach the server. This is expected when training offline.
+
+**Solutions**:
+- If training offline intentionally, this message is informational—press the button to continue
+- If you expected to be online, check your Wi-Fi connection
+- Results will sync when you reconnect to the internet
+
+<Note>
+Error codes like "69 0" are internal status codes. When offline, these errors don't prevent training—they simply indicate that data couldn't be uploaded at that moment.
+</Note>
+
 ## Training Errors
 
 These messages may appear during or before training segments:
