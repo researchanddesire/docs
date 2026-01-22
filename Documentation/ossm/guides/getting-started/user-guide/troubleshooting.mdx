@@ -246,6 +246,68 @@ While waiting for a replacement, you can continue using your OSSM with a RADR wi
 </Accordion>
 </AccordionGroup>
 
+## Reset button and flashing firmware
+
+The OSSM control board has a small reset button near the blue LED. Understanding what this button does—and what it does not do—can help avoid confusion when troubleshooting or updating firmware.
+
+<AccordionGroup>
+<Accordion title="What does the reset button do?">
+The reset button on the OSSM control board performs a **power cycle reset**. Pressing it restarts the ESP32 microcontroller, similar to unplugging and reconnecting power.
+
+**What it does:**
+- Restarts the ESP32 and reinitializes the firmware
+- Clears any temporary runtime state
+- Can help recover from a frozen or unresponsive state
+
+**What it does not do:**
+- It does not erase stored settings or calibration data
+- It does not wipe the flash memory
+- It does not perform a factory reset or clear WiFi credentials
+- It does not trigger a new homing sequence automatically (homing occurs on boot as part of normal startup)
+
+<Tip>
+If your OSSM becomes unresponsive, try pressing the reset button once. You do not need to hold it down—a single press is sufficient.
+</Tip>
+</Accordion>
+
+<Accordion title="How do I perform a full factory reset?">
+The standard OSSM firmware does not include a built-in factory reset function. To completely clear settings and return to defaults:
+
+1. **Reflash the firmware** using the [Web Flasher](/ossm/tools/web-flasher). This overwrites the existing firmware but may not clear all stored data in flash memory.
+
+2. **For a complete flash wipe**, you need to use development tools like PlatformIO or esptool to erase the flash before reflashing. See [PlatformIO setup](/ossm/Software/getting-started/PlatformIO) for details.
+
+<Note>
+Most users do not need to perform a full flash wipe. Standard reflashing via the Web Flasher is sufficient for firmware updates and resolving most issues.
+</Note>
+</Accordion>
+
+<Accordion title="Installing community or third-party firmware">
+Some community members develop alternative firmware for specialized use cases. If you want to install community firmware:
+
+<Warning>
+Community firmware is not officially supported by Research and Desire. Use at your own risk. Some community projects may be experimental or deprecated.
+</Warning>
+
+**Before installing community firmware:**
+- Back up any settings you want to preserve
+- Note your current firmware version in case you need to revert
+- Read the community project's documentation carefully
+
+**If the community firmware requires a clean flash:**
+The reset button does not wipe flash memory. To fully erase flash before installing community firmware, you typically need to:
+
+1. Use [PlatformIO](/ossm/Software/getting-started/PlatformIO) with the `Erase Flash` command
+2. Or use `esptool.py erase_flash` from the command line
+
+Contact the community firmware developer (often via Discord) for specific installation instructions, as requirements vary between projects.
+
+<Tip>
+To return to official firmware after experimenting with community builds, use the [Web Flasher](/ossm/tools/web-flasher) to reinstall the latest stable release.
+</Tip>
+</Accordion>
+</AccordionGroup>
+
 ## Still having issues?
 
 If you've worked through these troubleshooting steps and still have problems:
