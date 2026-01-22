@@ -3,7 +3,7 @@
   "theme": "maple",
   "name": "Research And Desire Docs",
   "colors": {
-    "primary": "#01B2D0",
+    "primary": "#007B8A",
     "light": "#7EDFEF",
     "dark": "#036D7F"
   },
@@ -242,7 +242,13 @@
           {
             "group": "Technical",
             "pages": [
-              "lkbx/technical/introduction"
+              "lkbx/technical/introduction",
+              "lkbx/technical/button-controls",
+              "lkbx/technical/idle-and-power-states",
+              "lkbx/technical/menu-structure",
+              "lkbx/technical/offline-mode",
+              "lkbx/technical/sensor-system",
+              "lkbx/technical/timer-duration-limits"
             ]
           },
           {
@@ -658,9 +664,26 @@
                 ]
               },
               {
+                "group": "PCB",
+                "pages": [
+                  "radr/Hardware/PCB/introduction"
+                ]
+              },
+              {
                 "group": "Printed Parts",
                 "pages": [
-                  "radr/Hardware/printed-parts/introduction"
+                  "radr/Hardware/printed-parts/introduction",
+                  {
+                    "group": "Part-by-Part",
+                    "pages": [
+                      "radr/Hardware/printed-parts/part-by-part/remote-top",
+                      "radr/Hardware/printed-parts/part-by-part/remote-bottom",
+                      "radr/Hardware/printed-parts/part-by-part/remote-knob",
+                      "radr/Hardware/printed-parts/part-by-part/buttons",
+                      "radr/Hardware/printed-parts/part-by-part/power-switch",
+                      "radr/Hardware/printed-parts/part-by-part/ossm-remote-clip"
+                    ]
+                  }
                 ]
               }
             ]
