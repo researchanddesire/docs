@@ -110,6 +110,46 @@ If you have a RADR wireless remote, you can continue using your OSSM while waiti
 </Accordion>
 </AccordionGroup>
 
+## Right encoder skips clicks or rotations
+
+If the right encoder on the wired remote only registers every second or third click when navigating menus or adjusting parameters, the encoder component may be faulty.
+
+<AccordionGroup>
+<Accordion title="Verify the issue">
+**Symptoms:**
+- Remote display turns on and shows the menu
+- Left knob (speed control) works normally
+- Right encoder responds inconsistently—only some clicks or rotations are registered
+- Turning the encoder requires multiple clicks to move through menu items
+- Solder joints on the remote board appear intact
+
+**Diagnosis:**
+1. Power on OSSM and navigate to any menu
+2. Slowly turn the right encoder one click at a time
+3. Count how many physical clicks it takes to move one menu position
+4. If it consistently takes 2–3 clicks to register a single movement, the encoder is defective
+</Accordion>
+
+<Accordion title="Confirm it's not a connection issue">
+Before concluding the encoder is faulty:
+
+1. Power off and reseat the RJ45 cable at both ends until it clicks
+2. Try a different RJ45 cable if available
+3. Inspect the cable connectors for bent pins or debris
+4. Power on and test again
+
+If the issue persists after checking the cable, the encoder itself is defective.
+</Accordion>
+
+<Accordion title="Resolution">
+A partially responsive encoder indicates a hardware fault that cannot be fixed through software or settings. Some batches of encoder components have been found to have this defect. Contact support to request a replacement wired remote under warranty.
+
+<Tip>
+If you have a RADR wireless remote, you can continue using your OSSM while waiting for the replacement. The RADR provides full control without relying on physical encoders.
+</Tip>
+</Accordion>
+</AccordionGroup>
+
 ## Boot loops or display artifacts
 
 If your OSSM repeatedly restarts (boot loops) or shows corrupted characters, flickering, or visual glitches on the wired remote display, the wired remote board may be faulty.
