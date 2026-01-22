@@ -34,6 +34,25 @@ Check the [Bill of Materials](/ossm/guides/getting-started/build-guide/step-1.0_
 Many users successfully use large knotted toys anally without issue.
 </Accordion>
 
+<Accordion title="Why is there a 2.5 lb (1.1 kg) max toy weight?">
+The 2.5 lb (1.1 kg) maximum toy weight is a **conservative recommendation for reliable long-term performance**, not a hard failure threshold. Several factors contribute to this limit:
+
+- **Inertia during direction changes:** Heavier toys create more stress on the belt, printed parts, and mounting hardware during rapid acceleration and deceleration at stroke endpoints
+- **Belt wear and slippage:** Additional weight increases the load on the timing belt, especially at higher speeds
+- **Printed part durability:** Standard PLA or PETG parts may experience faster wear or creep under sustained heavy loads
+- **Cantilever stress:** The toy extends from the end-effector, creating a lever arm that amplifies forces on the rail carriage and bearings
+
+**If you want to exceed the recommendation:**
+
+- Print load-bearing parts in stronger materials (PETG, ABS, polycarbonate, or nylon)
+- Use the pitclamp system for improved rigidity
+- Request a wider 15mm belt for better power transfer
+- Reduce maximum speed to lower inertial forces during direction changes
+- Ensure proper belt tension and rail alignment
+
+The motor itself can handle significantly more—the spec reflects safe operating margins for the full mechanical system under typical use. Community members have experimented with heavier setups; join the [Kinky Makers Discord](https://discord.gg/MmpT9xE) to discuss modifications and real-world results.
+</Accordion>
+
 <Accordion title="Is the OSSM quiet?">
 Yes. OSSM uses a nearly silent belt drive system. When paired with a servo motor (recommended), the machine operates very quietly.
 </Accordion>
