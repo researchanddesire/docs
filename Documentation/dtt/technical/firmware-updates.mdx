@@ -84,6 +84,25 @@ There's no manual "check for updates" button — the check happens automatically
 - If repeated failures, contact support
 </Accordion>
 
+<Accordion title="Trainer ID shows jumbled or random characters after update">
+If your Trainer ID displays corrupted characters (such as ".t", "U]t", or other random symbols) and changes on every reboot, the device's provisioning data was erased during the firmware update.
+
+**Cause:**
+This typically happens when using the web flasher with the "Erase device" option enabled. The erase option clears all stored data including the unique Trainer ID assigned during manufacturing.
+
+**Solution:**
+Contact support at [support@researchanddesire.com](mailto:support@researchanddesire.com). Include:
+- Your order number
+- A description of what you see on the screen
+- The steps you took before the issue appeared
+
+Support can re-provision your device with a new Trainer ID.
+
+<Warning>
+When using the web flasher, only enable "Erase device" if specifically instructed by support. Normal firmware updates do not require erasing the device.
+</Warning>
+</Accordion>
+
 <Accordion title="Features don't match documentation">
 - You may be on a different firmware stream than documented
 - Some features are beta/preview only
