@@ -490,7 +490,6 @@ When rewriting apply these rules:
     const maxPages = flags['max-pages'];
     const viewId = flags['view-id'];
     const allStatuses = flags['all-statuses'];
-    const analyze = flags.analyze;
 
     const docsRoot = join(__dirname, '..', '..');
 
