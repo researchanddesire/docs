@@ -133,6 +133,16 @@ The dashboard works internationally and is accessible from most countries worldw
 
 Mobile app development is on our roadmap for future releases.
 </Accordion>
+
+<Accordion title="Why does my scheduled template show the wrong day?">
+The dashboard uses GMT (Greenwich Mean Time) for all scheduling features. If you start a session in the evening in your local timezone, the dashboard may already consider it the next day in GMT.
+
+For example, if you're in a timezone that is GMT-5 and start a session at 10 PM Wednesday local time, the dashboard sees it as 3 AM Thursday GMT and loads Thursday's scheduled template instead.
+
+<Note>
+Per-user timezone settings are not currently available. Plan scheduled templates with GMT timing in mind, or use manual template selection if you train late in the evening.
+</Note>
+</Accordion>
 </AccordionGroup>
 
 ## Support
