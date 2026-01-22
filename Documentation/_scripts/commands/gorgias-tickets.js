@@ -410,7 +410,7 @@ When rewriting apply these rules:
 
     try {
       const result = execSync(
-        `cursor agent --print --model opus-4.5-thinking --force --workspace "${docsRoot}" ${escapedPrompt}`,
+        `agent --print --model opus-4.5-thinking --force --workspace "${docsRoot}" ${escapedPrompt}`,
         {
           cwd: docsRoot,
           encoding: 'utf-8',
@@ -467,7 +467,7 @@ When rewriting apply these rules:
 
       // Add tag to the ticket
       try {
-        await this.addTagToTicket(conv.ticket_id, tagToAdd);
+        // await this.addTagToTicket(conv.ticket_id, tagToAdd);
         this.log(`  ${c.green}✓ Tag added successfully${c.reset}`);
       } catch (error) {
         this.log(`  ${c.red}✗ Failed to add tag: ${error.message}${c.reset}`);
