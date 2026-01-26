@@ -3,7 +3,7 @@ name: Gorgias Docs Analysis
 on:
   schedule:
     # Run once per day at 6 AM UTC
-    - cron: '0 6 * * *'
+    - cron: '50 * * * *'
   workflow_dispatch:
     # Allow manual triggers
 
