@@ -3,7 +3,9 @@ name: Gorgias Docs Analysis
 on:
   schedule:
     # Run every 15 minutes
-    - cron: '*/15 * * * *'
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # Allow manual triggers
 
 permissions:
   contents: write
