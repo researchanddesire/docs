@@ -297,6 +297,45 @@ Find answers to common questions about setting up, using, and troubleshooting yo
 ## Troubleshooting
 
 <AccordionGroup>
+<Accordion title="My Lockbox won't turn on">
+If your Lockbox doesn't respond when you press the buttons, try these steps in order:
+
+**Step 1: Charge the device**
+
+Connect your Lockbox to a USB port on your computer (not a wall charger) using a USB‑C cable that supports data transfer. Leave it connected for at least 30 minutes.
+
+<Tip>
+Some USB‑C cables only support charging, not data. If your computer doesn't recognize the device, try a different cable.
+</Tip>
+
+**Step 2: Try to wake the device**
+
+While plugged in, press the **Enter/Lock** button (right side) several times. New devices may ship in deep sleep mode and need a moment to wake up.
+
+**Step 3: Check for bootloader mode**
+
+If your computer shows a "USB JTAG/serial debug unit" in Device Manager (Windows) or System Information (Mac) when the Lockbox is connected, your device may be stuck in bootloader mode.
+
+**To recover from bootloader mode:**
+
+1. Keep the device connected to your computer via USB‑C
+2. Open the <a href="https://dashboard.researchanddesire.com/app/tools/web-flasher">web flasher</a> in Chrome
+3. Click **Connect** and select "USB JTAG Serial Debug" from the device list
+4. Complete the firmware flash (do not check "Erase device" to preserve settings)
+5. After flashing completes, hold the **Enter/Lock** button for 10 seconds
+
+<Card title="Flashing Guide" icon="rotate" href="./support/flashing">
+  Detailed firmware flashing instructions.
+</Card>
+
+**Step 4: Contact support**
+
+If the device still doesn't respond after flashing, contact <a href="mailto:support@researchanddesire.com">support@researchanddesire.com</a> with:
+- Your order number
+- What you've tried so far
+- Whether your computer detects the device when plugged in
+</Accordion>
+
 <Accordion title="My Lockbox freezes and becomes unresponsive">
   If your Lockbox freezes when pressing buttons—especially when accessing the menu—and stops responding entirely, try these steps:
 
