@@ -1,0 +1,64 @@
+# External Links Ignore File
+# Patterns listed here will be excluded from the external-links report.
+# Supports * wildcard (matches any characters)
+#
+# Examples:
+#   https://github.com/KinkyMakers/*           - Exclude all KinkyMakers GitHub links
+#   https://raw.githubusercontent.com/*        - Exclude all raw GitHub content
+#   https://*.example.com/*                    - Exclude all subdomains of example.com
+#   https://discord.gg/*                       - Exclude all Discord invite links
+
+
+# RD
+https://dashboard.researchanddesire.com
+https://*.researchanddesire.com
+https://*.researchanddesire.com/
+https://*.researchanddesire.com/*
+
+# GitHub repositories (internal project links)
+
+## OSSM
+https://github.com/KinkyMakers/OSSM-hardware
+https://github.com/KinkyMakers/OSSM-hardware/
+https://github.com/KinkyMakers/OSSM-hardware/*
+https://raw.githubusercontent.com/KinkyMakers/OSSM-hardware/*
+https://cad.onshape.com/documents/d520ea9a8cadb4ae8681f59b/w/00b211a6fa3b76c59ef28f4e/e/5f2c80d9d9c2433a7be7f789
+
+# RADR Repo
+https://github.com/researchanddesire/radr-wireless-remote/*
+https://github.com/researchanddesire/radr-wireless-remote/
+https://github.com/researchanddesire/radr-wireless-remote
+https://raw.githubusercontent.com/researchanddesire/*
+
+# Stroke Engine
+https://github.com/theelims/StrokeEngine
+https://github.com/theelims/StrokeEngine/*
+
+
+https://boost-ext.github.io/sml/*
+https://www.usps.com
+https://www.ups.com
+https://www.canadapost.ca
+https://www.dhl.com
+https://www.silabs.com/*
+https://www.researchanddesire.com*
+https://www.loom.com/*
+https://xtoys.app*
+https://www.freertos.org*
+https://informeddelivery.usps.com
+
+# External providers
+https://buttplug.io
+https://buttplug.io/
+https://buttplug-spec.docs.buttplug.io/*
+https://guide.xtoys.app/
+
+# Tools 
+https://code.visualstudio.com/
+
+# Certifications
+https://certification.oshwa.org/ca000057.html
+
+# Docs
+https://mynewt.apache.org/latest/network/index.html
+
