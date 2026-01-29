@@ -263,7 +263,7 @@ Detailed steps for router and firewall configuration.
 </Accordion>
 
 <Accordion title="Trainer stuck on 'Getting your settings'">
-If your trainer gets stuck on "I'm getting your settings from the dashboard" and won't proceed, the device is having trouble communicating with the R+D server.
+If your trainer gets stuck on "I'm getting your settings from the dashboard" and won't proceed, the device is having trouble communicating with the R+D server or loading your template data.
 
 **Quick fixes:**
 1. **Restart your trainer** — power it off, wait a few seconds, then power it back on
@@ -275,6 +275,14 @@ If your trainer gets stuck on "I'm getting your settings from the dashboard" and
 - Try connecting to a different network (such as a mobile hotspot)
 - Ensure your router is using a 2.4 GHz network (the trainer does not support 5 GHz)
 - Check if your router has any firewall or access control settings blocking the device
+
+**If the issue is related to templates:**
+
+Sometimes the device can get stuck if template data becomes corrupted or an incomplete download occurred (for example, if a previous session was interrupted before the template finished loading).
+
+1. **Regenerate your templates** — in your dashboard, go to Templates, open your active template, and save it again (even without changes) to force a fresh sync
+2. **Create a new template** — if regenerating doesn't help, create a new template, set it as Active, and try starting a session
+3. **Check for AI-generated templates** — if using AI Training Schedule, try regenerating the AI schedule to refresh the template data
 
 **If the issue started after a firmware update:**
 
