@@ -200,6 +200,39 @@ If the dashboard shows a loading spinner that never completes when you try to sa
 - Try saving smaller changes (edit one segment at a time)
 - Contact [support@researchanddesire.com](mailto:support@researchanddesire.com) if the issue continues
 </Accordion>
+
+<Accordion title="Templates not syncing — device runs default/demo mode instead">
+If your trainer is connected to Wi-Fi but runs a default mode (such as 1200 rpm freeform) or shows built-in demo programs instead of your custom templates, the device isn't properly receiving your template settings.
+
+**Symptoms:**
+- Device connects to Wi-Fi successfully and boots past the startup screen
+- When you start a session, it runs a default mode instead of your active template
+- Creating new templates or marking them active in the dashboard doesn't change what the device runs
+- When offline, the device may show 3 built-in demo programs (easy versions of Repetition, Endurance, and Freeform)
+
+**Common causes:**
+- Template not marked as **Active** in the dashboard
+- Device hasn't fetched the latest settings since you changed templates
+- Server sync issue after a firmware update
+- Account or device pairing issue
+
+**Quick fixes:**
+1. **Verify your template is Active** — in the dashboard, go to Templates and confirm your desired template shows as Active. Only one template can be active at a time.
+2. **Start a fresh session** — power cycle the trainer, wait for it to connect to Wi-Fi, then start a new session. The device downloads your active template when you begin a session.
+3. **Check for server communication** — if the device shows "Getting your settings" during startup, wait for it to complete. If it skips this or fails silently, the device may not be communicating with the server properly.
+4. **Try a different network** — connect to a mobile hotspot to rule out router/firewall issues blocking server communication.
+
+**If the problem started after a firmware update:**
+
+Occasionally, a firmware update may complete but leave the device in a state where it can't properly sync template data from the server. If you've tried all the above steps:
+
+1. **Re-pair your device** — in your dashboard, go to **Settings → Devices**, unpair the trainer, then pair it again using the Trainer ID shown on the device screen.
+2. **Contact support** — if re-pairing doesn't resolve the issue, contact [support@researchanddesire.com](mailto:support@researchanddesire.com) with your Trainer ID and order number. Support can check your account sync status and may need to reset the device's server-side state.
+
+<Note>
+Trainers purchased before July 1st, 2025 cannot be manually flashed via USB. If the webflasher indicates your device isn't compatible, contact support for assistance—a server-side fix or replacement may be necessary.
+</Note>
+</Accordion>
 </AccordionGroup>
 
 ## Connectivity
