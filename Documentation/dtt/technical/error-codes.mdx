@@ -71,14 +71,43 @@ These messages may appear during or before training segments:
 - Match the on-screen target pace more closely
 - This is feedback, not a fatal error — adjust and continue
 
-### "Speed too low"
+### "Speed too low" / "Training speed too slow"
 
-**Cause**: Your movement speed is below the expected range.
+This error has different causes depending on when it appears:
+
+#### During training segments
+
+**Cause**: Your movement speed is below the expected range for the current segment.
 
 **Solutions**:
 - Increase your movement pace
 - Check if the segment expects faster movement (e.g., high RPM Freeform)
 - This is feedback, not a fatal error — adjust and continue
+
+#### Immediately after calibration / at startup
+
+**Cause**: If this error appears right after calibration (when the device measures tip position and depth) and causes the device to loop between "training complete" and "error training speed too slow," this typically indicates a firmware bug on older software versions.
+
+**Symptoms**:
+- Device completes calibration (measuring tip and maximum depth)
+- Error appears immediately before training can begin
+- Device cycles between "training complete" and "speed too slow" messages
+- You cannot select other training modes
+- Only power cycling stops the loop
+
+**Solutions**:
+1. **Connect to Wi-Fi** — the device will automatically download and install firmware updates when online
+2. Long-press during startup to enter Wi-Fi setup mode
+3. After connecting, the device should update and restart
+4. Try starting a session again after the update completes
+
+<Card title="Wi-Fi Setup" icon="wifi" href="/dtt/quick-start/pairing/wifi-setup">
+Connect your trainer to receive firmware updates.
+</Card>
+
+<Note>
+This error loop was fixed in a firmware update. If you haven't connected your trainer to Wi-Fi recently, updating the firmware should resolve this issue.
+</Note>
 
 ### "Invalid Range"
 
