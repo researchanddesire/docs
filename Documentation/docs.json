@@ -600,6 +600,12 @@
                   "ossm/tools/web-controller",
                   "ossm/tools/gold-motor-programming"
                 ]
+              },
+              {
+                "group": "Players",
+                "pages": [
+                  "ossm/tools/funscript-player"
+                ]
               }
             ]
           }
