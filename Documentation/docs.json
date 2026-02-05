@@ -634,7 +634,9 @@
                   "radr/guides/user-guide/stroke-patterns",
                   "radr/guides/user-guide/lovense-controls",
                   "radr/guides/user-guide/device-scanning",
-                  "radr/guides/user-guide/settings-and-wifi"
+                  "radr/guides/user-guide/settings-and-wifi",
+                  "radr/guides/user-guide/connecting-to-wifi",
+                  "radr/guides/user-guide/updating-your-device"
                 ]
               },
               {
@@ -723,6 +725,12 @@
                 "group": "Communication",
                 "pages": [
                   "radr/Software/communication/ble"
+                ]
+              },
+              {
+                "group": "OTA Updates",
+                "pages": [
+                  "radr/Software/ota-updates/introduction"
                 ]
               }
             ]
