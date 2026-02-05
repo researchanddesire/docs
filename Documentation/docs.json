@@ -714,6 +714,12 @@
                 ]
               },
               {
+                "group": "Device Registry",
+                "pages": [
+                  "radr/Software/device-registry/introduction"
+                ]
+              },
+              {
                 "group": "Communication",
                 "pages": [
                   "radr/Software/communication/ble"
