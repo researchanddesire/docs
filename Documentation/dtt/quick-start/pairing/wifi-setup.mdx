@@ -48,16 +48,24 @@ Your trainer only supports **2.4 GHz Wi-Fi networks**. Make sure you connect to 
 <Step title="Connect to the trainer's setup network">
   Your trainer creates a temporary Wi-Fi hotspot called **Trainer Setup**. On your phone or computer, open Wi-Fi settings and connect to this network.
 
+  <Warning>
+  Your phone will warn you there's "no internet" on this network—this is expected. When prompted, tap **Stay connected** or **Connect anyway**. Do not disconnect when you see this warning.
+  </Warning>
+
   <Note>
-  This is a local network created by your trainer—it won't provide internet access yet.
+  This is a local network created by your trainer—it won't provide internet access. You're connecting directly to the trainer to configure it.
   </Note>
 </Step>
 
 <Step title="Open the setup portal">
-  After connecting, a captive portal page should open automatically. If it doesn't appear, open any web browser and navigate to any website—you'll be redirected to the setup page.
+  After connecting, a captive portal page should open automatically. If it doesn't appear within a few seconds, open any web browser and go to:
+  
+  ```
+  http://192.168.4.1
+  ```
 
   <Tip>
-  This works similarly to Wi-Fi login pages at coffee shops or hotels.
+  This works similarly to Wi-Fi login pages at coffee shops or hotels. If you have mobile data enabled, try disabling it temporarily—some phones prioritize mobile data and won't load the portal.
   </Tip>
 </Step>
 
@@ -86,9 +94,19 @@ Your trainer only supports **2.4 GHz Wi-Fi networks**. Make sure you connect to 
 
 <AccordionGroup>
 <Accordion title="Troubleshooting: Can't see the setup portal">
-- Make sure you're connected to the **Trainer Setup** network
-- Try opening a browser and visiting `http://192.168.4.1`
-- Disable mobile data temporarily on your phone
+If the captive portal doesn't appear automatically after connecting to the Trainer Setup network:
+
+1. **Ignore the "no internet" warning** — Your phone may show warnings like "Connected without internet" or "This network has no internet access." This is expected. Tap **Stay connected** or **Connect anyway**.
+
+2. **Open the portal manually** — Open any web browser and go to `http://192.168.4.1`
+
+3. **Disable mobile data** — If the portal still won't load, turn off mobile data (cellular) on your phone. Some phones prioritize mobile data and won't route traffic through the Trainer Setup network.
+
+4. **Try a different device** — If your phone still won't show the portal, try using a laptop or tablet instead.
+
+<Warning>
+Do not disconnect from the Trainer Setup network when your phone warns about no internet. This warning is normal—the trainer's network is only for configuration, not internet access.
+</Warning>
 </Accordion>
 
 <Accordion title="Troubleshooting: Connection fails after entering password">
