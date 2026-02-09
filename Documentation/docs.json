@@ -538,6 +538,15 @@
                       "ossm/Hardware/ossm-mods/salad-dressing/weight-plate",
                       "ossm/Hardware/ossm-mods/salad-dressing/quick-change-toy-mount"
                     ]
+                  },
+                  {
+                    "group": "Basic Mount (Legacy)",
+                    "pages": [
+                      "ossm/Hardware/ossm-mods/basic-mount/introduction",
+                      "ossm/Hardware/ossm-mods/basic-mount/side-1",
+                      "ossm/Hardware/ossm-mods/basic-mount/side-2",
+                      "ossm/Hardware/ossm-mods/basic-mount/spacer"
+                    ]
                   }
                 ]
               },
@@ -591,6 +600,12 @@
                   "ossm/tools/web-controller",
                   "ossm/tools/gold-motor-programming"
                 ]
+              },
+              {
+                "group": "Players",
+                "pages": [
+                  "ossm/tools/funscript-player"
+                ]
               }
             ]
           }
@@ -619,7 +634,9 @@
                   "radr/guides/user-guide/stroke-patterns",
                   "radr/guides/user-guide/lovense-controls",
                   "radr/guides/user-guide/device-scanning",
-                  "radr/guides/user-guide/settings-and-wifi"
+                  "radr/guides/user-guide/settings-and-wifi",
+                  "radr/guides/user-guide/connecting-to-wifi",
+                  "radr/guides/user-guide/updating-your-device"
                 ]
               },
               {
@@ -699,9 +716,21 @@
                 ]
               },
               {
+                "group": "Device Registry",
+                "pages": [
+                  "radr/Software/device-registry/introduction"
+                ]
+              },
+              {
                 "group": "Communication",
                 "pages": [
                   "radr/Software/communication/ble"
+                ]
+              },
+              {
+                "group": "OTA Updates",
+                "pages": [
+                  "radr/Software/ota-updates/introduction"
                 ]
               }
             ]
