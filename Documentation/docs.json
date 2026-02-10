@@ -106,8 +106,8 @@
           {
             "group": "Changelog",
             "pages": [
-              "dashboard/changelog/introduction",
-              "dashboard/changelog/v1.0.0"
+              "dashboard/changelog/overview",
+              "dashboard/changelog/v0.0.0"
             ]
           }
         ]
@@ -177,6 +177,13 @@
             "group": "FAQs",
             "pages": [
               "dtt/faqs"
+            ]
+          },
+          {
+            "group": "Changelog",
+            "pages": [
+              "dtt/changelog/overview",
+              "dtt/changelog/v0.0.0"
             ]
           }
         ]
@@ -255,6 +262,13 @@
             "group": "FAQs",
             "pages": [
               "lkbx/faqs"
+            ]
+          },
+          {
+            "group": "Changelog",
+            "pages": [
+              "lkbx/changelog/overview",
+              "lkbx/changelog/v0.0.0"
             ]
           }
         ]
@@ -357,6 +371,13 @@
                       "ossm/guides/housekeeping/safety/guidance"
                     ]
                   }
+                ]
+              },
+              {
+                "group": "Changelog",
+                "pages": [
+                  "ossm/guides/changelog/overview",
+                  "ossm/guides/changelog/v0.0.0"
                 ]
               }
             ]
@@ -661,6 +682,13 @@
                 "group": "FAQs",
                 "pages": [
                   "radr/faqs"
+                ]
+              },
+              {
+                "group": "Changelog",
+                "pages": [
+                  "radr/guides/changelog/overview",
+                  "radr/guides/changelog/v0.0.0"
                 ]
               }
             ]
@@ -1277,11 +1305,19 @@
     },
     {
       "source": "/dashboard/changelog-latest",
-      "destination": "/dashboard/changelog/introduction"
+      "destination": "/dashboard/changelog/overview"
     },
     {
       "source": "/dashboard/changelog-latest/changelog-v1.0.0",
-      "destination": "/dashboard/changelog/v1.0.0"
+      "destination": "/dashboard/changelog/overview"
+    },
+    {
+      "source": "/dashboard/changelog/introduction",
+      "destination": "/dashboard/changelog/overview"
+    },
+    {
+      "source": "/dashboard/changelog/v1.0.0",
+      "destination": "/dashboard/changelog/overview"
     },
     {
       "source": "/research-and-desire-remote/quick-start",
