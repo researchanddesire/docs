@@ -285,6 +285,7 @@
                 "pages": [
                   "ossm/guides/getting-started/introduction",
                   "ossm/guides/getting-started/quickstart",
+                  "ossm/guides/getting-started/wifi-setup",
                   "ossm/guides/getting-started/web-flasher",
                   {
                     "group": "Ready to Play",
@@ -596,6 +597,12 @@
                 ]
               },
               {
+                "group": "Architecture",
+                "pages": [
+                  "ossm/Software/architecture/state-machine"
+                ]
+              },
+              {
                 "group": "Communication",
                 "pages": [
                   "ossm/Software/communication/ble",
@@ -607,6 +614,12 @@
                 "pages": [
                   "ossm/Software/motion/stroke-engine/introduction",
                   "ossm/Software/motion/stroke-engine/Pattern"
+                ]
+              },
+              {
+                "group": "Contributing",
+                "pages": [
+                  "ossm/Software/contributing/documentation"
                 ]
               }
             ]
