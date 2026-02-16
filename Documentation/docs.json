@@ -599,6 +599,7 @@
               {
                 "group": "Architecture",
                 "pages": [
+                  "ossm/Software/architecture/folder-structure",
                   "ossm/Software/architecture/state-machine"
                 ]
               },
