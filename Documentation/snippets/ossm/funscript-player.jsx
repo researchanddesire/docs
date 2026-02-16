@@ -88,7 +88,7 @@ export const OssmFunscriptPlayer = () => {
       direction,
       data,
     };
-    setLogs((prev) => [...prev.slice(-99), entry]);
+    setLogs((prev) => [...prev.slice(-999), entry]);
   }, []);
 
   // Send BLE command
@@ -99,7 +99,7 @@ export const OssmFunscriptPlayer = () => {
 
     try {
       const encoder = new TextEncoder();
-      await commandCharacteristicRef.current.writeValue(encoder.encode(command));
+      await commandCharacteristicRef.current.writeValueWithoutResponse(encoder.encode(command));
       addLog('TX', command);
       return true;
     } catch (err) {
@@ -152,20 +152,6 @@ export const OssmFunscriptPlayer = () => {
       commandCharacteristicRef.current = await service.getCharacteristic(OSSM_COMMAND_CHARACTERISTIC_UUID);
       addLog('INFO', 'Got command characteristic');
 
-      // Try to subscribe to state notifications
-      try {
-        const stateChar = await service.getCharacteristic(OSSM_STATE_CHARACTERISTIC_UUID);
-        await stateChar.startNotifications();
-        stateChar.addEventListener('characteristicvaluechanged', (event) => {
-          const decoder = new TextDecoder();
-          const value = decoder.decode(event.target.value);
-          addLog('RX', `State: ${value}`);
-        });
-        addLog('INFO', 'Subscribed to state notifications');
-      } catch (e) {
-        addLog('INFO', 'State notifications not available');
-      }
-
       // Enter streaming mode
       addLog('INFO', 'Entering streaming mode...');
       await sendCommand('go:streaming');
@@ -200,7 +186,6 @@ export const OssmFunscriptPlayer = () => {
 
     try {
       await sendCommand('set:speed:0');
-      await sendCommand('go:menu');
     } catch (e) {
       // Ignore errors during disconnect
     }
@@ -266,12 +251,12 @@ export const OssmFunscriptPlayer = () => {
       let timeToNext = 100;
       if (currentActionIndexRef.current < funscriptActions.length - 1) {
         const nextAction = funscriptActions[currentActionIndexRef.current + 1];
-        timeToNext = nextAction.at - action.at;
-      }
+        timeToNext = nextAction.at - action.at;      
 
-      if (action.at > lastSentTimeRef.current) {
-        sendStreamPosition(action.pos, timeToNext);
-        lastSentTimeRef.current = action.at;
+        if (action.at > lastSentTimeRef.current) {
+          sendStreamPosition(nextAction.pos, timeToNext);
+          lastSentTimeRef.current = action.at;
+        }
       }
 
       currentActionIndexRef.current++;
@@ -282,7 +267,7 @@ export const OssmFunscriptPlayer = () => {
   const startSync = useCallback(() => {
     if (syncIntervalRef.current) return;
     setIsPlaying(true);
-    syncIntervalRef.current = setInterval(syncFunscript, 10);
+    syncIntervalRef.current = setInterval(syncFunscript, 2);
     addLog('INFO', 'Started sync');
   }, [syncFunscript, addLog]);
 
