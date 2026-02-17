@@ -6,7 +6,7 @@ description: "Let others vote to increase or decrease your lock time for added e
 Public voting lets you share an active lock session so others can vote to increase or decrease your remaining lock time. This introduces friendly unpredictability and community interaction while you stay in control of the rules.
 
 <Info>
-Public voting only applies to active lock sessions. If your session ends or is abandoned, the public voting link becomes inactive.
+  Public voting only applies to active lock sessions. If your session ends or is abandoned, the public voting link becomes inactive.
 </Info>
 
 ## How it works
@@ -17,37 +17,40 @@ Public voting only applies to active lock sessions. If your session ends or is a
 - You can disable public voting at any time.
 
 <Tip>
-Start with small, balanced increments (for example, +60 seconds and −60 seconds) to keep sessions engaging without extreme swings.
+  Start with small, balanced increments (for example, +60 seconds and −60 seconds) to keep sessions engaging without extreme swings.
 </Tip>
 
 ## Enable public voting
 
 <Steps>
-<Step title="Open your lockbox settings">
-  Go to your lockbox in the dashboard and open its settings.
-  
-<Check>
-  You should see a setting labeled "Public Voting" within the session or lockbox settings.
-  </Check>
-</Step>
+  <Step title="Open your session or template settings">
+    On the "Templates" part of the app, click "Edit" on an existing lockbox template, or click "New lockbox template". For lockbox sessions that are already active, if you are the keyholder or if it is a test session, you can click "Modify settings" on that session in the "Home" page of the Chastity Lockbox part of the dashboard.
 
-<Step title="Enable the Public Voting option">
-  Toggle on <strong>Public Voting</strong> for the active lock session.
+    <Check>
+      You should see a setting labeled "Public Voting" within the session or lockbox settings.
+    </Check>
+  </Step>
+  <Step title="Enable the Public Voting option">
+    Toggle on <strong>Public Voting</strong>
+     for the active lock session.
 
-<Warning>
-  Public voting affects your timer in real time. Make sure you are comfortable with the configured increments before enabling it.
-  </Warning>
-</Step>
+    <Warning>
+      Public voting affects your timer in real time. Make sure you are comfortable with the configured increments before enabling it.
+    </Warning>
+  </Step>
+  <Step title="Configure time values">
+    Click on the cog icon next to the public voting toggle, and define how each vote changes your time:
 
-<Step title="Configure time values">
-  Define how each vote changes your time:
-  - <strong>Time Plus</strong>: Seconds added for an increase vote (👍)
-  - <strong>Time Minus</strong>: Seconds removed for a decrease vote (👎)
+    - <strong>Time Plus</strong>
+      : Seconds added for an increase vote (👍)
+    - <strong>Time Minus</strong>
+      : Seconds removed for a decrease vote (👎)
+    - By default, voters can reduce or increase your lock session's duration without limits. If you would like public voting to only be permitted to increase or decrease the lock duration up until certain upper (max) and lower (min) limits, you can specify that in the "Maximum Lock Duration" and/or "Minimum Lock Duration" sections on this screen.
 
-<Note>
-  Time values are in seconds. Use whole numbers only.
-  </Note>
-</Step>
+    <Note>
+      Time values are in seconds. Use whole numbers only.
+    </Note>
+  </Step>
 </Steps>
 
 ## Share your voting link
@@ -55,21 +58,20 @@ Start with small, balanced increments (for example, +60 seconds and −60 second
 Once public voting is enabled on an active session, a unique share link becomes available.
 
 <Steps>
-<Step title="Open your lockbox page">
-  Navigate to the lockbox page in your dashboard.
-</Step>
+  <Step title="Open your lockbox page">
+    Navigate to the lockbox page in your dashboard.
+  </Step>
+  <Step title="Find the Public Voting badge">
+    Look for the <strong>Public Voting</strong>
+     badge with a share icon.
+  </Step>
+  <Step title="Copy and share your link">
+    Select the badge to copy your public voting link, then share it with friends, partners, or your community.
 
-<Step title="Find the Public Voting badge">
-  Look for the <strong>Public Voting</strong> badge with a share icon.
-</Step>
-
-<Step title="Copy and share your link">
-  Select the badge to copy your public voting link, then share it with friends, partners, or your community.
-
-<Check>
-  Open the link in a private/incognito window to confirm it loads the public voting view without exposing your account details.
-  </Check>
-</Step>
+    <Check>
+      Open the link in a private/incognito window to confirm it loads the public voting view without exposing your account details.
+    </Check>
+  </Step>
 </Steps>
 
 ## View voting activity
@@ -84,7 +86,7 @@ On the lockbox page, counters appear next to session details when public voting 
 - 👎 Thumbs Down: Total votes to decrease time
 
 <Note>
-Counters only display when public voting is enabled or at least one vote has been recorded for the session.
+  Counters only display when public voting is enabled or at least one vote has been recorded for the session.
 </Note>
 
 ### Activity history
@@ -92,15 +94,21 @@ Counters only display when public voting is enabled or at least one vote has bee
 For a detailed view of votes and other events:
 
 1. Open your lockbox page.
-2. Find the <strong>Session activity</strong> section.
-3. Select <strong>View more</strong> to open the full activity log.
+2. Find the <strong>Session activity</strong>
+    section.
+3. Select <strong>View more</strong>
+    to open the full activity log.
 
 Each vote event shows:
 
-- <strong>Icon</strong>: 👍 for increase, 👎 for decrease
-- <strong>Action</strong>: "Voted to increase time" or "Voted to decrease time"
-- <strong>Voter</strong>: Username (or "Anonymous" if the voter was not logged in)
-- <strong>Timestamp</strong>: When the vote was cast
+- <strong>Icon</strong>
+  : 👍 for increase, 👎 for decrease
+- <strong>Action</strong>
+  : "Voted to increase time" or "Voted to decrease time"
+- <strong>Voter</strong>
+  : Username (or "Anonymous" if the voter was not logged in)
+- <strong>Timestamp</strong>
+  : When the vote was cast
 
 Vote events appear alongside other session activities (locks, unlocks, breaks) in chronological order.
 
@@ -112,23 +120,21 @@ To reduce spam and abuse, the following limits apply:
 - Votes are tracked by user account and by IP address.
 
 <Info>
-If both an account and an IP are detected for the same person, the stricter limit is applied.
+  If both an account and an IP are detected for the same person, the stricter limit is applied.
 </Info>
 
 ## Privacy and anonymity
 
 <AccordionGroup>
-<Accordion title="Logged‑in voters">
-When someone votes while logged in, their username appears in your activity history.
-</Accordion>
-
-<Accordion title="Anonymous voters">
-When someone votes without logging in, they appear as "Anonymous" in your activity history.
-</Accordion>
-
-<Accordion title="Your privacy">
-Your public voting link shows session details necessary for voting but does not expose your account credentials or private profile information.
-</Accordion>
+  <Accordion title="Logged‑in voters">
+    When someone votes while logged in, their username appears in your activity history.
+  </Accordion>
+  <Accordion title="Anonymous voters">
+    When someone votes without logging in, they appear as "Anonymous" in your activity history.
+  </Accordion>
+  <Accordion title="Your privacy">
+    Your public voting link shows session details necessary for voting but does not expose your account credentials or private profile information.
+  </Accordion>
 </AccordionGroup>
 
 ## Points and rewards
@@ -136,17 +142,16 @@ Your public voting link shows session details necessary for voting but does not 
 Both you and voters earn points for participating in public voting.
 
 <CardGroup cols={2}>
-<Card title="You" icon="trophy">
-Earn points when people vote on your session.
-</Card>
-
-<Card title="Voters" icon="star">
-Earn points when they vote on sessions.
-</Card>
+  <Card icon="trophy" title="You">
+    Earn points when people vote on your session.
+  </Card>
+  <Card icon="star" title="Voters">
+    Earn points when they vote on sessions.
+  </Card>
 </CardGroup>
 
 <Info>
-Point values decrease throughout the day as more votes are cast, which encourages early participation.
+  Point values decrease throughout the day as more votes are cast, which encourages early participation.
 </Info>
 
 ## Tips for engagement
@@ -161,39 +166,36 @@ Point values decrease throughout the day as more votes are cast, which encourage
 You can turn public voting off at any time.
 
 <Steps>
-<Step title="Open session settings">
-  Go to your active lock session settings.
-</Step>
+  <Step title="Open session settings">
+    Go to your active lock session settings.
+  </Step>
+  <Step title="Turn off Public Voting">
+    Toggle off the <strong>Public Voting</strong>
+     option.
 
-<Step title="Turn off Public Voting">
-  Toggle off the <strong>Public Voting</strong> option.
-
-<Check>
-  The Public Voting badge and share link should no longer appear on the lockbox page.
-  </Check>
-</Step>
+    <Check>
+      The Public Voting badge and share link should no longer appear on the lockbox page.
+    </Check>
+  </Step>
 </Steps>
 
 <Warning>
-Disabling public voting stops new votes from being accepted. Past vote events remain in your activity history.
+  Disabling public voting stops new votes from being accepted. Past vote events remain in your activity history.
 </Warning>
 
 ## Troubleshooting
 
 <AccordionGroup>
-<Accordion title="I don’t see the Public Voting toggle">
-Ensure you’re viewing an active lock session. The toggle only appears for active sessions.
-</Accordion>
-
-<Accordion title="The link shows as inactive">
-The session may have ended or been abandoned. Public voting links only work for active sessions.
-</Accordion>
-
-<Accordion title="People say they can’t vote again">
-Voters are limited to one vote per session every 24 hours. Ask them to try again after the cooldown period.
-</Accordion>
-
-<Accordion title="Votes seem too extreme">
-Lower the Time Plus/Time Minus values to more moderate increments.
-</Accordion>
+  <Accordion title="I don’t see the Public Voting toggle">
+    Ensure you’re viewing an active lock session. The toggle only appears for active sessions.
+  </Accordion>
+  <Accordion title="The link shows as inactive">
+    The session may have ended or been abandoned. Public voting links only work for active sessions.
+  </Accordion>
+  <Accordion title="People say they can’t vote again">
+    Voters are limited to one vote per session every 24 hours. Ask them to try again after the cooldown period.
+  </Accordion>
+  <Accordion title="Votes seem too extreme">
+    Lower the Time Plus/Time Minus values to more moderate increments.
+  </Accordion>
 </AccordionGroup>
