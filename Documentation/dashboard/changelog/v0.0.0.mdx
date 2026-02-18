@@ -15,6 +15,25 @@ This is a placeholder entry for future dashboard updates.
 - **Improvements** — Enhancements to existing functionality
 - **Bug fixes** — Notable fixes that improve your experience
 
+### v1.15.12
+
+- **Unlimited training segments for all users** — All users can now create up to 100 training segments per template, removing the previous 3-segment limit for free users
+
+### v1.15.11
+
+- **Public voting duration limits** — Keyholders can now configure minimum and maximum lock durations for public voting, preventing votes from extending or reducing lock time beyond specified bounds
+- **Duration limit UI feedback** — Public voting page now displays warning messages and disables buttons when duration limits are reached
+- **Vote rejection cleanup fix** — Votes rejected due to duration limits no longer create orphan database records
+
+### v1.15.10
+
+- **OSSM pairing codes** — OSSM devices now display a 6-character pairing code on screen for easier setup, replacing the previous MAC address entry method
+- **Pairing code matching fix** — Pairing codes are now matched case-insensitively, preventing issues when entering codes in different letter cases
+
+### v1.15.9
+
+- **Dependency updates** — Updated dotenv package to v17.3.1 for improved environment variable handling
+
 ### v1.15.8
 
 - **Partner email notifications** — Keyholders and partners now receive personalized email notifications that reference the lockee by name (e.g., "Your partner, username, has started a break period")
