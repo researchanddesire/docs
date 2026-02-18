@@ -1,0 +1,91 @@
+---
+title: "API Overview"
+description: "Access your Research and Desire data programmatically with the REST API"
+---
+
+The Research and Desire API lets you access your dashboard data from external applications, scripts, and integrations. Every API request respects your account's permissions — you can only access data you're allowed to see.
+
+<Info>
+API access is an **Ultra** feature. You need an active Ultra subscription to create API tokens. [Learn more about Ultra](/dashboard/subscription).
+</Info>
+
+## Base URL
+
+All API endpoints are available at:
+
+```
+https://dashboard.researchanddesire.com/api/v1
+```
+
+## Key Concepts
+
+<CardGroup cols={2}>
+  <Card title="Authentication" icon="key" href="./authentication">
+    Create API tokens and learn how to authenticate requests.
+  </Card>
+
+  <Card title="Endpoint Reference" icon="code" href="./endpoints/users">
+    Browse all available endpoints for Users, DTT, LKBX, and OSSM.
+  </Card>
+</CardGroup>
+
+## How It Works
+
+<Steps>
+  <Step title="Create an API token">
+    Go to **Settings > API Keys** in the dashboard and create a new token. Copy it immediately — it's only shown once.
+  </Step>
+
+  <Step title="Make requests">
+    Include your token in the `Authorization` header of every request.
+
+    ```bash
+    curl -H "Authorization: Bearer YOUR_TOKEN" \
+      https://dashboard.researchanddesire.com/api/v1/users
+    ```
+  </Step>
+
+  <Step title="Parse the response">
+    All responses follow a consistent JSON envelope format.
+  </Step>
+</Steps>
+
+## Response Format
+
+Every response uses the same envelope:
+
+**Success:**
+
+```json
+{
+  "ok": true,
+  "data": { ... }
+}
+```
+
+**Error:**
+
+```json
+{
+  "ok": false,
+  "error": "Human-readable error message"
+}
+```
+
+## Rate Limiting
+
+<Note>
+The API does not currently enforce strict rate limits, but please be respectful with your request volume. Excessive usage may result in throttling in future releases.
+</Note>
+
+## Permissions and RLS
+
+Your API token inherits the exact same permissions as your dashboard account. This means:
+
+- You can only see **your own devices** and **devices shared with you** via partnerships
+- Lock session actions respect keyholder permissions
+- User queries return only users you have a connection with
+
+<Warning>
+Treat your API token like a password. Anyone with your token can access your data. If a token is compromised, revoke it immediately from **Settings > API Keys**.
+</Warning>
