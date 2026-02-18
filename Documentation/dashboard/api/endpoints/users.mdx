@@ -9,11 +9,19 @@ description: "List and retrieve user information"
 
 Returns all users you have access to. Results are filtered by your account permissions — you'll see yourself and any users connected to you via partnerships.
 
+<ParamField query="limit" type="number" default="50">
+  Number of records to return (max 100).
+</ParamField>
+
+<ParamField query="offset" type="number" default="0">
+  Number of records to skip for pagination.
+</ParamField>
+
 <ResponseField name="ok" type="boolean" required>
   Always `true` on success.
 </ResponseField>
 
-<ResponseField name="data" type="object[]" required>
+<ResponseField name="data.data" type="object[]" required>
   Array of user objects.
 
 <ResponseField name="id" type="number">
@@ -41,25 +49,43 @@ Returns all users you have access to. Results are filtered by your account permi
   </ResponseField>
 </ResponseField>
 
+<ResponseField name="data.pagination" type="object" required>
+  Pagination metadata.
+
+  <ResponseField name="limit" type="number">
+    Number of records returned.
+  </ResponseField>
+
+  <ResponseField name="offset" type="number">
+    Number of records skipped.
+  </ResponseField>
+</ResponseField>
+
 <RequestExample>
   ```bash cURL curl -H "Authorization: Bearer YOUR_TOKEN" \
-  https://dashboard.researchanddesire.com/api/v1/users ```
+  "https://dashboard.researchanddesire.com/api/v1/users?limit=50&offset=0" ```
 </RequestExample>
 
 <ResponseExample>
 ```json 200 OK
 {
   "ok": true,
-  "data": [
-    {
-      "id": 42,
-      "bubbleId": "abc-123",
-      "name": "Alice",
-      "accountType": "user",
-      "league": 3,
-      "rank": 150
+  "data": {
+    "data": [
+      {
+        "id": 42,
+        "bubbleId": "abc-123",
+        "name": "Alice",
+        "accountType": "user",
+        "league": 3,
+        "rank": 150
+      }
+    ],
+    "pagination": {
+      "limit": 50,
+      "offset": 0
     }
-  ]
+  }
 }
 ```
 </ResponseExample>

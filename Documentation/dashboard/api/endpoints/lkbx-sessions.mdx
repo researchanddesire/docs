@@ -9,7 +9,15 @@ description: "View, create, modify, and complete lock sessions"
 
 Returns a summary list of all lock sessions you have access to (past and present).
 
-<ResponseField name="data" type="object[]" required>
+<ParamField query="limit" type="number" default="50">
+  Number of records to return (max 100).
+</ParamField>
+
+<ParamField query="offset" type="number" default="0">
+  Number of records to skip for pagination.
+</ParamField>
+
+<ResponseField name="data.data" type="object[]" required>
   Array of session summary objects.
 
 <ResponseField name="id" type="number">
@@ -41,35 +49,53 @@ Returns a summary list of all lock sessions you have access to (past and present
   </ResponseField>
 </ResponseField>
 
+<ResponseField name="data.pagination" type="object" required>
+  Pagination metadata.
+
+  <ResponseField name="limit" type="number">
+    Number of records returned.
+  </ResponseField>
+
+  <ResponseField name="offset" type="number">
+    Number of records skipped.
+  </ResponseField>
+</ResponseField>
+
 <RequestExample>
   ```bash cURL curl -H "Authorization: Bearer YOUR_TOKEN" \
-  https://dashboard.researchanddesire.com/api/v1/lkbx/session ```
+  "https://dashboard.researchanddesire.com/api/v1/lkbx/session?limit=50&offset=0" ```
 </RequestExample>
 
 <ResponseExample>
 ```json 200 OK
 {
   "ok": true,
-  "data": [
-    {
-      "id": 7,
-      "name": "Weekend Lock",
-      "lockState": "locked",
-      "duration": 172800,
-      "startDate": "2026-02-16T18:00:00Z",
-      "endDate": null,
-      "isActive": true
-    },
-    {
-      "id": 5,
-      "name": "Test Lock",
-      "lockState": "completed",
-      "duration": 3600,
-      "startDate": "2026-02-15T10:00:00Z",
-      "endDate": "2026-02-15T11:00:00Z",
-      "isActive": false
+  "data": {
+    "data": [
+      {
+        "id": 7,
+        "name": "Weekend Lock",
+        "lockState": "locked",
+        "duration": 172800,
+        "startDate": "2026-02-16T18:00:00Z",
+        "endDate": null,
+        "isActive": true
+      },
+      {
+        "id": 5,
+        "name": "Test Lock",
+        "lockState": "completed",
+        "duration": 3600,
+        "startDate": "2026-02-15T10:00:00Z",
+        "endDate": "2026-02-15T11:00:00Z",
+        "isActive": false
+      }
+    ],
+    "pagination": {
+      "limit": 50,
+      "offset": 0
     }
-  ]
+  }
 }
 ```
 </ResponseExample>

@@ -9,7 +9,15 @@ description: "List devices and training settings for the Deepthroat Trainer"
 
 Returns all Deepthroat Trainer devices you have access to.
 
-<ResponseField name="data" type="object[]" required>
+<ParamField query="limit" type="number" default="50">
+  Number of records to return (max 100).
+</ParamField>
+
+<ParamField query="offset" type="number" default="0">
+  Number of records to skip for pagination.
+</ParamField>
+
+<ResponseField name="data.data" type="object[]" required>
   Array of DTT device objects.
 
 <ResponseField name="id" type="number">
@@ -45,27 +53,45 @@ Returns all Deepthroat Trainer devices you have access to.
   </ResponseField>
 </ResponseField>
 
+<ResponseField name="data.pagination" type="object" required>
+  Pagination metadata.
+
+  <ResponseField name="limit" type="number">
+    Number of records returned.
+  </ResponseField>
+
+  <ResponseField name="offset" type="number">
+    Number of records skipped.
+  </ResponseField>
+</ResponseField>
+
 <RequestExample>
   ```bash cURL curl -H "Authorization: Bearer YOUR_TOKEN" \
-  https://dashboard.researchanddesire.com/api/v1/dtt ```
+  "https://dashboard.researchanddesire.com/api/v1/dtt?limit=50&offset=0" ```
 </RequestExample>
 
 <ResponseExample>
 ```json 200 OK
 {
   "ok": true,
-  "data": [
-    {
-      "id": 1,
-      "bubbleId": "dtt-abc",
-      "ownerId": 42,
-      "macAddress": "AA:BB:CC:DD:EE:FF",
-      "serialNumber": 1001,
-      "softwareVersion": "2.1.0",
-      "lastVisited": "2026-02-17T12:00:00Z",
-      "apiHits": 256
+  "data": {
+    "data": [
+      {
+        "id": 1,
+        "bubbleId": "dtt-abc",
+        "ownerId": 42,
+        "macAddress": "AA:BB:CC:DD:EE:FF",
+        "serialNumber": 1001,
+        "softwareVersion": "2.1.0",
+        "lastVisited": "2026-02-17T12:00:00Z",
+        "apiHits": 256
+      }
+    ],
+    "pagination": {
+      "limit": 50,
+      "offset": 0
     }
-  ]
+  }
 }
 ```
 </ResponseExample>
@@ -95,7 +121,15 @@ Returns full details for a specific DTT device.
 
 Returns all training program settings (templates) you have access to, **without** segments. Use this for an overview of available programs.
 
-<ResponseField name="data" type="object[]" required>
+<ParamField query="limit" type="number" default="50">
+  Number of records to return (max 100).
+</ParamField>
+
+<ParamField query="offset" type="number" default="0">
+  Number of records to skip for pagination.
+</ParamField>
+
+<ResponseField name="data.data" type="object[]" required>
   Array of settings objects.
 
 <ResponseField name="id" type="number">
@@ -131,9 +165,21 @@ Returns all training program settings (templates) you have access to, **without*
   </ResponseField>
 </ResponseField>
 
+<ResponseField name="data.pagination" type="object" required>
+  Pagination metadata.
+
+  <ResponseField name="limit" type="number">
+    Number of records returned.
+  </ResponseField>
+
+  <ResponseField name="offset" type="number">
+    Number of records skipped.
+  </ResponseField>
+</ResponseField>
+
 <RequestExample>
   ```bash cURL curl -H "Authorization: Bearer YOUR_TOKEN" \
-  https://dashboard.researchanddesire.com/api/v1/dtt/settings ```
+  "https://dashboard.researchanddesire.com/api/v1/dtt/settings?limit=50&offset=0" ```
 </RequestExample>
 
 ---

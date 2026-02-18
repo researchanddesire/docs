@@ -74,6 +74,37 @@ Every response uses the same envelope:
 }
 ```
 
+## Pagination
+
+List endpoints support pagination via query parameters:
+
+| Parameter | Default | Max | Description |
+|-----------|---------|-----|-------------|
+| `limit`   | 50      | 100 | Number of records to return |
+| `offset`  | 0       | -   | Number of records to skip |
+
+Paginated responses wrap the data array with pagination metadata:
+
+```json
+{
+  "ok": true,
+  "data": {
+    "data": [ ... ],
+    "pagination": {
+      "limit": 50,
+      "offset": 0
+    }
+  }
+}
+```
+
+Example: fetch the second page of 25 users:
+
+```bash
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  "https://dashboard.researchanddesire.com/api/v1/users?limit=25&offset=25"
+```
+
 ## Rate Limiting
 
 <Note>

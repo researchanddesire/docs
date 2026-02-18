@@ -128,7 +128,7 @@
               },
               {
                 "group": "Users",
-                "openapi": "openapi.yaml",
+                "openapi": "https://dashboard.researchanddesire.com/openapi.yaml",
                 "pages": [
                   "GET /users",
                   "GET /users/{id}"
@@ -136,7 +136,7 @@
               },
               {
                 "group": "DTT Devices",
-                "openapi": "openapi.yaml",
+                "openapi": "https://dashboard.researchanddesire.com/openapi.yaml",
                 "pages": [
                   "GET /dtt",
                   "GET /dtt/{id}"
@@ -144,7 +144,7 @@
               },
               {
                 "group": "DTT Settings",
-                "openapi": "openapi.yaml",
+                "openapi": "https://dashboard.researchanddesire.com/openapi.yaml",
                 "pages": [
                   "GET /dtt/settings",
                   "GET /dtt/settings/{id}"
@@ -152,7 +152,7 @@
               },
               {
                 "group": "Lockbox Devices",
-                "openapi": "openapi.yaml",
+                "openapi": "https://dashboard.researchanddesire.com/openapi.yaml",
                 "pages": [
                   "GET /lkbx",
                   "GET /lkbx/{id}"
@@ -160,14 +160,14 @@
               },
               {
                 "group": "Lock Settings",
-                "openapi": "openapi.yaml",
+                "openapi": "https://dashboard.researchanddesire.com/openapi.yaml",
                 "pages": [
                   "GET /lkbx/settings"
                 ]
               },
               {
                 "group": "Lock Sessions",
-                "openapi": "openapi.yaml",
+                "openapi": "https://dashboard.researchanddesire.com/openapi.yaml",
                 "pages": [
                   "GET /lkbx/session",
                   "GET /lkbx/session/{id}",
@@ -178,7 +178,7 @@
               },
               {
                 "group": "OSSM Devices",
-                "openapi": "openapi.yaml",
+                "openapi": "https://dashboard.researchanddesire.com/openapi.yaml",
                 "pages": [
                   "GET /ossm",
                   "GET /ossm/{id}"

@@ -15,6 +15,18 @@ This is a placeholder entry for future dashboard updates.
 - **Improvements** — Enhancements to existing functionality
 - **Bug fixes** — Notable fixes that improve your experience
 
+### v1.16.8
+
+- **API token schema cleanup** — Removed redundant `jti` field from API tokens, completing the simplified UUID token format migration
+- **User registration fix** — Fixed issue where existing users were not properly linked during device registration tasks
+
+### v1.16.7
+
+- **API pagination support** — All list endpoints now support `limit` and `offset` query parameters for paginated responses (default 50, max 100)
+- **OpenAPI specification** — Added public OpenAPI 3.1.0 spec at `/openapi.yaml` documenting all v1 API endpoints
+- **API route timeout increase** — Extended API route timeouts to 30 seconds for improved reliability
+- **Lock activation performance** — Improved lock session activation speed by running device lookups in parallel
+
 ### v1.16.6
 
 - **API token error logging** — Added error logging for API token lookups to improve debugging when authentication issues occur
