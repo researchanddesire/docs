@@ -329,6 +329,54 @@ To return to official firmware after experimenting with community builds, use th
 </Accordion>
 </AccordionGroup>
 
+## Power supply connection sparks or disconnects
+
+If you see sparks when connecting the power supply or the barrel jack connection is loose and disconnects with small movements, the cable may not be secured properly.
+
+<AccordionGroup>
+<Accordion title="Use the strain reliever">
+The PCB mount includes a strain reliever on the side to secure the power cable and prevent movement at the barrel jack connection.
+
+**Solution:**
+1. Route the power cable through the strain relief slot on the side of the PCB mount
+2. Secure the cable so the barrel jack connector cannot move or wiggle during use
+3. Ensure the barrel jack is fully seated before securing the cable
+
+<Tip>
+A properly secured power cable should have no slack at the barrel jack. The strain reliever takes mechanical stress off the connector, preventing intermittent connections and arcing.
+</Tip>
+</Accordion>
+
+<Accordion title="Check the barrel jack connection">
+**Symptoms:**
+- Sparks when plugging or unplugging the power supply
+- Power cuts out when the cable moves
+- Intermittent power during operation
+
+**Solution:**
+1. Unplug the power supply from the wall before disconnecting from the board
+2. Inspect the barrel jack connector for damage, bent pins, or debris
+3. Ensure the barrel jack is fully inserted until it clicks or seats firmly
+4. Use the strain reliever to prevent cable movement during use
+
+<Warning>
+Repeatedly connecting and disconnecting a loose barrel jack can cause arcing, which damages the connector over time. If you see visible damage to the barrel jack or PCB connector, contact support for replacement options.
+</Warning>
+</Accordion>
+
+<Accordion title="Verify power supply compatibility">
+Ensure your power supply matches the PCB requirements:
+
+- **Barrel jack size:** 5.5mm outer diameter × 2.1mm inner diameter
+- **Polarity:** Center-positive
+- **Voltage:** 24V DC (or USB-C PD if using that input)
+
+An incorrectly sized barrel jack may not seat properly, causing loose connections. If using a third-party power supply, verify the connector matches these specifications.
+</Accordion>
+</AccordionGroup>
+
+---
+
 ## Still having issues?
 
 If you've worked through these troubleshooting steps and still have problems:
