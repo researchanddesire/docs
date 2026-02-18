@@ -53,61 +53,88 @@
       {
         "product": "Dashboard",
         "icon": "gauge-high",
-        "groups": [
+        "tabs": [
           {
-            "group": "Quick Start",
-            "pages": [
-              "dashboard/quick-start/introduction",
-              "dashboard/quick-start/create-account",
+            "tab": "Guides",
+            "groups": [
               {
-                "group": "Connections",
+                "group": "Quick Start",
                 "pages": [
-                  "dashboard/quick-start/connections/introduction",
-                  "dashboard/quick-start/connections/switch-account",
-                  "dashboard/quick-start/connections/access-types",
-                  "dashboard/quick-start/connections/managing-partners"
+                  "dashboard/quick-start/introduction",
+                  "dashboard/quick-start/create-account",
+                  {
+                    "group": "Connections",
+                    "pages": [
+                      "dashboard/quick-start/connections/introduction",
+                      "dashboard/quick-start/connections/switch-account",
+                      "dashboard/quick-start/connections/access-types",
+                      "dashboard/quick-start/connections/managing-partners"
+                    ]
+                  },
+                  "dashboard/quick-start/partner-control"
                 ]
               },
-              "dashboard/quick-start/partner-control"
+              {
+                "group": "Leaderboards",
+                "pages": [
+                  "dashboard/leaderboards/introduction",
+                  "dashboard/leaderboards/global-rank",
+                  "dashboard/leaderboards/levels",
+                  "dashboard/leaderboards/points"
+                ]
+              },
+              {
+                "group": "Subscription",
+                "pages": [
+                  "dashboard/subscription"
+                ]
+              },
+              {
+                "group": "Settings",
+                "pages": [
+                  "dashboard/settings/introduction",
+                  "dashboard/settings/account",
+                  "dashboard/settings/email",
+                  "dashboard/settings/public-links"
+                ]
+              },
+              {
+                "group": "FAQs",
+                "pages": [
+                  "dashboard/faqs/introduction",
+                  "dashboard/faqs/forgot-password",
+                  "dashboard/faqs/ownership-disputes"
+                ]
+              },
+              {
+                "group": "Changelog",
+                "pages": [
+                  "dashboard/changelog/overview",
+                  "dashboard/changelog/v0.0.0"
+                ]
+              }
             ]
           },
           {
-            "group": "Leaderboards",
-            "pages": [
-              "dashboard/leaderboards/introduction",
-              "dashboard/leaderboards/global-rank",
-              "dashboard/leaderboards/levels",
-              "dashboard/leaderboards/points"
-            ]
-          },
-          {
-            "group": "Subscription",
-            "pages": [
-              "dashboard/subscription"
-            ]
-          },
-          {
-            "group": "Settings",
-            "pages": [
-              "dashboard/settings/introduction",
-              "dashboard/settings/account",
-              "dashboard/settings/email",
-              "dashboard/settings/public-links"
-            ]
-          },
-          {
-            "group": "FAQs",
-            "pages": [
-              "dashboard/faqs/introduction",
-              "dashboard/faqs/forgot-password",
-              "dashboard/faqs/ownership-disputes"
-            ]
-          },
-          {
-            "group": "Changelog",
-            "pages": [
-              "dashboard/changelog/overview",
-              "dashboard/changelog/v0.0.0"
+            "tab": "API",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "dashboard/api/introduction",
+                  "dashboard/api/authentication"
+                ]
+              },
+              {
+                "group": "Endpoints",
+                "pages": [
+                  "dashboard/api/endpoints/users",
+                  "dashboard/api/endpoints/dtt",
+                  "dashboard/api/endpoints/lkbx",
+                  "dashboard/api/endpoints/lkbx-sessions",
+                  "dashboard/api/endpoints/ossm"
+                ]
+              }
             ]
           }
         ]

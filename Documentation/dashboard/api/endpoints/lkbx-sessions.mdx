@@ -1,0 +1,295 @@
+---
+title: "LKBX Sessions"
+description: "View, create, modify, and complete lock sessions"
+---
+
+## List Sessions
+
+<div className="not-prose">
+  `GET /api/v1/lkbx/session`
+</div>
+
+Returns a summary list of all lock sessions you have access to (past and present).
+
+<ResponseField name="data" type="object[]" required>
+  Array of session summary objects.
+
+  <ResponseField name="id" type="number">
+    Session ID.
+  </ResponseField>
+
+  <ResponseField name="name" type="string">
+    Session name (from the lock settings template).
+  </ResponseField>
+
+  <ResponseField name="lockState" type="string">
+    Current state: `pending`, `locked`, `completed`, `abandoned`, or `break`.
+  </ResponseField>
+
+  <ResponseField name="duration" type="number">
+    Lock duration in seconds.
+  </ResponseField>
+
+  <ResponseField name="startDate" type="string">
+    ISO 8601 timestamp when the session started.
+  </ResponseField>
+
+  <ResponseField name="endDate" type="string">
+    ISO 8601 timestamp when the session ended (null if active).
+  </ResponseField>
+
+  <ResponseField name="isActive" type="boolean">
+    Whether this session is currently active.
+  </ResponseField>
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  https://dashboard.researchanddesire.com/api/v1/lkbx/session
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200 OK
+{
+  "ok": true,
+  "data": [
+    {
+      "id": 7,
+      "name": "Weekend Lock",
+      "lockState": "locked",
+      "duration": 172800,
+      "startDate": "2026-02-16T18:00:00Z",
+      "endDate": null,
+      "isActive": true
+    },
+    {
+      "id": 5,
+      "name": "Test Lock",
+      "lockState": "completed",
+      "duration": 3600,
+      "startDate": "2026-02-15T10:00:00Z",
+      "endDate": "2026-02-15T11:00:00Z",
+      "isActive": false
+    }
+  ]
+}
+```
+</ResponseExample>
+
+---
+
+## Get Session Details
+
+<div className="not-prose">
+  `GET /api/v1/lkbx/session/{id}`
+</div>
+
+Returns full details of a specific lock session, including the complete activity history (lock segments).
+
+<ParamField path="id" type="number" required>
+  The session ID.
+</ParamField>
+
+<ResponseField name="data" type="object" required>
+  Full session object with nested segment history.
+
+  <ResponseField name="LockSegment" type="object[]">
+    Array of activity segments in chronological order.
+
+    <ResponseField name="type" type="string">
+      Segment type: `start`, `locked`, `break`, `unlocked`, etc.
+    </ResponseField>
+
+    <ResponseField name="createdAt" type="string">
+      ISO 8601 timestamp.
+    </ResponseField>
+
+    <ResponseField name="isLocked" type="boolean">
+      Whether the device was locked during this segment.
+    </ResponseField>
+  </ResponseField>
+</ResponseField>
+
+<RequestExample>
+```bash cURL
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  https://dashboard.researchanddesire.com/api/v1/lkbx/session/7
+```
+</RequestExample>
+
+---
+
+## Get Active Session
+
+<div className="not-prose">
+  `GET /api/v1/lkbx/session/current`
+</div>
+
+Returns the currently active lock session for your account, including segment history. Returns `null` in the `data` field if no session is active.
+
+<RequestExample>
+```bash cURL
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  https://dashboard.researchanddesire.com/api/v1/lkbx/session/current
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200 Active Session
+{
+  "ok": true,
+  "data": {
+    "id": 7,
+    "lockState": "locked",
+    "duration": 172800,
+    "startDate": "2026-02-16T18:00:00Z",
+    "isActive": true,
+    "LockSegment": [
+      { "type": "start", "createdAt": "2026-02-16T18:00:00Z", "isLocked": true }
+    ]
+  }
+}
+```
+
+```json 200 No Active Session
+{
+  "ok": true,
+  "data": null
+}
+```
+</ResponseExample>
+
+---
+
+## Lock / Unlock
+
+<div className="not-prose">
+  `POST /api/v1/lkbx/session/current`
+</div>
+
+Start a new lock session or complete (unlock) the active session.
+
+<ParamField body="action" type="string" required>
+  Either `"lock"` to start a new session, or `"unlock"` to complete the active session.
+</ParamField>
+
+<ParamField body="lockSettingsId" type="number">
+  The ID of a lock settings template to use. If omitted, default settings are applied. Only used with `"lock"` action.
+</ParamField>
+
+<ParamField body="keyholderIds" type="number[]">
+  Array of user IDs to assign as keyholders. Empty array or omitted means self-lock. Only used with `"lock"` action.
+</ParamField>
+
+<ParamField body="targetUserId" type="number">
+  The user to lock/unlock. Defaults to the authenticated user. Useful when acting as a keyholder for a partner.
+</ParamField>
+
+### Lock Action
+
+Creates a new lock session. Fails if a session is already active.
+
+<RequestExample>
+```bash Lock
+curl -X POST \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"action": "lock", "lockSettingsId": 3}' \
+  https://dashboard.researchanddesire.com/api/v1/lkbx/session/current
+```
+
+```bash Unlock
+curl -X POST \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"action": "unlock"}' \
+  https://dashboard.researchanddesire.com/api/v1/lkbx/session/current
+```
+</RequestExample>
+
+<ResponseExample>
+```json 201 Lock Created
+{
+  "ok": true,
+  "data": {
+    "lockSessionId": 8
+  }
+}
+```
+
+```json 200 Unlock Success
+{
+  "ok": true,
+  "data": {
+    "message": "Lock session completed"
+  }
+}
+```
+
+```json 400 Already Locked
+{
+  "ok": false,
+  "error": "You already have an active lock."
+}
+```
+</ResponseExample>
+
+### Unlock Action
+
+Completes the active lock session. Only keyholders or test lock owners can unlock.
+
+<Warning>
+The unlock action is **permanent**. Once a session is completed, it cannot be restarted — you must create a new lock session.
+</Warning>
+
+---
+
+## Modify Active Session
+
+<div className="not-prose">
+  `PATCH /api/v1/lkbx/session/current`
+</div>
+
+Modify the duration of the active lock session. Only keyholders or test lock owners can modify sessions.
+
+<ParamField body="duration" type="number">
+  New lock duration in seconds. Must be a positive number. The end date will be recalculated based on the session's start date.
+</ParamField>
+
+<ParamField body="targetUserId" type="number">
+  The user whose session to modify. Defaults to the authenticated user.
+</ParamField>
+
+<RequestExample>
+```bash cURL
+curl -X PATCH \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"duration": 86400}' \
+  https://dashboard.researchanddesire.com/api/v1/lkbx/session/current
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200 OK
+{
+  "ok": true,
+  "data": {
+    "id": 7,
+    "duration": 86400,
+    "endDate": "2026-02-17T18:00:00Z",
+    "lockState": "locked",
+    "isActive": true
+  }
+}
+```
+
+```json 403 Forbidden
+{
+  "ok": false,
+  "error": "Only keyholders or test locks can modify the active session"
+}
+```
+</ResponseExample>
