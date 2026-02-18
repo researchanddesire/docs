@@ -5,6 +5,46 @@ description: "Diagnose and resolve common OSSM issues including homing problems,
 
 This guide helps you diagnose and fix the most common issues with your OSSM. Start by identifying your symptom, then follow the troubleshooting steps.
 
+## Clicking noise during homing
+
+If your OSSM makes a loud clicking or ratcheting noise when it reaches each end of the rail during homing, the belt is likely not tensioned enough and is skipping.
+
+<Steps>
+<Step title="Check belt movement manually">
+With the OSSM unplugged, manually move the rail back and forth along its full range. The belt should move smoothly without slipping or making noise.
+</Step>
+
+<Step title="Verify belt clamp and tensioner position">
+Check these components:
+
+- **Front belt clamp bolt**: Ensure it is adequately tightened so the belt is firmly secured
+- **End tensioner piece**: Verify it is pushed fully onto the rail
+- **M5 tensioner screw**: Confirm it has not been tightened all the way down (it needs room for adjustment)
+</Step>
+
+<Step title="Adjust the tensioner screw">
+Slowly turn the M5 tensioner screw clockwise until you feel a bit of resistance. Do not screw it in all the way—you're adding tension incrementally.
+</Step>
+
+<Step title="Test with power">
+Plug your OSSM in and let it home. Listen for any clicking noise as it reaches each end of the rail.
+</Step>
+
+<Step title="Increase tension if needed">
+If you still hear clicking, power off and gently tighten the tensioner screw a bit more. Then power cycle and test again. Repeat until the clicking stops.
+</Step>
+
+<Step title="Verify under load">
+As a final check, set the rail in an upward position and apply some downward force with your hand. The belt should not skip. If it does, add more tension and power cycle to re-home.
+</Step>
+</Steps>
+
+<Tip>
+Proper belt tension prevents skipping during direction changes at the stroke endpoints. The belt should be tight enough to transfer motor force without slipping, but not so tight that it strains the motor or bearings.
+</Tip>
+
+---
+
 ## Homing is too slow
 
 If your OSSM homes very slowly or stalls during the homing sequence, the motor may need to be programmed.
