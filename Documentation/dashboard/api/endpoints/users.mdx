@@ -7,7 +7,7 @@ description: "List and retrieve user information"
 
 <div className="not-prose">`GET /api/v1/users`</div>
 
-Returns all users you have access to. Results are filtered by your account permissions — you'll see yourself and any users connected to you via partnerships.
+Returns all users you have access to. Results are filtered by your account permissions — you'll see yourself and any users connected to you via partnerships. Includes profile information in a flat structure.
 
 <ParamField query="limit" type="number" default="50">
   Number of records to return (max 100).
@@ -22,30 +22,50 @@ Returns all users you have access to. Results are filtered by your account permi
 </ResponseField>
 
 <ResponseField name="data.data" type="object[]" required>
-  Array of user objects.
+  Array of user objects with profile information.
 
 <ResponseField name="id" type="number">
   The user's internal ID.
 </ResponseField>
 
-<ResponseField name="bubbleId" type="string">
-  Unique public identifier for the user.
-</ResponseField>
-
-<ResponseField name="name" type="string">
-  Display name.
+<ResponseField name="username" type="string">
+  The user's unique username (from profile).
 </ResponseField>
 
 <ResponseField name="accountType" type="string">
   One of `user`, `support`, `admin`, or `superadmin`.
 </ResponseField>
 
+<ResponseField name="subscriptionTier" type="string">
+  Subscription tier: `ultra`, `pioneer`, `founder`, `employee`, or `null` if no subscription.
+</ResponseField>
+
 <ResponseField name="league" type="number">
   The user's current league tier.
 </ResponseField>
 
-  <ResponseField name="rank" type="number">
-    The user's leaderboard rank.
+<ResponseField name="rank" type="number">
+  The user's leaderboard rank.
+</ResponseField>
+
+<ResponseField name="totalPoints" type="number">
+  Lifetime points earned.
+</ResponseField>
+
+<ResponseField name="matchPoints" type="number">
+  Points earned in the current match period.
+</ResponseField>
+
+<ResponseField name="profileImage" type="string">
+  URL to the user's profile image (nullable).
+</ResponseField>
+
+<ResponseField name="profileDescription" type="string">
+  User's profile bio/description (nullable).
+</ResponseField>
+
+  <ResponseField name="profileTitle" type="string">
+    User's profile title (nullable).
   </ResponseField>
 </ResponseField>
 
@@ -74,11 +94,16 @@ Returns all users you have access to. Results are filtered by your account permi
     "data": [
       {
         "id": 42,
-        "bubbleId": "abc-123",
-        "name": "Alice",
+        "username": "alice_trainer",
         "accountType": "user",
+        "subscriptionTier": "ultra",
         "league": 3,
-        "rank": 150
+        "rank": 150,
+        "totalPoints": 12500,
+        "matchPoints": 800,
+        "profileImage": "https://example.com/avatar.jpg",
+        "profileDescription": "Hello world",
+        "profileTitle": "Expert Trainer"
       }
     ],
     "pagination": {
@@ -109,16 +134,16 @@ Returns detailed information about a specific user, including their profile data
   The user's internal ID.
 </ResponseField>
 
-<ResponseField name="bubbleId" type="string">
-  Unique public identifier.
-</ResponseField>
-
-<ResponseField name="name" type="string">
-  Display name.
+<ResponseField name="username" type="string">
+  The user's unique username.
 </ResponseField>
 
 <ResponseField name="accountType" type="string">
   Account type.
+</ResponseField>
+
+<ResponseField name="subscriptionTier" type="string">
+  Subscription tier.
 </ResponseField>
 
 <ResponseField name="totalPoints" type="number">
@@ -145,16 +170,16 @@ Returns detailed information about a specific user, including their profile data
   "ok": true,
   "data": {
     "id": 42,
-    "bubbleId": "abc-123",
-    "name": "Alice",
+    "username": "alice_trainer",
     "accountType": "user",
+    "subscriptionTier": "ultra",
     "league": 3,
     "rank": 150,
     "totalPoints": 12500,
     "matchPoints": 800,
-    "Profile": {
-      "bio": "Hello world"
-    }
+    "profileImage": "https://example.com/avatar.jpg",
+    "profileDescription": "Hello world",
+    "profileTitle": "Expert Trainer"
   }
 }
 ```

@@ -183,7 +183,7 @@ Returns the currently active lock session for your account, including segment hi
 
 <div className="not-prose">`POST /api/v1/lkbx/session/current`</div>
 
-Start a new lock session or complete (unlock) the active session.
+Start a new lock session or complete (unlock) the active session. User IDs (target and keyholders) are validated against your accessible users before the action is performed.
 
 <ParamField body="action" type="string" required>
   Either `"lock"` to start a new session, or `"unlock"` to complete the active
@@ -197,12 +197,15 @@ Start a new lock session or complete (unlock) the active session.
 
 <ParamField body="keyholderIds" type="number[]">
   Array of user IDs to assign as keyholders. Empty array or omitted means
-  self-lock. Only used with `"lock"` action.
+  self-lock. Only used with `"lock"` action. All IDs must be users you have access to.
 </ParamField>
 
 <ParamField body="targetUserId" type="number">
-  The user to lock/unlock. Defaults to the authenticated user. Useful when
-  acting as a keyholder for a partner.
+  The user to lock/unlock. Defaults to the authenticated user. Must be a user you have access to.
+</ParamField>
+
+<ParamField body="isTestLock" type="boolean">
+  Override the test lock setting from the lock settings template. When `true`, the lock owner can unlock without a keyholder. Only used with `"lock"` action.
 </ParamField>
 
 ### Lock Action
@@ -215,6 +218,14 @@ curl -X POST \
   -H "Authorization: Bearer YOUR_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"action": "lock", "lockSettingsId": 3}' \
+  https://dashboard.researchanddesire.com/api/v1/lkbx/session/current
+```
+
+```bash Lock with Test Mode
+curl -X POST \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"action": "lock", "lockSettingsId": 3, "isTestLock": true}' \
   https://dashboard.researchanddesire.com/api/v1/lkbx/session/current
 ```
 
@@ -251,6 +262,13 @@ curl -X POST \
 {
   "ok": false,
   "error": "You already have an active lock."
+}
+```
+
+```json 403 Inaccessible User
+{
+  "ok": false,
+  "error": "targetUserId contains inaccessible user IDs: 123"
 }
 ```
 

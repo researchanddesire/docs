@@ -15,6 +15,18 @@ This is a placeholder entry for future dashboard updates.
 - **Improvements** — Enhancements to existing functionality
 - **Bug fixes** — Notable fixes that improve your experience
 
+### v1.16.10
+
+- **Users API response improvements** — The `/api/v1/users` endpoint now returns enhanced profile data (username, subscriptionTier, profileImage, profileDescription, profileTitle) in a flat structure
+- **Lock session access validation** — The lock/unlock API now validates that target users and keyholders are accessible to the caller before performing operations
+- **Test lock override** — Added `isTestLock` parameter to the lock API allowing override of the template's test lock setting
+
+### v1.16.9
+
+- **API access control hardening** — All v1 API endpoints now explicitly verify user access permissions in addition to row-level security policies
+- **Database query performance** — Added indexes on owner columns across all major tables for faster query execution
+- **Shared access query optimization** — Optimized permission checks for shared user access with short-circuit evaluation
+
 ### v1.16.8
 
 - **API token schema cleanup** — Removed redundant `jti` field from API tokens, completing the simplified UUID token format migration
