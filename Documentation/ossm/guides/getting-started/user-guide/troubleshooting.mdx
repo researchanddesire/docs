@@ -246,6 +246,50 @@ If you have a RADR wireless remote, you can continue using your OSSM while waiti
 </Accordion>
 </AccordionGroup>
 
+## Menu options show blank screen (Get Help, WiFi, Update)
+
+If selecting certain menu options—such as **Get Help**, **WiFi Setup**, or **Update**—causes the display to go blank or show no response, these features may not yet be available on your firmware version.
+
+<AccordionGroup>
+<Accordion title="Check firmware version">
+**Current status:**
+
+Some menu options visible on the wired remote are placeholders for features still in development. As of early 2026, the following may display but not function on all firmware versions:
+
+- **Get Help** — Intended to display a QR code linking to documentation
+- **WiFi Setup** — Intended to configure wireless network connectivity
+- **Update** — Intended to check for over-the-air firmware updates
+
+<Note>
+If the display goes blank when selecting these options, wait a few seconds and then press the encoder to return to the menu. This is expected behavior for unreleased features—your remote is not malfunctioning.
+</Note>
+</Accordion>
+
+<Accordion title="When will these features work?">
+Feature availability depends on your firmware version:
+
+- **WiFi Setup and Update** — These require the OSSM to connect to a WiFi network. If WiFi configuration hasn't been completed via the [Web BLE Controller](/ossm/guides/getting-started/wifi-setup#option-1-web-ble-controller), the menu options may not function as expected.
+- **Get Help** — This feature is being rolled out in upcoming firmware releases.
+
+To ensure you have the latest features, update your firmware using the [Web Flasher](/ossm/tools/web-flasher).
+
+<Tip>
+You can configure WiFi using the Web BLE Controller in a browser without relying on the wired remote's WiFi Setup menu. See [WiFi Setup](/ossm/guides/getting-started/wifi-setup) for instructions.
+</Tip>
+</Accordion>
+
+<Accordion title="Resolution">
+If you need WiFi connectivity or firmware updates:
+
+1. Use the [Web BLE Controller](/ossm/tools/web-controller) to configure WiFi from your browser
+2. Use the [Web Flasher](/ossm/tools/web-flasher) to update firmware directly via USB
+
+These browser-based tools provide the same functionality without relying on the wired remote's menu options.
+</Accordion>
+</AccordionGroup>
+
+---
+
 ## Boot loops or display artifacts
 
 If your OSSM repeatedly restarts (boot loops) or shows corrupted characters, flickering, or visual glitches on the wired remote display, there may be a hardware fault with the wired remote board or the main control board.
