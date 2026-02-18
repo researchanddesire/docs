@@ -15,6 +15,62 @@ This is a placeholder entry for future dashboard updates.
 - **Improvements** — Enhancements to existing functionality
 - **Bug fixes** — Notable fixes that improve your experience
 
+### v1.16.10
+
+- **Users API response improvements** — The `/api/v1/users` endpoint now returns enhanced profile data (username, subscriptionTier, profileImage, profileDescription, profileTitle) in a flat structure
+- **Lock session access validation** — The lock/unlock API now validates that target users and keyholders are accessible to the caller before performing operations
+- **Test lock override** — Added `isTestLock` parameter to the lock API allowing override of the template's test lock setting
+
+### v1.16.9
+
+- **API access control hardening** — All v1 API endpoints now explicitly verify user access permissions in addition to row-level security policies
+- **Database query performance** — Added indexes on owner columns across all major tables for faster query execution
+- **Shared access query optimization** — Optimized permission checks for shared user access with short-circuit evaluation
+
+### v1.16.8
+
+- **API token schema cleanup** — Removed redundant `jti` field from API tokens, completing the simplified UUID token format migration
+- **User registration fix** — Fixed issue where existing users were not properly linked during device registration tasks
+
+### v1.16.7
+
+- **API pagination support** — All list endpoints now support `limit` and `offset` query parameters for paginated responses (default 50, max 100)
+- **OpenAPI specification** — Added public OpenAPI 3.1.0 spec at `/openapi.yaml` documenting all v1 API endpoints
+- **API route timeout increase** — Extended API route timeouts to 30 seconds for improved reliability
+- **Lock activation performance** — Improved lock session activation speed by running device lookups in parallel
+
+### v1.16.6
+
+- **API token error logging** — Added error logging for API token lookups to improve debugging when authentication issues occur
+
+### v1.16.5
+
+- **API performance improvements** — Optimized Supabase admin client initialization across device and session endpoints for faster response times
+
+### v1.16.4
+
+- **Chaster SDK migration** — Migrated Chaster API integration to use a generated OpenAPI SDK for improved type safety and maintainability
+- **Automatic token refresh** — Chaster access tokens now refresh automatically when expired, preventing authentication errors during sync operations
+- **Webhook error handling** — Improved Chaster webhook processing to gracefully handle edge cases where session data is incomplete
+
+### v1.16.3
+
+- **Integrations settings page** — Chaster integration has moved to a new dedicated Integrations page under Settings for a cleaner experience
+- **Chaster integration for all users** — Chaster integration is now available to all users with a paired Lockbox (previously limited to beta testers)
+- **In-line Chaster sign-in** — Link your R&D account directly within the Chaster extension configuration without leaving the page
+- **API token format simplified** — API tokens are now simple UUIDs for improved reliability and easier debugging
+
+### v1.16.2
+
+- **Hygiene break penalties** — Exceeding your allowed break time now automatically extends lock duration by the configured penalty amount
+- **Break settings consolidation** — Break penalty configuration moved into the Hygiene Break Settings dialog for easier setup
+- **Break penalty default** — New locks now default to no break penalty (previously 12 hours)
+- **Timeline improvements** — Break penalty events now appear in your lock timeline with a dedicated timer icon
+
+### v1.16.1
+
+- **Duration display fix** — Fixed edge case where countdown timers could display negative values near month boundaries and DST transitions
+
 ### v1.15.12
 
 - **Unlimited training segments for all users** — All users can now create up to 100 training segments per template, removing the previous 3-segment limit for free users
@@ -102,7 +158,7 @@ This is a placeholder entry for future dashboard updates.
 - **Changelog workflow** — Changelog updates are now generated directly in the main repository instead of a separate docs repo, improving release automation
 
 <Tip>
-Bookmark this page to stay up to date with the latest platform changes.
+  Bookmark this page to stay up to date with the latest platform changes.
 </Tip>
 
 </Update>

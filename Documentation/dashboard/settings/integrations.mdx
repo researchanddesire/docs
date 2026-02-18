@@ -1,0 +1,97 @@
+---
+title: "Integrations (Beta)"
+description: "Connect third-party services to keep your Chastity Lockbox in sync across platforms."
+---
+
+<Warning>
+  **Beta Feature** — The Chaster integration is currently in beta. Functionality
+  may change and we welcome your feedback.
+</Warning>
+
+Connect third-party services to your Research & Desire account. Integrations
+allow your Chastity Lockbox to stay in sync with external platforms
+automatically.
+
+## Chaster Integration
+
+[Chaster](https://chaster.app) is a popular online chastity lock management
+platform. When connected, your Chastity Lockbox and Chaster locks stay in sync
+automatically.
+
+### What gets synced
+
+| Event                     | Direction     | Description                              |
+| ------------------------- | ------------- | ---------------------------------------- |
+| Lock started on Chaster   | Chaster → R&D | Creates a lock session on your dashboard |
+| Lock ended on Chaster     | Chaster → R&D | Ends the lock session on your dashboard  |
+| Lock ended on R&D         | R&D → Chaster | Archives the lock on Chaster             |
+| Time added/removed (vote) | Both ways     | Keeps the timer in sync                  |
+| Hygiene break started     | Chaster → R&D | Unlocks the lockbox for the break        |
+| Hygiene break ended       | Chaster → R&D | Re-locks the lockbox after the break     |
+
+### How to connect
+
+<Steps>
+  <Step title="Navigate to Integrations">
+    Go to **Settings → Integrations** in your dashboard.
+  </Step>
+
+<Step title="Click Connect Chaster">
+  Click the **Connect Chaster** button on the Chaster card.
+</Step>
+
+<Step title="Authorize on Chaster">
+  You will be redirected to Chaster to authorize the connection. Sign in and
+  approve the request.
+</Step>
+
+  <Step title="Start a lock on Chaster">
+    Create a lock on Chaster and add the **Research And Desire Lockbox**
+    extension. Your lockbox session will start automatically.
+  </Step>
+</Steps>
+
+### How to disconnect
+
+You can disconnect your Chaster account at any time from the Integrations page.
+Two options are available:
+
+- **Disconnect** — Removes the link but preserves your historical lock data.
+- **Disconnect & purge data** — Permanently deletes all Chaster-related data
+  from Research & Desire. This cannot be undone.
+
+<Note>
+  You cannot disconnect while a Chaster-controlled lock session is active. End
+  or abandon the session first.
+</Note>
+
+### Requirements
+
+- A paired **Chastity Lockbox** on your R&D account
+- A **Chaster** account at [chaster.app](https://chaster.app)
+
+### Known limitations
+
+<AccordionGroup>
+  <Accordion title="Locks must be started on Chaster">
+    To get full bidirectional sync, start your lock on Chaster with the
+    Research And Desire Lockbox extension. Locks started on the R&D dashboard
+    will not appear on Chaster.
+  </Accordion>
+
+<Accordion title="Hygiene breaks must be initiated from Chaster">
+  Break start/end events are controlled by Chaster. You cannot start a hygiene
+  break from the R&D dashboard for a Chaster-controlled session.
+</Accordion>
+
+  <Accordion title="Some Chaster extensions are not synced">
+    Only time changes, hygiene breaks, and voting events are synced. Other
+    Chaster extensions (games, tasks, etc.) operate independently on Chaster.
+  </Accordion>
+</AccordionGroup>
+
+## Need help?
+
+If you run into issues with the Chaster integration, please reach out on
+[Discord](https://discord.gg/researchanddesire) or email
+support@researchanddesire.com.

@@ -6,7 +6,8 @@ description: "Access your Research and Desire data programmatically with the RES
 The Research and Desire API lets you access your dashboard data from external applications, scripts, and integrations. Every API request respects your account's permissions — you can only access data you're allowed to see.
 
 <Info>
-API access is an **Ultra** feature. You need an active Ultra subscription to create API tokens. [Learn more about Ultra](/dashboard/subscription).
+  API access is an **Ultra** feature. You need an active Ultra subscription to
+  create API tokens. [Learn more about Ultra](/dashboard/subscription).
 </Info>
 
 ## Base URL
@@ -43,6 +44,7 @@ https://dashboard.researchanddesire.com/api/v1
     curl -H "Authorization: Bearer YOUR_TOKEN" \
       https://dashboard.researchanddesire.com/api/v1/users
     ```
+
   </Step>
 
   <Step title="Parse the response">
@@ -72,10 +74,43 @@ Every response uses the same envelope:
 }
 ```
 
+## Pagination
+
+List endpoints support pagination via query parameters:
+
+| Parameter | Default | Max | Description |
+|-----------|---------|-----|-------------|
+| `limit`   | 50      | 100 | Number of records to return |
+| `offset`  | 0       | -   | Number of records to skip |
+
+Paginated responses wrap the data array with pagination metadata:
+
+```json
+{
+  "ok": true,
+  "data": {
+    "data": [ ... ],
+    "pagination": {
+      "limit": 50,
+      "offset": 0
+    }
+  }
+}
+```
+
+Example: fetch the second page of 25 users:
+
+```bash
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  "https://dashboard.researchanddesire.com/api/v1/users?limit=25&offset=25"
+```
+
 ## Rate Limiting
 
 <Note>
-The API does not currently enforce strict rate limits, but please be respectful with your request volume. Excessive usage may result in throttling in future releases.
+  The API does not currently enforce strict rate limits, but please be
+  respectful with your request volume. Excessive usage may result in throttling
+  in future releases.
 </Note>
 
 ## Permissions and RLS
@@ -87,5 +122,7 @@ Your API token inherits the exact same permissions as your dashboard account. Th
 - User queries return only users you have a connection with
 
 <Warning>
-Treat your API token like a password. Anyone with your token can access your data. If a token is compromised, revoke it immediately from **Settings > API Keys**.
+  Treat your API token like a password. Anyone with your token can access your
+  data. If a token is compromised, revoke it immediately from **Settings > API
+  Keys**.
 </Warning>

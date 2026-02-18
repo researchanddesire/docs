@@ -5,65 +5,112 @@ description: "List and retrieve user information"
 
 ## List Users
 
-<div className="not-prose">
-  `GET /api/v1/users`
-</div>
+<div className="not-prose">`GET /api/v1/users`</div>
 
-Returns all users you have access to. Results are filtered by your account permissions — you'll see yourself and any users connected to you via partnerships.
+Returns all users you have access to. Results are filtered by your account permissions — you'll see yourself and any users connected to you via partnerships. Includes profile information in a flat structure.
+
+<ParamField query="limit" type="number" default="50">
+  Number of records to return (max 100).
+</ParamField>
+
+<ParamField query="offset" type="number" default="0">
+  Number of records to skip for pagination.
+</ParamField>
 
 <ResponseField name="ok" type="boolean" required>
   Always `true` on success.
 </ResponseField>
 
-<ResponseField name="data" type="object[]" required>
-  Array of user objects.
+<ResponseField name="data.data" type="object[]" required>
+  Array of user objects with profile information.
 
-  <ResponseField name="id" type="number">
-    The user's internal ID.
+<ResponseField name="id" type="number">
+  The user's internal ID.
+</ResponseField>
+
+<ResponseField name="username" type="string">
+  The user's unique username (from profile).
+</ResponseField>
+
+<ResponseField name="accountType" type="string">
+  One of `user`, `support`, `admin`, or `superadmin`.
+</ResponseField>
+
+<ResponseField name="subscriptionTier" type="string">
+  Subscription tier: `ultra`, `pioneer`, `founder`, `employee`, or `null` if no subscription.
+</ResponseField>
+
+<ResponseField name="league" type="number">
+  The user's current league tier.
+</ResponseField>
+
+<ResponseField name="rank" type="number">
+  The user's leaderboard rank.
+</ResponseField>
+
+<ResponseField name="totalPoints" type="number">
+  Lifetime points earned.
+</ResponseField>
+
+<ResponseField name="matchPoints" type="number">
+  Points earned in the current match period.
+</ResponseField>
+
+<ResponseField name="profileImage" type="string">
+  URL to the user's profile image (nullable).
+</ResponseField>
+
+<ResponseField name="profileDescription" type="string">
+  User's profile bio/description (nullable).
+</ResponseField>
+
+  <ResponseField name="profileTitle" type="string">
+    User's profile title (nullable).
+  </ResponseField>
+</ResponseField>
+
+<ResponseField name="data.pagination" type="object" required>
+  Pagination metadata.
+
+  <ResponseField name="limit" type="number">
+    Number of records returned.
   </ResponseField>
 
-  <ResponseField name="bubbleId" type="string">
-    Unique public identifier for the user.
-  </ResponseField>
-
-  <ResponseField name="name" type="string">
-    Display name.
-  </ResponseField>
-
-  <ResponseField name="accountType" type="string">
-    One of `user`, `support`, `admin`, or `superadmin`.
-  </ResponseField>
-
-  <ResponseField name="league" type="number">
-    The user's current league tier.
-  </ResponseField>
-
-  <ResponseField name="rank" type="number">
-    The user's leaderboard rank.
+  <ResponseField name="offset" type="number">
+    Number of records skipped.
   </ResponseField>
 </ResponseField>
 
 <RequestExample>
-```bash cURL
-curl -H "Authorization: Bearer YOUR_TOKEN" \
-  https://dashboard.researchanddesire.com/api/v1/users
-```
+  ```bash cURL curl -H "Authorization: Bearer YOUR_TOKEN" \
+  "https://dashboard.researchanddesire.com/api/v1/users?limit=50&offset=0" ```
 </RequestExample>
 
 <ResponseExample>
 ```json 200 OK
 {
   "ok": true,
-  "data": [
-    {
-      "id": 42,
-      "bubbleId": "abc-123",
-      "name": "Alice",
-      "accountType": "user",
-      "league": 3,
-      "rank": 150
+  "data": {
+    "data": [
+      {
+        "id": 42,
+        "username": "alice_trainer",
+        "accountType": "user",
+        "subscriptionTier": "ultra",
+        "league": 3,
+        "rank": 150,
+        "totalPoints": 12500,
+        "matchPoints": 800,
+        "profileImage": "https://example.com/avatar.jpg",
+        "profileDescription": "Hello world",
+        "profileTitle": "Expert Trainer"
+      }
+    ],
+    "pagination": {
+      "limit": 50,
+      "offset": 0
     }
-  ]
+  }
 }
 ```
 </ResponseExample>
@@ -72,9 +119,7 @@ curl -H "Authorization: Bearer YOUR_TOKEN" \
 
 ## Get User by ID
 
-<div className="not-prose">
-  `GET /api/v1/users/{id}`
-</div>
+<div className="not-prose">`GET /api/v1/users/{id}`</div>
 
 Returns detailed information about a specific user, including their profile data. You can only access users you have a connection with.
 
@@ -85,29 +130,29 @@ Returns detailed information about a specific user, including their profile data
 <ResponseField name="data" type="object" required>
   User object with extended fields.
 
-  <ResponseField name="id" type="number">
-    The user's internal ID.
-  </ResponseField>
+<ResponseField name="id" type="number">
+  The user's internal ID.
+</ResponseField>
 
-  <ResponseField name="bubbleId" type="string">
-    Unique public identifier.
-  </ResponseField>
+<ResponseField name="username" type="string">
+  The user's unique username.
+</ResponseField>
 
-  <ResponseField name="name" type="string">
-    Display name.
-  </ResponseField>
+<ResponseField name="accountType" type="string">
+  Account type.
+</ResponseField>
 
-  <ResponseField name="accountType" type="string">
-    Account type.
-  </ResponseField>
+<ResponseField name="subscriptionTier" type="string">
+  Subscription tier.
+</ResponseField>
 
-  <ResponseField name="totalPoints" type="number">
-    Lifetime points earned.
-  </ResponseField>
+<ResponseField name="totalPoints" type="number">
+  Lifetime points earned.
+</ResponseField>
 
-  <ResponseField name="matchPoints" type="number">
-    Points earned in the current match period.
-  </ResponseField>
+<ResponseField name="matchPoints" type="number">
+  Points earned in the current match period.
+</ResponseField>
 
   <ResponseField name="Profile" type="object">
     The user's public profile, if accessible.
@@ -115,10 +160,8 @@ Returns detailed information about a specific user, including their profile data
 </ResponseField>
 
 <RequestExample>
-```bash cURL
-curl -H "Authorization: Bearer YOUR_TOKEN" \
-  https://dashboard.researchanddesire.com/api/v1/users/42
-```
+  ```bash cURL curl -H "Authorization: Bearer YOUR_TOKEN" \
+  https://dashboard.researchanddesire.com/api/v1/users/42 ```
 </RequestExample>
 
 <ResponseExample>
@@ -127,16 +170,16 @@ curl -H "Authorization: Bearer YOUR_TOKEN" \
   "ok": true,
   "data": {
     "id": 42,
-    "bubbleId": "abc-123",
-    "name": "Alice",
+    "username": "alice_trainer",
     "accountType": "user",
+    "subscriptionTier": "ultra",
     "league": 3,
     "rank": 150,
     "totalPoints": 12500,
     "matchPoints": 800,
-    "Profile": {
-      "bio": "Hello world"
-    }
+    "profileImage": "https://example.com/avatar.jpg",
+    "profileDescription": "Hello world",
+    "profileTitle": "Expert Trainer"
   }
 }
 ```
@@ -147,4 +190,5 @@ curl -H "Authorization: Bearer YOUR_TOKEN" \
   "error": "User not found"
 }
 ```
+
 </ResponseExample>
