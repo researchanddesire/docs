@@ -95,7 +95,8 @@
                   "dashboard/settings/introduction",
                   "dashboard/settings/account",
                   "dashboard/settings/email",
-                  "dashboard/settings/public-links"
+                  "dashboard/settings/public-links",
+                  "dashboard/settings/integrations"
                 ]
               },
               {
@@ -126,13 +127,61 @@
                 ]
               },
               {
-                "group": "Endpoints",
+                "group": "Users",
+                "openapi": "openapi.yaml",
                 "pages": [
-                  "dashboard/api/endpoints/users",
-                  "dashboard/api/endpoints/dtt",
-                  "dashboard/api/endpoints/lkbx",
-                  "dashboard/api/endpoints/lkbx-sessions",
-                  "dashboard/api/endpoints/ossm"
+                  "GET /users",
+                  "GET /users/{id}"
+                ]
+              },
+              {
+                "group": "DTT Devices",
+                "openapi": "openapi.yaml",
+                "pages": [
+                  "GET /dtt",
+                  "GET /dtt/{id}"
+                ]
+              },
+              {
+                "group": "DTT Settings",
+                "openapi": "openapi.yaml",
+                "pages": [
+                  "GET /dtt/settings",
+                  "GET /dtt/settings/{id}"
+                ]
+              },
+              {
+                "group": "Lockbox Devices",
+                "openapi": "openapi.yaml",
+                "pages": [
+                  "GET /lkbx",
+                  "GET /lkbx/{id}"
+                ]
+              },
+              {
+                "group": "Lock Settings",
+                "openapi": "openapi.yaml",
+                "pages": [
+                  "GET /lkbx/settings"
+                ]
+              },
+              {
+                "group": "Lock Sessions",
+                "openapi": "openapi.yaml",
+                "pages": [
+                  "GET /lkbx/session",
+                  "GET /lkbx/session/{id}",
+                  "GET /lkbx/session/current",
+                  "POST /lkbx/session/current",
+                  "PATCH /lkbx/session/current"
+                ]
+              },
+              {
+                "group": "OSSM Devices",
+                "openapi": "openapi.yaml",
+                "pages": [
+                  "GET /ossm",
+                  "GET /ossm/{id}"
                 ]
               }
             ]

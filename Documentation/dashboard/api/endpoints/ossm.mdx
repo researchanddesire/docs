@@ -5,38 +5,36 @@ description: "List and retrieve OSSM device information"
 
 ## List OSSM Devices
 
-<div className="not-prose">
-  `GET /api/v1/ossm`
-</div>
+<div className="not-prose">`GET /api/v1/ossm`</div>
 
 Returns all OSSM devices you have access to.
 
 <ResponseField name="data" type="object[]" required>
   Array of OSSM device objects.
 
-  <ResponseField name="id" type="number">
-    Device ID.
-  </ResponseField>
+<ResponseField name="id" type="number">
+  Device ID.
+</ResponseField>
 
-  <ResponseField name="bubbleId" type="string">
-    Unique device identifier.
-  </ResponseField>
+<ResponseField name="bubbleId" type="string">
+  Unique device identifier.
+</ResponseField>
 
-  <ResponseField name="macAddress" type="string">
-    Device MAC address.
-  </ResponseField>
+<ResponseField name="macAddress" type="string">
+  Device MAC address.
+</ResponseField>
 
-  <ResponseField name="chip" type="string">
-    Hardware chip identifier.
-  </ResponseField>
+<ResponseField name="chip" type="string">
+  Hardware chip identifier.
+</ResponseField>
 
-  <ResponseField name="ownerId" type="number">
-    ID of the device owner.
-  </ResponseField>
+<ResponseField name="ownerId" type="number">
+  ID of the device owner.
+</ResponseField>
 
-  <ResponseField name="lastVisited" type="string">
-    ISO 8601 timestamp of the last device connection.
-  </ResponseField>
+<ResponseField name="lastVisited" type="string">
+  ISO 8601 timestamp of the last device connection.
+</ResponseField>
 
   <ResponseField name="OSSMFirmwareId" type="number">
     ID of the currently installed firmware version.
@@ -44,10 +42,8 @@ Returns all OSSM devices you have access to.
 </ResponseField>
 
 <RequestExample>
-```bash cURL
-curl -H "Authorization: Bearer YOUR_TOKEN" \
-  https://dashboard.researchanddesire.com/api/v1/ossm
-```
+  ```bash cURL curl -H "Authorization: Bearer YOUR_TOKEN" \
+  https://dashboard.researchanddesire.com/api/v1/ossm ```
 </RequestExample>
 
 <ResponseExample>
@@ -73,9 +69,7 @@ curl -H "Authorization: Bearer YOUR_TOKEN" \
 
 ## Get OSSM Device
 
-<div className="not-prose">
-  `GET /api/v1/ossm/{id}`
-</div>
+<div className="not-prose">`GET /api/v1/ossm/{id}`</div>
 
 Returns full details for a specific OSSM device.
 
@@ -84,10 +78,8 @@ Returns full details for a specific OSSM device.
 </ParamField>
 
 <RequestExample>
-```bash cURL
-curl -H "Authorization: Bearer YOUR_TOKEN" \
-  https://dashboard.researchanddesire.com/api/v1/ossm/1
-```
+  ```bash cURL curl -H "Authorization: Bearer YOUR_TOKEN" \
+  https://dashboard.researchanddesire.com/api/v1/ossm/1 ```
 </RequestExample>
 
 <ResponseExample>
@@ -114,4 +106,5 @@ curl -H "Authorization: Bearer YOUR_TOKEN" \
   "error": "OSSM device not found"
 }
 ```
+
 </ResponseExample>

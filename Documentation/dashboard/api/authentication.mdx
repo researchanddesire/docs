@@ -6,7 +6,8 @@ description: "Create and manage API tokens to authenticate your requests"
 All API requests require a valid API token passed in the `Authorization` header. Tokens are JWTs signed with your account's identity, so all data access respects your account permissions automatically.
 
 <Info>
-Creating API tokens requires an **Ultra** subscription. If you don't have one yet, visit [Subscription](/dashboard/subscription) to upgrade.
+  Creating API tokens requires an **Ultra** subscription. If you don't have one
+  yet, visit [Subscription](/dashboard/subscription) to upgrade.
 </Info>
 
 ## Creating a Token
@@ -16,9 +17,10 @@ Creating API tokens requires an **Ultra** subscription. If you don't have one ye
     Go to **Settings > API Keys** in the dashboard sidebar.
   </Step>
 
-  <Step title="Click Create Token">
-    Click the **Create Token** button and give your token a descriptive name (e.g., "Home Assistant Integration" or "Python Script").
-  </Step>
+<Step title="Click Create Token">
+  Click the **Create Token** button and give your token a descriptive name
+  (e.g., "Home Assistant Integration" or "Python Script").
+</Step>
 
   <Step title="Copy your token">
     Your token will be displayed exactly once. Copy it and store it securely.
@@ -26,6 +28,7 @@ Creating API tokens requires an **Ultra** subscription. If you don't have one ye
     <Warning>
     You will not be able to see this token again. If you lose it, you'll need to create a new one.
     </Warning>
+
   </Step>
 </Steps>
 
@@ -56,10 +59,11 @@ const response = await fetch(
   "https://dashboard.researchanddesire.com/api/v1/users",
   {
     headers: { Authorization: "Bearer YOUR_API_TOKEN" },
-  }
+  },
 );
 const data = await response.json();
 ```
+
 </RequestExample>
 
 ## Managing Tokens
@@ -67,6 +71,7 @@ const data = await response.json();
 ### Viewing Tokens
 
 The **API Keys** settings page shows all your active tokens with:
+
 - **Name** — the label you assigned
 - **Created** — when the token was created
 - **Last Used** — the last time the token was used to make a request
@@ -75,9 +80,7 @@ The **API Keys** settings page shows all your active tokens with:
 
 Click the trash icon next to any token to revoke it. Revocation is immediate — any requests using that token will start receiving `401 Unauthorized` responses right away.
 
-<Tip>
-Revoke and recreate tokens periodically as a security best practice.
-</Tip>
+<Tip>Revoke and recreate tokens periodically as a security best practice.</Tip>
 
 ### Token Limits
 
@@ -85,11 +88,11 @@ You can have up to **5 active tokens** at a time. If you need more, revoke an un
 
 ## Error Responses
 
-| Status | Meaning |
-|--------|---------|
-| `401` | Missing, invalid, expired, or revoked token |
-| `403` | Token is valid but you don't have permission for this action |
-| `404` | Resource not found (or not accessible with your permissions) |
+| Status | Meaning                                                      |
+| ------ | ------------------------------------------------------------ |
+| `401`  | Missing, invalid, expired, or revoked token                  |
+| `403`  | Token is valid but you don't have permission for this action |
+| `404`  | Resource not found (or not accessible with your permissions) |
 
 <ResponseExample>
 ```json 401 Unauthorized
@@ -105,4 +108,5 @@ You can have up to **5 active tokens** at a time. If you need more, revoke an un
   "error": "Token has been revoked"
 }
 ```
+
 </ResponseExample>
