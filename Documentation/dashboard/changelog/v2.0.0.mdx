@@ -1,0 +1,15 @@
+---
+title: "Changelog v2.0.0"
+description: "Major improvements to countdown timer accuracy and duration calculations"
+---
+
+<Update label="Version 2.0.0" description="Released February 19, 2026">
+
+## Duration Calculation Overhaul
+
+- **Countdown timer accuracy** — Rewrote duration calculation to use hybrid calendar-aware and millisecond arithmetic, eliminating negative sub-components caused by month boundary clamping and DST transitions
+- **Month boundary fix** — Fixed edge case where timers would display incorrect values when crossing months with different lengths (e.g., January 30 to February 28)
+- **Long duration support** — Improved handling of multi-year intervals with proper preservation of years and months units
+- **Zero duration handling** — Duration calculations now correctly return empty results when start and end times are identical
+
+</Update>
