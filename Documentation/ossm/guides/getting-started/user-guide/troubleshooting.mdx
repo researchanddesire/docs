@@ -413,6 +413,98 @@ To return to official firmware after experimenting with community builds, use th
 </Accordion>
 </AccordionGroup>
 
+## Signs of control board failure
+
+If your OSSM control board isn't responding to any troubleshooting steps, the board itself may be defective. Hardware failures are rare but can occur, particularly if there was a manufacturing defect or a short circuit event.
+
+<AccordionGroup>
+<Accordion title="ESP32 chip is very hot">
+**Symptoms:**
+- The ESP32 chip on the control board becomes uncomfortably hot to touch within seconds of applying power
+- Overheating occurs whether powered via the 24V supply or via USB-C connection
+- The board may have worked briefly before, or never worked at all
+
+**What this indicates:**
+
+The ESP32 should be warm during operation but never hot enough to be uncomfortable. Excessive heat indicates a hardware fault—typically a short circuit or damaged component on the board.
+
+<Warning>
+If the ESP32 is too hot to touch comfortably, disconnect power immediately. Continued operation with a damaged board can cause further damage or safety hazards.
+</Warning>
+
+**Resolution:**
+
+An overheating ESP32 indicates a hardware defect that cannot be fixed through firmware updates or configuration changes. Contact support to request a replacement control board.
+</Accordion>
+
+<Accordion title="Unable to flash firmware at all">
+**Symptoms:**
+- The board is detected on a COM/serial port, but flashing always fails
+- Both the [Web Flasher](/ossm/tools/web-flasher) and PlatformIO fail to communicate with the board
+- Error messages indicate "unable to connect" or "failed to sync" despite the board being detected
+- You've already tried: different USB cables, different USB ports, different computers, installing drivers, closing other serial applications
+
+**What this indicates:**
+
+If the board appears on a COM port but cannot be flashed after exhausting all standard troubleshooting, the ESP32 or its flash memory may be damaged. This can occur from:
+- Electrostatic discharge during handling
+- A short circuit event
+- A manufacturing defect
+
+<Note>
+Before concluding the board is defective, ensure you've completed all steps in the [Web Flasher troubleshooting](/ossm/guides/getting-started/web-flasher#troubleshooting). Some connection issues are caused by driver conflicts or USB cable quality.
+</Note>
+
+**Resolution:**
+
+If you've exhausted all troubleshooting steps and still cannot flash the board, contact support with details of what you've tried. A replacement board may be needed.
+</Accordion>
+
+<Accordion title="No movement and no LED indication">
+**Symptoms:**
+- Motor does not move at all when powered on—no homing attempt, no sound, no vibration
+- The 3.3V LED on the board may illuminate, but no other activity occurs
+- No purple LED breathing pattern during homing
+- Motor's green power LED is on (indicating motor is receiving power)
+- ESP32 chip may be abnormally hot
+
+**Distinguishing board failure from motor failure:**
+
+| Observation | Likely Cause |
+|-------------|--------------|
+| Motor LED off, board LEDs on | Motor wiring or motor issue |
+| Motor LED on, no homing movement, ESP32 hot | Board failure |
+| Motor LED on, slow/stuttering movement | Motor programming issue |
+| Motor LED on, normal homing, then stops | Possible firmware or motor issue |
+
+**Resolution:**
+
+If the motor shows power (green LED) but the board shows no activity beyond the 3.3V LED, and especially if the ESP32 is overheating, the control board is likely defective. Contact support to arrange a replacement.
+</Accordion>
+
+<Accordion title="Strange noises on first power-up">
+**Symptoms:**
+- Unusual sounds on first startup—clicking, buzzing, or electronic tones (not mechanical belt noise)
+- 3.3V LED may flash in sync with the sounds
+- Sounds stop after a while and the board becomes unresponsive
+- Different from the normal homing movement sounds
+
+**What this indicates:**
+
+Electronic noises accompanied by LED flashing (not the normal purple breathing pattern) can indicate the board is in a fault state or experiencing a hardware issue. If the board subsequently becomes unresponsive or won't flash, the initial noise may have been a symptom of component failure.
+
+<Note>
+Normal OSSM operation produces quiet mechanical sounds from the motor and belt during homing. Electronic buzzing, beeping, or "8-bit" tones from the board itself are not normal.
+</Note>
+
+**Resolution:**
+
+If your board made unusual electronic noises on first power-up and is now unresponsive to flashing attempts, contact support with a description of what you observed. This helps identify potential batch issues.
+</Accordion>
+</AccordionGroup>
+
+---
+
 ## Power supply connection sparks or disconnects
 
 If you see sparks when connecting the power supply or the barrel jack connection is loose and disconnects with small movements, the cable may not be secured properly.
