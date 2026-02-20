@@ -45,6 +45,63 @@ Proper belt tension prevents skipping during direction changes at the stroke end
 
 ---
 
+## Motor sounds louder or seems weaker than before
+
+If your OSSM motor seems to be struggling, sounds louder than usual, or feels like it's lost power compared to when you first set it up, the issue is typically belt tension, rail lubrication, or power supply.
+
+<AccordionGroup>
+<Accordion title="Check belt tension">
+The most common cause of a motor that sounds louder or seems to struggle is belt tension loosening over time. When the belt is too loose, the motor works harder to overcome slippage, which creates more noise and reduces effective power transfer.
+
+**Signs of loose belt tension:**
+- Motor sounds louder or more strained during operation
+- Reduced thrust force compared to initial setup
+- Clicking or ratcheting sounds at stroke endpoints
+- Belt visibly deflects more than 5mm when pressed
+
+**Solution:**
+Follow the [belt tensioning steps](#clicking-noise-during-homing) above to verify and adjust your belt tension. Even small amounts of slack can significantly affect performance.
+</Accordion>
+
+<Accordion title="Lubricate the linear rail">
+Over time, the linear rail's factory lubrication can dry out or collect debris, increasing friction. This makes the motor work harder and can produce louder operation.
+
+**Signs of rail lubrication issues:**
+- Scratchy or grinding sensation when moving the carriage by hand
+- Motor sounds more strained even at lower speeds
+- Inconsistent movement (stuttering or binding)
+
+**Solution:**
+1. Power off and unplug the OSSM
+2. Move the carriage by hand along the full rail length—it should glide smoothly
+3. If movement feels rough, apply a light machine grease or linear rail lubricant (Super Lube, white lithium grease, or similar)
+4. Move the carriage back and forth several times to distribute the lubricant through the ball bearings
+5. Wipe off excess grease from the rail surface
+
+<Tip>
+A small amount of grease goes a long way. Over-lubricating can attract dust and debris, which makes the problem worse over time.
+</Tip>
+</Accordion>
+
+<Accordion title="Verify power supply">
+An aging or failing power supply may deliver less voltage or current than rated, causing the motor to struggle under load.
+
+**Signs of power supply issues:**
+- Motor sounds strained only under load (during strokes, not at idle)
+- Performance degrades as the session continues (power supply heating up)
+- Visible dimming of motor LED during operation
+
+**Solution:**
+1. If you have a multimeter, measure the voltage at the power input terminals while the OSSM is operating—it should remain between 23V and 25V under load
+2. Try a different power supply if available
+3. Ensure you're using a supply rated for at least 5A (10A recommended)
+
+See [insufficient power supply](#controller-powers-on-but-actuator-does-not-move) for more details.
+</Accordion>
+</AccordionGroup>
+
+---
+
 ## Homing is too slow
 
 If your OSSM homes very slowly or stalls during the homing sequence, the motor may need to be programmed.
