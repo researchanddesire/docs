@@ -143,11 +143,23 @@
                 ]
               },
               {
-                "group": "DTT Settings",
+                "group": "DTT Templates",
                 "openapi": "https://dashboard.researchanddesire.com/openapi.yaml",
                 "pages": [
-                  "GET /dtt/settings",
-                  "GET /dtt/settings/{id}"
+                  "GET /dtt/templates",
+                  "GET /dtt/templates/active",
+                  "GET /dtt/templates/{id}",
+                  "POST /dtt/templates/{id}",
+                  "PATCH /dtt/settings/{id}"
+                ]
+              },
+              {
+                "group": "DTT Sessions",
+                "openapi": "https://dashboard.researchanddesire.com/openapi.yaml",
+                "pages": [
+                  "GET /dtt/sessions",
+                  "GET /dtt/sessions/latest",
+                  "GET /dtt/sessions/{id}"
                 ]
               },
               {
@@ -159,18 +171,21 @@
                 ]
               },
               {
-                "group": "Lock Settings",
+                "group": "Lock Templates",
                 "openapi": "https://dashboard.researchanddesire.com/openapi.yaml",
                 "pages": [
-                  "GET /lkbx/settings"
+                  "GET /lkbx/templates",
+                  "GET /lkbx/templates/active",
+                  "GET /lkbx/templates/{id}"
                 ]
               },
               {
                 "group": "Lock Sessions",
                 "openapi": "https://dashboard.researchanddesire.com/openapi.yaml",
                 "pages": [
-                  "GET /lkbx/session",
-                  "GET /lkbx/session/{id}",
+                  "GET /lkbx/sessions",
+                  "GET /lkbx/sessions/latest",
+                  "GET /lkbx/sessions/{id}",
                   "GET /lkbx/session/current",
                   "POST /lkbx/session/current",
                   "PATCH /lkbx/session/current"

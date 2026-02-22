@@ -15,6 +15,23 @@ This is a placeholder entry for future dashboard updates.
 - **Improvements** — Enhancements to existing functionality
 - **Bug fixes** — Notable fixes that improve your experience
 
+### v2.1.5
+
+- **DTT & Lockbox API implementation** — Added server-side route handlers for all DTT templates, DTT sessions, Lockbox templates, and Lockbox sessions endpoints
+- **OpenAPI schema expansion** — Extended OpenAPI specification with complete request/response schemas, pagination parameters, and detailed examples for all v1 API endpoints
+
+### v2.1.4
+
+- **DTT Sessions API** — New endpoints to list, retrieve, and fetch the latest DTT training sessions with full segment details via the public API
+- **DTT Template Activation API** — Activate DTT training templates programmatically via `POST /dtt/templates/{id}`
+- **Active Template endpoints** — New `/dtt/templates/active` and `/lkbx/templates/active` endpoints return the currently active template
+- **Lock Sessions API** — New endpoints to list, retrieve, and fetch the latest lock sessions with segment history
+- **API naming consistency** — Renamed "Settings" to "Templates" across DTT and Lockbox API endpoints for clearer terminology
+
+### v2.1.3
+
+- **Lockbox pairing status API** — Lockbox devices can now check their pairing status via a new API endpoint, enabling firmware to verify device registration
+
 ### v2.1.2
 
 - **Calibration input feedback** — OSSM toy calibration now displays helpful messages when min/max values are automatically adjusted, explaining why the value changed (e.g., exceeds toy length, negative values, or insufficient gap between min and max)

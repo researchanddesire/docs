@@ -252,3 +252,198 @@ Returns a specific training program **including all segments**. Segments define 
 }
 ```
 </ResponseExample>
+
+---
+
+## Update DTT Settings
+
+<div className="not-prose">`PATCH /api/v1/dtt/settings/{id}`</div>
+
+Update one or more fields on a training program. Only include the fields you want to change — all fields are optional.
+
+If `Segment` is provided, it **replaces** the entire segment list (existing segments are deleted and recreated).
+
+<ParamField path="id" type="number" required>
+  The settings (program) ID.
+</ParamField>
+
+### Request Body
+
+<ParamField body="name" type="string">
+  Program name (4–128 characters, cannot be blank).
+</ParamField>
+
+<ParamField body="targetDepth" type="number">
+  Target depth percentage.
+</ParamField>
+
+<ParamField body="targetWindow" type="number">
+  Tolerance window for depth detection.
+</ParamField>
+
+<ParamField body="toyId" type="number | null">
+  Associated toy ID. Set to `0` or `null` to unset.
+</ParamField>
+
+<ParamField body="message" type="string | null">
+  Completion message (max 50 characters). Defaults to "Good Work!" if empty.
+</ParamField>
+
+<ParamField body="handsFreeMode" type="boolean">
+  Enable hands-free mode. **Requires Ultra subscription.** Setting to `false` is always allowed.
+</ParamField>
+
+<ParamField body="tagline" type="string | null">
+  Short tagline (max 25 characters). **Requires Ultra subscription.** Setting to `null` is always allowed.
+</ParamField>
+
+<ParamField body="toyTagline" type="string | null">
+  Toy tagline (max 25 characters).
+</ParamField>
+
+<ParamField body="iconId" type="number | null">
+  Icon ID. **Requires Ultra subscription.** Setting to `null` is always allowed.
+</ParamField>
+
+<ParamField body="isPublic" type="boolean">
+  Whether the program is publicly shared.
+</ParamField>
+
+<ParamField body="description" type="string | null">
+  Program description (max 500 characters).
+</ParamField>
+
+<ParamField body="Segment" type="object[]">
+  Full replacement segment list. If provided, **all existing segments are deleted** and replaced.
+
+  Each segment object:
+
+  <ParamField body="type" type="string" required>
+    One of `repetition`, `endurance`, `freeform`, or `bounce`.
+  </ParamField>
+
+  <ParamField body="duration" type="number" required>
+    Duration (meaning varies by type).
+  </ParamField>
+
+  <ParamField body="speed" type="number" required>
+    Speed setting (1–1000).
+  </ParamField>
+
+  <ParamField body="repeat" type="number" default="1">
+    Number of times to repeat this segment.
+  </ParamField>
+
+  <ParamField body="passFailEnabled" type="boolean" default="false">
+    Whether pass/fail grading is enabled for this segment.
+  </ParamField>
+
+  <ParamField body="passGradeThreshold" type="number" default="0">
+    Minimum grade to pass (0–100).
+  </ParamField>
+
+  <ParamField body="failureText" type="string | null">
+    Message shown on failure (max 80 characters).
+  </ParamField>
+</ParamField>
+
+### Error Responses
+
+| Status | Meaning |
+|--------|---------|
+| `400` | Invalid JSON body or empty request body |
+| `401` | Not authenticated |
+| `403` | Field requires Ultra subscription |
+| `404` | Settings not found or not owned by you |
+| `422` | Validation failed — see `fieldErrors` array for details |
+
+On a `422` response, the body contains a `fieldErrors` array with per-field error messages:
+
+```json
+{
+  "ok": false,
+  "error": "Validation failed",
+  "fieldErrors": [
+    { "field": "name", "message": "String must contain at least 4 character(s)" }
+  ]
+}
+```
+
+<RequestExample>
+```bash Rename
+curl -X PATCH -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Advanced Program"}' \
+  https://dashboard.researchanddesire.com/api/v1/dtt/settings/5
+```
+
+```bash Replace Segments
+curl -X PATCH -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"Segment": [{"type": "endurance", "duration": 300, "speed": 50, "repeat": 2}]}' \
+  https://dashboard.researchanddesire.com/api/v1/dtt/settings/5
+```
+
+```bash Multiple Fields
+curl -X PATCH -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Pro Program", "targetDepth": 75, "isPublic": true}' \
+  https://dashboard.researchanddesire.com/api/v1/dtt/settings/5
+```
+</RequestExample>
+
+<ResponseExample>
+```json 200 OK
+{
+  "ok": true,
+  "data": {
+    "id": 5,
+    "bubbleId": "prog-abc",
+    "ownerId": 42,
+    "name": "Advanced Program",
+    "description": null,
+    "tagline": null,
+    "message": "Good Work!",
+    "isPublic": false,
+    "isActive": true,
+    "handsFreeMode": false,
+    "targetDepth": 50,
+    "targetWindow": 10,
+    "toyId": null,
+    "createdDate": "2025-06-01T10:00:00Z",
+    "updatedAt": "2026-02-23T10:30:00Z",
+    "Segment": [
+      {
+        "id": 20,
+        "type": "endurance",
+        "duration": 300,
+        "speed": 50,
+        "repeat": 2,
+        "order": 0,
+        "passFailEnabled": false,
+        "passGradeThreshold": 0,
+        "failureText": null
+      }
+    ]
+  }
+}
+```
+
+```json 422 Validation Error
+{
+  "ok": false,
+  "error": "Validation failed",
+  "fieldErrors": [
+    { "field": "name", "message": "String must contain at least 4 character(s)" },
+    { "field": "Segment", "message": "At least one segment is required." }
+  ]
+}
+```
+
+```json 403 Ultra Required
+{
+  "ok": false,
+  "error": "\"handsFreeMode\" requires an Ultra subscription or higher. Your current tier does not include this feature."
+}
+```
+</ResponseExample>
