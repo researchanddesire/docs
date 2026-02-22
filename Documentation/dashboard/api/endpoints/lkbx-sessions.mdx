@@ -62,8 +62,10 @@ Returns a summary list of all lock sessions you have access to (past and present
 </ResponseField>
 
 <RequestExample>
-  ```bash cURL curl -H "Authorization: Bearer YOUR_TOKEN" \
-  "https://dashboard.researchanddesire.com/api/v1/lkbx/session?limit=50&offset=0" ```
+```bash cURL
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  "https://dashboard.researchanddesire.com/api/v1/lkbx/session?limit=50&offset=0"
+```
 </RequestExample>
 
 <ResponseExample>
@@ -134,8 +136,10 @@ Returns full details of a specific lock session, including the complete activity
 </ResponseField>
 
 <RequestExample>
-  ```bash cURL curl -H "Authorization: Bearer YOUR_TOKEN" \
-  https://dashboard.researchanddesire.com/api/v1/lkbx/session/7 ```
+```bash cURL
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  https://dashboard.researchanddesire.com/api/v1/lkbx/session/7
+```
 </RequestExample>
 
 ---
@@ -147,8 +151,10 @@ Returns full details of a specific lock session, including the complete activity
 Returns the currently active lock session for your account, including segment history. Returns `null` in the `data` field if no session is active.
 
 <RequestExample>
-  ```bash cURL curl -H "Authorization: Bearer YOUR_TOKEN" \
-  https://dashboard.researchanddesire.com/api/v1/lkbx/session/current ```
+```bash cURL
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  https://dashboard.researchanddesire.com/api/v1/lkbx/session/current
+```
 </RequestExample>
 
 <ResponseExample>

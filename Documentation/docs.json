@@ -149,7 +149,14 @@
                   "GET /dtt/templates",
                   "GET /dtt/templates/active",
                   "GET /dtt/templates/{id}",
-                  "POST /dtt/templates/{id}",
+                  "POST /dtt/templates/{id}"
+                ]
+              },
+              {
+                "group": "DTT Settings",
+                "openapi": "/openapi.yaml",
+                "pages": [
+                  "GET /dtt/settings/{id}",
                   "PATCH /dtt/settings/{id}"
                 ]
               },
