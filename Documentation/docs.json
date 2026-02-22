@@ -154,7 +154,7 @@
               },
               {
                 "group": "DTT Settings",
-                "openapi": "/openapi.yaml",
+                "openapi": "https://dashboard.researchanddesire.com/openapi.yaml",
                 "pages": [
                   "GET /dtt/settings/{id}",
                   "PATCH /dtt/settings/{id}"
