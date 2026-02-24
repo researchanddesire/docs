@@ -1,6 +1,6 @@
 ---
 title: "DTT (Deepthroat Trainer)"
-description: "List devices and training settings for the Deepthroat Trainer"
+description: "List devices and training templates for the Deepthroat Trainer"
 ---
 
 ## List DTT Devices
@@ -56,9 +56,9 @@ Returns all Deepthroat Trainer devices you have access to.
 <ResponseField name="data.pagination" type="object" required>
   Pagination metadata.
 
-  <ResponseField name="limit" type="number">
-    Number of records returned.
-  </ResponseField>
+<ResponseField name="limit" type="number">
+  Number of records returned.
+</ResponseField>
 
   <ResponseField name="offset" type="number">
     Number of records skipped.
@@ -119,11 +119,11 @@ curl -H "Authorization: Bearer YOUR_TOKEN" \
 
 ---
 
-## List DTT Settings
+## List DTT Templates
 
-<div className="not-prose">`GET /api/v1/dtt/settings`</div>
+<div className="not-prose">`GET /api/v1/dtt/templates`</div>
 
-Returns all training program settings (templates) you have access to, **without** segments. Use this for an overview of available programs.
+Returns all training program templates you have access to, **without** segments. Use this for an overview of available programs.
 
 <ParamField query="limit" type="number" default="50">
   Number of records to return (max 100).
@@ -134,10 +134,10 @@ Returns all training program settings (templates) you have access to, **without*
 </ParamField>
 
 <ResponseField name="data.data" type="object[]" required>
-  Array of settings objects.
+  Array of template objects.
 
 <ResponseField name="id" type="number">
-  Settings ID.
+  Template ID.
 </ResponseField>
 
 <ResponseField name="name" type="string">
@@ -172,9 +172,9 @@ Returns all training program settings (templates) you have access to, **without*
 <ResponseField name="data.pagination" type="object" required>
   Pagination metadata.
 
-  <ResponseField name="limit" type="number">
-    Number of records returned.
-  </ResponseField>
+<ResponseField name="limit" type="number">
+  Number of records returned.
+</ResponseField>
 
   <ResponseField name="offset" type="number">
     Number of records skipped.
@@ -184,24 +184,24 @@ Returns all training program settings (templates) you have access to, **without*
 <RequestExample>
 ```bash cURL
 curl -H "Authorization: Bearer YOUR_TOKEN" \
-  "https://dashboard.researchanddesire.com/api/v1/dtt/settings?limit=50&offset=0"
+  "https://dashboard.researchanddesire.com/api/v1/dtt/templates?limit=50&offset=0"
 ```
 </RequestExample>
 
 ---
 
-## Get DTT Settings with Segments
+## Get DTT Template with Segments
 
-<div className="not-prose">`GET /api/v1/dtt/settings/{id}`</div>
+<div className="not-prose">`GET /api/v1/dtt/templates/{id}`</div>
 
 Returns a specific training program **including all segments**. Segments define the individual phases of a training session.
 
 <ParamField path="id" type="number" required>
-  The settings (program) ID.
+  The template (program) ID.
 </ParamField>
 
 <ResponseField name="data" type="object" required>
-  The settings object with a nested `Segment` array.
+  The template object with a nested `Segment` array.
 
   <ResponseField name="Segment" type="object[]">
     Array of training segments in order.
@@ -228,7 +228,7 @@ Returns a specific training program **including all segments**. Segments define 
 <RequestExample>
 ```bash cURL
 curl -H "Authorization: Bearer YOUR_TOKEN" \
-  https://dashboard.researchanddesire.com/api/v1/dtt/settings/5
+  https://dashboard.researchanddesire.com/api/v1/dtt/templates/5
 ```
 </RequestExample>
 
@@ -263,16 +263,16 @@ curl -H "Authorization: Bearer YOUR_TOKEN" \
 
 ---
 
-## Update DTT Settings
+## Update DTT Template
 
-<div className="not-prose">`PATCH /api/v1/dtt/settings/{id}`</div>
+<div className="not-prose">`PATCH /api/v1/dtt/templates/{id}`</div>
 
 Update one or more fields on a training program. Only include the fields you want to change — all fields are optional.
 
 If `Segment` is provided, it **replaces** the entire segment list (existing segments are deleted and recreated).
 
 <ParamField path="id" type="number" required>
-  The settings (program) ID.
+  The template (program) ID.
 </ParamField>
 
 ### Request Body
@@ -362,7 +362,7 @@ If `Segment` is provided, it **replaces** the entire segment list (existing segm
 | `400` | Invalid JSON body or empty request body |
 | `401` | Not authenticated |
 | `403` | Field requires Ultra subscription |
-| `404` | Settings not found or not owned by you |
+| `404` | Template not found or not owned by you |
 | `422` | Validation failed — see `fieldErrors` array for details |
 
 On a `422` response, the body contains a `fieldErrors` array with per-field error messages:
@@ -382,21 +382,21 @@ On a `422` response, the body contains a `fieldErrors` array with per-field erro
 curl -X PATCH -H "Authorization: Bearer YOUR_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"name": "Advanced Program"}' \
-  https://dashboard.researchanddesire.com/api/v1/dtt/settings/5
+  https://dashboard.researchanddesire.com/api/v1/dtt/templates/5
 ```
 
 ```bash Replace Segments
 curl -X PATCH -H "Authorization: Bearer YOUR_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"Segment": [{"type": "endurance", "duration": 300, "speed": 50, "repeat": 2}]}' \
-  https://dashboard.researchanddesire.com/api/v1/dtt/settings/5
+  https://dashboard.researchanddesire.com/api/v1/dtt/templates/5
 ```
 
 ```bash Multiple Fields
 curl -X PATCH -H "Authorization: Bearer YOUR_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"name": "Pro Program", "targetDepth": 75, "isPublic": true}' \
-  https://dashboard.researchanddesire.com/api/v1/dtt/settings/5
+  https://dashboard.researchanddesire.com/api/v1/dtt/templates/5
 ```
 </RequestExample>
 

@@ -15,6 +15,38 @@ This is a placeholder entry for future dashboard updates.
 - **Improvements** — Enhancements to existing functionality
 - **Bug fixes** — Notable fixes that improve your experience
 
+### v2.2.9
+
+- **Training segment type selector fix** — Fixed issue where Ultra-exclusive segment types were not available when editing training templates
+
+### v2.2.8
+
+- **Chaster integration user context fix** — Fixed issue where Chaster account linking used the wrong user context when managing another user's device
+- **Keyholder lockbox detection** — Keyholders can now link Chaster to lockboxes owned by users they manage, not just their own devices
+
+### v2.2.7
+
+- **Chaster OAuth permissions fix** — Fixed issue where account linking could fail due to insufficient database permissions when storing Chaster credentials
+
+### v2.2.6
+
+- **Chaster OAuth state fix** — Fixed issue where account linking could fail due to state mismatch when completing the Chaster authorization flow
+
+### v2.2.4
+
+- **Chaster OAuth debugging** — Added diagnostic logging to troubleshoot state validation issues during Chaster account linking
+
+### v2.2.3
+
+- **Pull from Chaster button** — New sync button on the Lockbox dashboard and Chaster integration settings to manually pull the latest lock data from Chaster
+- **Bidirectional Chaster time sync** — Time changes made in the dashboard (add/remove time, DTT rewards, break penalties) now sync to linked Chaster locks automatically
+- **Simplified Chaster disconnect** — Removed the "purge data" option when disconnecting Chaster; historical data is now always preserved
+- **Chaster linking improvements** — Smoother account linking from the Chaster extension iframe with automatic lockbox pairing detection
+
+### v2.2.2
+
+- **API naming consistency** — Consolidated DTT and Lockbox API endpoints to use "templates" terminology consistently, removing deprecated "settings" aliases for cleaner API documentation
+
 ### v2.1.5
 
 - **DTT & Lockbox API implementation** — Added server-side route handlers for all DTT templates, DTT sessions, Lockbox templates, and Lockbox sessions endpoints
