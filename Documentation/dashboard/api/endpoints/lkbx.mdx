@@ -1,6 +1,6 @@
 ---
 title: "LKBX (Chastity Lockbox)"
-description: "Manage lockbox devices, lock settings, and view device status"
+description: "Manage lockbox devices, lock templates, and view device status"
 ---
 
 ## List Lockbox Devices
@@ -52,9 +52,9 @@ Returns all Chastity Lockbox devices you have access to.
 <ResponseField name="data.pagination" type="object" required>
   Pagination metadata.
 
-  <ResponseField name="limit" type="number">
-    Number of records returned.
-  </ResponseField>
+<ResponseField name="limit" type="number">
+  Number of records returned.
+</ResponseField>
 
   <ResponseField name="offset" type="number">
     Number of records skipped.
@@ -114,11 +114,11 @@ curl -H "Authorization: Bearer YOUR_TOKEN" \
 
 ---
 
-## List Lock Settings
+## List Lock Templates
 
-<div className="not-prose">`GET /api/v1/lkbx/settings`</div>
+<div className="not-prose">`GET /api/v1/lkbx/templates`</div>
 
-Returns all lock setting templates you have access to. These templates define how a lock session behaves.
+Returns all lock templates you have access to. These templates define how a lock session behaves.
 
 <ParamField query="limit" type="number" default="50">
   Number of records to return (max 100).
@@ -129,10 +129,10 @@ Returns all lock setting templates you have access to. These templates define ho
 </ParamField>
 
 <ResponseField name="data.data" type="object[]" required>
-  Array of lock settings objects.
+  Array of lock template objects.
 
 <ResponseField name="id" type="number">
-  Settings ID.
+  Template ID.
 </ResponseField>
 
 <ResponseField name="name" type="string">
@@ -167,9 +167,9 @@ Returns all lock setting templates you have access to. These templates define ho
 <ResponseField name="data.pagination" type="object" required>
   Pagination metadata.
 
-  <ResponseField name="limit" type="number">
-    Number of records returned.
-  </ResponseField>
+<ResponseField name="limit" type="number">
+  Number of records returned.
+</ResponseField>
 
   <ResponseField name="offset" type="number">
     Number of records skipped.
@@ -179,7 +179,7 @@ Returns all lock setting templates you have access to. These templates define ho
 <RequestExample>
 ```bash cURL
 curl -H "Authorization: Bearer YOUR_TOKEN" \
-  "https://dashboard.researchanddesire.com/api/v1/lkbx/settings?limit=50&offset=0"
+  "https://dashboard.researchanddesire.com/api/v1/lkbx/templates?limit=50&offset=0"
 ```
 </RequestExample>
 

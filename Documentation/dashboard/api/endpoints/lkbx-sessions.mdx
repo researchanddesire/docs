@@ -25,7 +25,7 @@ Returns a summary list of all lock sessions you have access to (past and present
 </ResponseField>
 
 <ResponseField name="name" type="string">
-  Session name (from the lock settings template).
+  Session name (from the lock template).
 </ResponseField>
 
 <ResponseField name="lockState" type="string">
@@ -52,9 +52,9 @@ Returns a summary list of all lock sessions you have access to (past and present
 <ResponseField name="data.pagination" type="object" required>
   Pagination metadata.
 
-  <ResponseField name="limit" type="number">
-    Number of records returned.
-  </ResponseField>
+<ResponseField name="limit" type="number">
+  Number of records returned.
+</ResponseField>
 
   <ResponseField name="offset" type="number">
     Number of records skipped.
@@ -197,21 +197,23 @@ Start a new lock session or complete (unlock) the active session. User IDs (targ
 </ParamField>
 
 <ParamField body="lockSettingsId" type="number">
-  The ID of a lock settings template to use. If omitted, default settings are
+  The ID of a lock template to use. If omitted, default settings are
   applied. Only used with `"lock"` action.
 </ParamField>
 
 <ParamField body="keyholderIds" type="number[]">
   Array of user IDs to assign as keyholders. Empty array or omitted means
-  self-lock. Only used with `"lock"` action. All IDs must be users you have access to.
+  self-lock. Only used with `"lock"` action. All IDs must be users you have
+  access to.
 </ParamField>
 
 <ParamField body="targetUserId" type="number">
-  The user to lock/unlock. Defaults to the authenticated user. Must be a user you have access to.
+  The user to lock/unlock. Defaults to the authenticated user. Must be a user
+  you have access to.
 </ParamField>
 
 <ParamField body="isTestLock" type="boolean">
-  Override the test lock setting from the lock settings template. When `true`, the lock owner can unlock without a keyholder. Only used with `"lock"` action.
+  Override the test lock setting from the lock template. When `true`, the lock owner can unlock without a keyholder. Only used with `"lock"` action.
 </ParamField>
 
 ### Lock Action
