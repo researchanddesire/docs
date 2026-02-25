@@ -15,6 +15,28 @@ This is a placeholder entry for future dashboard updates.
 - **Improvements** — Enhancements to existing functionality
 - **Bug fixes** — Notable fixes that improve your experience
 
+### v2.2.17
+
+- **Database security hardening** — Fixed function search_path security warnings across all database functions to prevent potential search_path injection vulnerabilities
+- **Promotions policy fix** — Tightened INSERT policy on Promotions table to properly verify ownership before allowing inserts
+
+### v2.2.16
+
+- **Database query performance** — Added indexes on owner and foreign key columns across Chaster, OSSM, and Lockbox tables for faster data lookups
+
+### v2.2.14
+
+- **Email verification code input** — Upgraded email verification form to use modern OTP input with auto-submit when all 6 digits are entered
+- **DTT web flasher stability fix** — Fixed issue where the erase checkbox could reappear during firmware installation due to lit-html template conflicts
+
+### v2.2.13
+
+- **Discord login configuration fix** — Fixed Discord OAuth configuration to resolve login issues in local development environments
+
+### v2.2.12
+
+- **Chaster debug logging cleanup** — Removed diagnostic logging from Chaster integration now that OAuth state validation issues have been resolved
+
 ### v2.2.9
 
 - **Training segment type selector fix** — Fixed issue where Ultra-exclusive segment types were not available when editing training templates
