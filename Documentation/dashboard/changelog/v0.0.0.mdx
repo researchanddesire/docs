@@ -15,6 +15,19 @@ This is a placeholder entry for future dashboard updates.
 - **Improvements** — Enhancements to existing functionality
 - **Bug fixes** — Notable fixes that improve your experience
 
+### v2.2.25
+
+- **Multiple device support fix** — Fixed dashboard errors for users with multiple devices of the same type by selecting the most recently visited device instead of failing
+
+### v2.2.24
+
+- **Training duration accuracy fix** — Fixed duration calculation for DTT training segments to use wall-clock time instead of accumulated play time, correcting inaccurate session duration display
+- **Duration display improvements** — Segments with zero or missing duration now display "—" instead of "0s" for clearer readability
+
+### v2.2.22
+
+- **Development environment cleanup** — Removed unused Cursor editor environment configuration file
+
 ### v2.2.21
 
 - **Lock session auto-expiration fix** — Fixed cron job that automatically expires lock sessions; function was broken by previous search_path security update
