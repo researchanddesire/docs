@@ -186,12 +186,11 @@ jobs:
             cp -r Documentation/snippets/${{ matrix.dir }} target-repo/Documentation/snippets/
           fi
 
-          # Sync shared snippets to all repos
+          # Sync shared snippets to all repos (additive merge — preserves child-only files)
           if [ -d "Documentation/snippets/shared" ]; then
             echo "Syncing shared snippets..."
-            rm -rf target-repo/Documentation/snippets/shared
-            mkdir -p target-repo/Documentation/snippets
-            cp -r Documentation/snippets/shared target-repo/Documentation/snippets/
+            mkdir -p target-repo/Documentation/snippets/shared
+            rsync -avc Documentation/snippets/shared/ target-repo/Documentation/snippets/shared/
           fi
 
       - name: Sync docs.json to target repo
