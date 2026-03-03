@@ -19,6 +19,8 @@ Your account settings give you control over core login credentials:
 
 ## Change your email address
 
+The entire email change happens inside a single dialog — you never leave the page.
+
 <Steps>
   <Step title="Open profile settings">
     In the dashboard, click your profile picture (top-right) → **Profile**. In **Private Details**, locate **Email Address**.
@@ -28,9 +30,9 @@ Your account settings give you control over core login credentials:
   </Check>
   </Step>
 
-<Step title="Start the email change">
-  Click **Change Email** to open the dialog showing your current address.
-</Step>
+  <Step title="Start the email change">
+    Click **Change Email** to open the dialog showing your current address.
+  </Step>
 
   <Step title="Enter your new email">
     Type the new email in **New Email Address**. The form validates format and requires it to be different from your current address.
@@ -40,53 +42,48 @@ Your account settings give you control over core login credentials:
   </Tip>
   </Step>
 
-  <Step title="Submit the change">
-    Click **Update Email**. A loading indicator appears while processing.
-
-  <Warning>
-    For security, you are logged out immediately after requesting the change.
-  </Warning>
+  <Step title="Send the verification code">
+    Click **Send Code**. A 6-digit verification code is sent to your **new** email address. The dialog advances to the verification step automatically.
   </Step>
 
-  <Step title="Verify your new email">
-    Check the new inbox for a verification link and click it to complete the change. You’ll be redirected to a confirmation page.
+  <Step title="Enter the verification code">
+    Check your new email inbox for the 6-digit code and enter it in the dialog. The change is verified as soon as you enter all six digits.
 
   <Check>
-    After verification, the new email is active for sign-in; the previous email no longer works.
+    After verification, your email is updated immediately — no logout or sign-in required.
   </Check>
-  </Step>
-
-  <Step title="Sign back in">
-    Sign in using your new email and your existing password.
   </Step>
 </Steps>
 
 <Info>
-  Email verification required — You must verify the new email before you can
-  sign in again. If the message doesn’t arrive within a few minutes, check your
-  spam/junk folder.
+  A verification code is only sent to the **new** email address. You stay signed
+  in throughout the process.
 </Info>
 
 ### What to expect
 
 - Email uniqueness — The new email must not already be in use
-- Automatic logout — You are logged out right after submitting the change
-- Fast delivery — The verification email typically arrives within seconds
+- No logout — You remain signed in while verifying the change
+- Fast delivery — The verification code typically arrives within seconds
 - Permanent update — Once verified, you must use the new address for future logins
 
 ### Troubleshooting email changes
 
 <AccordionGroup>
-  <Accordion title="Didn’t receive the verification email?">
+  <Accordion title="Didn't receive the verification code?">
     - Check spam/junk
     - Wait a few minutes and refresh your inbox
     - Confirm the address you entered has no typos
-    - Resend the verification email from the confirmation page, if available
+    - Click **Resend code** in the verification dialog (available after a short cooldown)
     - If still stuck, contact support from your dashboard
   </Accordion>
 
   <Accordion title="Entered the wrong new email">
-    If you made a typo, contact support for assistance. After initiating a change, your old email no longer works for login.
+    Click **Back** in the verification dialog to return to the email entry step and correct the address.
+  </Accordion>
+
+  <Accordion title="Code says invalid or expired">
+    Verification codes expire after a short time. Click **Resend code** in the dialog to receive a fresh code and try again.
   </Accordion>
 </AccordionGroup>
 
@@ -109,7 +106,7 @@ Your account settings give you control over core login credentials:
 </Step>
 
   <Step title="Submit the change">
-    Click **Reset Password**. After processing, you’re redirected to the main dashboard.
+    Click **Reset Password**. After processing, you're redirected to the main dashboard.
 
   <Check>
     The new password takes effect immediately across all devices.
@@ -130,18 +127,18 @@ Your account settings give you control over core login credentials:
 ### What to expect
 
 - Immediate effect — Your old password stops working right away
-- No email verification — You won’t need to confirm by email
-- Other devices — You may need to sign in again on devices where you’re currently logged in
+- No email verification — You won't need to confirm by email
+- Other devices — You may need to sign in again on devices where you're currently logged in
 
 ### Troubleshooting password changes
 
 <AccordionGroup>
-  <Accordion title="Password doesn’t meet requirements">
+  <Accordion title="Password doesn't meet requirements">
     - Verify length and character mix (uppercase, lowercase, number, special)
     - Fix the specific rule the form flags and try again
   </Accordion>
 
-  <Accordion title="Forgot your new password or can’t sign in?">
+  <Accordion title="Forgot your new password or can't sign in?">
     Use the **Forgot Password** link on the sign-in page to receive a reset link. You can also use the **E‑Mail Link** option to sign in with a one‑time magic link/code, then change your password from settings. See <a href="/dashboard/faqs">Dashboard FAQs</a> for details.
   </Accordion>
 </AccordionGroup>
@@ -150,7 +147,7 @@ Your account settings give you control over core login credentials:
 
 ### Email changes
 
-- Verification required — Prevents unauthorized email takeovers
+- Verification required — A 6-digit code sent to the new address prevents unauthorized email takeovers
 - Account protection — Keeps recovery and notifications under your control
 - Future communications — System emails go to the new address after verification
 
