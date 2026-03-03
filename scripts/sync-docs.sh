@@ -4,8 +4,8 @@
 # Merges the product entry from remote docs.json into local docs.json
 # Always takes "theirs" (remote version overwrites local)
 #
-# Usage: ./sync-docs.sh <owner> <repo> <branch> <subdirectory> <target_dir> <product_name> [snippet_dir]
-# Example: ./sync-docs.sh KinkyMakers OSSM-hardware main Documentation/ossm Documentation/ossm "Open Source Sex Machine" Documentation/snippets/ossm
+# Usage: ./sync-docs.sh <owner> <repo> <branch> <subdirectory> <target_dir> <product_name> [snippet_dir] [shared_snippet_dir]
+# Example: ./sync-docs.sh KinkyMakers OSSM-hardware main Documentation/ossm Documentation/ossm "Open Source Sex Machine" Documentation/snippets/ossm Documentation/snippets/shared
 #
 # Environment variables:
 #   GITHUB_TOKEN - Optional. If set, used for authenticated git operations (required for private repos)
@@ -20,6 +20,7 @@ SUBDIRECTORY="${4:?Error: SUBDIRECTORY is required}"
 TARGET_DIR="${5:?Error: TARGET_DIR is required}"
 PRODUCT_NAME="${6:?Error: PRODUCT_NAME is required}"
 SNIPPET_DIR="${7:-}"  # Optional snippet directory
+SHARED_SNIPPET_DIR="${8:-}"  # Optional shared snippet directory
 
 DOCS_JSON_PATH="Documentation/docs.json"
 
@@ -40,6 +41,9 @@ echo "  Target: $TARGET_DIR"
 echo "  Product: $PRODUCT_NAME"
 if [ -n "$SNIPPET_DIR" ]; then
 echo "  Snippets: $SNIPPET_DIR"
+fi
+if [ -n "$SHARED_SNIPPET_DIR" ]; then
+echo "  Shared Snippets: $SHARED_SNIPPET_DIR"
 fi
 echo "  Auth: $AUTH_STATUS"
 echo "========================================"
@@ -70,11 +74,14 @@ git remote add origin "$GIT_URL"
 
 # Configure sparse checkout - include source dir, docs.json, and optionally snippets
 git sparse-checkout init --cone
+SPARSE_PATHS=("$SUBDIRECTORY" "$DOCS_JSON_PATH")
 if [ -n "$SNIPPET_DIR" ]; then
-  git sparse-checkout set "$SUBDIRECTORY" "$DOCS_JSON_PATH" "$SNIPPET_DIR"
-else
-  git sparse-checkout set "$SUBDIRECTORY" "$DOCS_JSON_PATH"
+  SPARSE_PATHS+=("$SNIPPET_DIR")
 fi
+if [ -n "$SHARED_SNIPPET_DIR" ]; then
+  SPARSE_PATHS+=("$SHARED_SNIPPET_DIR")
+fi
+git sparse-checkout set "${SPARSE_PATHS[@]}"
 
 # Fetch and checkout the specific ref
 git fetch --depth=1 origin "$REF"
@@ -132,6 +139,19 @@ if [ -n "$SNIPPET_DIR" ]; then
     echo "Successfully merged $OWNER/$REPO/$SNIPPET_DIR into $TARGET_SNIPPET_DIR"
   else
     echo "Note: $SNIPPET_DIR not found in repository $OWNER/$REPO (this is OK)"
+  fi
+fi
+
+# Sync shared snippets if specified and present
+if [ -n "$SHARED_SNIPPET_DIR" ]; then
+  TARGET_SHARED_DIR="$PROJECT_ROOT/$SHARED_SNIPPET_DIR"
+  if [ -d "$TEMP_CLONE/$SHARED_SNIPPET_DIR" ]; then
+    echo "Syncing shared snippets from $SHARED_SNIPPET_DIR..."
+    mkdir -p "$TARGET_SHARED_DIR"
+    rsync -avc --delete "$TEMP_CLONE/$SHARED_SNIPPET_DIR/" "$TARGET_SHARED_DIR/"
+    echo "Successfully merged $OWNER/$REPO/$SHARED_SNIPPET_DIR into $TARGET_SHARED_DIR"
+  else
+    echo "Note: $SHARED_SNIPPET_DIR not found in repository $OWNER/$REPO (this is OK)"
   fi
 fi
 

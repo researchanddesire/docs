@@ -132,7 +132,8 @@ jobs:
             "Documentation/ossm" \
             "Documentation/ossm" \
             "Open Source Sex Machine" \
-            "Documentation/snippets/ossm"
+            "Documentation/snippets/ossm" \
+            "Documentation/snippets/shared"
 
       # Sync radr-wireless-remote docs from ResearchAndDesire/radr-wireless-remote
       - name: Sync radr-wireless-remote docs
@@ -145,7 +146,8 @@ jobs:
             "Documentation/radr" \
             "Documentation/radr" \
             "Wireless Remote" \
-            "Documentation/snippets/radr"
+            "Documentation/snippets/radr" \
+            "Documentation/snippets/shared"
 
       # Sync DT_Trainer docs from ResearchAndDesire/DT_Trainer
       - name: Sync DT_Trainer docs
@@ -160,7 +162,8 @@ jobs:
             "Documentation/dtt" \
             "Documentation/dtt" \
             "Deepthroat Trainer" \
-            "Documentation/snippets/dtt"
+            "Documentation/snippets/dtt" \
+            "Documentation/snippets/shared"
 
       # Sync Lockbox docs from ResearchAndDesire/Lockbox
       - name: Sync Lockbox docs
@@ -175,7 +178,8 @@ jobs:
             "Documentation/lkbx" \
             "Documentation/lkbx" \
             "Chastity Lockbox" \
-            "Documentation/snippets/lkbx"
+            "Documentation/snippets/lkbx" \
+            "Documentation/snippets/shared"
 
       # Sync Dashboard docs from ResearchAndDesire/rad-app
       - name: Sync Dashboard docs
@@ -190,7 +194,8 @@ jobs:
             "Documentation/dashboard" \
             "Documentation/dashboard" \
             "Dashboard" \
-            "Documentation/snippets/dashboard"
+            "Documentation/snippets/dashboard" \
+            "Documentation/snippets/shared"
 
       - name: Push changes to main
         if: steps.check_commit.outputs.skip != 'true'
