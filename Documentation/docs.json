@@ -96,6 +96,7 @@
                   "dashboard/settings/account",
                   "dashboard/settings/email",
                   "dashboard/settings/public-links",
+                  "dashboard/settings/discreet-mode",
                   "dashboard/settings/integrations"
                 ]
               },

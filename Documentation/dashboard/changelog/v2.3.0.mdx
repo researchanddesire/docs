@@ -1,0 +1,23 @@
+---
+title: "Changelog v2.3.0"
+description: "Discreet mode for privacy in public spaces, admin improvements, and bug fixes"
+---
+
+<Update label="Version 2.3.0" description="Released March 15, 2026">
+
+## Discreet Mode
+
+- **Discreet mode** — New privacy feature that blurs profile photos, toy images, and user-uploaded images throughout the dashboard while replacing usernames with "Anonymous User", letting you safely browse in public or shared spaces
+- **Subscriber-only feature** — Discreet mode is available to users with an active subscription and can be enabled in Settings → Advanced under Display options
+
+## Admin Improvements
+
+- **Admin Give Up Control toggle** — Admins can now enable or restore "Give Up Control" for users directly from the admin panel, with a confirmation dialog showing the user's current consent policy
+- **Optimistic updates** — Give Up Control toggle in admin portal now updates instantly with rollback on failure for a smoother experience
+
+## Bug Fixes
+
+- **Session toy preservation fix** — Fixed issue where the toy ID was not preserved when completing training sessions via the v2 API endpoint
+- **Legacy email cleanup** — Removed deprecated legacy email field from database; user lookups now use authenticated user IDs exclusively
+
+</Update>
