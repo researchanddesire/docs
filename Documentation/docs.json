@@ -740,13 +740,13 @@
                 "group": "Flashers",
                 "pages": [
                   "ossm/tools/web-flasher",
-                  "ossm/tools/web-controller",
                   "ossm/tools/gold-motor-programming"
                 ]
               },
               {
                 "group": "Players",
                 "pages": [
+                  "ossm/tools/web-controller",
                   "ossm/tools/funscript-player"
                 ]
               }

@@ -15,6 +15,21 @@ This is a placeholder entry for future dashboard updates.
 - **Improvements** — Enhancements to existing functionality
 - **Bug fixes** — Notable fixes that improve your experience
 
+### v2.4.4
+
+- **Chaster pull action fix** — Fixed issue where pulling lock data from Chaster could fail due to database permission errors
+- **Chaster lock detection fix** — Fixed lock status filter to correctly identify active locks when syncing from Chaster
+
+### v2.4.1
+
+- **Chaster break state sync** — Hygiene breaks initiated on the physical Lockbox device now automatically sync to linked Chaster locks, triggering temporary openings and resuming when the break ends
+- **Push notification error reporting** — Fixed silent failures in push notifications; errors are now properly reported when VAPID keys are missing, database queries fail, or no subscriptions exist
+
+### v2.3.2
+
+- **Chaster break countdown sync** — Break end times from Chaster temporary openings now sync to the dashboard and Lockbox, enabling accurate countdown timers during hygiene breaks
+- **Bluetooth device matching improvement** — BLE pairing now uses name prefix matching, improving compatibility with devices that have variable name suffixes
+
 ### v2.2.42
 
 - **Admin Give Up Control toggle** — Admins can now enable or restore "Give Up Control" for users directly from the admin panel, with a confirmation dialog showing the user's current consent policy

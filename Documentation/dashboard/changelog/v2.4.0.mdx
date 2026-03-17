@@ -1,0 +1,36 @@
+---
+title: "Changelog v2.4.0"
+description: "Unified notification system with push notifications, in-app notifications, and Omnisend integration"
+---
+
+<Update label="Version 2.4.0" description="Released March 16, 2026">
+
+## Unified Notification System
+
+- **Web push notifications** — Receive real-time browser notifications for lock events, training sessions, leaderboard changes, and partner activity even when the dashboard isn't open
+- **In-app notification center** — All notifications are now stored in-app with read/unread tracking and a notification history
+- **Unified notify() API** — Consolidated notification dispatch across email, push, and in-app channels with a single function call
+- **Notification delivery tracking** — Track delivery status across all channels with retry logic for failed deliveries
+
+## Email Improvements
+
+- **Email delivery monitoring** — Automated cron job checks Resend delivery status and retries bounced or failed emails up to 3 times
+- **Omnisend integration** — Sync user contact data and notification events to Omnisend for improved email marketing and automation
+- **Unsubscribe sync to Omnisend** — Email unsubscribe preferences now sync bidirectionally with Omnisend contact records
+
+## Chaster Integration
+
+- **Webhook error logging** — Chaster webhook parse failures and handler errors are now logged to `chaster.errors` table for easier debugging
+- **Deserted lock support** — Locks abandoned via Chaster's "deserted" action now properly sync as abandoned sessions with timeline segments
+- **Webhook schema improvements** — Refactored Zod schemas with proper catchall handling for forward compatibility with new Chaster API fields
+
+## Admin Tools
+
+- **Notification test panel** — Redesigned admin panel for testing notifications across all channels (email, push, in-app, Omnisend) with per-type and bulk testing options
+
+## Developer Experience
+
+- **Push notification settings form** — New UI component for managing push notification subscriptions per browser
+- **usePushNotifications hook** — Client-side hook for subscribing and unsubscribing from push notifications
+
+</Update>
