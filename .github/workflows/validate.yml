@@ -35,3 +35,29 @@ jobs:
       - name: Validate docs
         working-directory: Documentation
         run: pnpm mint:validate
+
+  validate-images:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+          cache-dependency-path: Documentation/pnpm-lock.yaml
+
+      - name: Install dependencies
+        working-directory: Documentation
+        run: pnpm install
+
+      - name: Validate image paths (local or production)
+        working-directory: Documentation
+        run: pnpm validate:images

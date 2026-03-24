@@ -28,6 +28,11 @@ export default class ReplaceWithWebp extends Command {
       description: 'Delete original files after updating references',
       default: false,
     }),
+    check: Flags.boolean({
+      char: 'c',
+      description: 'CI mode: exit non-zero if any raster refs should be .webp (no writes)',
+      default: false,
+    }),
   };
 
   /**
@@ -109,6 +114,31 @@ export default class ReplaceWithWebp extends Command {
   }
 
   /**
+   * Build all path variants that MDX files might use to reference an image.
+   * Returns deduplicated { from, to } pairs.
+   */
+  buildPathPairs(docsDir, mdxDir, originalPath, webpPath, originalExt) {
+    const relOrig = relative(mdxDir, originalPath).replace(/\\/g, '/');
+    const relWebp = relative(mdxDir, webpPath).replace(/\\/g, '/');
+    const absOrig = '/' + relative(docsDir, originalPath).replace(/\\/g, '/');
+    const absWebp = '/' + relative(docsDir, webpPath).replace(/\\/g, '/');
+
+    const seen = new Set();
+    const pairs = [];
+    const add = (from, to) => {
+      if (from === to || seen.has(from)) return;
+      seen.add(from);
+      pairs.push({ from, to });
+    };
+
+    add(relOrig, relWebp);
+    add('./' + relOrig, './' + relWebp);
+    add(absOrig, absWebp);
+
+    return pairs;
+  }
+
+  /**
    * Update references in mdx files
    */
   async updateMdxReferences(docsDir, convertedFiles, dryRun) {
@@ -121,29 +151,13 @@ export default class ReplaceWithWebp extends Command {
       const mdxDir = dirname(mdxPath);
       const fileUpdates = [];
 
-      for (const { originalPath, originalExt } of convertedFiles) {
-        // Calculate relative path from mdx file to original image
-        const relToImage = relative(mdxDir, originalPath);
+      for (const { originalPath, webpPath, originalExt } of convertedFiles) {
+        const pairs = this.buildPathPairs(docsDir, mdxDir, originalPath, webpPath, originalExt);
 
-        // Common path patterns in mdx files
-        const patterns = [
-          // Relative paths like ./_images/file.png or _images/file.png
-          relToImage,
-          './' + relToImage,
-          // Also try with forward slashes (in case of Windows paths)
-          relToImage.replace(/\\/g, '/'),
-          './' + relToImage.replace(/\\/g, '/'),
-        ];
-
-        for (const pattern of patterns) {
-          // Escape the pattern for regex, then replace the extension
-          const escapedPattern = this.escapeRegex(pattern);
-          const regex = new RegExp(escapedPattern, 'g');
-
-          if (regex.test(newContent)) {
-            const webpPattern = pattern.replace(new RegExp(this.escapeRegex(originalExt) + '$'), '.webp');
-            newContent = newContent.replace(regex, webpPattern);
-            fileUpdates.push({ from: pattern, to: webpPattern });
+        for (const { from, to } of pairs) {
+          if (newContent.includes(from)) {
+            newContent = newContent.replaceAll(from, to);
+            fileUpdates.push({ from, to });
           }
         }
       }
@@ -154,6 +168,65 @@ export default class ReplaceWithWebp extends Command {
           changes: fileUpdates,
         });
 
+        if (!dryRun) {
+          await writeFile(mdxPath, newContent, 'utf-8');
+        }
+      }
+    }
+
+    return updates;
+  }
+
+  /**
+   * Resolve a raw image path from an MDX file to an absolute filesystem path,
+   * mirroring the rules in validate-image-paths.mjs.
+   */
+  resolveImagePath(raw, docsDir, mdxDir) {
+    const clean = raw.split('#')[0].split('?')[0];
+    if (clean.startsWith('http://') || clean.startsWith('https://')) return null;
+    if (clean.startsWith('/')) return join(docsDir, clean.slice(1));
+    return join(mdxDir, clean);
+  }
+
+  /**
+   * Final sweep: find any remaining .png/.jpg/.jpeg references where a .webp
+   * sibling exists on disk, and replace them. Catches absolute paths missed by
+   * the main pass and cases where the original was already deleted.
+   */
+  async sweepStaleRasterRefs(docsDir, dryRun) {
+    const mdxFiles = await this.findFiles(docsDir, ['.mdx', '.md']);
+    const rasterRefPattern = /(?<![a-zA-Z:])(?:\.\/|\.\.\/|\/)[^\s)"']*\.(?:png|jpe?g)/gi;
+    const updates = [];
+
+    for (const mdxPath of mdxFiles) {
+      const content = await readFile(mdxPath, 'utf-8');
+      let newContent = content;
+      const mdxDir = dirname(mdxPath);
+      const fileUpdates = [];
+
+      const matches = [...content.matchAll(rasterRefPattern)];
+      const seen = new Set();
+
+      for (const match of matches) {
+        const raw = match[0];
+        if (seen.has(raw)) continue;
+        seen.add(raw);
+
+        const resolved = this.resolveImagePath(raw, docsDir, mdxDir);
+        if (!resolved) continue;
+
+        const webpCandidate = resolved.replace(/\.(png|jpe?g)$/i, '.webp');
+        if (!(await this.fileExists(webpCandidate))) continue;
+
+        const webpRaw = raw.replace(/\.(png|jpe?g)$/i, '.webp');
+        if (webpRaw === raw) continue;
+
+        newContent = newContent.replaceAll(raw, webpRaw);
+        fileUpdates.push({ from: raw, to: webpRaw });
+      }
+
+      if (newContent !== content) {
+        updates.push({ path: mdxPath, changes: fileUpdates });
         if (!dryRun) {
           await writeFile(mdxPath, newContent, 'utf-8');
         }
@@ -177,18 +250,19 @@ export default class ReplaceWithWebp extends Command {
 
     if (convertedFiles.length === 0) {
       this.log('No converted webp files found (no webp files with corresponding png/jpg/jpeg originals).');
-      return;
-    }
-
-    this.log(`Found ${convertedFiles.length} converted webp file(s):\n`);
-    for (const { originalPath } of convertedFiles) {
-      const relOriginal = relative(docsDir, originalPath);
-      this.log(`  📸 ${relOriginal} → .webp`);
+    } else {
+      this.log(`Found ${convertedFiles.length} converted webp file(s):\n`);
+      for (const { originalPath } of convertedFiles) {
+        const relOriginal = relative(docsDir, originalPath);
+        this.log(`  📸 ${relOriginal} → .webp`);
+      }
     }
 
     this.log('\n🔄 Updating references in documentation files...\n');
 
-    const updates = await this.updateMdxReferences(docsDir, convertedFiles, dryRun);
+    const updates = convertedFiles.length > 0
+      ? await this.updateMdxReferences(docsDir, convertedFiles, dryRun)
+      : [];
 
     if (updates.length === 0) {
       this.log('No references found to update.');
@@ -196,6 +270,25 @@ export default class ReplaceWithWebp extends Command {
       this.log(`${dryRun ? 'Would update' : 'Updated'} ${updates.length} file(s):\n`);
       for (const { path, changes } of updates) {
         const relPath = relative(docsDir, path);
+        this.log(`  📝 ${relPath}`);
+        for (const { from, to } of changes) {
+          this.log(`     ${from}`);
+          this.log(`     → ${to}`);
+        }
+      }
+    }
+
+    // Final sweep: catch any remaining raster refs that have a .webp on disk
+    this.log('\n🔎 Final sweep for stale raster references...\n');
+
+    const sweepUpdates = await this.sweepStaleRasterRefs(docsDir, dryRun);
+
+    if (sweepUpdates.length === 0) {
+      this.log('No additional stale references found.');
+    } else {
+      this.log(`${dryRun ? 'Would fix' : 'Fixed'} ${sweepUpdates.length} file(s) in sweep:\n`);
+      for (const { path: filePath, changes } of sweepUpdates) {
+        const relPath = relative(docsDir, filePath);
         this.log(`  📝 ${relPath}`);
         for (const { from, to } of changes) {
           this.log(`     ${from}`);

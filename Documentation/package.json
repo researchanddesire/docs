@@ -25,6 +25,8 @@
   "scripts": {
     "mint": "mint dev --port 3333",
     "mint:validate": "mint validate && mint broken-links && mint a11y && node ./_scripts/run.js external-links",
+    "validate:images": "node ./_scripts/validate-image-paths.mjs",
+    "validate:images:fix": "node ./_scripts/validate-image-paths.mjs --fix",
     "mint:broken-links": "mint broken-links",
     "optimize": "node ./_scripts/run.js get-images && optimizt --verbose --webp . && node ./_scripts/run.js replace-with-webp --delete-originals",
     "external-links": "node ./_scripts/run.js external-links",
