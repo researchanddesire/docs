@@ -28,6 +28,11 @@ export default class ReplaceWithWebp extends Command {
       description: 'Delete original files after updating references',
       default: false,
     }),
+    check: Flags.boolean({
+      char: 'c',
+      description: 'CI mode: exit non-zero if any raster refs should be .webp (no writes)',
+      default: false,
+    }),
   };
 
   /**
