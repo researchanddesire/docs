@@ -75,3 +75,37 @@ You must have version 1.17.9 or later installed on your device to enroll in the 
 <Info>
 If you encounter any bugs or issues with an alpha release, please contact us at support@researchanddesire.com so we can address them before the production release.
 </Info>
+
+## Leaving the alpha program
+
+If you want to return to stable firmware releases, use the web flasher to reinstall the production firmware.
+
+<Steps>
+<Step title="Connect your device">
+  Plug your Lockbox into your computer using a USB-C data cable.
+</Step>
+
+<Step title="Open the web flasher">
+  Navigate to [the web flasher](https://dashboard.researchanddesire.com/app/tools/web-flasher) in Chrome or another Chromium-based browser.
+</Step>
+
+<Step title="Flash stable firmware">
+  Click **Connect**, select your device, and complete the flash process. Do not check "Erase device" to preserve your settings.
+  
+  <Note>
+  The web flasher always installs the latest stable release, which removes your device from the alpha program.
+  </Note>
+</Step>
+
+<Step title="Verify the change">
+  After the flash completes, your device restarts. The version displayed on the screen will no longer show "alpha" in the version code.
+</Step>
+</Steps>
+
+## Troubleshooting alpha issues
+
+If you experience unusual behavior while on alpha firmware — such as the dashboard showing your device as offline when it appears connected, or lock sessions stuck in a pending state — see the connectivity troubleshooting guide for step-by-step instructions.
+
+<Card title="Connectivity Troubleshooting" icon="wifi" href="./connectivity-troubleshooting#alpha-firmware-sync-issues">
+  Diagnose and resolve sync issues related to alpha firmware.
+</Card>

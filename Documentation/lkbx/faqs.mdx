@@ -190,6 +190,20 @@ Find answers to common questions about setting up, using, and troubleshooting yo
   </Note>
 </Accordion>
 
+<Accordion title="I removed my keyholder during an active session and now my lock is stuck. What do I do?">
+  If you removed your keyholder from your partners list while a lock session was active (especially during a break), your lock may become stuck in a state where you cannot control it remotely.
+
+  **To resolve this:**
+
+  Contact support at [support@researchanddesire.com](mailto:support@researchanddesire.com) and ask them to abandon the lock for you. Include your account email and a brief description of the issue.
+
+  Once support abandons the lock, your Lockbox will be freed and you can start a new session.
+
+  <Warning>
+  Avoid removing your keyholder while a lock session is active. Always have your keyholder end or abandon the session first, then remove them from your partners list.
+  </Warning>
+</Accordion>
+
 <Accordion title="What is an active lock session?">
   An active lock session is a lock currently in progress. During an active session, the Lockbox enforces the configured conditions until the timer expires or the session is ended by an authorized user.
 </Accordion>
@@ -367,15 +381,34 @@ If the device still doesn't respond after flashing, contact <a href="mailto:supp
   If your Lockbox freezes when pressing buttons—especially when accessing the menu—and stops responding entirely, try these steps:
 
   1. **Hard reset**: Press and hold the **Enter/Lock** button for 10 seconds. The device will restart automatically.
-
-  2. **Reflash the firmware**: If freezing persists after a hard reset, reinstall the firmware using the web flasher:
-     - Connect your Lockbox to your computer via USB-C
-     - Go to [the webflasher page](https://dashboard.researchanddesire.com/app/tools/web-flasher)
-     - When prompted, **do not** check the "Erase device" box to keep your settings and lock state
-     - Complete the flash process
+  2. **Reflash the firmware**: If freezing persists after a hard reset, reinstall the firmware using the web flasher.
 
   <Card title="Flashing Guide" icon="rotate" href="./support/flashing">
-    Step-by-step instructions for reflashing your device.
+    Step-by-step firmware flashing instructions.
+  </Card>
+</Accordion>
+
+<Accordion title="My Lockbox keeps restarting on its own (power cycling)">
+  If your Lockbox continuously reboots without giving you a chance to press any buttons, this is usually a firmware issue that can be resolved by reflashing.
+
+  <Card title="Flashing Guide" icon="rotate" href="./support/flashing">
+    Step-by-step firmware flashing instructions to fix power cycling.
+  </Card>
+</Accordion>
+
+<Accordion title="My lock randomly unlocks or doesn't sync properly">
+  If your Lockbox unlocks unexpectedly or lock commands from the dashboard aren't being applied correctly, the device and server may be out of sync. A hard reboot forces the device to pull the latest lock state from the server.
+
+  <Card title="Connectivity Troubleshooting" icon="wifi" href="./support/connectivity-troubleshooting#lock-randomly-unlocks-or-doesnt-sync">
+    Step-by-step sync troubleshooting guide.
+  </Card>
+</Accordion>
+
+<Accordion title="Dashboard shows offline but my device shows connected">
+  If the dashboard displays your Lockbox as "Offline" but your device shows a green connection indicator, your device and the dashboard may be out of sync. This can usually be resolved with a hard reboot and resync.
+
+  <Card title="Connectivity Troubleshooting" icon="wifi" href="./support/connectivity-troubleshooting#dashboard-shows-offline-but-device-shows-connected">
+    Full diagnostic steps for dashboard-device sync issues.
   </Card>
 </Accordion>
 

@@ -78,7 +78,7 @@ Find answers to common questions about your Deepthroat Trainer below. Each answe
       Using multiple accessories drains the battery faster. With both accessories connected, expect approximately 2–3 hours of battery life instead of the standard 4 hours.
     </Warning>
 
-    <Card title="Accessory Port" icon="plug" href="/deepthroat-trainer/device-specifications/accessory-port">
+    <Card title="Accessory Port" icon="plug" href="/dtt/specs/accessory-port">
       Technical details about connecting accessories.
     </Card>
   </Accordion>
@@ -121,6 +121,38 @@ Find answers to common questions about your Deepthroat Trainer below. Each answe
 
       .
     </Info>
+  </Accordion>
+</AccordionGroup>
+
+## Calibration
+
+<AccordionGroup>
+  <Accordion title="How do I recalibrate my toy's depth setting?">
+    You can reset calibration from the dashboard and recalibrate on your next session. Go to **Toybox**, select your toy, and click **Reset Calibration**.
+
+    <Card title="Calibration Guide" icon="sliders" href="/dtt/technical/calibration#how-to-reset-calibration-for-a-toy">
+      Step-by-step reset and recalibration instructions.
+    </Card>
+  </Accordion>
+  <Accordion title="Can I recalibrate my toy mid-session?">
+    No. Calibration changes cannot take effect during an active session. The Trainer fetches your calibration data when you start a new session, so changes made in the dashboard won't apply until the next session.
+
+    **To recalibrate:**
+
+    1. End your current session
+    2. In the dashboard, go to **Toybox**, select your toy, and click **Reset Calibration**
+    3. Start a new session—the Trainer will prompt you to calibrate with your new depth
+
+    <Note>
+      The Trainer remembers your previous calibration until you explicitly reset it. If you've adjusted your position (moved closer to or farther from the sensor), you'll need to recalibrate to match your new setup.
+    </Note>
+  </Accordion>
+  <Accordion title="Training requires depths that are physically impossible to reach">
+    If your Trainer is asking you to go deeper than you can physically reach, your calibration minimum position is likely set too close to the sensor. Adjust the minimum to **5 cm** or further in your Toybox to keep targets achievable and outside the sensor's 1.7 cm dead zone.
+
+    <Card title="Calibration Troubleshooting" icon="sliders" href="/dtt/technical/calibration#training-requires-depths-i-cant-physically-reach">
+      Full explanation and step-by-step fix.
+    </Card>
   </Accordion>
 </AccordionGroup>
 
@@ -640,6 +672,34 @@ How ownership verification and unpairing requests work.
 ## Troubleshooting
 
 <AccordionGroup>
+  <Accordion title="Toybox and template buttons are greyed out">
+    If you can't edit toys, create templates, or modify your training settings—all buttons appear disabled or greyed out—you likely have **Give Up Control** enabled in your account settings.
+
+    **What's happening:**
+
+    When Give Up Control is enabled, you transfer control of your devices to your assigned Keyholder. This disables your ability to:
+
+    - Edit or add toys in your Toybox
+    - Create or modify templates
+    - Change training settings
+
+    Only your Keyholder can make these changes while Give Up Control is active.
+
+    **How to fix:**
+
+    1. Go to **Settings → Advanced** in your dashboard
+    2. Toggle off **Give Up Control**
+    3. If you selected "Delayed" consent when enabling it, you'll need to wait 72 hours before control is restored
+    4. If you selected "Permanent" consent, only your Keyholder can return control to you
+
+    <Tip>
+      If you don't remember enabling Give Up Control, check with your partner—they may have enabled it on your behalf, or you may have enabled it during initial setup.
+    </Tip>
+
+    <Card title="Understanding Access Types" icon="users" href="/dashboard/quick-start/connections/access-types">
+      Learn more about Give Up Control and partner access settings.
+    </Card>
+  </Accordion>
   <Accordion title="Can't find the settings menu on my device">
     The Deepthroat Trainer does not have a traditional settings menu on the device itself. All training configuration is managed through the dashboard.
 
@@ -722,6 +782,34 @@ How ownership verification and unpairing requests work.
       Include your order number when contacting support for faster assistance with battery replacement options.
     </Tip>
   </Accordion>
+  <Accordion title="Accessory port only works at certain angles or has intermittent connection">
+    If your vibrating plug, wand, or other accessory only works when the cable is held at a specific angle, or cuts in and out during use, this typically indicates a hardware issue with the 3.5mm accessory port.
+
+    **Before contacting support, try these steps:**
+
+    1. **Test with a different cable** — try the original cable that came with your accessory, or a known-working 3.5mm TRRS cable
+    2. **Clean the port** — use compressed air to remove any debris from inside the port
+    3. **Test a different accessory** — if you have another 3.5mm accessory, check if the issue persists
+
+    **If the problem continues after these steps:**
+
+    The port itself likely has a loose internal connection or damaged solder joint. This is a hardware defect that cannot be fixed through troubleshooting.
+
+    Contact [support@researchanddesire.com](mailto:support@researchanddesire.com) with:
+
+    - Your order number
+    - A description of the issue (when it started, what you've tried)
+
+    Support can discuss replacement options for your device.
+
+    <Warning>
+      Do not attempt to open the device or repair the port yourself—this will void any warranty coverage.
+    </Warning>
+
+    <Card title="Accessory Port Specs" icon="plug" href="/dtt/specs/accessory-port">
+      Technical specifications for the accessory port.
+    </Card>
+  </Accordion>
 </AccordionGroup>
 
 ## Privacy & Discretion
@@ -734,6 +822,20 @@ How ownership verification and unpairing requests work.
 
     <Tip>
       For information about discreet packaging and shipping, see our [Discreet Shipping](/shop/faqs/discreet-shipping) guide.
+    </Tip>
+  </Accordion>
+</AccordionGroup>
+
+## Developer & Integration
+
+<AccordionGroup>
+  <Accordion title="Is there an open API for the Deepthroat Trainer?">
+    There is no public API specification for the Deepthroat Trainer, OSSM, or dashboard at this time. The devices communicate with R+D servers over proprietary protocols, and there is no documented way to integrate them with third-party applications or AI agents.
+
+    This is something we're considering for the future, but there is no timeline for availability.
+
+    <Tip>
+      If developer access is important to you, let us know at [support@researchanddesire.com](mailto:support@researchanddesire.com)—user feedback helps prioritize the roadmap.
     </Tip>
   </Accordion>
 </AccordionGroup>
