@@ -78,7 +78,7 @@ Find answers to common questions about your Deepthroat Trainer below. Each answe
       Using multiple accessories drains the battery faster. With both accessories connected, expect approximately 2–3 hours of battery life instead of the standard 4 hours.
     </Warning>
 
-    <Card title="Accessory Port" icon="plug" href="/deepthroat-trainer/device-specifications/accessory-port">
+    <Card title="Accessory Port" icon="plug" href="/dtt/specs/accessory-port">
       Technical details about connecting accessories.
     </Card>
   </Accordion>
@@ -128,58 +128,30 @@ Find answers to common questions about your Deepthroat Trainer below. Each answe
 
 <AccordionGroup>
   <Accordion title="How do I recalibrate my toy's depth setting?">
-    If you've improved and your current calibration feels too shallow, you can reset it and recalibrate:
+    You can reset calibration from the dashboard and recalibrate on your next session. Go to **Toybox**, select your toy, and click **Reset Calibration**.
 
-    1. In the dashboard, go to **Toybox**
-    2. Select the toy you want to recalibrate
-    3. Click **Reset Calibration** to clear the stored depth data
-    4. On your next session with that toy, the trainer will prompt you to calibrate again—set your new comfortable depth
-
-    <Card title="Calibration Guide" icon="sliders" href="/dtt/technical/calibration">
-      Full calibration instructions and troubleshooting.
+    <Card title="Calibration Guide" icon="sliders" href="/dtt/technical/calibration#how-to-reset-calibration-for-a-toy">
+      Step-by-step reset and recalibration instructions.
     </Card>
   </Accordion>
   <Accordion title="Can I recalibrate my toy mid-session?">
-    No. Calibration changes cannot take effect during an active session. The Trainer downloads your calibration data when it boots up, so any changes you make in the dashboard require a device restart to apply.
+    No. Calibration changes cannot take effect during an active session. The Trainer fetches your calibration data when you start a new session, so changes made in the dashboard won't apply until the next session.
 
     **To recalibrate:**
 
     1. End your current session
     2. In the dashboard, go to **Toybox**, select your toy, and click **Reset Calibration**
-    3. Power cycle your Trainer (turn it off and back on)
-    4. Start a new session—the Trainer will prompt you to calibrate with your new depth
+    3. Start a new session—the Trainer will prompt you to calibrate with your new depth
 
     <Note>
       The Trainer remembers your previous calibration until you explicitly reset it. If you've adjusted your position (moved closer to or farther from the sensor), you'll need to recalibrate to match your new setup.
     </Note>
   </Accordion>
   <Accordion title="Training requires depths that are physically impossible to reach">
-    If your Trainer is asking you to go deeper than you can physically reach—even when touching your nose to the sensor—your calibration minimum position is set too close to the sensor.
+    If your Trainer is asking you to go deeper than you can physically reach, your calibration minimum position is likely set too close to the sensor. Adjust the minimum to **5 cm** or further in your Toybox to keep targets achievable and outside the sensor's 1.7 cm dead zone.
 
-    This commonly happens when:
-    - You calibrated at an extreme depth you can't consistently reach
-    - Training segments with depth scaling push beyond your calibrated range
-    - Fast-paced segments (300+ RPM) require the deepest positions in the final reps
-
-    **How to fix:**
-
-    1. In the dashboard, go to **Toybox** and select your toy
-    2. Adjust the calibration minimum position to start at **5 cm** (or further from the sensor)
-    3. Power cycle your Trainer to load the updated calibration
-    4. Start a new session
-
-    Setting a more conservative minimum position (5 cm instead of 2 cm) ensures the deepest required depth is always physically achievable.
-
-    <Tip>
-      If you have a keyholder or partner managing your settings, they can adjust your toy calibration on your behalf.
-    </Tip>
-
-    <Note>
-      The sensor has a dead zone within 1.7 cm where it cannot accurately detect position. Setting your minimum to 5 cm keeps you well outside this zone and prevents impossible depth requirements.
-    </Note>
-
-    <Card title="Calibration Guide" icon="sliders" href="/dtt/technical/calibration">
-      Full calibration instructions and troubleshooting.
+    <Card title="Calibration Troubleshooting" icon="sliders" href="/dtt/technical/calibration#training-requires-depths-i-cant-physically-reach">
+      Full explanation and step-by-step fix.
     </Card>
   </Accordion>
 </AccordionGroup>

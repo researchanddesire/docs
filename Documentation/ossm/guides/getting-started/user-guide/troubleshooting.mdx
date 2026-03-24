@@ -43,6 +43,10 @@ As a final check, set the rail in an upward position and apply some downward for
 Proper belt tension prevents skipping during direction changes at the stroke endpoints. The belt should be tight enough to transfer motor force without slipping, but not so tight that it strains the motor or bearings.
 </Tip>
 
+<Card title="Belt Tension Guide" icon="wrench" href="/ossm/guides/housekeeping/belt-tension">
+  Complete belt tension adjustment, lubrication, and inspection guide.
+</Card>
+
 ---
 
 ## Motor sounds louder or seems weaker than before
@@ -60,7 +64,7 @@ The most common cause of a motor that sounds louder or seems to struggle is belt
 - Belt visibly deflects more than 5mm when pressed
 
 **Solution:**
-Follow the [belt tensioning steps](#clicking-noise-during-homing) above to verify and adjust your belt tension. Even small amounts of slack can significantly affect performance.
+Follow the [belt tension guide](/ossm/guides/housekeeping/belt-tension) to verify and adjust your belt tension. Even small amounts of slack can significantly affect performance.
 </Accordion>
 
 <Accordion title="Lubricate the linear rail">
@@ -71,16 +75,7 @@ Over time, the linear rail's factory lubrication can dry out or collect debris, 
 - Motor sounds more strained even at lower speeds
 - Inconsistent movement (stuttering or binding)
 
-**Solution:**
-1. Power off and unplug the OSSM
-2. Move the carriage by hand along the full rail length—it should glide smoothly
-3. If movement feels rough, apply a light machine grease or linear rail lubricant (Super Lube, white lithium grease, or similar)
-4. Move the carriage back and forth several times to distribute the lubricant through the ball bearings
-5. Wipe off excess grease from the rail surface
-
-<Tip>
-A small amount of grease goes a long way. Over-lubricating can attract dust and debris, which makes the problem worse over time.
-</Tip>
+See the [belt tension guide](/ossm/guides/housekeeping/belt-tension#rail-lubrication) for lubrication instructions.
 </Accordion>
 
 <Accordion title="Verify power supply">
@@ -92,9 +87,9 @@ An aging or failing power supply may deliver less voltage or current than rated,
 - Visible dimming of motor LED during operation
 
 **Solution:**
-1. If you have a multimeter, measure the voltage at the power input terminals while the OSSM is operating—it should remain between 23V and 25V under load
+1. If you have a multimeter, measure the voltage at the power input terminals while the OSSM is operating—a healthy 24V supply should deliver close to 24V under load
 2. Try a different power supply if available
-3. Ensure you're using a supply rated for at least 5A (10A recommended)
+3. Ensure you're using a supply rated for at least 5A
 
 See [insufficient power supply](#controller-powers-on-but-actuator-does-not-move) for more details.
 </Accordion>
@@ -132,7 +127,7 @@ When the controller turns on but the actuator remains stationary, the issue is t
 **Solution:**
 Ensure you're using a power supply that meets the minimum requirements:
 - Voltage: 24V DC
-- Current: At least 5A (10A recommended)
+- Current: At least 5A
 
 <Warning>
 Using an underpowered supply can damage components over time. Always use a supply rated for your motor's requirements.
@@ -305,43 +300,36 @@ If you have a RADR wireless remote, you can continue using your OSSM while waiti
 
 ## Menu options show blank screen (Get Help, WiFi, Update)
 
-If selecting certain menu options—such as **Get Help**, **WiFi Setup**, or **Update**—causes the display to go blank or show no response, these features may not yet be available on your firmware version.
+If selecting certain menu options—such as **Get Help**, **WiFi Setup**, or **Update**—causes the display to go blank or show no response, the issue is usually related to your firmware version or WiFi configuration.
 
 <AccordionGroup>
 <Accordion title="Check firmware version">
-**Current status:**
+These menu options are implemented in current firmware:
 
-Some menu options visible on the wired remote are placeholders for features still in development. As of early 2026, the following may display but not function on all firmware versions:
+- **Get Help** — Displays a QR code linking to documentation
+- **WiFi Setup** — Opens the WiFi configuration portal
+- **Update** — Checks for over-the-air firmware updates
 
-- **Get Help** — Intended to display a QR code linking to documentation
-- **WiFi Setup** — Intended to configure wireless network connectivity
-- **Update** — Intended to check for over-the-air firmware updates
+If you see a blank screen instead, your firmware may be outdated. Update using the [Web Flasher](/ossm/tools/web-flasher) to get the latest version.
 
 <Note>
-If the display goes blank when selecting these options, wait a few seconds and then press the encoder to return to the menu. This is expected behavior for unreleased features—your remote is not malfunctioning.
+If the display goes blank when selecting these options, press the encoder button to return to the menu.
 </Note>
 </Accordion>
 
-<Accordion title="When will these features work?">
-Feature availability depends on your firmware version:
+<Accordion title="WiFi Setup and Update require WiFi">
+**WiFi Setup** and **Update** require the OSSM to connect to a WiFi network. If WiFi has not been configured, these options may not function as expected.
 
-- **WiFi Setup and Update** — These require the OSSM to connect to a WiFi network. If WiFi configuration hasn't been completed via the [Web BLE Controller](/ossm/guides/getting-started/wifi-setup#option-1-web-ble-controller), the menu options may not function as expected.
-- **Get Help** — This feature is being rolled out in upcoming firmware releases.
+You can configure WiFi using the Web BLE Controller in a browser without relying on the wired remote's WiFi Setup menu. See [WiFi Setup](/ossm/guides/getting-started/wifi-setup) for instructions.
 
 To ensure you have the latest features, update your firmware using the [Web Flasher](/ossm/tools/web-flasher).
-
-<Tip>
-You can configure WiFi using the Web BLE Controller in a browser without relying on the wired remote's WiFi Setup menu. See [WiFi Setup](/ossm/guides/getting-started/wifi-setup) for instructions.
-</Tip>
 </Accordion>
 
-<Accordion title="Resolution">
-If you need WiFi connectivity or firmware updates:
+<Accordion title="Alternative tools">
+If the wired remote's menu options aren't working for you, these browser-based tools provide the same functionality:
 
 1. Use the [Web BLE Controller](/ossm/tools/web-controller) to configure WiFi from your browser
 2. Use the [Web Flasher](/ossm/tools/web-flasher) to update firmware directly via USB
-
-These browser-based tools provide the same functionality without relying on the wired remote's menu options.
 </Accordion>
 </AccordionGroup>
 
@@ -365,7 +353,7 @@ If your OSSM repeatedly restarts (boot loops) or shows corrupted characters, fli
 Before suspecting a hardware fault, try:
 
 1. **Different RJ45 cable** — A damaged cable can cause intermittent faults
-2. **Different power supply** — Voltage fluctuations can cause instability (use a UL-listed 24V supply rated for at least 5A)
+2. **Different power supply** — Voltage fluctuations can cause instability (use a quality 24V supply rated for at least 5A)
 3. **Reflash firmware** — Corrupted firmware can cause unexpected behavior. Use the [Web Flasher](/ossm/tools/web-flasher) to install the latest stable version.
 </Accordion>
 
@@ -373,7 +361,7 @@ Before suspecting a hardware fault, try:
 If basic troubleshooting doesn't help, verify the control board is receiving power correctly:
 
 1. **Check the 3.3V LED** — The control board has a small blue LED near the ESP32 chip. If this LED is on, the board is receiving power and the voltage regulator is working.
-2. **Check 24V at the input terminals** — Use a multimeter to verify 24V DC at the power input terminals on the control board. You should read between 23V and 25V.
+2. **Check 24V at the input terminals** — Use a multimeter to verify 24V DC at the power input terminals on the control board. A healthy supply should read close to 24V.
 3. **Check voltage at motor terminals** — Measure voltage at the motor output terminals to confirm power is reaching the motor driver.
 
 If the 3.3V LED is off or dim, or if voltage readings are incorrect, the issue may be with your power supply or the control board itself.
