@@ -513,8 +513,10 @@ If the device still doesn't respond after flashing, contact <a href="mailto:supp
   </Card>
 </Accordion>
 
-<Accordion title="The dashboard shows the wrong lock state (for example Unlocked while the Lockbox is locked), or 'Updating Firmware' never finishes">
-  Treat this as a **sync or UI lag** issue first:
+<Accordion title="The dashboard shows the wrong lock state (for example Unlocked while the Lockbox is locked), Device Status stuck on Updating, or 'Updating Firmware' never finishes">
+  If **Device Status** stays on **Updating** or shows **Unlocked** while your Lockbox screen shows the correct timer and lock state (and you are not in the middle of a firmware install), treat it as **dashboard sync or display lag**, not a problem with the device itself.
+
+  More generally, treat this as a **sync or UI lag** issue first:
 
   1. **Trust the device** when it disagrees with the website—use the [online status](/lkbx/support/online-status) guide; the dashboard can lag by up to about a minute.
   2. **Re-sync** — Perform a [hard reboot with resync](/lkbx/technical/button-controls#hard-reboot-with-resync), then follow [Connectivity Troubleshooting](/lkbx/support/connectivity-troubleshooting#lock-randomly-unlocks-or-doesnt-sync) if it keeps happening.
