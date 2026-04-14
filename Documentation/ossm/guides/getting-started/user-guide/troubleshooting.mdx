@@ -99,7 +99,11 @@ See [insufficient power supply](#controller-powers-on-but-actuator-does-not-move
 
 ## Homing is too slow
 
-If your OSSM homes very slowly or stalls during the homing sequence, the motor may need to be programmed.
+If your OSSM homes very slowly or stalls during the homing sequence, the motor may need to be programmed—**especially** if you are using a self-sourced or salvaged **57AIM** motor, or one that may have lost its parameters.
+
+<Note>
+If **slow or stalled homing happens with more than one motor** (for example both an original and a replacement Gold Motor), or the same failure occurs with only the **motor connected to the controller** and the mechanical load removed, treat **OSSM control board firmware** as a likely cause before spending time on motor programming. See [Homing stalls or locks during startup calibration](#homing-stalls-or-locks-during-startup-calibration).
+</Note>
 
 <Steps>
 <Step title="Check motor programming">
@@ -112,6 +116,28 @@ See the [motor programming guide](/ossm/Hardware/motor/programming) for detailed
 After programming, the motor should home at a reasonable speed. If problems persist, double-check that all parameters were applied correctly.
 </Step>
 </Steps>
+
+---
+
+## Homing stalls or locks during startup calibration
+
+If the OSSM **powers on** but **homing does not complete normally**—the carriage moves only a tiny amount, stutters, seems to **stall**, or you hear motion without useful travel—users often assume the **motor** is bad. In some cases the **ESP32 firmware on the OSSM control board** is in a bad state; **reinstalling board firmware** fixes homing even when hardware looks fine.
+
+**When to try this first**
+
+- The same behavior happens with **two different** compatible motors, or with a **replacement motor** you expected to fix the issue
+- You have simplified the setup (for example **motor and controller only**) and the problem **still** matches startup homing, not belt slip or rail binding
+- Power looks normal (for example **24V** present, motor indicator lit) but motion during the boot sequence is wrong
+
+**What to do**
+
+1. **Reflash the OSSM** with the latest stable build using the [Web Flasher](/ossm/tools/web-flasher) over **USB-C** to the control board—this updates the **main board** firmware, which is separate from [programming the Gold Motor](/ossm/Hardware/motor/programming) over RS485.
+2. After flashing, power cycle with **24V**, let homing run, and test at low speed before full use.
+3. If homing is still wrong only after confirming a **correctly programmed** motor, continue with [motor programming](/ossm/Hardware/motor/programming) and the [belt tension](/ossm/guides/housekeeping/belt-tension) and mechanical checks elsewhere in this guide.
+
+<Tip>
+Board firmware reflashing does not replace stripped pulley screws or damaged belt hardware—those are still mechanical issues—but it **can** resolve “stuck” or nonsensical homing when the root cause is software on the ESP32, not the servo drive.
+</Tip>
 
 ---
 
