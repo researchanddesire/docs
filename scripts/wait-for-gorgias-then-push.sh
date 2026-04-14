@@ -8,7 +8,7 @@ INTERVAL=1800
 MONITOR_LOG="$REPO/gorgias-backfill-monitor.log"
 
 log() {
-  echo "[$(date -Iseconds)] $*" | tee -a "$MONITOR_LOG"
+  echo "[$(date -Iseconds)] $*" >> "$MONITOR_LOG"
 }
 
 log "Monitor started (interval ${INTERVAL}s = 30 min). Watching for gorgias-backfill-since.sh to finish."
