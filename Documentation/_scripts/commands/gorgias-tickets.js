@@ -77,6 +77,19 @@ export default class GorgiasTickets extends Command {
       description: 'Analyze tickets for documentation gaps and update docs if needed',
       default: false,
     }),
+    since: Flags.string({
+      description:
+        'Only include tickets closed on or after this instant (ISO 8601, e.g. 2026-02-25T01:15:00+07:00)',
+      env: 'GORGIAS_SINCE',
+    }),
+    'ticket-id': Flags.integer({
+      char: 't',
+      description: 'Analyze a single ticket by ID (skips listing/pagination)',
+    }),
+    'list-only': Flags.boolean({
+      description: 'Print matching ticket IDs and exit (no analysis)',
+      default: false,
+    }),
   };
 
   /**
@@ -266,7 +279,7 @@ export default class GorgiasTickets extends Command {
   /**
    * Fetch all ticket IDs with pagination
    */
-  async fetchAllTicketIds(limit, maxPages, viewId, allStatuses = false) {
+  async fetchAllTicketIds(limit, maxPages, viewId, allStatuses = false, sinceDate = null) {
     const ticketIds = [];
     let cursor = null;
     let pageCount = 0;
@@ -286,11 +299,18 @@ export default class GorgiasTickets extends Command {
         : tickets.filter((t) => t.status === 'closed');
 
       for (const ticket of filteredTickets) {
+        const closedAt = ticket.closed_datetime ? new Date(ticket.closed_datetime) : null;
+        if (sinceDate) {
+          if (!closedAt || Number.isNaN(closedAt.getTime()) || closedAt < sinceDate) {
+            continue;
+          }
+        }
         ticketIds.push({
           id: ticket.id,
           subject: ticket.subject,
           channel: ticket.channel,
           created_datetime: ticket.created_datetime,
+          closed_datetime: ticket.closed_datetime || null,
           customer_name: ticket.customer?.name || ticket.customer?.email || null,
         });
       }
@@ -410,7 +430,7 @@ When rewriting apply these rules:
 
     try {
       const result = execSync(
-        `agent --print --model opus-4.5-thinking --force --workspace "${docsRoot}" ${escapedPrompt}`,
+        `agent --print --model composer-2-fast --force --workspace "${docsRoot}" ${escapedPrompt}`,
         {
           cwd: docsRoot,
           encoding: 'utf-8',
@@ -429,6 +449,13 @@ When rewriting apply these rules:
 
       return false;
     } catch (error) {
+      const stderr = error.stderr ? error.stderr.toString() : '';
+      const combined = `${stderr} ${error.message || ''}`;
+      if (combined.includes('Authentication required') || combined.includes('CURSOR_API_KEY')) {
+        throw new Error(
+          'Agent authentication failed. Set CURSOR_API_KEY in Documentation/.env.local or run `agent login`.'
+        );
+      }
       this.log(`    ${c.red}⚠ AI analysis error: ${error.message}${c.reset}`);
       return false;
     }
@@ -490,48 +517,116 @@ When rewriting apply these rules:
     const maxPages = flags['max-pages'];
     const viewId = flags['view-id'];
     const allStatuses = flags['all-statuses'];
+    const singleTicketId = flags['ticket-id'];
+    const listOnly = flags['list-only'];
+
+    let sinceDate = null;
+    if (flags.since) {
+      sinceDate = new Date(flags.since);
+      if (Number.isNaN(sinceDate.getTime())) {
+        this.error(`Invalid --since value: ${flags.since}`);
+      }
+    }
 
     const docsRoot = join(__dirname, '..', '..');
 
     try {
+      if (singleTicketId) {
+        const details = await this.fetchTicketDetails(singleTicketId);
+        const messages = this.extractMessagesForAI(details);
+        const { tags, contactReason, product } = this.extractTicketMetadata(details);
+        const conversations = [
+          {
+            ticket_id: details.id,
+            subject: details.subject,
+            channel: details.channel,
+            contact_reason: contactReason,
+            product,
+            tags,
+            messages,
+          },
+        ];
+
+        if (listOnly) {
+          this.log(String(singleTicketId));
+          return;
+        }
+
+        if (!flags.analyze) {
+          this.log(
+            `${c.yellow}⚠ Single-ticket mode: pass --analyze to run the agent, or --list-only.${c.reset}`
+          );
+          return;
+        }
+
+        const results = await this.analyzeTickets(conversations, docsRoot);
+        this.printSummary(results);
+        return;
+      }
+
       // Step 1: Get all ticket IDs
-      const ticketInfos = await this.fetchAllTicketIds(limit, maxPages, viewId, allStatuses);
+      const ticketInfos = await this.fetchAllTicketIds(
+        limit,
+        maxPages,
+        viewId,
+        allStatuses,
+        sinceDate
+      );
 
       if (ticketInfos.length === 0) {
         this.log(`${c.yellow}⚠ No tickets found.${c.reset}`);
         return;
       }
 
+      if (listOnly) {
+        this.log(`${c.cyan}Matching closed tickets: ${ticketInfos.length}${c.reset}`);
+        for (const t of ticketInfos) {
+          this.log(String(t.id));
+        }
+        return;
+      }
+
       // Step 2: Fetch full details for each ticket
       const conversations = await this.fetchAllConversations(ticketInfos);
 
-
       // Step 3: Analyze tickets and update docs
-      const results = await this.analyzeTickets(conversations, docsRoot);
-
-      // Summary
-      this.log(`\n${c.bold}${c.white}${'═'.repeat(80)}${c.reset}`);
-      this.log(`${c.bold}${c.white}📊 SUMMARY${c.reset}`);
-      this.log(`${c.bold}${c.white}${'═'.repeat(80)}${c.reset}`);
-
-      const docsCreatedCount = results.filter((r) => r.docs_created).length;
-      const noDocsCount = results.filter((r) => !r.docs_created).length;
-
-      this.log(`\n  ${c.cyan}Total tickets analyzed:${c.reset}      ${c.bold}${results.length}${c.reset}`);
-      this.log(`  ${c.green}Documentation created/updated:${c.reset} ${c.bold}${c.green}${docsCreatedCount}${c.reset}`);
-      this.log(`  ${c.yellow}No documentation needed:${c.reset}       ${c.bold}${noDocsCount}${c.reset}`);
-
-      if (docsCreatedCount > 0) {
-        this.log(`\n${c.green}${c.bold}📝 Tickets with new docs:${c.reset}`);
-        for (const r of results.filter((r) => r.docs_created)) {
-          this.log(`  ${c.green}•${c.reset} ${c.yellow}#${r.ticket_id}${c.reset}: ${r.subject}`);
-        }
+      if (!flags.analyze) {
+        this.log(
+          `${c.yellow}⚠ Fetched ${conversations.length} conversations; pass --analyze to run the agent.${c.reset}`
+        );
+        return;
       }
 
-      this.log('');
+      const results = await this.analyzeTickets(conversations, docsRoot);
+
+      this.printSummary(results);
 
     } catch (error) {
       this.error(error.message);
     }
+  }
+
+  printSummary(results) {
+    this.log(`\n${c.bold}${c.white}${'═'.repeat(80)}${c.reset}`);
+    this.log(`${c.bold}${c.white}📊 SUMMARY${c.reset}`);
+    this.log(`${c.bold}${c.white}${'═'.repeat(80)}${c.reset}`);
+
+    const docsCreatedCount = results.filter((r) => r.docs_created).length;
+    const noDocsCount = results.filter((r) => !r.docs_created).length;
+
+    this.log(`\n  ${c.cyan}Total tickets analyzed:${c.reset}      ${c.bold}${results.length}${c.reset}`);
+    this.log(
+      `  ${c.green}Documentation created/updated:${c.reset} ${c.bold}${c.green}${docsCreatedCount}${c.reset}`
+    );
+    this.log(`  ${c.yellow}No documentation needed:${c.reset}       ${c.bold}${noDocsCount}${c.reset}`);
+
+    if (docsCreatedCount > 0) {
+      this.log(`\n${c.green}${c.bold}📝 Tickets with new docs:${c.reset}`);
+      for (const r of results.filter((r) => r.docs_created)) {
+        this.log(`  ${c.green}•${c.reset} ${c.yellow}#${r.ticket_id}${c.reset}: ${r.subject}`);
+      }
+    }
+
+    this.log('');
   }
 }
