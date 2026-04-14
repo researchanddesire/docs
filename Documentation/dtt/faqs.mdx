@@ -296,6 +296,7 @@ Find answers to common questions about your Deepthroat Trainer below. Each answe
     - Device hasn't fetched the latest settings since you changed templates
     - Server sync issue after a firmware update
     - Account or device pairing issue
+    - **Trainer ID mismatch** — if the Trainer ID in **Settings → Devices** does not match the boot screen, the device may not receive your templates. See **The dashboard shows a different Trainer ID than my device** under Device Information.
 
     **Quick fixes:**
 
@@ -328,6 +329,7 @@ Find answers to common questions about your Deepthroat Trainer below. Each answe
     - **Captive portal not completed** — hotel, apartment, or public Wi-Fi networks often require browser-based login before granting internet access. The trainer cannot complete these logins.
     - **Network changed** — after moving or changing routers, network settings like firewall rules, MAC filtering, or IoT device isolation may block the trainer.
     - **Router blocking the device** — some routers restrict new devices by default or have security settings that block IoT traffic.
+    - **Trainer ID mismatch** — if **Settings → Devices** lists a different Trainer ID than the code on the device boot screen, fix pairing first. See **The dashboard shows a different Trainer ID than my device** under Device Information.
 
     **Quick fixes:**
 
@@ -933,6 +935,19 @@ If you are selling or giving away your Trainer, unpair the device from **Setting
   </Accordion>
   <Accordion title="How do I find my Trainer ID?">
     Your five‑character alphanumeric Trainer ID displays on screen during startup.
+  </Accordion>
+  <Accordion title="The dashboard shows a different Trainer ID than my device">
+    The **Trainer ID** in **Settings → Devices** must match the code shown on the device during startup (same characters, case‑sensitive). If the dashboard lists one ID (for example after pairing) but the boot screen shows another, your account may be linked to a different pairing record than the hardware is using. That can cause confusing symptoms: Wi‑Fi may look fine while the device still reports offline, or templates may not download even though parts of the dashboard update.
+
+    **What to do:**
+
+    1. **Trust the device** — always use the Trainer ID exactly as shown on the boot screen when pairing.
+    2. **Re-pair** — in **Settings → Devices**, unpair the Trainer, then pair again using the ID from the device (not an old code from email or notes).
+    3. **If you recently used the web flasher** — re-flashing with erase or certain options can change provisioning; see **My Trainer ID shows jumbled characters** below. If IDs still do not match after re-pairing, contact [support@researchanddesire.com](mailto:support@researchanddesire.com) with **both** IDs, your order number, and what you tried.
+
+    <Card title="Pairing guide" icon="plug" href="/dtt/quick-start/pairing/pairing-guide">
+      Step-by-step pairing using the on-screen Trainer ID.
+    </Card>
   </Accordion>
   <Accordion title="My Trainer ID shows jumbled characters or changes on every reboot">
     If your Trainer ID displays corrupted characters (such as ".t", "U]t", or random symbols) instead of a normal 5–6 character code, the device's provisioning data was likely erased.
