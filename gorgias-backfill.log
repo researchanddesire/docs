@@ -6536,3 +6536,61 @@ Tickets to process (loops): 192
   [2mProduct:[0m [35mOSSM[0m
   [2mContact Reason:[0m Tech Support:: How to use
   [32m[1m📝 Result: Documentation CREATED/UPDATED[0m
+  [32m✓ Changes committed[0m
+  [2mAdding tag: [36mnew-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m1[0m
+  [33mNo documentation needed:[0m       [1m0[0m
+
+[32m[1m📝 Tickets with new docs:[0m
+  [32m•[0m [33m#252683970[0m: New customer message on February 23, 2026 at 2:03 pm
+
+
+========== [169/192] ticket #252683230 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 252683230
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#252683230[0m
+  [2mSubject:[0m Order #5589
+  [2mProduct:[0m [35mOSSM[0m
+  [2mContact Reason:[0m Order::Status
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [170/192] ticket #252599316 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 252599316
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#252599316[0m
+  [2mSubject:[0m Re: A shipment from order #5412 is on the way
+  [2mProduct:[0m [35mOSSM[0m
+  [2mContact Reason:[0m Order::Delivery Issue
+  [32m[1m📝 Result: Documentation CREATED/UPDATED[0m
