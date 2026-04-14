@@ -42,6 +42,14 @@ Breaks must be enabled by your keyholder (or yourself if self-locking) before yo
 </Step>
 </Steps>
 
+<Note>
+  **Activity log timing:** **Break Started** and **Break Completed** in the session activity log are recorded when the dashboard receives those events. If the Lockbox was offline, rebooted, or slept during a break, **Break Completed** can appear much later than when you physically re‑locked—often **not** a failed break. A **failed** break is tied to **missing the break timer** while your key is out (see warnings above), not to a delayed log timestamp by itself.
+</Note>
+
+<Note>
+  **Reboots and setup screens during a break:** If the device restarts mid‑break (for example after power loss or a restart), you may briefly see the WiFi **QR setup** flow or the main menu before the device reconnects. After WiFi sync, the Lockbox may try to re‑engage the lock automatically. Ensure the backplate is seated; if you see errors such as **No Backplate Detected**, follow on‑screen options (for example **Calibrate** or **Restart**)—see [Device errors](/lkbx/errors/introduction) and [Menu structure](/lkbx/technical/menu-structure). When **End Break** is visible, use it to align the device state with your session.
+</Note>
+
 <AccordionGroup>
 <Accordion title="Video transcript">
 If you're in a long-term lock, there's a strong chance that at some point you're going to want to take a break—whether that's for hygiene, for play, or any reason at all. You can do that on the device, and I'll walk you through it now.

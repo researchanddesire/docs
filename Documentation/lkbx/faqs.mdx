@@ -315,6 +315,7 @@ Find answers to common questions about setting up, using, and troubleshooting yo
   **How it works:**
   - Voters can add or subtract a fixed amount from your lock duration
   - Configure the time increment by clicking the gear icon next to the setting
+  - Optional **Maximum Lock Duration** / **Minimum Lock Duration** caps limit how far voting can move your session; if you are already at the maximum, **increase** votes may be unavailable (greyed out on the public page)—see [Public Voting](/lkbx/using/public-voting#maximum-and-minimum-lock-duration-voting-limits)
   - Users can vote once every 24 hours
   - Voters receive 100 XP for participating
 </Accordion>
@@ -508,6 +509,16 @@ If the device still doesn't respond after flashing, contact <a href="mailto:supp
   <Card title="Connectivity Troubleshooting" icon="wifi" href="./support/connectivity-troubleshooting#lock-randomly-unlocks-or-doesnt-sync">
     Step-by-step sync troubleshooting guide.
   </Card>
+</Accordion>
+
+<Accordion title="The dashboard shows the wrong lock state (for example Unlocked while the Lockbox is locked), or 'Updating Firmware' never finishes">
+  Treat this as a **sync or UI lag** issue first:
+
+  1. **Trust the device** when it disagrees with the website—use the [online status](/lkbx/support/online-status) guide; the dashboard can lag by up to about a minute.
+  2. **Re-sync** — Perform a [hard reboot with resync](/lkbx/technical/button-controls#hard-reboot-with-resync), then follow [Connectivity Troubleshooting](/lkbx/support/connectivity-troubleshooting#lock-randomly-unlocks-or-doesnt-sync) if it keeps happening.
+  3. **Firmware** — If an update appears stuck, leave the device powered and on WiFi so it can finish; if it never clears, reinstall the current release with the [web flasher](/lkbx/support/flashing) (do not check **Erase device** if you want to keep settings and pairing).
+
+  If the wrong status persists after that, email [support@researchanddesire.com](mailto:support@researchanddesire.com) with your account email and what the device screen shows versus the dashboard.
 </Accordion>
 
 <Accordion title="My keyholder started or changed a lock, but the device only behaved correctly after I restarted">

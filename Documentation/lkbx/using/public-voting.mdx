@@ -53,6 +53,18 @@ Public voting lets you share an active lock session so others can vote to increa
   </Step>
 </Steps>
 
+## Maximum and minimum lock duration (voting limits)
+
+**Maximum Lock Duration** and **Minimum Lock Duration** are **bounds on how far public voting can move your session**—they are not an “extra days on top of your base lock” allowance in isolation. If you set a maximum, voters cannot push your session time **above** that ceiling—so if your session is already at that limit, **increase** or **extend** options on the public voting page can be **disabled or greyed out**.
+
+<Warning>
+  **Self-locks** cannot edit active session settings in the dashboard. Plan your public voting limits **before** you start the lock. If you misconfigured a setting and need it changed after the session began, contact [support@researchanddesire.com](mailto:support@researchanddesire.com)—whether that can be adjusted depends on your session type and policy.
+</Warning>
+
+<Tip>
+  If you want a long window for voters to add time, set a **maximum** high enough that your session still has “room” to grow under public voting. If the maximum is too low relative to your current remaining time, increase votes may never apply.
+</Tip>
+
 ## Share your voting link
 
 Once public voting is enabled on an active session, a unique share link becomes available.
@@ -197,5 +209,8 @@ You can turn public voting off at any time.
   </Accordion>
   <Accordion title="Votes seem too extreme">
     Lower the Time Plus/Time Minus values to more moderate increments.
+  </Accordion>
+  <Accordion title="Increase time or extend is greyed out on the public voting page">
+    Your session is likely already at the **Maximum Lock Duration** you configured for public voting (voters cannot add time beyond that ceiling), or another rule prevents further increases. Review the [Maximum and minimum lock duration](#maximum-and-minimum-lock-duration-voting-limits) section above. For **self-locks**, you cannot raise that ceiling yourself after the session starts—see [What is a self-lock?](/lkbx/faqs#what-is-a-self-lock) and contact support if you need help.
   </Accordion>
 </AccordionGroup>
