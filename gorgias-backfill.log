@@ -4919,3 +4919,358 @@ Tickets to process (loops): 192
   [2mProduct:[0m [35mLockbox[0m
   [2mContact Reason:[0m Tech Support:: How to use
   [32m[1m📝 Result: Documentation CREATED/UPDATED[0m
+  [32m✓ Changes committed[0m
+  [2mAdding tag: [36mnew-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m1[0m
+  [33mNo documentation needed:[0m       [1m0[0m
+
+[32m[1m📝 Tickets with new docs:[0m
+  [32m•[0m [33m#254814409[0m: Issues with Chaster Integration and Lockbox Setup
+
+
+========== [113/192] ticket #254793489 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 254793489
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#254793489[0m
+  [2mSubject:[0m Conversation with Customer #902294085
+  [2mProduct:[0m [35mUnknown[0m
+  [2mContact Reason:[0m Unknown
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [114/192] ticket #254790741 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 254790741
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#254790741[0m
+  [2mSubject:[0m Re: Order #5720 confirmed
+  [2mProduct:[0m [35mOSSM[0m
+  [2mContact Reason:[0m Order::Status
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [115/192] ticket #254749898 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 254749898
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#254749898[0m
+  [2mSubject:[0m Conversation with Customer #902059836
+  [2mProduct:[0m [35mUnknown[0m
+  [2mContact Reason:[0m Unknown
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [116/192] ticket #254712332 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 254712332
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#254712332[0m
+  [2mSubject:[0m Re: Order #5740 confirmed
+  [2mProduct:[0m [35mOSSM[0m
+  [2mContact Reason:[0m Order::Status
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [117/192] ticket #254678804 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 254678804
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#254678804[0m
+  [2mSubject:[0m Conversation with Customer #901606711
+  [2mProduct:[0m [35mUnknown[0m
+  [2mContact Reason:[0m Unknown
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [118/192] ticket #254606513 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 254606513
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#254606513[0m
+  [2mSubject:[0m Re: Order #3752 has been canceled
+  [2mProduct:[0m [35mOSSM[0m
+  [2mContact Reason:[0m Pre-sale::Product question
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [119/192] ticket #254571544 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 254571544
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#254571544[0m
+  [2mSubject:[0m Order #5707 Status
+  [2mProduct:[0m [35mOSSM[0m
+  [2mContact Reason:[0m Order::Status
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [120/192] ticket #254550353 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 254550353
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#254550353[0m
+  [2mSubject:[0m Conversation with Customer #901218296
+  [2mProduct:[0m [35mLockbox[0m
+  [2mContact Reason:[0m Pre-sale::Product question
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [121/192] ticket #254493320 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 254493320
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#254493320[0m
+  [2mSubject:[0m Conversation with Customer #901057194
+  [2mProduct:[0m [35mOSSM[0m
+  [2mContact Reason:[0m Tech Support:: How to use
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [122/192] ticket #254429664 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 254429664
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#254429664[0m
+  [2mSubject:[0m Conversation with Customer #900863349
+  [2mProduct:[0m [35mUnknown[0m
+  [2mContact Reason:[0m Unknown
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [123/192] ticket #254416974 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 254416974
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#254416974[0m
+  [2mSubject:[0m Conversation with Customer #900838660
+  [2mProduct:[0m [35mUnknown[0m
+  [2mContact Reason:[0m Unknown
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [124/192] ticket #254370757 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 254370757
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#254370757[0m
+  [2mSubject:[0m Conversation with Customer #900763808
+  [2mProduct:[0m [35mUnknown[0m
+  [2mContact Reason:[0m Unknown
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [125/192] ticket #254234289 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 254234289
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#254234289[0m
+  [2mSubject:[0m Re: Order #5448 confirmed
+  [2mProduct:[0m [35mOSSM[0m
+  [2mContact Reason:[0m Order:: Product Fault
+  [32m[1m📝 Result: Documentation CREATED/UPDATED[0m
