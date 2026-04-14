@@ -204,6 +204,17 @@ If the remote worked previously but stopped, a simple power cycle often resolves
 
 If the remote powers on after cycling, no further action is needed. Intermittent issues may indicate a marginal cable connection—try reseating or replacing the RJ45 cable.
 </Accordion>
+
+<Accordion title="Remote cover: M3 bolts do not fit the threaded holes">
+The wired remote **top cover** fastens to the **remote body** with **M4** screws—not M3. The cover and body holes are threaded for M4; leftover M3 hardware from the rest of the kit will be too small and will not engage those threads.
+
+**What to use:**
+- **Two M4 button-head (button cap) screws**, typically **M4×6 mm to M4×8 mm** length, depending on your enclosure revision
+
+DIY and remote kits usually ship these in a small bag with the remote or printed parts. If yours are missing, you can source the same size locally or contact [support](mailto:support@researchanddesire.com) for replacements.
+
+See the [wired remote enclosure BOM](/ossm/Hardware/standard-printed-parts/remote/introduction#bill-of-materials) for part details and assembly order.
+</Accordion>
 </AccordionGroup>
 
 ---
@@ -392,6 +403,40 @@ Boot loops, display corruption, or erratic parameter changes that persist after 
 
 <Tip>
 While waiting for a replacement, you can continue using your OSSM with a RADR wireless remote if you have one available (assuming the main control board is functional).
+</Tip>
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Firmware updates, frozen remote, or unexpected stroke depth
+
+If the wired remote stops accepting input after boot, stroke or depth behaves erratically (for example jumping to an extreme), or you are unsure whether your firmware is current, start with a **power cycle** and **reflash to the latest official firmware**.
+
+<AccordionGroup>
+<Accordion title="Check for firmware updates">
+OSSM firmware is updated over time for fixes and features. If you are on an older release (for example **1.0.x**), update using the [Web Flasher](/ossm/tools/web-flasher) over USB. That is the supported way to get the current stable build.
+
+After flashing, complete homing and test at **low speed** and **moderate stroke** before increasing intensity.
+</Accordion>
+
+<Accordion title="Remote frozen or unresponsive after boot">
+1. Power off the OSSM (disconnect 24V), wait several seconds, and power on again—connect the wired remote **after** the board has booted when possible (see [Wired remote does not power on](#wired-remote-does-not-power-on)).
+2. Reseat the RJ45 cable at both ends.
+3. If the problem persists, reflash the latest firmware with the [Web Flasher](/ossm/tools/web-flasher).
+
+Intermittent freezes may still warrant contacting [support](mailto:support@researchanddesire.com) with your firmware version and what you were doing when it happened.
+</Accordion>
+
+<Accordion title="Unexpected jump in depth or loss of control during use">
+**Immediately** reduce intensity or power off if motion is not what you intended.
+
+1. **Power cycle** the OSSM and confirm behavior after a clean boot and homing.
+2. **Update firmware** to the latest release via the [Web Flasher](/ossm/tools/web-flasher). Erratic parameter or motion behavior can be related to outdated or corrupted firmware.
+3. If the issue **repeats** after updating, stop using the device in normal play and contact [support](mailto:support@researchanddesire.com) with your firmware version, pattern/mode, and what changed (speed, stroke, etc.) right before it occurred.
+
+<Tip>
+Use the **Stop** control and keep the power supply within reach whenever you test at high speed or very short stroke settings.
 </Tip>
 </Accordion>
 </AccordionGroup>
