@@ -21,7 +21,9 @@ OSSM offers several advantages over commercial alternatives:
 </Accordion>
 
 <Accordion title="What parts do I need?">
-Check the [Bill of Materials](/ossm/guides/getting-started/build-guide/step-1.0_required_tools_and_parts) for the complete parts list. The BOM is regularly maintained and includes links to suppliers.
+**If you bought the full [OSSM DIY Kit](#whats-included-in-the-diy-kit) from Research & Desire:** start there—your order already includes the motor, rail, electronics, fasteners, cables, and a suitable **power solution** (see the kit table and [What power supply do I need?](#what-power-supply-do-i-need)). You still need **3D-printed parts** (print yourself or add the printed-parts option) and a **stand/mount** unless your order line says otherwise.
+
+**If you are self-sourcing or mixing bundles:** use the [Bill of Materials](/ossm/guides/getting-started/build-guide/step-1.0_required_tools_and_parts) and [Purchasing components](/ossm/guides/getting-started/build-guide/step-1.1_purchasing-parts) for the complete purchased-parts list. The BOM is maintained for open builds and includes sourcing notes.
 </Accordion>
 
 <Accordion title="How powerful is the OSSM?">
@@ -90,12 +92,14 @@ The OSSM DIY Kit includes everything you need to build the actuator (the motoriz
 | **Timing Belt** | GT2 belt for power transmission |
 | **OSSM Control Board (PCB)** | Main electronics with ESP32 |
 | **Remote** | Wired or wireless depending on your selection |
-| **Power Supply** | USB-C PD adapter |
+| **Power supply** | A suitable **power solution is included**—you should not need to buy a separate supply for normal operation. Typical kits include a **USB‑C Power Delivery** adapter; many shipments **also** include a **24V barrel** supply (often **4A** class). Use what your **order confirmation** lists; both paths are covered in [What power supply do I need?](#what-power-supply-do-i-need). |
 | **Fasteners** | All bolts, nuts, and hardware for assembly |
 | **MR115 roller bearings** | 6× (5 × 11 × 4 mm) for the motorhead idler and belt tensioner—part of the actuator hardware; often bagged with other small parts |
 | **Cables** | Motor power and data cables |
 
 <Note>
+**Power:** If you were unsure whether a “power supply” is included with the DIY kit, it is—the kit ships with the electrical source(s) your order specifies (commonly USB‑C PD and/or a 24V barrel brick). You only need an extra or different supply if you are **upgrading for maximum force** or replacing a lost unit—see [What power supply do I need?](#what-power-supply-do-i-need).
+
 Small parts such as bearings and fasteners may be combined in one bag—empty all kit packaging before concluding something is missing. If anything listed above is absent, contact [support@researchanddesire.com](mailto:support@researchanddesire.com) with your order number.
 </Note>
 
@@ -179,7 +183,7 @@ The main differences between the DIY Kit and Ready-to-Play are the mounting syst
 | **Mounting system** | PitClamp Mini (parts included; you assemble the actuator mount) | PitClamp Mini (factory-assembled; quick-release with integrated pivot) |
 | **Stand** | Not included—source your own or build a custom mount | Includes collapsible stand with sandbag counterweight |
 | **Remote** | Wired remote included | Wired or wireless remote (depending on configuration) |
-| **Power supply** | USB-C PD adapter included | 24V barrel jack supply included |
+| **Power supply** | Included (USB‑C PD; many kits also ship a 24V barrel supply—see [DIY Kit](#whats-included-in-the-diy-kit)) | 24V barrel jack supply included |
 
 Ready-to-Play units ship fully tested with the stand integrated. DIY kits use the same PitClamp Mini actuator mounting but you supply or build the stand yourself.
 
@@ -630,9 +634,9 @@ USB-C PD adapters deliver slightly less force than a dedicated 24V supply (35 lb
 For safety, use a desktop power supply that is ideally double-insulated. Supplies from reputable distributors (Mouser, Digikey, Conrad, RS) cost more than unbranded units from AliExpress/eBay/Amazon, but unbranded supplies have shown inconsistent quality and long-term stability issues.
 </Warning>
 
-**International customers (EU, UK, and other regions):**
+**International customers (EU, UK, Australia, New Zealand, and other regions):**
 
-Power supplies sold by R+D use North American plugs (Type A/B, 120V compatible). If you're ordering from outside North America:
+Power supplies sold by R+D often ship with **North American plugs** (Type A/B, 100–240V compatible). If you're ordering from outside North America:
 
 - **Option 1:** Purchase R+D's 24V power supply and use a plug adapter for your region's wall sockets. The power supply accepts 100–240V AC input, so only the plug shape needs adapting—no voltage converter is required.
 - **Option 2:** Source a 24V, 4A (or higher) power supply locally with your region's plug type. Ensure it is safety-certified (CE for EU, UKCA for UK) and has a 5.5mm × 2.1mm barrel jack connector with center-positive polarity.
