@@ -4509,3 +4509,115 @@ Tickets to process (loops): 192
   [2mProduct:[0m [35mOSSM[0m
   [2mContact Reason:[0m Order::Status
   [32m[1m📝 Result: Documentation CREATED/UPDATED[0m
+  [32m✓ Changes committed[0m
+  [2mAdding tag: [36mnew-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m1[0m
+  [33mNo documentation needed:[0m       [1m0[0m
+
+[32m[1m📝 Tickets with new docs:[0m
+  [32m•[0m [33m#255576760[0m: Order stuck on confirmed
+
+
+========== [99/192] ticket #255534878 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 255534878
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#255534878[0m
+  [2mSubject:[0m Re: Change delivery address
+  [2mProduct:[0m [35mOSSM[0m
+  [2mContact Reason:[0m Order::Status
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [100/192] ticket #255526244 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 255526244
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#255526244[0m
+  [2mSubject:[0m Re: Order 5695 Question
+  [2mProduct:[0m [35mOSSM[0m
+  [2mContact Reason:[0m Order::Status
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [101/192] ticket #255524775 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 255524775
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#255524775[0m
+  [2mSubject:[0m Fwd: Order #5758 confirmed
+  [2mProduct:[0m [35mOSSM[0m
+  [2mContact Reason:[0m Order::Status
+  [33m📄 Result: No docs needed[0m
+  [2mAdding tag: [36mno-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m0[0m
+  [33mNo documentation needed:[0m       [1m1[0m
+
+
+========== [102/192] ticket #255500632 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 255500632
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#255500632[0m
+  [2mSubject:[0m Re: Invoice
+  [2mProduct:[0m [35mOSSM[0m
+  [2mContact Reason:[0m Order::Status
+  [32m[1m📝 Result: Documentation CREATED/UPDATED[0m
