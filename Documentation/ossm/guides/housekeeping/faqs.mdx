@@ -1,6 +1,6 @@
 ---
 title: "FAQs"
-description: "Common questions about OSSM hardware, motors, printing, mounting, and control options"
+description: "Common questions about OSSM hardware, motors, printing, mounting, control options, and community"
 ---
 
 ## General
@@ -20,8 +20,20 @@ OSSM offers several advantages over commercial alternatives:
 - **Cost-effective**: More features than equivalently priced commercial machines
 </Accordion>
 
+<Accordion title="Where is the OSSM community, and will it move off Discord?">
+Today, most OSSM builders and modders gather in the **Kinky Makers Discord**. You will see it linked throughout this documentation for tips, mods, and peer discussion.
+
+Research & Desire does **not** control third-party platforms. We watch how the community connects and **explore options** when the landscape changes, but we have **not** announced a move to a specific alternative—there is **no committed migration plan** or replacement platform to publish yet.
+
+**What does not depend on Discord:** OSSM hardware, firmware, and official troubleshooting work the same whether or not you use Discord. For product support from R+D, email [support@researchanddesire.com](mailto:support@researchanddesire.com) with your order number.
+
+<DiscordInvite community="kinky-makers" />
+</Accordion>
+
 <Accordion title="What parts do I need?">
-Check the [Bill of Materials](/ossm/guides/getting-started/build-guide/step-1.0_required_tools_and_parts) for the complete parts list. The BOM is regularly maintained and includes links to suppliers.
+**If you bought the full [OSSM DIY Kit](#whats-included-in-the-diy-kit) from Research & Desire:** start there—your order already includes the motor, rail, electronics, fasteners, cables, and a suitable **power solution** (see the kit table and [What power supply do I need?](#what-power-supply-do-i-need)). You still need **3D-printed parts** (print yourself or add the printed-parts option) and a **stand/mount** unless your order line says otherwise.
+
+**If you are self-sourcing or mixing bundles:** use the [Bill of Materials](/ossm/guides/getting-started/build-guide/step-1.0_required_tools_and_parts) and [Purchasing components](/ossm/guides/getting-started/build-guide/step-1.1_purchasing-parts) for the complete purchased-parts list. The BOM is maintained for open builds and includes sourcing notes.
 </Accordion>
 
 <Accordion title="How powerful is the OSSM?">
@@ -34,6 +46,12 @@ Check the [Bill of Materials](/ossm/guides/getting-started/build-guide/step-1.0_
 Many users successfully use large knotted toys anally without issue.
 </Accordion>
 
+<Accordion title="How do I adjust stroke length, and what is the maximum?">
+**Adjusting stroke (normal use):** Stroke length is set in **software** on the remote—as a percentage of the travel range the machine learns when it **homes**. You do not change the rail or belt for day-to-day depth/stroke changes. After homing, use **Simple Penetration** or **Stroke Engine** and adjust the stroke control (wired remote: right encoder; see [Operating Modes](/ossm/Software/getting-started/operating-modes) and the [User Guide](/ossm/guides/getting-started/user-guide/introduction)).
+
+**Mechanical maximum:** The upper limit of that range depends on your **linear rail length**: approximately **rail length − 180mm**. With the usual **350mm** rail, that is about **170mm (~7 in)**—see [How long should my H-rail be?](#how-long-should-my-h-rail-be). Ready-to-Play [dimensions](/ossm/guides/getting-started/ready-to-play/spec-sheet#dimensions) list nominal stroke for the stock build (~7 in / 180mm); exact travel can vary slightly with hardware and calibration.
+</Accordion>
+
 <Accordion title="Why is there a 2.5 lb (1.1 kg) max toy weight?">
 The 2.5 lb (1.1 kg) maximum toy weight is a **conservative recommendation for reliable long-term performance**, not a hard failure threshold. Several factors contribute to this limit:
 
@@ -41,16 +59,21 @@ The 2.5 lb (1.1 kg) maximum toy weight is a **conservative recommendation for re
 - **Belt wear and slippage:** Additional weight increases the load on the timing belt, especially at higher speeds
 - **Printed part durability:** Standard PLA or PETG parts may experience faster wear or creep under sustained heavy loads
 - **Cantilever stress:** The toy extends from the end-effector, creating a lever arm that amplifies forces on the rail carriage and bearings
+- **Static load on the actuator:** The toy’s weight applies downward force on the cantilevered actuator. Sustained use well above the recommendation increases stress that can damage the actuator over time. **This is not the same as motor torque**—a more powerful motor does not raise the maximum **mass** the stock mechanical system is rated to support.
 
-**If you want to exceed the recommendation:**
+**If you want to exceed the recommendation (DIY / community):**
 
 - Print load-bearing parts in stronger materials (PETG, ABS, polycarbonate, or nylon)
 - Use the pitclamp system for improved rigidity
-- Request a wider 15mm belt for better power transfer
+- Ask Research & Desire about a **12mm** belt with matching pulley as an upgrade from the standard **10mm** drive (see [Ready-to-Play custom options](/ossm/guides/getting-started/ready-to-play/spec-sheet#custom-order-options)). **15mm** is not offered on Research & Desire orders—wider belts may appear only in **self-sourced** community builds
 - Reduce maximum speed to lower inertial forces during direction changes
 - Ensure proper belt tension and rail alignment
 
-The motor itself can handle significantly more—the spec reflects safe operating margins for the full mechanical system under typical use. Community members have experimented with heavier setups; join the Kinky Makers Discord to discuss modifications and real-world results.
+<Note>
+**Motor torque vs toy mass:** A stronger motor helps maintain motion under **resistance** during stroking (dense silicone, muscle pressure, tight fits). Research & Desire does **not** offer an upgrade that increases the recommended maximum toy **weight** above 2.5 lb (1.1 kg). Ready-to-Play [custom motor options](/ossm/guides/getting-started/ready-to-play/spec-sheet#custom-order-options) address demanding motion, not a higher mass rating.
+</Note>
+
+The published limit reflects safe operating margins for the **full** mechanical system (mount, belt, printed parts, actuator), not motor torque alone. Community members have experimented with heavier setups at their own risk; join the Kinky Makers Discord to discuss modifications and real-world results.
 
 <DiscordInvite community="kinky-makers" />
 </Accordion>
@@ -79,9 +102,16 @@ The OSSM DIY Kit includes everything you need to build the actuator (the motoriz
 | **Timing Belt** | GT2 belt for power transmission |
 | **OSSM Control Board (PCB)** | Main electronics with ESP32 |
 | **Remote** | Wired or wireless depending on your selection |
-| **Power Supply** | USB-C PD adapter |
+| **Power supply** | A suitable **power solution is included**—you should not need to buy a separate supply for normal operation. Typical kits include a **USB‑C Power Delivery** adapter; many shipments **also** include a **24V barrel** supply (often **4A** class). Use what your **order confirmation** lists; both paths are covered in [What power supply do I need?](#what-power-supply-do-i-need). |
 | **Fasteners** | All bolts, nuts, and hardware for assembly |
+| **MR115 roller bearings** | 6× (5 × 11 × 4 mm) for the motorhead idler and belt tensioner—part of the actuator hardware; often bagged with other small parts |
 | **Cables** | Motor power and data cables |
+
+<Note>
+**Power:** If you were unsure whether a “power supply” is included with the DIY kit, it is—the kit ships with the electrical source(s) your order specifies (commonly USB‑C PD and/or a 24V barrel brick). You only need an extra or different supply if you are **upgrading for maximum force** or replacing a lost unit—see [What power supply do I need?](#what-power-supply-do-i-need).
+
+Small parts such as bearings and fasteners may be combined in one bag—empty all kit packaging before concluding something is missing. If anything listed above is absent, contact [support@researchanddesire.com](mailto:support@researchanddesire.com) with your order number.
+</Note>
 
 **Not included (required to complete the build):**
 
@@ -97,6 +127,63 @@ The OSSM DIY Kit includes everything you need to build the actuator (the motoriz
 <Tip>
 If you don't have a 3D printer, you can also use local printing services, maker spaces, or online services like Craftcloud or JLC3DP to print the parts from the STL files.
 </Tip>
+
+<Note>
+**No R+D printed parts:** If you choose **no printed parts** and print your own plastic (including PitClamp Mini), you **still receive the PitClamp hardware**—the fasteners for assembling PitClamp ship with current DIY kits. R+D omits only the pre-printed plastic, not that hardware.
+
+**Hardware vs. older guides:** Current DIY kits ship with **PitClamp Mini printed parts** and matching fasteners. The included hardware does **not** supply a third long M6 “actuator pivot” handle—PitClamp Mini mounting does not use it. You should have **two** M6 adjustment handles for the extrusion stand (pivot plates); that is expected. A third handle is only needed if you use the optional [Body – Middle Pivot](/ossm/Hardware/standard-printed-parts/actuator/part-by-part/non-standard/actuator-body-middle-pivot) actuator section instead of the PitClamp middle body and your mount calls for it; source that separately or contact [support@researchanddesire.com](mailto:support@researchanddesire.com).
+</Note>
+</Accordion>
+
+<Accordion title="Does the actuator hardware kit include the motor wire harness?">
+**No.** Store listings for the **actuator hardware kit** (mechanical fasteners, bearings, and related assembly hardware for the printed parts) **do not** include the **motor wire harness**—the power leads and **PH-4** signal cable that run from a **57AIM-class** motor to the OSSM PCB. That harness is a separate product from the bagged bolt-and-bearing hardware.
+
+**Where the harness comes from:**
+
+- **Full [OSSM DIY Kit](#whats-included-in-the-diy-kit):** Includes motor power and data cables as part of the complete electrical bundle (see the DIY Kit table above).
+- **Motor purchased from Research & Desire:** The correct cables and connectors for your motor are included with the motor—see [Wiring Your Gold Motor](/ossm/Hardware/motor/wiring-gold-motor).
+- **Motor or PCB sourced elsewhere:** Order the **Wire Harness** (or equivalent) from the Research & Desire store if you need a pre-made cable set, or build compatible wiring per the same guide.
+
+If you are unsure what your **order line** includes, compare it to your confirmation email or contact [support@researchanddesire.com](mailto:support@researchanddesire.com) with your order number before assuming cables are in the hardware kit.
+</Accordion>
+
+<Accordion title="I ordered OSSM Kit – Electronics Board V2.3 with Hardware + Rail + 3D Printed Parts (motor and power supply bought separately). What is included, and what else do I need?">
+Store listings for **OSSM Kit – Electronics Board V2.3** combine the control board with options such as **Hardware + 350mm Rail + 3D Printed Parts**. Those bundles are for builders who supply a compatible **motor** and **power supply** themselves (or purchase them separately).
+
+**Usually included** (exact contents follow the options on your order):
+
+| Category | What you typically receive |
+|----------|----------------------------|
+| **Electronics** | OSSM control board (V2.3), per your **wired vs. wireless** choice |
+| **Remote** | Wired or **RADR wireless** remote, **assembled or unassembled** per your selection — **Fully Assembled** refers to the remote only, not the OSSM actuator (see the FAQ *“I bought the DIY Kit with the 'Fully Assembled' option but received parts to assemble…”* on this page) |
+| **Mechanical** | Actuator hardware kit, **350mm linear rail**, and **3D printed parts** for the parts covered by that option |
+
+The **actuator hardware kit** portion is **mechanical** hardware only—it does **not** include the **motor wire harness** (power + PH-4 cables). See [Does the actuator hardware kit include the motor wire harness?](#does-the-actuator-hardware-kit-include-the-motor-wire-harness).
+
+**Not included** in that electronics / hardware bundle (you need these separately unless you already have them):
+
+| Category | Why |
+|----------|-----|
+| **Motor** | You chose to supply or buy it separately |
+| **Power supply** | You chose to supply or buy it separately — see [What power supply do I need?](#what-power-supply-do-i-need) |
+| **OSSM PitClamp Mini** | Mounts the actuator to the stand; [purchase separately](https://www.researchanddesire.com/products/pitclamp-mini) if you do not already have it |
+| **Extrusion stand** | Use the [Extrusion Mount Kit](https://www.researchanddesire.com/products/ossm-extrusion-kit) (metal + hardware) **and** the printed stand parts ([Extrusion Kit FAQ](/ossm/guides/housekeeping/faqs#whats-included-in-the-extrusion-kit)), or an equivalent custom mount |
+
+<Tip>
+This is **not** the same as the [full DIY Kit](#whats-included-in-the-diy-kit) in one box (motor, USB-C PD supply, and the default DIY kit BOM). Match **your order line** to the tables above—when in doubt, confirm against your packing list or email [support@researchanddesire.com](mailto:support@researchanddesire.com).
+</Tip>
+
+Follow the [Build Guide](/ossm/guides/getting-started/build-guide/step-0.0_introduction) once motor, power supply, PitClamp Mini, stand parts, and tools are ready.
+</Accordion>
+
+<Accordion title="How do I request or confirm custom 3D printed part colors on Ready-to-Play?">
+Ready-to-Play supports **custom 3D printed part colors** as a build option—see [Custom Order Options](/ossm/guides/getting-started/ready-to-play/spec-sheet#custom-order-options) on the spec sheet. You can ask for a **single color across all printed parts** (for example all black) or another finish; say clearly if you want **no accent-colored** printed pieces.
+
+**To make sure production matches what you want:** put the finish in **order notes at checkout** (if available) and/or email [support@researchanddesire.com](mailto:support@researchanddesire.com) with your **order number**. If you discussed a special finish in an earlier conversation or order, reference that and confirm the same details for your current order so nothing is ambiguous.
+
+**Glitter and similar finishes:** Glitter and other specialty additive filaments are **not** part of the standard Ready-to-Play printed-parts offering. Email support if you are unsure whether a finish is available.
+
+**Matching a previous build:** Colors are described in general terms (for example pink or all black). When filament stock or suppliers change, the **same color name can be a slightly different shade** than an older unit. If you need the closest match to a prior order, include that **order number** when you ask—support can confirm what current stock allows.
 </Accordion>
 
 <Accordion title="What's the difference between DIY Kit and Ready-to-Play?">
@@ -107,17 +194,31 @@ The main differences between the DIY Kit and Ready-to-Play are the mounting syst
 | **Lead time** | 3–10 business days | 4–5 weeks (custom-built and tested) |
 | **Assembly** | Requires assembly using the build guide | Fully assembled, ready to use |
 | **3D-printed parts** | Not included—print yourself or purchase separately | Included and assembled |
-| **Mounting system** | Middle pivot body (angle adjustment at the actuator) | PitClamp Mini (quick-release with integrated pivot for easier mobility) |
+| **Mounting system** | PitClamp Mini (parts included; you assemble the actuator mount) | PitClamp Mini (factory-assembled; quick-release with integrated pivot) |
 | **Stand** | Not included—source your own or build a custom mount | Includes collapsible stand with sandbag counterweight |
 | **Remote** | Wired remote included | Wired or wireless remote (depending on configuration) |
-| **Power supply** | USB-C PD adapter included | 24V barrel jack supply included |
+| **Power supply** | Included (USB‑C PD; many kits also ship a 24V barrel supply—see [DIY Kit](#whats-included-in-the-diy-kit)) | 24V barrel jack supply included |
 
-The PitClamp Mini mounting system on Ready-to-Play units provides easier repositioning and angle adjustment during use. The DIY Kit's middle pivot body offers the same core functionality but requires more effort to reposition.
+Ready-to-Play units ship fully tested with the stand integrated. DIY kits use the same PitClamp Mini actuator mounting but you supply or build the stand yourself.
 
 Both configurations support the same stroke patterns, speeds, and accessories. For most users, the choice comes down to whether you want a hands-on build experience or a ready-to-use solution.
 
 <Tip>
-**Want the PitClamp Mini with your DIY Kit?** You can purchase the [PitClamp Mini kit](https://www.researchanddesire.com/products/pitclamp-mini) separately alongside the DIY Kit. The PitClamp kit includes its own non-pivot actuator middle body, which replaces the middle pivot body from the DIY Kit. You'll end up with a few extra parts, but everything is fully compatible.
+**Shipping internationally?** The lead times above are **warehouse processing** only. After your order ships, add **courier transit** (per your checkout option) and possible **customs** delay. The longer **Ready-to-Play** build time does **not** apply to DIY Kit orders. See [How long does shipping take?](/shop/faqs/introduction#how-long-does-shipping-take) in the Shipping FAQs. For **Etsy vs the main store**, VAT at checkout, and import fees, see [Etsy vs main store for OSSM and import fees](/shop/faqs/introduction#etsy-vs-main-store-for-ossm-and-import-fees). For destination limits (for example **Russia** and **Kazakhstan**), see [Do you ship to Russia or Kazakhstan?](/shop/faqs/introduction#do-you-ship-to-russia-or-kazakhstan). We do **not** ship via **DHL** or to **DHL Packstation** addresses—see [Can you ship via DHL or to a DHL Packstation?](/shop/faqs/introduction#can-you-ship-via-dhl-or-to-a-dhl-packstation).
+
+**Need the kit by a specific date?** Typical DIY windows are **not guarantees**—processing can run longer when we are waiting on parts or clearing backlog. If your plan depends on a firm arrival time, read [Can you guarantee my order will arrive by a specific date?](/shop/faqs/introduction#can-you-guarantee-my-order-will-arrive-by-a-specific-date) and email [support@researchanddesire.com](mailto:support@researchanddesire.com) before ordering.
+</Tip>
+
+<Tip>
+**Upgrading an older DIY kit?** If your kit predates PitClamp-included hardware and you only have the standard middle body, you can add the [PitClamp Mini kit](https://www.researchanddesire.com/products/pitclamp-mini) separately. It includes its own non-pivot actuator middle body, which replaces the standard middle body. You may end up with extra parts, but everything is compatible.
+</Tip>
+</Accordion>
+
+<Accordion title="I ordered Ready-to-Play with the basic mount instead of the full extrusion stand. What should be in the box?">
+The [Ready-to-Play info sheet](/ossm/guides/getting-started/ready-to-play/info-sheet) describes the **standard** configuration: collapsible extrusion stand, sandbag counterweight, and integrated mounting. If you chose a **basic mount** (or another mount option) **instead of** the full stand, you will **not** receive stand-only items such as the sandbag—but you should still receive everything your **order confirmation** lists for a complete unit, typically including the **assembled actuator**, **24V power supply**, **remote** (wired or wireless per your selection), **end-effector / toy mounting parts**, and **fasteners** for your build.
+
+<Tip>
+**Before reporting missing items:** Empty all kit packaging and inner bags; small parts are often combined in one bag (same guidance as the [DIY Kit](#whats-included-in-the-diy-kit)). Then compare what you have to your **order confirmation**. If something listed there is absent or damaged, contact [support@researchanddesire.com](mailto:support@researchanddesire.com) with your order number. For store policy on arrivals, see [My order arrived with missing or damaged parts](/shop/faqs/introduction#my-order-arrived-with-missing-or-damaged-parts-what-do-i-do).
 </Tip>
 </Accordion>
 
@@ -185,8 +286,28 @@ Servo motors deliver consistent torque across the entire speed range. Stepper mo
 For extremely large toys, consider the Squooter build (see the Kinky Makers Discord) which uses the larger NEMA34 motor mount.
 </Accordion>
 
+<Accordion title="How do I wire USB–RS485 to the motor for programming?">
+Salvage or third-party **57AIM** motors must be programmed before they work with OSSM. Full steps, safety notes, and the **A / B / 5V+ / GND** wiring table are in [Programming Your Motor](/ossm/Hardware/motor/programming). RS485 connects to the motor’s **programming header** (often a white multi-pin connector)—not the same terminals used for the OSSM **power and step/direction** cable. Pin count can differ between motor revisions; follow the labels on your motor.
+</Accordion>
+
 <Accordion title="Why does anal use require more powerful motors?">
 The muscles in the anal region are powerful. Users commonly bear down or clench during stimulation, which creates significant resistance. Larger toys combined with strong muscles require more motor power to maintain consistent motion.
+</Accordion>
+
+<Accordion title="Why does my motor look black while the store and DIY kit list a gold motor?">
+The **57AIM30** servo is the same model whether the housing is **gold** or **black**—only the **finish** differs. There is no performance or firmware difference between colors.
+
+**Why the mismatch with photos:** Product photos and the DIY kit table often refer to the **gold** finish because that is the common listing name. **Ready-to-Play** builds and some shipments use a **black** motor for appearance. You can also request a black finish as a [custom Ready-to-Play option](/ossm/guides/getting-started/ready-to-play/spec-sheet#custom-order-options).
+
+If you are unsure what you received, compare your order confirmation or email [support@researchanddesire.com](mailto:support@researchanddesire.com) with your order number.
+</Accordion>
+
+<Accordion title="Do I need to replace the belt or pulley to fix slippage or homing clicks?">
+Usually **no**. Slippage, ratcheting at the ends of the rail, and similar issues are most often solved by **correct belt tension** and checking the **front belt clamp**, **end tensioner**, and **M5 tensioner screw**—not by swapping the belt or motor pulley.
+
+Follow the [Belt Tension](/ossm/guides/housekeeping/belt-tension) guide and [Clicking noise during homing](/ossm/guides/getting-started/user-guide/troubleshooting#clicking-noise-during-homing) troubleshooting first.
+
+**If problems continue** after proper tension and inspection, contact [support@researchanddesire.com](mailto:support@researchanddesire.com). For very demanding loads, a **12mm belt upgrade** (or other options) may be discussed as a build option (see [toy weight and belt load](/ossm/guides/housekeeping/faqs#why-is-there-a-2-5-lb-1-1-kg-max-toy-weight)); that is separate from routine slippage from loose tension.
 </Accordion>
 </AccordionGroup>
 
@@ -201,6 +322,8 @@ All OSSM STL files are available on the [Kinky Makers GitHub repository](https:/
 - Stand parts
 - Remote enclosure
 - PitClamp Mini (if you want to upgrade from the standard middle pivot body)
+
+**Basic Mount (store copy often says “Basic Mount V2”):** Those brackets are open source like the rest of OSSM, but the print files live under a **legacy** path on GitHub—not only the top-level `Printed Parts` tree. Use the [Basic Mount](/ossm/Hardware/ossm-mods/basic-mount/introduction) page for **direct STL and STEP links** and the exact folder name in the repo.
 
 Each part in the [Hardware documentation](/ossm/Hardware/getting-started/introduction) also includes direct download links to the STL and STEP files.
 
@@ -373,6 +496,12 @@ If you want both remotes, purchase the wired remote board separately. You can on
 </Card>
 </Accordion>
 
+<Accordion title="I chose Wireless Remote for my OSSM order—do I also need to buy the standalone RADR?">
+**No.** A full [OSSM DIY Kit](#whats-included-in-the-diy-kit), **Electronics Board V2.3** bundle with remote options, or **Ready-to-Play** configuration already includes **one** remote—wired or wireless per your selection. You should **not** add the separate [RADR Wireless Remote](https://www.researchanddesire.com/products/radr-ossm-wireless-remote) store listing on top of that unless you intentionally want a second unit (for example a spare). The standalone listing is mainly for **replacements**, **upgrading** a wired-only build, or other cases where no RADR was included in the original order.
+
+If you are unsure what your checkout line includes, confirm against your **order confirmation** or email [support@researchanddesire.com](mailto:support@researchanddesire.com) before placing an extra remote order.
+</Accordion>
+
 <Accordion title="I bought the DIY Kit with the 'Fully Assembled' option but received parts to assemble. What's going on?">
 The **DIY Kit always requires assembly of the OSSM actuator**—you'll receive components that need to be assembled using the [Build Guide](/ossm/guides/getting-started/build-guide/step-0.0_introduction).
 
@@ -496,6 +625,18 @@ To build a complete stand, you need **both** the Extrusion Kit (metal parts + ha
 </Tip>
 </Accordion>
 
+<Accordion title="Can I buy replacement stand pivot parts or only the pivot plates?">
+The extrusion stand’s angle adjustment uses **OSSM Pivot Plate 1** and **OSSM Pivot Plate 2** (printed), together with handle spacers and the M6 handles, washers, T-nuts, and screws used on the stand. The authoritative list is the [Stand BOM](/ossm/Hardware/standard-printed-parts/stand/introduction).
+
+**Store bundles:** The [Extrusion Kit](https://www.researchanddesire.com/products/ossm-extrusion-kit) includes extrusion and stand hardware bags but **does not** include printed parts. The [3D Printed Parts Kit](https://www.researchanddesire.com/products/ossm-3d-printed-part-kit) includes the full printed set for a standard build—not individual stand sub-assemblies sold separately on the store.
+
+**Pivot-only or partial printed + hardware:** Those combinations are **not** always available as their own listings. Email [support@researchanddesire.com](mailto:support@researchanddesire.com) with what you need (a short description or photo helps); support can quote **replacement or partial kits** subject to availability.
+
+<Tip>
+Before ordering extras, compare against your **order confirmation** so you do not duplicate bags you already have from an Extrusion Kit or full printed-parts order.
+</Tip>
+</Accordion>
+
 <Accordion title="What power supply do I need?">
 Power supply requirements depend on your motor wattage and connection type:
 
@@ -509,7 +650,9 @@ Power supply requirements depend on your motor wattage and connection type:
 
 **USB-C Power Delivery (included with DIY kits):**
 
-If your kit includes a USB-C power adapter, use a USB-C Power Delivery charger with the following specifications:
+Full **[OSSM DIY Kit](#whats-included-in-the-diy-kit)** orders from Research & Desire ship with a **USB‑C Power Delivery wall adapter** and typically also a **24V 4A** barrel supply (confirm against your **order confirmation**). **You do not need to buy a separate 65W charger or USB‑C cable** on top of the kit—store copy that mentions “65W+” describes the **bundled** USB‑C path, not an extra line item.
+
+If you are **replacing a lost adapter** or **buying electronics without a bundled supply**, use a USB‑C Power Delivery charger that meets:
 
 | Specification | Requirement |
 |---------------|-------------|
@@ -529,9 +672,9 @@ USB-C PD adapters deliver slightly less force than a dedicated 24V supply (35 lb
 For safety, use a desktop power supply that is ideally double-insulated. Supplies from reputable distributors (Mouser, Digikey, Conrad, RS) cost more than unbranded units from AliExpress/eBay/Amazon, but unbranded supplies have shown inconsistent quality and long-term stability issues.
 </Warning>
 
-**International customers (EU, UK, and other regions):**
+**International customers (EU, UK, Australia, New Zealand, and other regions):**
 
-Power supplies sold by R+D use North American plugs (Type A/B, 120V compatible). If you're ordering from outside North America:
+Power supplies sold by R+D often ship with **North American plugs** (Type A/B, 100–240V compatible). If you're ordering from outside North America:
 
 - **Option 1:** Purchase R+D's 24V power supply and use a plug adapter for your region's wall sockets. The power supply accepts 100–240V AC input, so only the plug shape needs adapting—no voltage converter is required.
 - **Option 2:** Source a 24V, 4A (or higher) power supply locally with your region's plug type. Ensure it is safety-certified (CE for EU, UKCA for UK) and has a 5.5mm × 2.1mm barrel jack connector with center-positive polarity.
@@ -552,7 +695,7 @@ Research & Desire does not sell 36V power supplies. If you choose to source one 
 </Accordion>
 
 <Accordion title="How long should my H-rail be?">
-Rail length determines maximum stroke depth. A **350mm rail** provides approximately **195mm of usable depth**.
+Rail length determines maximum stroke depth. A **350mm rail** yields about **170mm (~7 in)** of maximum stroke by the formula below (aligned with the table).
 
 Calculate your maximum stroke using this formula: **rail length − 180mm = maximum stroke**.
 
@@ -562,6 +705,10 @@ Calculate your maximum stroke using this formula: **rail length − 180mm = maxi
 | 400mm (16 in) | 220mm (9 in) |
 | 450mm (18 in) | 270mm (11 in) |
 | 500mm (20 in) | 320mm (13 in) |
+
+<Tip>
+**Buying from Research & Desire:** Kits usually ship with a **350mm** rail unless you arrange an upgrade. **400mm** and **500mm** rails are often available—email [support@researchanddesire.com](mailto:support@researchanddesire.com) with your **order number** before shipment so support can quote the rail and a **belt length matched to that rail** (and any pulley changes if applicable).
+</Tip>
 
 <Warning>
 We do not recommend using a rail longer than **500mm (20 in)**. Longer rails increase bending and friction under load, which can cause binding, inconsistent motion, and accelerated wear. If you need more stroke, ensure the rail is properly supported along its length.
@@ -624,6 +771,8 @@ Yes. Linear rails in OSSM kits ship with factory packaging and a protective coat
 <Note>
 Running the rail without proper lubrication can cause premature wear on the ball bearings and increase friction. A small amount of grease goes a long way—you don't need to coat the entire rail heavily.
 </Note>
+
+**Still not smooth after cleaning and greasing?** With the carriage on the rail, move it slowly along the full length. It should glide with light, even resistance—not grinding, catching, or a rough or uneven feel along one section of the rail. If movement stays rough, binds, or chatters after you have followed the steps above, **do not force the build**; contact [support@researchanddesire.com](mailto:support@researchanddesire.com) with your order number and a short description. Rails are sometimes replaced when they arrive with a manufacturing defect or shipping damage. See [Warranty and Support](#warranty-and-support) and [How do I order replacement parts?](#how-do-i-order-replacement-parts).
 </Accordion>
 
 <Accordion title="What parts wear out over time?">
@@ -633,6 +782,7 @@ With regular use, certain components may wear out and need replacement. The most
 - **Threaded end-effector**: The M24×3 threads can wear or strip over time, especially with frequent toy changes or heavy toys.
 - **Timing belt**: The belt may stretch, fray, or develop cracks after extended high-speed operation.
 - **Belt clamps**: These grip the belt and can wear or crack under repeated stress.
+- **PitClamp Mini latch parts (dogbones):** The quick-release pair ([dogbone bolts](/ossm/Hardware/standard-printed-parts/pitclamp/part-by-part/pitclamp-mini-dogbone-bolts), [dogbone nuts](/ossm/Hardware/standard-printed-parts/pitclamp/part-by-part/pitclamp-mini-dogbone-nuts)) on [PitClamp Mini](/ossm/Hardware/standard-printed-parts/pitclamp/README) see stress when you open and close the clamp; cracks or breaks can come from impact, overtightening, layer adhesion issues, or fatigue over time.
 
 How quickly parts wear depends on usage intensity, print material, and print quality. Parts printed in stronger materials (PETG, ABS, polycarbonate) generally last longer than PLA.
 </Accordion>
@@ -642,11 +792,18 @@ If you need replacement parts for your OSSM:
 
 1. **Contact support** at [support@researchanddesire.com](mailto:support@researchanddesire.com)
 2. Include your **original order number** and describe which parts you need
-3. Support will send you an invoice for the replacement parts
+3. **Optional:** Attach a **photo** of the part if you are not sure of the name—this helps match you to the correct catalog item
+4. Support will send you an invoice. Depending on the situation, charges may apply to **parts, shipping, or both** (see [Warranty and Support](#warranty-and-support) for defects in materials or workmanship)
+
+**PitClamp Mini dogbones or other printed latch pieces:** If a dogbone or related PitClamp part breaks and you **do not** have a printer, say so in your email. Support can supply matching printed replacements and hardware (such as screws) when those parts are in production. If you **can** print, use the STLs linked from the [PitClamp Mini](/ossm/Hardware/standard-printed-parts/pitclamp/README) documentation and the repository below.
+
+Research & Desire **does not design or manufacture one-off custom printed parts** on request. If an **existing** part already in production fits your need, support can confirm availability and pricing.
 
 <Tip>
 If you have access to a 3D printer, you can also print replacement parts yourself using the STL files from the [Kinky Makers GitHub repository](https://github.com/KinkyMakers/OSSM-hardware/tree/main/Printed%20Parts).
 </Tip>
+
+**Installing replacement tensioners:** Follow the same assembly steps as a new build—[Rear tensioner](/ossm/guides/getting-started/build-guide/step-2.0_rear_tensioner), [Front tensioner](/ossm/guides/getting-started/build-guide/step-4.0_front_tensioner), then [Tension adjustment](/ossm/guides/getting-started/build-guide/step-9.0_tension_adjustment). For a concise overview, video link, and ongoing belt care, see [Belt Tension](/ossm/guides/housekeeping/belt-tension#replacing-a-damaged-or-worn-tensioner).
 </Accordion>
 
 <Accordion title="How often should I inspect my OSSM?">
@@ -657,7 +814,7 @@ Perform a visual inspection periodically, especially if you notice changes in pe
 - Ensure the toy mount is secure
 
 **Monthly (or every 10–20 hours of use):**
-- Inspect printed parts for cracks, especially tensioners and belt clamps
+- Inspect printed parts for cracks, especially tensioners, belt clamps, and **PitClamp Mini dogbones** (quick-release latch) if you use PitClamp
 - Check the threaded end-effector for wear or stripping
 - Examine the belt for fraying, cracks, or excessive stretch
 - Verify all fasteners are tight

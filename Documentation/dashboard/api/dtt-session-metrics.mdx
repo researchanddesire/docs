@@ -1,0 +1,30 @@
+---
+title: "DTT session metrics"
+description: "How to interpret reps, distance, and deepthroat fields on DTT session and segment payloads from the API"
+---
+
+Responses from `GET /api/v1/dtt/sessions`, `GET /api/v1/dtt/sessions/latest`, and `GET /api/v1/dtt/sessions/{id}` include per-session and per-segment metrics. The field names below match the JSON returned by the API.
+
+## `repsMeasured`
+
+One **rep** is a full in-and-out cycle (insert and withdraw). The firmware counts motion in half-cycles (“strokes”); stored **reps** are half that count, so the value represents complete cycles as you would count them in training.
+
+## `distanceTravelled`
+
+For current firmware and the normal upload path, this is the **total distance moved along the depth axis** during the session or segment, in **meters**. Insertion and withdrawal both contribute. The value is built from small position steps on the device, not a simple `reps × stroke length` formula.
+
+<Info>
+  Older sessions that used a **legacy upload path** may compute distance differently (for example, estimated from rep count and configured depth). When comparing very old data to recent sessions, treat distance as approximate unless you know the upload path.
+</Info>
+
+## `longestDeepthroat`
+
+For the current API, this value is the **total time spent in the target depth window** for that segment, in **milliseconds**. It is **cumulative** time in-zone across the segment, not the length of a single uninterrupted hold—the name can read like “longest streak,” but the stored number is total in-zone duration. Dashboards and UIs often display it in seconds by dividing by 1000.
+
+<Warning>
+  Do not interpret `longestDeepthroat` as “longest single continuous hold” unless you have verified that against your integration; the API stores cumulative in-zone time.
+</Warning>
+
+## Related endpoints
+
+See the **DTT Sessions** operations in the API reference for request parameters and full response shapes.

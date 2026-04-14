@@ -158,6 +158,7 @@
                 "group": "DTT Sessions",
                 "openapi": "https://dashboard.researchanddesire.com/openapi.yaml",
                 "pages": [
+                  "dashboard/api/dtt-session-metrics",
                   "GET /dtt/sessions",
                   "GET /dtt/sessions/latest",
                   "GET /dtt/sessions/{id}"

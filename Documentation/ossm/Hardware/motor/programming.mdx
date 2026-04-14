@@ -32,6 +32,15 @@ Gather the following before you start:
 Never power the motor from USB alone. The motor must have its normal 20–36 V DC input during programming.
 </Warning>
 
+## Programming header vs OSSM wiring
+
+Normal OSSM operation powers the motor and sends **step/direction** signals through the **green screw terminal** (and signal cable) described in [Wiring Your Gold Motor](/ossm/Hardware/motor/wiring-gold-motor). That is **not** where you attach the RS485 adapter for parameter programming.
+
+For **RS485 programming**, use the motor’s **separate programming port**—usually a **white multi-pin header** on the motor body with silkscreen or documentation for **A**, **B**, **5V+**, and **GND**. Connect your adapter only to those four signals on **that** header.
+
+- **5V+ and G (GND)** on the adapter go to the pins labeled **5V+** and **GND** on the **programming header**—the same connector as **A** and **B**, not the large **Voltage Plus / Ground** terminals used for the motor’s main DC input.
+- **Housing size varies** (for example **10-pin vs 14-pin**) between **57AIM** revisions (such as **57AIM30** vs **57AIM30B**) and factories. **Use the silkscreen on your motor or the manufacturer pinout**; do not rely on pin numbers from a different motor photo or schematic page.
+
 ## Programming instructions
 
 <Steps>

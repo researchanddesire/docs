@@ -5,6 +5,10 @@ description: "Everything you need to know to get started with your OSSM Ready-to
 
 Welcome to your OSSM Ready-to-Play kit. This guide helps you unbox, set up, and use your machine safely and confidently.
 
+<Note>
+This page describes the **standard** Ready-to-Play package (collapsible extrusion stand). If you ordered a **basic mount** or other **custom** configuration **without** the full stand, you may not receive stand-only items (for example the **sandbag**). You should still receive the **power supply**, **end-effector set**, **remote**, and other accessories **as listed on your order confirmation**. See the FAQ *[I ordered Ready-to-Play with the basic mount instead of the full extrusion stand. What should be in the box?](/ossm/guides/housekeeping/faqs#i-ordered-ready-to-play-with-the-basic-mount-instead-of-the-full-extrusion-stand-what-should-be-in-the-box)*.
+</Note>
+
 ## What's in the box
 
 Your accessory box includes:
@@ -92,6 +96,14 @@ Do not use beach sand. It may contain salt, moisture, and microbes that can caus
 <Step title="Home and test motion (no load)">
 Power on the OSSM and allow it to complete its homing routine. Keep hands and loose items away from the rail and carriage.
 
+<Info>
+**What homing is doing:** OSSM uses **sensorless homing** to find both ends of travel and learn how much stroke is available. When homing **finishes**, the carriage may rest toward **one end** of the rail (for example near the motor or the tensioner). That resting position is **normal**—it is the calibrated reference for software, not necessarily a visually “short” or “retracted” pose.
+
+**Depth and direction:** After homing, **increasing depth** moves the rail so the **tensioner end moves toward the motor housing**, pushing the end effector farther forward (deeper). If motion or the on-screen depth **feel inverted** compared to the remote, treat it as a **control/sync issue** (firmware or wireless remote), not something to fix by disassembling the rail. See [Homing position or depth feels backwards](/ossm/guides/getting-started/user-guide/troubleshooting#homing-position-or-depth-feels-backwards).
+
+**Assembly videos:** Some videos mention putting the belt or tensioner on either end or refer to **switches on the servo motor**. Physical layout can vary; **homing and firmware establish usable travel**. Do not change motor DIP switches or internal drive settings on a Ready-to-Play unit yourself—contact [support](mailto:support@researchanddesire.com) if something seems wrong.
+</Info>
+
 <Check>
 Confirm the carriage moves smoothly across its range without unusual sounds, binding, or stalls.
 </Check>
@@ -125,6 +137,7 @@ You are responsible for your setup and safety. If anything is unclear, pause and
 ### Electrical safety
 
 - The OSSM operates at 24V. Verify wiring polarity before powering on.
+- When finishing the motor harness connections, handle leads by the **insulation** and avoid sharp or repeated bending at **crimped terminals**—those joints are not meant to flex like the wire itself. If a terminal or lead looks damaged, do not apply power; contact [support](mailto:support@researchanddesire.com).
 - Keep conductive materials away from the board and power supply.
 - Ensure all connectors are fully seated; never insert or remove cables under load.
 
@@ -158,9 +171,11 @@ Avoid beach sand due to potential contaminants and moisture.
 
 ## Troubleshooting basics
 
+- **After homing the rail looks “all the way out” or depth feels wrong:** Homing calibrates stroke; the resting position may be toward one end. See the [Homing position or depth feels backwards](/ossm/guides/getting-started/user-guide/troubleshooting#homing-position-or-depth-feels-backwards) section in Troubleshooting.
 - **Belt slips or makes a ratcheting noise:** The belt tensioner bolt is missing or loose. Locate the M5 bolt (check the parts box if not installed), insert it into the rear tensioner with the nut, and hand-tighten until the belt is firm. See [Verify belt tension](#verify-belt-tension).
 - **Toy slides or rotates on the adapter:** Use the toy adapter screws (2× matching screws in the parts box) to secure the toy to the end-effector. For suction-cup toys, use the paracord with the flange ring system. See the <a href="/ossm/Hardware/standard-printed-parts/toy-mounting/introduction">Toy Mounting Guide</a>.
 - **No motion after power-on:** Verify 24V supply, barrel jack connection, and that the board is powered. Allow homing to complete before sending motion.
+- **Snapped or damaged motor harness wire or crimp:** Do not power on. See [Motor harness wires or crimped terminals damaged during assembly](/ossm/guides/getting-started/user-guide/troubleshooting#motor-harness-wires-or-crimped-terminals-damaged-during-assembly) in Troubleshooting and contact [support](mailto:support@researchanddesire.com) for Ready-to-Play replacement parts.
 - **Jerky or unexpected motion:** Recheck motor and remote connections; reduce speed/stroke and test again.
 - **Remote won't connect:**
   - Wired: reseat Ethernet connectors until they click.

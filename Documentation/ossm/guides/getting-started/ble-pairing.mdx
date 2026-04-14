@@ -97,10 +97,14 @@ To manage saved networks, go to **Settings → WiFi Networks** in the dashboard.
 
 ## Fallback: Enter Code
 
-If your browser doesn't support Web Bluetooth, switch to the **Enter Code** tab in the pairing dialog. Your OSSM displays a 6-character code and QR code on its screen. Enter the code manually in the dashboard to complete pairing.
+If your browser doesn't support Web Bluetooth, switch to the **Enter Code** tab in the pairing dialog. Your OSSM displays a 6-character code and QR code on the **wired remote OLED** (the display connected to the main unit with the RJ45 cable)—not on the wireless RADR. Enter the code manually in the dashboard to complete pairing.
 
 <Note>
 The Enter Code method still requires your OSSM to be connected to WiFi first. Use the [WiFi setup guide](/ossm/guides/getting-started/wifi-setup) to get the device online before pairing this way.
+</Note>
+
+<Note>
+If you only use a **RADR** (no wired remote connected), you will not see the OSSM pairing code on the RADR screen—the RADR shows its own menus and WiFi setup, not the OSSM dashboard pairing flow. For dashboard linking, prefer **Auto (Bluetooth)** from **Chrome or Edge on a desktop or laptop**, or connect your **wired remote** temporarily so the code can appear on its display.
 </Note>
 
 ---
@@ -129,5 +133,9 @@ The Enter Code method still requires your OSSM to be connected to WiFi first. Us
 
 <Accordion title="I see 'Scan for OSSM' but clicking it does nothing">
   Your browser may not support Web Bluetooth. Confirm you're using Chrome or Edge. In Chrome, you can check by visiting `chrome://flags` and searching for "bluetooth" to verify the feature is enabled.
+</Accordion>
+
+<Accordion title="I don't see the pairing code on my wireless remote (RADR)">
+  The dashboard pairing code is shown on the **OSSM wired remote OLED**, not on the RADR. See [Fallback: Enter Code](#fallback-enter-code) above. If you do not have a wired remote connected, use **Auto (Bluetooth)** from Chrome or Edge on a **desktop or laptop**, or connect the wired remote temporarily.
 </Accordion>
 </AccordionGroup>

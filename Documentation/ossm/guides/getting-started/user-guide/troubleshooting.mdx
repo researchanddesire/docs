@@ -75,7 +75,7 @@ Over time, the linear rail's factory lubrication can dry out or collect debris, 
 - Motor sounds more strained even at lower speeds
 - Inconsistent movement (stuttering or binding)
 
-See the [belt tension guide](/ossm/guides/housekeeping/belt-tension#rail-lubrication) for lubrication instructions.
+See the [belt tension guide](/ossm/guides/housekeeping/belt-tension#rail-lubrication) for lubrication instructions. For a **new** rail, follow [cleaning and greasing before assembly](/ossm/guides/housekeeping/faqs#does-the-linear-rail-need-cleaning-and-greasing-before-assembly) first. If the carriage still feels rough or binds after that, treat it as a possible defective part and contact [support](mailto:support@researchanddesire.com) with your order number rather than continuing assembly.
 </Accordion>
 
 <Accordion title="Verify power supply">
@@ -97,9 +97,29 @@ See [insufficient power supply](#controller-powers-on-but-actuator-does-not-move
 
 ---
 
+## Motor slips under load or the carriage moves freely when powered on
+
+If the motor seems to run but **thrust drops under resistance**, the **belt slips** in situations it used to handle, or you can **slide the carriage along the rail by hand while the OSSM is on** with little resistance, treat this as more than loose belt tension alone. A **cracked or broken belt clamp**—the printed parts that pinch the belt at the carriage—may no longer transfer motion; turning the M5 tensioner screw cannot fix broken plastic.
+
+**What to check (power off, unplugged):**
+
+1. **Inspect the belt clamp** at the front of the rail (and nearby printed tensioner parts) for cracks, missing pieces, or a clean break.
+2. **If the plastic looks intact**, confirm the **front belt clamp bolt** is tight enough that the belt is firmly captured, then re-check tension using the [belt tension guide](/ossm/guides/housekeeping/belt-tension) and [Clicking noise during homing](#clicking-noise-during-homing).
+3. **If the clamp is damaged**, stop using the machine until it is replaced. Contact [support](mailto:support@researchanddesire.com) with your order number and, if helpful, a photo—see [How do I order replacement parts?](/ossm/guides/housekeeping/faqs#how-do-i-order-replacement-parts).
+
+<Tip>
+Periodic inspection for cracked belt clamps is part of normal maintenance—see [What parts wear out over time?](/ossm/guides/housekeeping/faqs#what-parts-wear-out-over-time) and [How often should I inspect my OSSM?](/ossm/guides/housekeeping/faqs#how-often-should-i-inspect-my-ossm).
+</Tip>
+
+---
+
 ## Homing is too slow
 
-If your OSSM homes very slowly or stalls during the homing sequence, the motor may need to be programmed.
+If your OSSM homes very slowly or stalls during the homing sequence, the motor may need to be programmed—**especially** if you are using a self-sourced or salvaged **57AIM** motor, or one that may have lost its parameters.
+
+<Note>
+If **slow or stalled homing happens with more than one motor** (for example both an original and a replacement Gold Motor), or the same failure occurs with only the **motor connected to the controller** and the mechanical load removed, treat **OSSM control board firmware** as a likely cause before spending time on motor programming. See [Homing stalls or locks during startup calibration](#homing-stalls-or-locks-during-startup-calibration).
+</Note>
 
 <Steps>
 <Step title="Check motor programming">
@@ -112,6 +132,63 @@ See the [motor programming guide](/ossm/Hardware/motor/programming) for detailed
 After programming, the motor should home at a reasonable speed. If problems persist, double-check that all parameters were applied correctly.
 </Step>
 </Steps>
+
+---
+
+## Homing stalls or locks during startup calibration
+
+If the OSSM **powers on** but **homing does not complete normally**—the carriage moves only a tiny amount, stutters, seems to **stall**, or you hear motion without useful travel—users often assume the **motor** is bad. In some cases the **ESP32 firmware on the OSSM control board** is in a bad state; **reinstalling board firmware** fixes homing even when hardware looks fine.
+
+**When to try this first**
+
+- The same behavior happens with **two different** compatible motors, or with a **replacement motor** you expected to fix the issue
+- You have simplified the setup (for example **motor and controller only**) and the problem **still** matches startup homing, not belt slip or rail binding
+- Power looks normal (for example **24V** present, motor indicator lit) but motion during the boot sequence is wrong
+
+**What to do**
+
+1. **Reflash the OSSM** with the latest stable build using the [Web Flasher](/ossm/tools/web-flasher) over **USB-C** to the control board—this updates the **main board** firmware, which is separate from [programming the Gold Motor](/ossm/Hardware/motor/programming) over RS485.
+2. After flashing, power cycle with **24V**, let homing run, and test at low speed before full use.
+3. If homing is still wrong only after confirming a **correctly programmed** motor, continue with [motor programming](/ossm/Hardware/motor/programming) and the [belt tension](/ossm/guides/housekeeping/belt-tension) and mechanical checks elsewhere in this guide.
+
+<Tip>
+Board firmware reflashing does not replace stripped pulley screws or damaged belt hardware—those are still mechanical issues—but it **can** resolve “stuck” or nonsensical homing when the root cause is software on the ESP32, not the servo drive.
+</Tip>
+
+---
+
+## Homing position or depth feels backwards
+
+These symptoms are easy to confuse: **where the carriage stops after homing**, **which way “depth” should move the rail**, and **whether the homing motion sequence itself is reversed**.
+
+<AccordionGroup>
+<Accordion title="After homing, the carriage sits at one end of the rail (looks 'fully extended')">
+OSSM learns its usable travel during homing; when the sequence **completes successfully**, the **resting position** may be toward the motor, toward the tensioner, or in between depending on firmware and timing. **A particular end position is not, by itself, proof that the belt was assembled backward.**
+
+If the **first** motion during homing matches the [initial test](/ossm/guides/getting-started/build-guide/step-12.0_initial_test) expectation (threaded end **extends slightly, then retracts** to the reference), direction is usually correct. If the actuator **retracts first and then extends**, that indicates **reversed motor wiring**—DIY builders should follow [Motor Wiring](/ossm/Hardware/motor/wiring-gold-motor). **Ready-to-Play** units should not be rewired at home; contact [support](mailto:support@researchanddesire.com).
+</Accordion>
+
+<Accordion title="Increasing depth moves the wrong way, or the remote does not match the machine">
+If homing completes normally but **depth**, **stroke**, or **speed** do not match what you set on the remote (for example depth “up” moves the machine the opposite of what you expect), treat this as a **firmware or remote communication** issue:
+
+1. **Power cycle** the OSSM and complete homing again.
+2. **Update firmware** on both the OSSM board and the RADR (if applicable) using the [Web Flasher](/ossm/tools/web-flasher) and [RADR quick start](/research-and-desire-remote/quick-start), then re-pair.
+
+Erratic or inverted parameters are covered in more detail under [Firmware updates, frozen remote, or unexpected stroke depth](#firmware-updates-frozen-remote-or-unexpected-stroke-depth).
+
+<Tip>
+Close other apps that might be using USB serial before flashing the OSSM from a browser. If the flasher reports the serial port is busy, unplug other USB devices, quit slicers or serial monitors, and retry.
+</Tip>
+</Accordion>
+
+<Accordion title="Videos mention switches on the motor or reversing homing side">
+Some **DIY** instructions or videos refer to **DIP switches** or other settings on the servo drive. Research & Desire motors are configured for OSSM at the factory. **Do not change** motor DIP positions or drive parameters on a Ready-to-Play unit unless support instructs you to.
+
+If you sourced your own motor for a DIY build, use [Programming Your Motor](/ossm/Hardware/motor/programming) and [Motor Wiring](/ossm/Hardware/motor/wiring-gold-motor) instead of guessing switch positions.
+</Accordion>
+</AccordionGroup>
+
+---
 
 ## Controller powers on but actuator does not move
 
@@ -147,6 +224,20 @@ Using an underpowered supply can damage components over time. Always use a suppl
 
 **Solution:**
 Reconnect any loose wiring following the [wiring guide](/ossm/guides/getting-started/build-guide/step-11.0_wiring). If wires are damaged, replace them before operating.
+</Accordion>
+
+<Accordion title="Motor harness wires or crimped terminals damaged during assembly">
+**Symptoms:**
+- A lead snaps at or near a crimped ring/spade terminal while routing or tightening motor terminals
+- Metal terminal pieces bend, break, or pull free when adjusting connections
+- Intermittent continuity after stressing the wires during installation
+
+**What to do:**
+1. **Do not power on** the OSSM if any power or signal conductor is damaged, loose, or shorting—risk of equipment damage or unsafe operation.
+2. **Ready-to-Play:** Contact [support](mailto:support@researchanddesire.com) with your order number. We can send a replacement harness or advise next steps; do not attempt to re-crimp factory harnesses unless support directs you to.
+3. **DIY kits:** Replace damaged sections or the full harness per [Wiring Your Gold Motor](/ossm/Hardware/motor/wiring-gold-motor), or order a replacement harness from the store if you are unsure.
+
+**Prevention:** Route wires with gentle bends, grip **insulation** (not the bare crimp barrel) when positioning, and avoid repeated back-and-forth bending at the crimp joint. Tighten motor screw terminals without over-torquing or levering against the crimp.
 </Accordion>
 
 <Accordion title="Belt or pulley tension too loose">
@@ -203,6 +294,17 @@ If the remote worked previously but stopped, a simple power cycle often resolves
 4. Allow the board to boot, then check if the remote display activates
 
 If the remote powers on after cycling, no further action is needed. Intermittent issues may indicate a marginal cable connection—try reseating or replacing the RJ45 cable.
+</Accordion>
+
+<Accordion title="Remote cover: M3 bolts do not fit the threaded holes">
+The wired remote **top cover** fastens to the **remote body** with **M4** screws—not M3. The cover and body holes are threaded for M4; leftover M3 hardware from the rest of the kit will be too small and will not engage those threads.
+
+**What to use:**
+- **Two M4 button-head (button cap) screws**, typically **M4×6 mm to M4×8 mm** length, depending on your enclosure revision
+
+DIY and remote kits usually ship these in a small bag with the remote or printed parts. If yours are missing, you can source the same size locally or contact [support](mailto:support@researchanddesire.com) for replacements.
+
+See the [wired remote enclosure BOM](/ossm/Hardware/standard-printed-parts/remote/introduction#bill-of-materials) for part details and assembly order.
 </Accordion>
 </AccordionGroup>
 
@@ -302,6 +404,10 @@ If you have a RADR wireless remote, you can continue using your OSSM while waiti
 
 If selecting certain menu options—such as **Get Help**, **WiFi Setup**, or **Update**—causes the display to go blank or show no response, the issue is usually related to your firmware version or WiFi configuration.
 
+<Note>
+If the OSSM **reboots** or loses power momentarily when you open these menus (or when entering **Stroke Engine** or other modes)—rather than showing a blank screen—treat it as a stability or hardware issue. Follow [Boot loops or display artifacts](#boot-loops-or-display-artifacts) after confirming you are on the latest stable firmware ([Web Flasher](/ossm/tools/web-flasher)).
+</Note>
+
 <AccordionGroup>
 <Accordion title="Check firmware version">
 These menu options are implemented in current firmware:
@@ -321,6 +427,8 @@ If the display goes blank when selecting these options, press the encoder button
 **WiFi Setup** and **Update** require the OSSM to connect to a WiFi network. If WiFi has not been configured, these options may not function as expected.
 
 You can configure WiFi using the Web BLE Controller in a browser without relying on the wired remote's WiFi Setup menu. See [WiFi Setup](/ossm/guides/getting-started/wifi-setup) for instructions.
+
+If the Web Controller WiFi form’s save control **does nothing** after you enter credentials, use the workarounds in [Web BLE WiFi: save button does nothing](/ossm/guides/getting-started/wifi-setup#web-ble-wifi-save-button-does-nothing) (dashboard Bluetooth pairing is the usual path without a wired remote).
 
 To ensure you have the latest features, update your firmware using the [Web Flasher](/ossm/tools/web-flasher).
 </Accordion>
@@ -343,6 +451,7 @@ If your OSSM repeatedly restarts (boot loops) or shows corrupted characters, fli
 <Accordion title="Identify the symptoms">
 **Symptoms:**
 - Device restarts repeatedly without completing the homing sequence
+- Restarts or reboots when selecting **WiFi Setup** or other settings, or when entering **Stroke Engine** or switching modes (pattern suggests a faulty wired remote once firmware is current)
 - Display shows garbled text, flickering, or visual artifacts
 - Crashes or reboots occur when using the right knob (encoder)
 - Random, uninstructed changes to speed, depth, or stroke parameters
@@ -392,6 +501,40 @@ Boot loops, display corruption, or erratic parameter changes that persist after 
 
 <Tip>
 While waiting for a replacement, you can continue using your OSSM with a RADR wireless remote if you have one available (assuming the main control board is functional).
+</Tip>
+</Accordion>
+</AccordionGroup>
+
+---
+
+## Firmware updates, frozen remote, or unexpected stroke depth
+
+If the wired remote stops accepting input after boot, stroke or depth behaves erratically (for example jumping to an extreme), or you are unsure whether your firmware is current, start with a **power cycle** and **reflash to the latest official firmware**.
+
+<AccordionGroup>
+<Accordion title="Check for firmware updates">
+OSSM firmware is updated over time for fixes and features. If you are on an older release (for example **1.0.x**), update using the [Web Flasher](/ossm/tools/web-flasher) over USB. That is the supported way to get the current stable build.
+
+After flashing, complete homing and test at **low speed** and **moderate stroke** before increasing intensity.
+</Accordion>
+
+<Accordion title="Remote frozen or unresponsive after boot">
+1. Power off the OSSM (disconnect 24V), wait several seconds, and power on again—connect the wired remote **after** the board has booted when possible (see [Wired remote does not power on](#wired-remote-does-not-power-on)).
+2. Reseat the RJ45 cable at both ends.
+3. If the problem persists, reflash the latest firmware with the [Web Flasher](/ossm/tools/web-flasher).
+
+Intermittent freezes may still warrant contacting [support](mailto:support@researchanddesire.com) with your firmware version and what you were doing when it happened.
+</Accordion>
+
+<Accordion title="Unexpected jump in depth or loss of control during use">
+**Immediately** reduce intensity or power off if motion is not what you intended.
+
+1. **Power cycle** the OSSM and confirm behavior after a clean boot and homing.
+2. **Update firmware** to the latest release via the [Web Flasher](/ossm/tools/web-flasher). Erratic parameter or motion behavior can be related to outdated or corrupted firmware.
+3. If the issue **repeats** after updating, stop using the device in normal play and contact [support](mailto:support@researchanddesire.com) with your firmware version, pattern/mode, and what changed (speed, stroke, etc.) right before it occurred.
+
+<Tip>
+Use the **Stop** control and keep the power supply within reach whenever you test at high speed or very short stroke settings.
 </Tip>
 </Accordion>
 </AccordionGroup>
@@ -545,6 +688,25 @@ Normal OSSM operation produces quiet mechanical sounds from the motor and belt d
 **Resolution:**
 
 If your board made unusual electronic noises on first power-up and is now unresponsive to flashing attempts, contact support with a description of what you observed. This helps identify potential batch issues.
+</Accordion>
+
+<Accordion title="Motor power reads far below supply voltage at the board input">
+**Symptoms:**
+- You measure **correct DC voltage at the barrel jack** (or board power input)—for example ~24V or ~36V, matching your supply
+- At the **motor’s main DC power terminals** on the board (the large screw terminals that feed the motor), the voltage reads **much lower** than the input—for example only ~10–12V when you are using a 24V or 36V supply
+- Motor does not run or cannot be programmed; motor or board LEDs may flash or behave erratically
+
+**What this indicates:**
+
+The servo driver is powered from the same rail as the input in normal operation. A **large, persistent gap** between input voltage and the motor DC power measurement—after the barrel jack is fully seated and polarity is correct—often points to a **fault on the control board** (for example the motor power path), not a misconfigured motor.
+
+<Note>
+Servo drives use **PWM**, so a multimeter at the motor terminals shows an **average** that can vary with firmware state and how you probe. If input voltage at the jack is healthy but motor rail readings stay far below it across power cycles and you cannot complete programming or homing, treat it as a hardware issue rather than a tuning problem.
+</Note>
+
+**Resolution:**
+
+Contact [support](mailto:support@researchanddesire.com) with your **order number**, **power supply specs** (voltage, current, barrel size), and **both** measurements (input jack vs motor DC terminals). If the board is defective, support can arrange a **replacement**—see [Warranty and Support](/ossm/guides/housekeeping/faqs#warranty-and-support) for how R+D handles component defects.
 </Accordion>
 </AccordionGroup>
 
