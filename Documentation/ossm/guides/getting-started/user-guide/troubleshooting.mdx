@@ -145,6 +145,10 @@ If the OSSM **powers on** but **homing does not complete normally**—the carria
 - You have simplified the setup (for example **motor and controller only**) and the problem **still** matches startup homing, not belt slip or rail binding
 - Power looks normal (for example **24V** present, motor indicator lit) but motion during the boot sequence is wrong
 
+<Tip>
+If you are powering the OSSM from a **USB power bank** or marginal USB-C source and homing fails with **no or erratic motion**, confirm behavior with the **included 24V barrel supply** first—see [USB power bank or portable battery: remote works but homing errors or no motion](#controller-powers-on-but-actuator-does-not-move).
+</Tip>
+
 **What to do**
 
 1. **Reflash the OSSM** with the latest stable build using the [Web Flasher](/ossm/tools/web-flasher) over **USB-C** to the control board—this updates the **main board** firmware, which is separate from [programming the Gold Motor](/ossm/Hardware/motor/programming) over RS485.
@@ -209,6 +213,22 @@ Ensure you're using a power supply that meets the minimum requirements:
 <Warning>
 Using an underpowered supply can damage components over time. Always use a supply rated for your motor's requirements.
 </Warning>
+</Accordion>
+
+<Accordion title="USB power bank or portable battery: remote works but homing errors or no motion">
+**Symptoms:**
+- Wired remote powers on and may show startup text, then **fails or errors while measuring stroke / during homing**, with **little or no motor movement**
+- A USB power bank shows a **high charge percentage** but the OSSM still does not complete homing reliably
+
+**Why this happens:** Homing drives the motor against load and can draw **short peaks** above what some USB-C sources sustain. A pack can read “90% charged” yet still be **wrong for OSSM** if it does not negotiate adequate **USB Power Delivery** or cannot hold voltage under that load.
+
+**What to do first:**
+1. **Use the 24V barrel-jack power supply** included with Ready-to-Play (and most kits)—see the [Ready-to-Play info sheet](/ossm/guides/getting-started/ready-to-play/info-sheet#connect-power-and-controls). That path is the most reliable match for OSSM peak draw during startup.
+2. If you must use **USB-C** from a charger or power bank, see [What power supply do I need?](/ossm/guides/housekeeping/faqs#what-power-supply-do-i-need) for PD wattage and voltage guidance. **Research & Desire does not certify specific third-party packs**; for community discussion of non-standard power sources, see the Kinky Makers Discord (linked from [FAQs](/ossm/guides/housekeeping/faqs)).
+
+<Tip>
+If homing misbehaves **only** on a battery pack and works with the **included 24V supply**, treat the issue as **power delivery**, not a defective motor—before re-flashing firmware or requesting replacements.
+</Tip>
 </Accordion>
 
 <Accordion title="Motor wiring disconnected">
