@@ -5,12 +5,22 @@ description: "How to calibrate your trainer for accurate position tracking"
 
 Calibration teaches your trainer the range of motion for your specific setup. Proper calibration ensures accurate position tracking and consistent scoring across sessions.
 
+## Toybox depth settings
+
+On current WiFi-enabled firmware, **depth range** (what older sessions sometimes called “tolerance”) is set in the **Dashboard**, not with the old on-device prompts that asked you to position at your mouth and then establish your full range before training.
+
+1. In the sidebar, open **Deepthroat Trainer → Toybox**
+2. Select your toy
+3. Open the **Edit** tab and enter or adjust the toy depth values
+
+If those prompts no longer appear when you start a program, use **Toybox → Edit** instead of waiting for on-device calibration.
+
 ## When calibration is required
 
-Your trainer prompts for calibration when:
-- Using a new toy for the first time
+Your trainer may prompt for on-device calibration when:
+- Using a new toy for the first time (and no cloud data exists yet)
 - Cloud calibration data isn't available for your current toy
-- You request recalibration from the dashboard
+- You request recalibration from the dashboard (depending on firmware, you may set depths in **Toybox → Edit** instead of completing capture on the device)
 
 <Info>
 With Software 2.0+, calibration data is stored in the cloud per-toy. Once calibrated, you won't need to recalibrate unless you change toys or reset the data.
@@ -18,7 +28,7 @@ With Software 2.0+, calibration data is stored in the cloud per-toy. Once calibr
 
 ## The calibration process
 
-Calibration captures two key positions to define your training range:
+When the device runs **on-device** capture (for example offline or when prompted), calibration captures two key positions to define your training range:
 
 ### Step 1: Minimum Position (Closest)
 
@@ -85,7 +95,7 @@ With the latest firmware, calibration works with the cloud:
 From the dashboard, you can:
 - View current calibration values for each toy
 - Reset calibration to force recalibration
-- Manually adjust values (if supported)
+- Set or adjust depths in **Toybox** on each toy’s **Edit** tab
 
 ### How to reset calibration for a toy
 
@@ -101,8 +111,8 @@ If you've improved and want to recalibrate to a new depth, or if your current ca
   <Step title="Reset calibration">
     Look for the **Reset Calibration** option in the toy's settings. Click it to clear the stored calibration data.
   </Step>
-  <Step title="Recalibrate on your next session">
-    The next time you use that toy, the trainer will prompt you to calibrate again. Set your new comfortable depth during this process.
+  <Step title="Set depths or complete on-device capture">
+    On current firmware, set your range in **Toybox → Edit** for that toy. If your device still shows on-device calibration after a reset, follow the on-screen steps; otherwise the dashboard values apply on the next session.
   </Step>
 </Steps>
 
@@ -150,7 +160,7 @@ Aim for at least 5–10 cm between your closest and rest positions. The more ran
 </Accordion>
 
 <Accordion title="Calibration option isn't appearing">
-- You may be on firmware with cloud calibration enabled
+- You may be on firmware that expects depth range in the **Dashboard** — open **Deepthroat Trainer → Toybox**, select your toy, and use the **Edit** tab
 - Check if calibration data already exists for your toy
 - Try selecting a different toy or resetting calibration from the dashboard
 </Accordion>
