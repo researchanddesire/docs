@@ -30,6 +30,16 @@ You set a target average RPM. How you achieve that average is up to you. Your re
 Using the vibrator attachment? It provides real-time haptic feedback when you’re on track. If feedback isn’t responding, make sure your device is paired and calibrated before starting.
 </Tip>
 
+## Segment timer and breaks
+
+The **duration** you set for a Freeform segment counts down **only while you stay in the target RPM zone** (green feedback on the device). If you pause, rest, or your pace drifts outside the zone, the remaining segment time **does not decrease** during those moments.
+
+So the segment tracks **active time in zone**, not total elapsed wall‑clock time. If you follow along with a video that includes rest breaks, you may need **more real‑world minutes** to finish the same segment length than the video’s runtime—or set a **longer** segment duration in your template to allow for those pauses.
+
+<Note>
+There is no setting today to run the Freeform segment timer continuously through breaks; duration is tied to time in the target zone.
+</Note>
+
 ## Recommended session length
 
 The default suggested duration for Freeform sessions is **20 minutes**. This window gives you time to warm up, explore variations, and build endurance.
@@ -85,7 +95,7 @@ On the dashboard, you can see session duration, RPM tracking, and your score. Fo
 
 ## Scoring and feedback
 
-- On beta firmware, Freeform uses the unified scoring model: `Score = Time in Zone ÷ Active Time`.
+- On beta firmware, Freeform uses the unified scoring model: `Score = Time in Zone ÷ Active Time`. That matches how segment time is measured: **time in zone** drives both the countdown and the score.
 - Haptic feedback (vibrator attachment) confirms when you’re in the target zone.
 - Your leaderboard points reflect session performance and duration. See <a href="https://dashboard.researchanddesire.com/leaderboards/points">Points</a> for the current breakdown.
 
@@ -109,6 +119,7 @@ If you’re on Production firmware, visuals may differ slightly from the beta sc
 </Accordion>
 
 <Accordion title="Troubleshooting">
+- **Segment timer doesn’t match video length / breaks**: The Freeform countdown only advances while you’re in the target zone (green). Breaks and pauses don’t count. Increase the segment duration or expect a longer wall‑clock time than a continuous video. See **Segment timer and breaks** above.
 - **Can’t hold target RPM**: Lower the target by 10–15% or shorten the session by 5 minutes. Focus on smooth rhythm before adding speed or depth.
 - **No haptic feedback**: Confirm the device is paired and the attachment is connected. Start a short Repetition segment to verify calibration, then return to Freeform.
 - **Data didn’t upload**: Connect to Wi‑Fi and power‑cycle the device. The device replays the last downloaded settings offline; your next online session will sync results.
