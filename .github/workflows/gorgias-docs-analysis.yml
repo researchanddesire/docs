@@ -19,8 +19,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: aj/gorgias
           fetch-depth: 0
+
+      - name: Ensure aj/gorgias branch exists on origin
+        run: |
+          git fetch origin main
+          if git ls-remote --heads origin aj/gorgias | grep -q .; then
+            git fetch origin aj/gorgias
+            git checkout aj/gorgias
+          else
+            echo "Remote branch aj/gorgias missing; creating from main and pushing."
+            git checkout -B aj/gorgias origin/main
+            git push -u origin aj/gorgias
+          fi
 
       - name: Configure git
         run: |
