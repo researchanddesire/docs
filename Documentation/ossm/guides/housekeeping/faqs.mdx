@@ -34,6 +34,12 @@ Check the [Bill of Materials](/ossm/guides/getting-started/build-guide/step-1.0_
 Many users successfully use large knotted toys anally without issue.
 </Accordion>
 
+<Accordion title="How do I adjust stroke length, and what is the maximum?">
+**Adjusting stroke (normal use):** Stroke length is set in **software** on the remote—as a percentage of the travel range the machine learns when it **homes**. You do not change the rail or belt for day-to-day depth/stroke changes. After homing, use **Simple Penetration** or **Stroke Engine** and adjust the stroke control (wired remote: right encoder; see [Operating Modes](/ossm/Software/getting-started/operating-modes) and the [User Guide](/ossm/guides/getting-started/user-guide/introduction)).
+
+**Mechanical maximum:** The upper limit of that range depends on your **linear rail length**: approximately **rail length − 180mm**. With the usual **350mm** rail, that is about **170mm (~7 in)**—see [How long should my H-rail be?](#how-long-should-my-h-rail-be). Ready-to-Play [dimensions](/ossm/guides/getting-started/ready-to-play/spec-sheet#dimensions) list nominal stroke for the stock build (~7 in / 180mm); exact travel can vary slightly with hardware and calibration.
+</Accordion>
+
 <Accordion title="Why is there a 2.5 lb (1.1 kg) max toy weight?">
 The 2.5 lb (1.1 kg) maximum toy weight is a **conservative recommendation for reliable long-term performance**, not a hard failure threshold. Several factors contribute to this limit:
 
@@ -647,7 +653,7 @@ Research & Desire does not sell 36V power supplies. If you choose to source one 
 </Accordion>
 
 <Accordion title="How long should my H-rail be?">
-Rail length determines maximum stroke depth. A **350mm rail** provides approximately **195mm of usable depth**.
+Rail length determines maximum stroke depth. A **350mm rail** yields about **170mm (~7 in)** of maximum stroke by the formula below (aligned with the table).
 
 Calculate your maximum stroke using this formula: **rail length − 180mm = maximum stroke**.
 
