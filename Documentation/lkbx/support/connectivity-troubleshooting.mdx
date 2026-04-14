@@ -27,6 +27,23 @@ If your lock session is stuck in a "pending" state along with this issue, ask yo
 
 ---
 
+## Flashing yellow persists or Applying update repeats
+
+If the Wi‑Fi icon shows connected but the **status indicator below it keeps flashing yellow** and never turns [solid green](/lkbx/support/online-status#status-indicator-meanings), or the screen shows **Applying update** and the device **reboots in a loop**, the Lockbox is not completing a connection to the dashboard (or is retrying a firmware update). This is different from a brief yellow flash at cold boot, which usually turns green within about two minutes—see [Symbols](/lkbx/using/symbols#status-indicator-flashing-yellow).
+
+**Try these steps in order:**
+
+1. **Stay on power and Wi‑Fi** — Keep the device plugged in and on your network. On boot it may need time to download or apply an update. Avoid using **Restart** or a hard reset while **Applying update** is visible unless [support](mailto:support@researchanddesire.com) tells you to; interrupting an update can require USB recovery ([Restarting your device](/lkbx/device-states/restarting)).
+2. **Hard reboot with resync** — If the device is responsive but stuck, use a [hard reboot with resync](/lkbx/technical/button-controls#hard-reboot-with-resync): press and hold **Enter/Lock** for 10 seconds, then release. Use **Enter/Lock only**—do not hold the Back button at the same time.
+3. **Reinstall firmware** — If the yellow indicator never stabilizes, or the reboot loop continues after a long wait on Wi‑Fi, install the current stable release with the [web flasher](/lkbx/support/flashing). Leave **Erase device** unchecked unless you want a full factory reset.
+4. **Screen stays off after a long hold** — Holding **Enter/Lock** for 10 seconds can leave the device in **bootloader mode** (screen may stay off while USB still connects). Connect the Lockbox to a computer with a data-capable USB‑C cable and follow [My Lockbox won't turn on](/lkbx/faqs#my-lockbox-wont-turn-on) to recover with the web flasher.
+
+<Note>
+Temporary **service or connectivity issues** between your Lockbox and our servers can produce the same symptoms as a local Wi‑Fi problem—even when the Wi‑Fi icon looks fine. If you have waited well past two minutes with no solid green dot, or support confirms a known incident, follow their guidance or email [support@researchanddesire.com](mailto:support@researchanddesire.com) with what you see on screen.
+</Note>
+
+---
+
 ## WiFi works but pairing won't complete
 
 Your router's device list (or USB serial output if you use developer tools) may show the Lockbox connected to Wi‑Fi with a valid IP address, but pairing still never finishes, or the device cannot complete requests to the dashboard. That usually means the device is online at layer 2–3 but something is wrong with HTTPS traffic or firmware—not a bad Wi‑Fi password or 2.4 GHz vs 5 GHz mix-up.
