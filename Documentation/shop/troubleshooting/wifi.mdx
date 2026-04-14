@@ -168,6 +168,7 @@ Use these advanced checks to resolve stubborn issues.
 <AccordionGroup>
 <Accordion title="Router and access point settings">
 - Split 2.4 GHz and 5 GHz into separate SSIDs; disable band steering while testing.
+- **Mesh and whole-home WiFi** — Systems that use one SSID for multiple bands or move clients between nodes can block stable 2.4 GHz use or cause pairing and dashboard sync issues after router or mesh firmware updates (similar patterns sometimes appear with other R+D devices on complex networks). If Wi‑Fi looks fine on the device but pairing or sync fails, try a **dedicated 2.4 GHz network name**, a **guest or IoT VLAN** with internet access, or the **mobile hotspot** test in the steps above.
 - Security: use WPA2‑PSK (AES) or WPA2/WPA3 mixed. Avoid WPA3‑only, WEP, or WPA‑TKIP.
 - Channel width: set 2.4 GHz to 20 MHz; use channels 1, 6, or 11 to reduce interference.
 - Make sure DHCP is enabled and your network does not require static IP configuration for clients.
