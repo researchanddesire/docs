@@ -194,10 +194,7 @@ Use a high‑quality, UL‑certified power supply. Low‑quality supplies often 
 
 ### Back‑EMF Protection
 
-The PCB includes built‑in protection against regenerative voltage spikes:
-
-- Inline diode to protect the power supply from reverse current
-- 1500 µF capacitor to handle regenerative energy
+Reference boards include protection against regenerative voltage spikes, including an inline diode to protect the power supply from reverse current. **OSSM Electronics Board V2.3 and newer** also include a **1500 µF bulk capacitor** on the board for regenerative energy. **Earlier PCB revisions (V2.2 and older)** do **not** include that part; if you use a **Gold Motor (57AIM)** with those boards, add an external **1500 µF (minimum 50V)** as described under **PCB Compatibility** in [Standard Build Motor](/ossm/Hardware/motor/standard-build-motor).
 
 ## Related guides
 

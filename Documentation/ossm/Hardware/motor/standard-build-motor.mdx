@@ -60,16 +60,26 @@ Motors from third-party suppliers require programming before use. See the [progr
 
 ## PCB Compatibility
 
-The Gold Motor's improved efficiency generates more regenerative power during certain motion conditions, requiring additional capacitance on the PCB.
+The Gold Motor's improved efficiency generates more regenerative power during certain motion conditions, requiring additional capacitance on the DC bus. **OSSM Electronics Board V2.3 and newer** include that capacitance on the PCB. If your kit included a **V2.3** (or newer) board, you **do not** add a second bulk capacitor for a standard Gold Motor upgrade.
 
-| PCB Version | Compatibility |
-|-------------|---------------|
-| V2.3 or newer | Fully compatible, capacitor included |
-| V2.2 | Compatible with simple PH-4 cable wiring |
-| Older than V2.2 | Requires soldering wires to 10-pin header |
+| PCB Version | Gold Motor notes |
+|-------------|------------------|
+| **V2.3 or newer** | Bulk capacitor **on the board**—no external 1500µF needed |
+| **V2.2** | Use PH-4 signal wiring as usual; **still add** an external **1500µF (min 50V)** (see below)—this revision does not include the V2.3 bulk cap |
+| **Older than V2.2** (e.g. V2.1) | **Add** the external **1500µF**; signal wiring may use the 10-pin header instead of PH-4 |
+
+### Identifying your PCB version
+
+Check the **silkscreen text on the PCB** (often near the board edge, logo, or revision block). Look for labels such as **V2.1**, **V2.2**, or **V2.3**. Packaging or kit paperwork may repeat the same version if you still have it.
+
+### Adding the 1500µF capacitor (PCB older than V2.3)
+
+Use an **electrolytic 1500µF (minimum 50V)** rated for the motor supply. Mount it **in parallel with the 24V motor power** at the OSSM board: **positive** to the **+** motor power screw terminal and **negative** to the **−** terminal—the **same two terminals** used for the motor’s red (+) and black (−) power wires in [Wiring Your Gold Motor](/ossm/Hardware/motor/wiring-gold-motor). That places bulk capacitance on the DC bus where regenerative energy returns. **Respect polarity**; reverse polarity can destroy the capacitor or create a hazard.
+
+If both motor leads and the capacitor need to land on the same terminals, combine the stranded wires with the capacitor leads in the screw terminals (or use a short splice), then tighten fully.
 
 <Warning>
-If using a PCB older than V2.3, add a **1500µF capacitor (minimum 50V)** to handle regenerative braking. Without this capacitor, voltage spikes may damage your electronics.
+Without this capacitor on **pre-V2.3** boards, voltage spikes during braking can damage your electronics—especially at higher speeds and forces.
 </Warning>
 
 ## Technical Specifications
