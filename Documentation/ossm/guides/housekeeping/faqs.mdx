@@ -41,8 +41,9 @@ The 2.5 lb (1.1 kg) maximum toy weight is a **conservative recommendation for re
 - **Belt wear and slippage:** Additional weight increases the load on the timing belt, especially at higher speeds
 - **Printed part durability:** Standard PLA or PETG parts may experience faster wear or creep under sustained heavy loads
 - **Cantilever stress:** The toy extends from the end-effector, creating a lever arm that amplifies forces on the rail carriage and bearings
+- **Static load on the actuator:** The toy’s weight applies downward force on the cantilevered actuator. Sustained use well above the recommendation increases stress that can damage the actuator over time. **This is not the same as motor torque**—a more powerful motor does not raise the maximum **mass** the stock mechanical system is rated to support.
 
-**If you want to exceed the recommendation:**
+**If you want to exceed the recommendation (DIY / community):**
 
 - Print load-bearing parts in stronger materials (PETG, ABS, polycarbonate, or nylon)
 - Use the pitclamp system for improved rigidity
@@ -50,7 +51,11 @@ The 2.5 lb (1.1 kg) maximum toy weight is a **conservative recommendation for re
 - Reduce maximum speed to lower inertial forces during direction changes
 - Ensure proper belt tension and rail alignment
 
-The motor itself can handle significantly more—the spec reflects safe operating margins for the full mechanical system under typical use. Community members have experimented with heavier setups; join the Kinky Makers Discord to discuss modifications and real-world results.
+<Note>
+**Motor torque vs toy mass:** A stronger motor helps maintain motion under **resistance** during stroking (dense silicone, muscle pressure, tight fits). Research & Desire does **not** offer an upgrade that increases the recommended maximum toy **weight** above 2.5 lb (1.1 kg). Ready-to-Play [custom motor options](/ossm/guides/getting-started/ready-to-play/spec-sheet#custom-order-options) address demanding motion, not a higher mass rating.
+</Note>
+
+The published limit reflects safe operating margins for the **full** mechanical system (mount, belt, printed parts, actuator), not motor torque alone. Community members have experimented with heavier setups at their own risk; join the Kinky Makers Discord to discuss modifications and real-world results.
 
 <DiscordInvite community="kinky-makers" />
 </Accordion>
