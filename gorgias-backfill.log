@@ -2104,3 +2104,34 @@ Tickets to process (loops): 192
   [2mProduct:[0m [35mOSSM[0m
   [2mContact Reason:[0m Order::Status
   [32m[1m📝 Result: Documentation CREATED/UPDATED[0m
+  [32m✓ Changes committed[0m
+  [2mAdding tag: [36mnew-docs-made[0m
+  [32m✓ Tag added successfully[0m
+
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+[1m[37m📊 SUMMARY[0m
+[1m[37m════════════════════════════════════════════════════════════════════════════════[0m
+
+  [36mTotal tickets analyzed:[0m      [1m1[0m
+  [32mDocumentation created/updated:[0m [1m[32m1[0m
+  [33mNo documentation needed:[0m       [1m0[0m
+
+[32m[1m📝 Tickets with new docs:[0m
+  [32m•[0m [33m#259765954[0m: Fwd: A shipment from order #5886 is on the way
+
+
+========== [16/192] ticket #259719651 ==========
+
+> open-source-sex-machine@1.0.0 ossm /Users/aj/RAD/docs/Documentation
+> node ./_scripts/run.js gorgias-tickets --analyze --ticket-id 259719651
+
+
+[35m[1m🔍 Analyzing 1 tickets for documentation gaps...[0m
+
+
+[34m────────────────────────────────────────────────────────────────────────────────[0m
+[1m[1/1][0m [36mAnalyzing Ticket [33m#259719651[0m
+  [2mSubject:[0m Motor flashing confusion
+  [2mProduct:[0m [35mOSSM[0m
+  [2mContact Reason:[0m Pre-sale::Product question
+  [32m[1m📝 Result: Documentation CREATED/UPDATED[0m
