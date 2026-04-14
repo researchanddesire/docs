@@ -71,13 +71,17 @@ The password must be between 8 and 63 characters. Passwords shorter than 8 chara
 </Step>
 
 <Step title="Save and connect">
-Click the **Save & Connect** button. The OSSM will attempt to connect to your WiFi network.
+Click the **Save & Connect** button (the label may also appear as **Save & Continue** or **Save**, depending on the tool version). The OSSM will attempt to connect to your WiFi network.
 
 The status indicator will display:
 - **✓ Connected** — Successfully connected to WiFi
 - **○ Not Connected** — Connection failed or still attempting
 
 If connected, you'll see your network SSID, IP address, and signal strength (RSSI).
+
+<Note>
+If clicking save has **no effect** (no status change, no error), see [Web BLE WiFi: save button does nothing](#web-ble-wifi-save-button-does-nothing)—you can still provision WiFi using the dashboard or the wired-remote captive portal.
+</Note>
 </Step>
 </Steps>
 
@@ -166,6 +170,30 @@ If your OSSM repeatedly fails to connect:
 - Check that your router allows new device connections (some routers have device limits)
 - Try moving your OSSM closer to your router to improve signal strength
 - Reset WiFi credentials (long press on WiFi Setup) and try again
+</Accordion>
+
+<div id="web-ble-wifi-save-button-does-nothing" />
+
+<Accordion title="Web BLE WiFi: save button does nothing">
+You entered a 2.4GHz SSID and a password between **8 and 63** characters, paired over Bluetooth, and the **Save**, **Save & Connect**, or **Save & Continue** control appears to do nothing across Chrome, Edge, Brave, or Opera—no status update and no error.
+
+**What is going on**
+
+WiFi provisioning from the browser has been unreliable for some OSSM firmware builds; this is a **known class of issues** the team tracks. It is not always something you can fix by retyping the password.
+
+**Try these in order**
+
+1. **Dashboard pairing (no wired remote required)** — From **Chrome or Edge** on a desktop, open the Research & Desire dashboard → **Settings → Devices** → **Pair OSSM** and use **Auto (Bluetooth)**. If the OSSM is not online, the flow sends SSID and password to the device over BLE (separate from the Web Controller WiFi form). See [Automatic Pairing via Bluetooth](/ossm/guides/getting-started/ble-pairing).
+
+2. **Wired remote captive portal** — If you can connect a **wired remote**, use [Option 2: Wired Remote](#option-2-wired-remote-captive-portal) (OSSM Setup / `192.168.4.1`).
+
+3. **Firmware** — Install the latest stable build with the [Web Flasher](/ossm/tools/web-flasher) over USB-C, then retry step 1 or the Web Controller form.
+
+4. **Support** — If the device still cannot join WiFi, email [support@researchanddesire.com](mailto:support@researchanddesire.com) with your **order number** and what you tried.
+
+<Tip>
+Brave and Opera include Web Bluetooth but can behave differently from Chrome. If the save control still does nothing in those browsers, try **Chrome or Edge** for the dashboard pairing flow in step 1.
+</Tip>
 </Accordion>
 
 <Accordion title="How do I check if WiFi is working?">
