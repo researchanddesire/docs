@@ -113,6 +113,41 @@ After programming, the motor should home at a reasonable speed. If problems pers
 </Step>
 </Steps>
 
+---
+
+## Homing position or depth feels backwards
+
+These symptoms are easy to confuse: **where the carriage stops after homing**, **which way “depth” should move the rail**, and **whether the homing motion sequence itself is reversed**.
+
+<AccordionGroup>
+<Accordion title="After homing, the carriage sits at one end of the rail (looks 'fully extended')">
+OSSM learns its usable travel during homing; when the sequence **completes successfully**, the **resting position** may be toward the motor, toward the tensioner, or in between depending on firmware and timing. **A particular end position is not, by itself, proof that the belt was assembled backward.**
+
+If the **first** motion during homing matches the [initial test](/ossm/guides/getting-started/build-guide/step-12.0_initial_test) expectation (threaded end **extends slightly, then retracts** to the reference), direction is usually correct. If the actuator **retracts first and then extends**, that indicates **reversed motor wiring**—DIY builders should follow [Motor Wiring](/ossm/Hardware/motor/wiring-gold-motor). **Ready-to-Play** units should not be rewired at home; contact [support](mailto:support@researchanddesire.com).
+</Accordion>
+
+<Accordion title="Increasing depth moves the wrong way, or the remote does not match the machine">
+If homing completes normally but **depth**, **stroke**, or **speed** do not match what you set on the remote (for example depth “up” moves the machine the opposite of what you expect), treat this as a **firmware or remote communication** issue:
+
+1. **Power cycle** the OSSM and complete homing again.
+2. **Update firmware** on both the OSSM board and the RADR (if applicable) using the [Web Flasher](/ossm/tools/web-flasher) and [RADR quick start](/research-and-desire-remote/quick-start), then re-pair.
+
+Erratic or inverted parameters are covered in more detail under [Firmware updates, frozen remote, or unexpected stroke depth](#firmware-updates-frozen-remote-or-unexpected-stroke-depth).
+
+<Tip>
+Close other apps that might be using USB serial before flashing the OSSM from a browser. If the flasher reports the serial port is busy, unplug other USB devices, quit slicers or serial monitors, and retry.
+</Tip>
+</Accordion>
+
+<Accordion title="Videos mention switches on the motor or reversing homing side">
+Some **DIY** instructions or videos refer to **DIP switches** or other settings on the servo drive. Research & Desire motors are configured for OSSM at the factory. **Do not change** motor DIP positions or drive parameters on a Ready-to-Play unit unless support instructs you to.
+
+If you sourced your own motor for a DIY build, use [Programming Your Motor](/ossm/Hardware/motor/programming) and [Motor Wiring](/ossm/Hardware/motor/wiring-gold-motor) instead of guessing switch positions.
+</Accordion>
+</AccordionGroup>
+
+---
+
 ## Controller powers on but actuator does not move
 
 When the controller turns on but the actuator remains stationary, the issue is typically related to power delivery, wiring, or belt tension.
