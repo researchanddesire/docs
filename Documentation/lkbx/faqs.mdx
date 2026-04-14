@@ -506,7 +506,7 @@ If the device still doesn't respond after flashing, contact <a href="mailto:supp
 <Accordion title="My lock randomly unlocks or doesn't sync properly">
   If your Lockbox unlocks unexpectedly or lock commands from the dashboard aren't being applied correctly, the device and server may be out of sync. A hard reboot forces the device to pull the latest lock state from the server.
 
-  If the dashboard and device disagree **both ways**—for example, locking locally does not update the website, and locking from the website does not engage the lock on the device—see [Severe bidirectional desync](/lkbx/support/connectivity-troubleshooting#severe-bidirectional-desync). That flow may require reflashing after resets, re-pairing, and over-the-air updates have already been tried.
+  If the dashboard and device disagree in **one or both directions**—for example locking from the website does not engage the lock on the device (even when the Wi‑Fi icon looks connected), or locking locally does not update the website—see [Severe bidirectional desync](/lkbx/support/connectivity-troubleshooting#severe-bidirectional-desync). That flow may require reflashing after resets, re-pairing, and over-the-air updates have already been tried.
 
   <Card title="Connectivity Troubleshooting" icon="wifi" href="./support/connectivity-troubleshooting#lock-randomly-unlocks-or-doesnt-sync">
     Step-by-step sync troubleshooting guide.
@@ -526,7 +526,7 @@ If the device still doesn't respond after flashing, contact <a href="mailto:supp
 </Accordion>
 
 <Accordion title="My keyholder started or changed a lock, but the device only behaved correctly after I restarted">
-  When the dashboard (or your keyholder) updates an active session, the Lockbox usually applies changes within seconds while online. If the device seems wrong or unchanged until you power cycle or use a hard reset, treat it as a **sync** issue first: perform a [hard reboot with resync](/lkbx/technical/button-controls#hard-reboot-with-resync), then follow [Connectivity Troubleshooting](/lkbx/support/connectivity-troubleshooting#lock-randomly-unlocks-or-doesnt-sync) if it keeps happening.
+  When the dashboard (or your keyholder) updates an active session, the Lockbox usually applies changes within seconds while online. If the device seems wrong or **never** engages the lock at all, or only behaves correctly after you power cycle or use a hard reset, treat it as a **sync** issue first: perform a [hard reboot with resync](/lkbx/technical/button-controls#hard-reboot-with-resync), then follow [Connectivity Troubleshooting](/lkbx/support/connectivity-troubleshooting#lock-randomly-unlocks-or-doesnt-sync) if it keeps happening.
 
   **If the lock screen shows little or no timer text while a session is active:** your keyholder may have turned on [Hide Display Time](/lkbx/using/hiding-time), which hides the countdown on purpose. If Wi‑Fi is unavailable, the device may show [limited time text until it reconnects](/lkbx/technical/offline-mode#scenario-2-starting-lock-without-wifi)—the session still runs.
 
