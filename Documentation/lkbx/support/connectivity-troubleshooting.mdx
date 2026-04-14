@@ -60,8 +60,17 @@ If your Lockbox unlocks unexpectedly or lock commands from the dashboard aren't 
 
 Perform a [hard reboot with resync](/lkbx/technical/button-controls#hard-reboot-with-resync) by pressing and holding the **Enter/Lock** button for 10 seconds. This forces the device to restart, reconnect to WiFi, and pull the latest lock state from the server.
 
+### Severe bidirectional desync
+
+Rarely, the Lockbox and dashboard can stay out of sync **both ways** for more than a brief moment:
+
+- You lock or unlock **on the device**, but the **dashboard does not** update to match.
+- You start a lock **from the dashboard** (timer and UI behave normally), but the **Lockbox does not** physically engage.
+
+If you have already tried a hard reboot with resync, power-cycling, re-pairing, and leaving the device online long enough to install an automatic firmware update, reinstalling the current stable release with the [web flasher](/lkbx/support/flashing) often clears this. If the behavior continues after flashing, contact [support@researchanddesire.com](mailto:support@researchanddesire.com).
+
 <Note>
-If the issue persists after resyncing, contact [support@researchanddesire.com](mailto:support@researchanddesire.com) with your username and a description of the behavior.
+For ordinary one-way sync glitches, contact [support@researchanddesire.com](mailto:support@researchanddesire.com) if resyncing does not help. For bidirectional desync, try the steps above (including flashing) before escalating, unless you need immediate assistance.
 </Note>
 
 ---
@@ -93,6 +102,7 @@ Contact [support@researchanddesire.com](mailto:support@researchanddesire.com) if
 - Your lock session is stuck and your keyholder cannot abandon it
 - You removed your keyholder during an active session and your lock is stuck (support can abandon the lock on your behalf)
 - The dashboard consistently shows incorrect lock state after multiple resync attempts
+- **Bidirectional desync** (dashboard commands do not reach the Lockbox *and* local lock state does not update the dashboard) continues after you follow [Severe bidirectional desync](#severe-bidirectional-desync), including reflashing
 - Pairing fails after following [the pairing guide](/lkbx/quick-start/pairing) and [WiFi works but pairing won't complete](/lkbx/support/connectivity-troubleshooting#wifi-works-but-pairing-wont-complete) — including confirming WiFi, using the current pairing code, trying automatic pairing in Chrome or Edge if possible, and updating firmware if Wi‑Fi is confirmed but HTTPS to the dashboard still fails
 
 Include your account email, a description of the issue, and what you've already tried.

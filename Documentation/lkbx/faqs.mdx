@@ -493,6 +493,8 @@ If the device still doesn't respond after flashing, contact <a href="mailto:supp
 <Accordion title="My lock randomly unlocks or doesn't sync properly">
   If your Lockbox unlocks unexpectedly or lock commands from the dashboard aren't being applied correctly, the device and server may be out of sync. A hard reboot forces the device to pull the latest lock state from the server.
 
+  If the dashboard and device disagree **both ways**—for example, locking locally does not update the website, and locking from the website does not engage the lock on the device—see [Severe bidirectional desync](/lkbx/support/connectivity-troubleshooting#severe-bidirectional-desync). That flow may require reflashing after resets, re-pairing, and over-the-air updates have already been tried.
+
   <Card title="Connectivity Troubleshooting" icon="wifi" href="./support/connectivity-troubleshooting#lock-randomly-unlocks-or-doesnt-sync">
     Step-by-step sync troubleshooting guide.
   </Card>
