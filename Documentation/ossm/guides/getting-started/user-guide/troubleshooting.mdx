@@ -626,6 +626,25 @@ Normal OSSM operation produces quiet mechanical sounds from the motor and belt d
 
 If your board made unusual electronic noises on first power-up and is now unresponsive to flashing attempts, contact support with a description of what you observed. This helps identify potential batch issues.
 </Accordion>
+
+<Accordion title="Motor power reads far below supply voltage at the board input">
+**Symptoms:**
+- You measure **correct DC voltage at the barrel jack** (or board power input)—for example ~24V or ~36V, matching your supply
+- At the **motor’s main DC power terminals** on the board (the large screw terminals that feed the motor), the voltage reads **much lower** than the input—for example only ~10–12V when you are using a 24V or 36V supply
+- Motor does not run or cannot be programmed; motor or board LEDs may flash or behave erratically
+
+**What this indicates:**
+
+The servo driver is powered from the same rail as the input in normal operation. A **large, persistent gap** between input voltage and the motor DC power measurement—after the barrel jack is fully seated and polarity is correct—often points to a **fault on the control board** (for example the motor power path), not a misconfigured motor.
+
+<Note>
+Servo drives use **PWM**, so a multimeter at the motor terminals shows an **average** that can vary with firmware state and how you probe. If input voltage at the jack is healthy but motor rail readings stay far below it across power cycles and you cannot complete programming or homing, treat it as a hardware issue rather than a tuning problem.
+</Note>
+
+**Resolution:**
+
+Contact [support](mailto:support@researchanddesire.com) with your **order number**, **power supply specs** (voltage, current, barrel size), and **both** measurements (input jack vs motor DC terminals). If the board is defective, support can arrange a **replacement**—see [Warranty and Support](/ossm/guides/housekeeping/faqs#warranty-and-support) for how R+D handles component defects.
+</Accordion>
 </AccordionGroup>
 
 ---
