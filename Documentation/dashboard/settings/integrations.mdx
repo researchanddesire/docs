@@ -30,6 +30,7 @@ automatically.
 | Lock ended on Chaster     | Chaster → R&D | Ends the lock session on your dashboard  |
 | Lock ended on R&D         | R&D → Chaster | Archives the lock on Chaster             |
 | Time added/removed (vote) | Both ways     | Keeps the timer in sync                  |
+| Freeze / unfreeze         | Chaster → R&D | Keeps remaining time aligned with Chaster |
 | Hygiene break started     | Chaster → R&D | Unlocks the lockbox for the break        |
 | Hygiene break ended       | Chaster → R&D | Re-locks the lockbox after the break     |
 
@@ -89,6 +90,13 @@ Two options are available:
   Break start/end events are controlled by Chaster. You cannot start a hygiene
   break from the R&D dashboard for a Chaster-controlled session.
 </Accordion>
+
+  <Accordion title="Does freeze on Chaster affect my Lockbox timer?">
+    Yes. **Freeze** and **unfreeze** on Chaster are separate from add/remove time
+    votes, but they update Chaster's remaining lock duration. Those updates
+    sync to Research & Desire, so your dashboard and Lockbox **stay aligned with
+    Chaster's remaining time** while frozen or after you unfreeze.
+  </Accordion>
 
   <Accordion title="Some Chaster extensions are not synced">
     Only time changes, hygiene breaks, and voting events are synced. Other
