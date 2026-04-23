@@ -3,28 +3,6 @@ title: "Bill of Materials"
 description: "Complete hardware list for building the standard OSSM with stand"
 ---
 
-import { 
-  standPrintedParts, 
-  standExtrusions, 
-  standHardwareBag1, 
-  standHardwareBag2, 
-  standHardwareBag3,
-  standAccessories 
-} from '/snippets/ossm/bom/stand-bom.mdx';
-
-import { 
-  actuatorPrintedParts,
-  actuatorM3Hardware,
-  actuatorM4Hardware,
-  actuatorM5Hardware,
-  actuatorM6Hardware,
-  actuatorBearings,
-  actuatorLinearMotion,
-  actuatorMotor
-} from '/snippets/ossm/bom/actuator-bom.mdx';
-
-import { BOMTable, ExtrusionTable } from '/snippets/ossm/bom/bom-table.jsx';
-
 This page contains the complete bill of materials for building a standard OSSM with the 3030 extrusion stand.
 
 <Info>
@@ -37,11 +15,15 @@ The actuator is the core linear motion assembly of the OSSM.
 
 ### Motor
 
-<BOMTable items={actuatorMotor} />
+| Quantity | Part |
+|----------|------|
+| 1 | 57AIM30 Gold Motor |
 
 ### Linear Motion
 
-<BOMTable items={actuatorLinearMotion} />
+| Quantity | Part |
+|----------|------|
+| 1 | MGN12H Linear Rail (350mm suggested) |
 
 <Info>
 Calculate your rail length using this formula: **desired maximum stroke + 180mm**. A 350mm rail is suggested for most builds.
@@ -56,27 +38,58 @@ Calculate your rail length using this formula: **desired maximum stroke + 180mm*
 
 ### Bearings
 
-<BOMTable items={actuatorBearings} />
+| Quantity | Part |
+|----------|------|
+| 6 | MR115-2RS 5x11x4mm Ball Bearing |
 
 ### M3 Hardware
 
-<BOMTable items={actuatorM3Hardware} />
+| Quantity | Part |
+|----------|------|
+| 18 | M3x8mm Socket Cap Head Screw |
+| 3 | M3x20mm Socket Cap Head Screw |
+| 10 | M3 Hex Nut |
 
 ### M4 Hardware
 
-<BOMTable items={actuatorM4Hardware} />
+| Quantity | Part |
+|----------|------|
+| 2 | M4x25mm Socket Cap Head Screw |
+| 3 | M4 Hex Nut |
 
 ### M5 Hardware
 
-<BOMTable items={actuatorM5Hardware} />
+| Quantity | Part |
+|----------|------|
+| 6 | M5x20mm Socket Cap Head Screw |
+| 4 | M5x35mm Socket Cap Head Screw |
+| 8 | M5 Hex Nut |
 
 ### M6 Hardware
 
-<BOMTable items={actuatorM6Hardware} />
+| Quantity | Part |
+|----------|------|
+| 2 | M6x16mm Socket Cap Head Screw |
+| 2 | M6 T-Nut (3030 profile) |
 
 ### Printed Parts
 
-<BOMTable items={actuatorPrintedParts} />
+| Quantity | Part |
+|----------|------|
+| 1 | OSSM - Body - Middle |
+| 1 | OSSM - Body - Lower |
+| 1 | OSSM - Belt Clamp - Tensioner |
+| 1 | OSSM - Belt Clamp - Top |
+| 1 | OSSM - Belt Clamp - Bottom |
+| 1 | OSSM - Body - Cover |
+| 1 | OSSM - 24mm Jam Nut |
+| 1 | OSSM - PCB Mount Base |
+| 1 | OSSM - PCB Mount Lid |
+| 1 | 57AIM Ring v1.1 |
+| 1 | PitClamp v1.1 Lower Standard |
+| 1 | PitClamp v1.1 Upper + Handle |
+| 1 | PitClamp Dogbones Hex |
+| 1 | PitClamp Dogbones Round |
 
 ---
 
@@ -86,23 +99,41 @@ The stand provides a stable, adjustable mounting platform for the OSSM.
 
 ### Aluminum Extrusion
 
-<ExtrusionTable items={standExtrusions} />
+| Quantity | Length | Profile |
+|----------|--------|---------|
+| 2 | 12" | 3030 |
+| 1 | 18" | 3030 |
+| 1 | 19.5" | 3030 |
 
 ### Hardware - Bag 1
 
-<BOMTable items={standHardwareBag1} />
+| Quantity | Part |
+|----------|------|
+| 14 | M6x12 Socket Cap Head Screw |
+| 6 | M6x25 Socket Cap Head Screw |
+| 16 | M6 Washer |
+| 24 | M6 T-Nut (3030 profile) |
 
 ### Hardware - Bag 2
 
-<BOMTable items={standHardwareBag2} />
+| Quantity | Part |
+|----------|------|
+| 2 | M6x25mm Handle |
 
 ### Hardware - Bag 3
 
-<BOMTable items={standHardwareBag3} />
+| Quantity | Part |
+|----------|------|
+| 4 | 90 Degree 3030 Corner Bracket |
+| 2 | Rubber Washer |
+| 4 | Non-Slip Furniture Pad (Grippy Feet) |
+| 6 | 3030 End Cap |
 
 ### Accessories
 
-<BOMTable items={standAccessories} />
+| Quantity | Part |
+|----------|------|
+| 1 | Sandbag |
 
 <Note>
 A sandbag is recommended to add weight and stability to the stand during operation.
@@ -110,7 +141,13 @@ A sandbag is recommended to add weight and stability to the stand during operati
 
 ### Printed Parts
 
-<BOMTable items={standPrintedParts} />
+| Quantity | Part |
+|----------|------|
+| 1 | OSSM Pivot Plate 1 |
+| 1 | OSSM Pivot Plate 2 |
+| 8 | OSSM Handle Spacer |
+| 4 | OSSM Foot |
+| 2 | OSSM T Nut Support |
 
 ---
 

@@ -3,18 +3,6 @@ title: "Overview"
 description: "Print settings, bill of materials, and assembly instructions for the OSSM actuator"
 ---
 
-import { 
-  actuatorPrintedParts,
-  actuatorM3Hardware,
-  actuatorM4Hardware,
-  actuatorM5Hardware,
-  actuatorM6Hardware,
-  actuatorBearings,
-  actuatorLinearMotion,
-  actuatorMotor
-} from '/snippets/ossm/bom/actuator-bom.mdx';
-import { BOMTable } from '/snippets/ossm/bom/bom-table.jsx';
-
 <Frame>
   ![OSSM Actuator overview showing the assembled linear actuator](<../_images/Overview - Actuator Default.webp>)
 </Frame>
@@ -46,7 +34,22 @@ The OSSM linear actuator converts rotary motor motion into linear thrust via a G
 
 ## Printed Parts
 
-<BOMTable items={actuatorPrintedParts} />
+| Quantity | Part |
+|----------|------|
+| 1 | OSSM - Body - Middle |
+| 1 | OSSM - Body - Lower |
+| 1 | OSSM - Belt Clamp - Tensioner |
+| 1 | OSSM - Belt Clamp - Top |
+| 1 | OSSM - Belt Clamp - Bottom |
+| 1 | OSSM - Body - Cover |
+| 1 | OSSM - 24mm Jam Nut |
+| 1 | OSSM - PCB Mount Base |
+| 1 | OSSM - PCB Mount Lid |
+| 1 | 57AIM Ring v1.1 |
+| 1 | PitClamp v1.1 Lower Standard |
+| 1 | PitClamp v1.1 Upper + Handle |
+| 1 | PitClamp Dogbones Hex |
+| 1 | PitClamp Dogbones Round |
 
 <AccordionGroup>
   <Accordion title="Troubleshooting: 24mm Clamping Thread">
@@ -62,9 +65,10 @@ The OSSM linear actuator converts rotary motor motion into linear thrust via a G
 
 ### Motor and Linear Rail
 
-<BOMTable items={actuatorMotor} />
-
-<BOMTable items={actuatorLinearMotion} />
+| Quantity | Part |
+|----------|------|
+| 1 | 57AIM30 Gold Motor |
+| 1 | MGN12H Linear Rail (350mm suggested) |
 
 <Info>
   Calculate your rail length: **desired maximum stroke + 180mm**.

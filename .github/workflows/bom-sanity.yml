@@ -1,0 +1,109 @@
+name: Daily BOM Sanity Check
+
+# Runs cursor-agent (opus-4.7 thinking-high, 1M context) once per day to
+# cross-check the OSSM bills of materials in this repo against the
+# source-of-truth KinkyMakers/OSSM-hardware repo. If the agent finds
+# inconsistencies, it edits the BOM mdx files in place and a PR is opened
+# with the proposed fixes.
+#
+# Required repository secret (Settings -> Secrets and variables -> Actions):
+#   CURSOR_API_KEY - API key for the cursor-agent CLI.
+
+on:
+  schedule:
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: bom-sanity
+  cancel-in-progress: false
+
+jobs:
+  bom-sanity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout docs repo
+        uses: actions/checkout@v4
+
+      - name: Checkout OSSM source-of-truth repo
+        uses: actions/checkout@v4
+        with:
+          repository: KinkyMakers/OSSM-hardware
+          ref: master
+          path: ossm-context
+          fetch-depth: 1
+
+      - name: Install cursor-agent
+        run: |
+          curl https://cursor.com/install -fsSL | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Verify cursor-agent
+        run: cursor-agent --version
+
+      - name: Run BOM sanity-check agent
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+        run: |
+          set -o pipefail
+          cursor-agent \
+            --print \
+            --force \
+            --trust \
+            --model claude-opus-4-7-thinking-high \
+            --output-format text \
+            "$(cat .github/prompts/bom-sanity.md)" \
+            | tee bom-report.txt
+
+      - name: Summarize findings
+        id: summary
+        run: |
+          if grep -q '"status":"ok"' bom-report.txt; then
+            echo "status=ok" >> "$GITHUB_OUTPUT"
+            echo "BOMs look reasonable. No PR needed."
+          else
+            echo "status=issues" >> "$GITHUB_OUTPUT"
+            echo "Agent did not confirm ok - will open PR if files were modified."
+          fi
+          # Strip the OSSM checkout so it never accidentally lands in the PR.
+          # bom-report.txt is left on disk for the artifact upload; peter-evans
+          # only commits files under the `add-paths` filter below.
+          rm -rf ossm-context
+
+      - name: Open PR with agent's fixes
+        if: steps.summary.outputs.status == 'issues'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: bot/bom-sanity-check
+          base: main
+          commit-message: "chore(bom): daily sanity-check fixes from cursor-agent"
+          title: "Daily BOM sanity check: review proposed fixes"
+          body: |
+            Automated daily BOM sanity check.
+
+            - Model: `claude-opus-4-7-thinking-high` (Opus 4.7, 1M thinking)
+            - Context: this repo + [`KinkyMakers/OSSM-hardware@master`](https://github.com/KinkyMakers/OSSM-hardware/tree/master)
+            - Workflow: [`.github/workflows/bom-sanity.yml`](.github/workflows/bom-sanity.yml)
+            - Prompt: [`.github/prompts/bom-sanity.md`](.github/prompts/bom-sanity.md)
+
+            Review the diff carefully before merging - the agent can be wrong.
+            The full agent transcript is attached to the workflow run as the
+            `bom-report` artifact.
+          add-paths: |
+            Documentation/ossm/**
+          delete-branch: true
+          sign-commits: false
+
+      - name: Upload agent report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bom-report
+          path: bom-report.txt
+          if-no-files-found: ignore
