@@ -1,0 +1,123 @@
+name: Daily Broken Link Fix
+
+# Runs `mint broken-links` once per day. If any broken internal links are
+# found, hands the list to cursor-agent (opus-4.7 thinking-high) and lets
+# it try to fix them in place. Proposed fixes are opened as a PR for review.
+#
+# Required repository secret:
+#   CURSOR_API_KEY - API key for the cursor-agent CLI.
+
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: broken-links
+  cancel-in-progress: false
+
+jobs:
+  broken-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout docs repo
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+          cache-dependency-path: Documentation/pnpm-lock.yaml
+
+      - name: Install docs dependencies
+        working-directory: Documentation
+        run: pnpm install
+
+      - name: Collect broken links
+        id: collect
+        working-directory: Documentation
+        run: |
+          set +e
+          pnpm mint:broken-links 2>&1 | tee ../broken-links.txt
+          EXIT_CODE=${PIPESTATUS[0]}
+          set -e
+          if [ "$EXIT_CODE" -eq 0 ]; then
+            echo "has_broken=false" >> "$GITHUB_OUTPUT"
+            echo "No broken links found."
+          else
+            echo "has_broken=true" >> "$GITHUB_OUTPUT"
+            echo "Broken links found (mint exited $EXIT_CODE) - handing to the agent."
+          fi
+
+      - name: Install cursor-agent
+        if: steps.collect.outputs.has_broken == 'true'
+        run: |
+          curl https://cursor.com/install -fsSL | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Verify cursor-agent
+        if: steps.collect.outputs.has_broken == 'true'
+        run: cursor-agent --version
+
+      - name: Run broken-link fixer agent
+        if: steps.collect.outputs.has_broken == 'true'
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+        run: |
+          set -o pipefail
+          cursor-agent \
+            --print \
+            --force \
+            --trust \
+            --model claude-opus-4-7-thinking-high \
+            --output-format text \
+            "$(cat .github/prompts/broken-links-fix.md)" \
+            | tee agent-report.txt
+
+      - name: Open PR with agent's fixes
+        if: steps.collect.outputs.has_broken == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: bot/broken-link-fix
+          base: main
+          commit-message: "chore(docs): daily broken-link fixes from cursor-agent"
+          title: "Daily broken-link fix: review proposed edits"
+          body: |
+            Automated daily broken-link fixer.
+
+            - Model: `claude-opus-4-7-thinking-high` (Opus 4.7, 1M thinking)
+            - Source of truth: `pnpm mint:broken-links` output (attached)
+            - Workflow: [`.github/workflows/broken-links.yml`](.github/workflows/broken-links.yml)
+            - Prompt: [`.github/prompts/broken-links-fix.md`](.github/prompts/broken-links-fix.md)
+
+            Review the diff carefully before merging - the agent can be wrong,
+            and some broken links may need human judgement (marked as
+            `confidence: none` in the agent report). The full transcript and
+            the raw `mint broken-links` output are attached to the workflow
+            run as artifacts.
+          add-paths: |
+            Documentation/**/*.mdx
+          delete-branch: true
+          sign-commits: false
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: broken-links-report
+          path: |
+            broken-links.txt
+            agent-report.txt
+          if-no-files-found: ignore
